@@ -56,8 +56,8 @@ log = logging.getLogger(__name__)
 
 # ─── Config ──────────────────────────────────────────────────────────────────
 
-DATASET_PATH   = Path("c:/Users/gowth/Downloads/ai_plag_detector/data/processed/dataset.jsonl")
-MODEL_OUT_DIR  = Path("c:/Users/gowth/Downloads/ai_plag_detector/models/deberta_ai_detector")
+DATASET_PATH   = Path("data/processed/dataset.jsonl")
+MODEL_OUT_DIR  = Path("models/deberta_ai_detector")
 MODEL_NAME     = "microsoft/deberta-v3-base"
 
 LABEL2ID = {"human": 0, "ai_generated": 1, "ai_paraphrased": 2}
