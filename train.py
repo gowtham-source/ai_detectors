@@ -1,18 +1,17 @@
 """
 AI Plagiarism Detector - Model Training
 ========================================
-Model  : microsoft/deberta-v3-base  (DeBERTa v3)
+Model  : roberta-base  (RoBERTa)
 Task   : 3-class segment classification
 Labels : 0=human | 1=ai_generated | 2=ai_paraphrased
 
 Architecture rationale (Turnitin-inspired):
-  - DeBERTa-v3 disentangled attention separates content from position →
-    better at catching AI's position-invariant phrasing patterns.
+  - RoBERTa: robust BERT variant, industry standard for text classification.
   - Sentence-level classification (each extracted segment = one sample).
-  - Priority-weighted loss: HIGH-priority samples (post-retrain) get 2x weight
+  - Priority-weighted loss: HIGH-priority samples (post-retrain) get 1.5x weight
     since their Turnitin labels are more accurate.
   - Class-weighted CE loss: compensates for 65/35/0.4% label imbalance.
-  - Label smoothing on 'human' class prevents over-confident false positives
+  - Label smoothing prevents over-confident false positives
     (key to keeping FPR low, mirroring Turnitin's ~1% FPR goal).
   - Confidence threshold at inference: predict non-human only if p > 0.65.
 
@@ -57,16 +56,16 @@ log = logging.getLogger(__name__)
 # ─── Config ──────────────────────────────────────────────────────────────────
 
 DATASET_PATH   = Path("data/processed/dataset.jsonl")
-MODEL_OUT_DIR  = Path("models/deberta_ai_detector")
-MODEL_NAME     = "microsoft/deberta-v3-base"
+MODEL_OUT_DIR  = Path("models/roberta_ai_detector")
+MODEL_NAME     = "roberta-base"
 
 LABEL2ID = {"human": 0, "ai_generated": 1, "ai_paraphrased": 2}
 ID2LABEL = {v: k for k, v in LABEL2ID.items()}
 NUM_LABELS = 3
 
 MAX_LENGTH        = 256      # p50=165 tokens, p95 fits in 256; cuts memory ~4x vs 512
-BATCH_SIZE        = 4        # small batch to fit T4/4050 VRAM
-GRAD_ACCUM_STEPS  = 4        # effective batch = 4*4 = 16
+BATCH_SIZE        = 8        # RoBERTa uses less VRAM than DeBERTa; 8 fits T4 easily
+GRAD_ACCUM_STEPS  = 2        # effective batch = 8*2 = 16
 EPOCHS            = 5
 LR                = 2e-5
 WARMUP_RATIO      = 0.1
@@ -75,7 +74,7 @@ HIGH_PRIORITY_W   = 1.5      # weight multiplier for HIGH-priority samples
 LABEL_SMOOTHING   = 0.05     # gentle smoothing to avoid overconfidence
 SEED              = 42
 INFER_THRESHOLD   = 0.65     # min confidence to predict non-human
-USE_AMP           = False    # DeBERTa-v3 has known bf16/fp16 overflow in disentangled attention — use fp32
+USE_FP16          = True     # RoBERTa is stable with fp16 mixed precision
 PATIENCE          = 3        # early stopping patience (epochs without improvement)
 
 # Mild class weights — WeightedRandomSampler already balances sampling,
@@ -196,7 +195,7 @@ def compute_metrics(all_labels, all_preds, all_probs=None):
 
 # ─── Training loop ────────────────────────────────────────────────────────────
 
-def train_epoch(model, loader, optimizer, scheduler, loss_fn, device, use_amp=False):
+def train_epoch(model, loader, optimizer, scheduler, loss_fn, device, use_amp=False, scaler=None):
     model.train()
     total_loss = 0.0
     nan_count  = 0
@@ -209,7 +208,7 @@ def train_epoch(model, loader, optimizer, scheduler, loss_fn, device, use_amp=Fa
         labels         = batch["label"].to(device)
         sample_weights = batch["sample_weight"].to(device)
 
-        with torch.amp.autocast(device_type="cuda", dtype=torch.bfloat16, enabled=use_amp):
+        with torch.amp.autocast(device_type=device.type, enabled=use_amp):
             outputs = model(input_ids=input_ids, attention_mask=attention_mask)
             loss = loss_fn(outputs.logits.float(), labels, sample_weights)
             loss = loss / GRAD_ACCUM_STEPS  # scale for accumulation
@@ -219,14 +218,23 @@ def train_epoch(model, loader, optimizer, scheduler, loss_fn, device, use_amp=Fa
             nan_count += 1
             continue
 
-        loss.backward()
+        if scaler is not None:
+            scaler.scale(loss).backward()
+        else:
+            loss.backward()
         total_loss += loss.item() * GRAD_ACCUM_STEPS  # un-scale for logging
         valid_steps += 1
 
         # Step optimizer every GRAD_ACCUM_STEPS or at end of epoch
         if (step + 1) % GRAD_ACCUM_STEPS == 0 or (step + 1) == len(loader):
-            nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
-            optimizer.step()
+            if scaler is not None:
+                scaler.unscale_(optimizer)
+                nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
+                scaler.step(optimizer)
+                scaler.update()
+            else:
+                nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
+                optimizer.step()
             scheduler.step()
             optimizer.zero_grad()
 
@@ -250,7 +258,7 @@ def eval_epoch(model, loader, loss_fn, device, threshold: float = INFER_THRESHOL
         labels         = batch["label"].to(device)
         sample_weights = batch["sample_weight"].to(device)
 
-        with torch.amp.autocast(device_type="cuda", dtype=torch.bfloat16, enabled=use_amp):
+        with torch.amp.autocast(device_type=device.type, enabled=use_amp):
             outputs = model(input_ids=input_ids, attention_mask=attention_mask)
         loss = loss_fn(outputs.logits.float(), labels, sample_weights)
         total_loss += loss.item()
@@ -359,9 +367,9 @@ def main():
         smoothing=LABEL_SMOOTHING,
     ).to(device)
 
-    # DeBERTa-v3 is numerically unstable with mixed precision (bf16/fp16)
-    # batch=4 + seq=256 in fp32 uses ~3GB — fits easily in T4/4050
-    use_amp = USE_AMP and device.type == "cuda"
+    # fp16 mixed precision for RoBERTa (stable, ~2x speed on T4)
+    use_amp = USE_FP16 and device.type == "cuda"
+    scaler = torch.amp.GradScaler(device="cuda") if use_amp else None
 
     optimizer = torch.optim.AdamW(
         model.parameters(), lr=LR, weight_decay=WEIGHT_DECAY
@@ -390,7 +398,7 @@ def main():
         log.info(f"\n{'='*55}")
         log.info(f"Epoch {epoch}/{EPOCHS}")
 
-        train_loss = train_epoch(model, train_loader, optimizer, scheduler, loss_fn, device, use_amp)
+        train_loss = train_epoch(model, train_loader, optimizer, scheduler, loss_fn, device, use_amp, scaler)
         val_loss, val_labels, val_preds, val_probs = eval_epoch(model, val_loader, loss_fn, device, use_amp=use_amp)
 
         report, cm, fpr = compute_metrics(val_labels, val_preds)
