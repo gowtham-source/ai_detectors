@@ -1,0 +1,722 @@
+{
+  "file_name": "AI_Speech Enhancement and Sound Localization.pdf",
+  "file_path": "c:\\Users\\gowth\\Downloads\\ai_plag_detector\\data\\raw_data\\raw_data\\AI_Speech Enhancement and Sound Localization.pdf",
+  "submission_date": "2025-10-22",
+  "priority": "LOW",
+  "total_pages": 27,
+  "ai_percentage_reported": 66,
+  "segments": [
+    {
+      "text": "Multi-Task Deep Learning Framework for Speech Enhancement and Sound Localization in Cochlear Implant Users",
+      "label": "human",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Abstract-Cochlear Implant (CI) users often experience degraded speech perception and poor spatial awareness in reverberant and noisy environments. Existing signal processing techniques address these issues in isolation, limiting real-world effectiveness. This research proposes a novel Adaptive Multi-Task Deep Learning Framework (AMDLF) that jointly performs clean speech separation and sound localization, specifically designed for CI applications. The proposed algorithm introduces a dual-branch network architecture: one branch performs reverberation suppression and speech enhancement using a time–frequency attention-guided transformer, while the second branch predicts the direction of arrival (DoA) of sound sources via a graph-convolutional recurrent model that encodes spatial cues. A cross-task fusion module enables the branches to share learned auditory representations, improving both intelligibility and localization. To ensure robustness in unseen acoustic conditions, the system incorporates an adaptive noise profiling mechanism that dynamically re-weights non-stationary noise components during inference. Experimental evaluations on real and simulated CI acoustic datasets demonstrate the novelty of this approach: the framework achieves 42% relative improvement in speech intelligibility, 31% enhancement in localization accuracy, and reduced computational latency compared to conventional deep learning baselines. Subjective listening tests with CI simulators further confirm improved naturalness and reduced listening effort. This research advances the field by providing the first integrated multi-task deep learning solution that mimics human auditory strategies for both speech clarity and spatial orientation. The proposed AMDLF framework represents a significant step toward intelligent auditory prosthetics, enabling CI users to engage more effectively in complex acoustic environments.",
+      "label": "ai_generated",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Keywords-Cochlear Implants, Multi-Task Deep Learning, Speech Enhancement, Sound Localization, Adaptive Noise Profiling I Introduction",
+      "label": "human",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Cochlear implants (CIs) have revolutionized auditory rehabilitation of patients with severe-to- profound hearing loss, providing access to speech and environmental sounds which would otherwise be inaudible [1,2].",
+      "label": "ai_generated",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Despite such advances, overall CI users still have significant limitations particularly in reverberant and noisy environments where speech intelligibility and spatial perception decrease significantly [3,4]. In common speech communication situations such as classrooms, parties or public areas, the distortion of acoustic signals makes it difficult to correctly perceive and extract a desirable signal which results in high cognitive load and low information transfer [5,6]. Conventional noise reduction and beamforming methods partially solve the above problems, however, they usually focus only on speech intelligibility or spatial separation and perform not perfectly in practical scenes [7]. Thus an integrated approach that unifies speech enhancement and sound localization is required to narrow the performance difference between laboratory and real world auditory perception by CI users [8].",
+      "label": "human",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Recent years have seen dramatic progress in speech processing tasks such as denoising, dereverberation and source separation thanks to advances in deep learning [9–11]. Convolutional and transformer-based architectures have shown great performance replicating audio-visual target speech separation quality, but most single-task models do not capture the interdependence of auditory clearness and spatial orientation [12,13]. Likewise, DoA estimation-based machine learning algorithms use spatial cues present in binaural or multi- microphone inputs, but their model based on hand-crafted features limits their robustness to changing soundscapes [14]. Absence of interaction between enhancement and localization pipelines is still a stumbling block, especially for CI processing with the requirement for computation efficiency and low-latency inference [15]. Resolution of this challenge will require a reorientation towards multi-task learning that leverages shared auditory representations while respecting task-specific constraints. This research tackles this problem by combining two complementary tasks in a single framework. This is the reason we propose an Adaptive Multi-task Deep Learning Framework (AMDLF) which embeds speech enhancement and sound localization procedures together.",
+      "label": "human",
+      "page_num": 4,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The first branch uses a TF attention-guided transformer to reduce reverberation and enhance the speech intelligibility, whereas the second one utilizes a graph-convolutional recurrent model for DoA prediction by encoding spatial correlations over time contexts [16]. To enable bidirectional information exchange between branches, a cross-task fusion module is adopted such that the spectral and localization cues reinforce each other. To improve robustness in various unpredictable acoustical environments, an adaptive noise profiling technique is incorporated to dynamically re-weight Nouis and noisy non-stationary acoustic elements during the inference process [17]. Compared to the traditional two-stage pipeline, such an integrated system is less redundant and is computationally efficient which is promising for real time auditory prosthesis. The merging of perceptual modelling and state-of-the art neural architectures allows an algorithmic framework to emerge that also emulates certain aspects of human auditory scene analysis[18]. Numerical experiments on both real and simulated CI datasets show that this method is very practical for CI. Objective outcomes reveal advantages in intelligibility and localization compared to state-of-the-art baselines, and subjectively, tests with CI simulating listeners indicate a reduction of listening effort attributed to artificiality [19,20]. Beyond measurable performance, the framework holds potential to redefine auditory prosthetic processing by enabling CI users to engage more effectively in acoustically complex environments. This research thus not only contributes a methodological innovation but also advances the vision of human-centered, intelligent hearing technologies tailored for real-world application. The key contributions of the paper are:",
+      "label": "ai_generated",
+      "page_num": 4,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Introduction of an Adaptive Multi-Task Deep Learning Framework (AMDLF) that jointly enhances speech intelligibility and predicts spatial localization for cochlear implant users.",
+      "label": "ai_generated",
+      "page_num": 4,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Design of a dual-branch architecture with a cross-task fusion mechanism, allowing shared auditory representations to improve both enhancement and localization performance.",
+      "label": "ai_generated",
+      "page_num": 4,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Development of an adaptive noise profiling module that dynamically re-weights non- stationary noise, ensuring robustness across unseen acoustic conditions with reduced computational latency. The remainder of this paper is organized as follows. Section 2 reviews related works on speech enhancement and sound localization in cochlear implant processing, highlighting current limitations in single-task approaches. Section 3 details the proposed Adaptive Multi-Task Deep Learning Framework (AMDLF), describing the dual-branch architecture, cross-task fusion strategy, and adaptive noise profiling mechanism. Section 4 outlines the experimental setup, including datasets, evaluation metrics, and implementation details. Section 5 presents and analyzes the results, combining objective measures with subjective listening evaluations to demonstrate the framework’s effectiveness. Section 6 concludes the study by summarizing contributions, discussing limitations, and identifying directions for future research.",
+      "label": "ai_generated",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "II Literature Review Recent trends in improving auditory performance of cochlear implant (CI) users are focusing on bimodal or hybrid stimulation approaches. Durmaz et al. (2025) demonstrated both speech recognition and spatial encoding benefits to unilaterally deaf patients with bimodal stimulation, which was achieved when a CI in one ear and an HA of the contra-lateral damaged ear were used simultaneously under challenging SNRRs [1]. From hardware to therapeutic approaches, Valzolgher and colleagues (2023) observed a substantial reduction of localisation errors among unilateral CI listeners after spatial training in virtual reality, indicating the importance of perceptual training for device fitting and rehabilitation [2]. Longitudinal follow-up also suggests that these improvements are durable, as Rasmussen et al. (2022) with persistent improvements in speech understanding and patient-reported listening quality over up to 10 years of CI experience [3]. Alternate auditory prostheses, however, have met with limited success in the treatment of spatial hearing. Caspers et al. (2022) assessed bilateral bone conduction devices and found that while lateralization was consistently observed, precise localization was obtained by only a minority, suggesting the presence of intrinsic constraints on spatial resolution via bone conduction [4].",
+      "label": "human",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "In this context, paediatric results look better for the early and sequential implantation. Jaisinghani et al. (2024) found differential localisation outcomes for children implanted second (after hearing aid exposure), highlighting the importance of the maturational window [5]. At a systems level, Andries et al. (2024) introduced the CI-ICF framework, showing measurable improvements in speech perception, sound detection, and perceived spatial hearing, providing clinicians with a standardized tool for evaluating holistic auditory function [6]. Technical integration has also shaped localization performance. Schleich et al. (2025) examined synchronized automatic gain control in bilateral implants but observed no significant changes in localization accuracy, suggesting that synchronization alone may not resolve perceptual deficits [7]. Conversely, Alfakhri et al. (2025) reported that integrated bimodal fittings supported by binaural streaming technology significantly improved both speech-in-noise recognition and spatial accuracy, suggesting that inter-device communication is a more effective avenue for future development [8]. Expanding clinical candidacy has further reinforced benefits: Domenico et al. (2025) showed that cochlear implantation for single-sided deafness improved speech-in-noise understanding, localization, and tinnitus outcomes, with improvements remaining stable across time [9]. Mueller et al.",
+      "label": "ai_generated",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "(2022) similarly highlighted the role of processor design, noting that directional microphone modes enhanced spatial acuity and speech performance in pediatric bilateral CI users [10]. Emerging approaches extend beyond electrical stimulation. Fletcher et al. (2021) introduced electro-haptic stimulation, where tactile intensity cues delivered through wearable devices complemented CI input, resulting in improved spatial hearing outcomes [11]. Camarena and Goldsworthy (2024) emphasized modulation sensitivity as a predictor of pitch resolution, suggesting modulation-based algorithms could enhance perceptual fidelity [12]. Thomas et al. (2023) further confirmed that tonotopically aligned bimodal fittings facilitated stronger use of spatial cues for speech segregation, particularly under competing speech conditions [13].",
+      "label": "ai_generated",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Longitudinal analyses add further weight to bilateral implantation: Saki et al. (2025) observed that postlingually deaf adults achieved significant improvements in spatial hearing within six months of bilateral implantation [14], while Asp et al. (2022) showed that early bilateral implantation enabled children to acquire localization abilities at rates comparable to normal- hearing peers [15]. Still, Spitzer et al. (2023) have warned that there is a great diversity of results with early implantation in single-sided hearing loss children, depending on anatomical and family factors [16]. Signal processing improvements are emerging that close the power gap. Mamun and Hansen (2023) proposed a complex frequency transformation network that successfully performed robust noise suppression without producing any artifacts, being the first to make breakthroughs in speech enhancement for CI users [17]. Tóth et al. (2023) introduced a pitch-matching calibration of CIs, with an adjustment for CI frequency allocations oasis.enter code here The method was shown to produce significant gains in speech intelligibility and sound localization and perceived sound quality relative to normal-hearing audio data-as a relative measure between the user groups-for single-sided deaf patients [18]. Wider uses are also encouraging; thus Hallak et al. (2024) reported on the CI in VS, with advantages for speech perception and quality of life but also tumor-related limitations [19]. Takahashi et al. (2025) supported these conclusions in a clinical study, with sustained improvements in speech discrimination, sound localization and tinnitus augmentation for patients with single-sided deafness, thus consolidating cochlear implant as a durable intervention [20]. Table 1: Comparison of Proposed AMDLF with Existing Models Model Speech Enhancement Sound Localization Adaptive Noise Handling Cross- Task Learning Real-Time Feasibility CFTNet [17] ✓ ✗ ✓ ✗ ✓ Pitch-Matching Calibration [18] ✗ ✓ ✗ ✗ ✓",
+      "label": "human",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Directional Microphone SONNET [10] ✓ ✓ ✗ ✗ ✓ Electro-Haptic Stimulation [11] ✗ ✓ ✗ ✗ ✗ AMDLF (Proposed) ✓ ✓ ✓ ✓ ✓ Table 1 presents a comparative analysis of the proposed Adaptive Multi-Task Deep Learning Framework (AMDLF) against representative existing approaches. While models such as CFTNet [17] provide strong noise suppression, they lack integrated localization capabilities.",
+      "label": "human",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Pitch-matching calibration [18] and directional microphone strategies [10] improve spatial accuracy but do not address dynamic noise adaptation or task interaction. Electro-haptic stimulation [11] enhances localization through tactile cues but remains limited in feasibility for real-time auditory processing. In contrast, the proposed AMDLF consistently demonstrates superiority by jointly achieving speech enhancement, sound localization, adaptive noise handling, cross-task learning, and real-time feasibility, highlighting its potential as an integrated solution for cochlear implant listeners.",
+      "label": "ai_generated",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "2.1 Research Gap",
+      "label": "human",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Despite remarkable progress in cochlear implant technology and fitting strategies, several limitations continue to restrict auditory outcomes. Many studies confirm improvements in speech perception and localization, yet benefits remain inconsistent across users, particularly in single-sided deafness and pediatric populations [9],[16]. Current processor designs and synchronization methods still fail to fully restore natural binaural hearing, leaving challenges in spatial cue integration and speech segregation in complex environments [7],[13]. While haptic and modulation-based strategies show promise, their clinical translation is still at an exploratory stage [11],[12]. Moreover, long-term stability of improvements, especially under real-world listening conditions with fluctuating noise profiles, is insufficiently addressed [3],[20]. These gaps highlight the urgent need for adaptive, learning-driven frameworks that integrate signal processing advances with individualized auditory rehabilitation to achieve more reliable and sustainable outcomes.",
+      "label": "ai_generated",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "III Proposed Methodology",
+      "label": "human",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The proposed Adaptive Multi-Task Deep Learning Framework (AMDLF) is designed to simultaneously enhance speech and localize sound sources, tailored to the auditory needs of cochlear implant users. The architecture employs a dual-branch design: the first branch leverages a time–frequency attention-guided transformer to suppress reverberation and enhance target speech, while the second branch utilizes a graph-convolutional recurrent network to predict the direction of arrival by encoding interaural and spatial cues. A cross-task fusion module enables bidirectional exchange of auditory representations between branches,",
+      "label": "ai_generated",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "allowing enhancement features to reinforce localization and vice versa. To address the variability of real-world acoustic environments, an adaptive noise profiling unit dynamically re-weights non-stationary noise during inference, ensuring robustness across unseen conditions. Computational efficiency is achieved by optimizing model depth and pruning redundant parameters, enabling real-time operation on implant-compatible hardware platforms. This integrative approach advances beyond isolated solutions by aligning with auditory- inspired strategies and draws methodological support from prior deep learning innovations in attention modeling [21], graph-based auditory representation [22], adaptive noise weighting [23], multi-task optimization [24], low-latency neural architectures [25], and perceptually guided enhancement for auditory prostheses [26]. Figure 1 illustrates the block diagram of the proposed speech enhancement pipeline.",
+      "label": "ai_generated",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Figure 1: Block diagram of the proposed speech enhancement pipeline 3.1 Network Architecture",
+      "label": "human",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The proposed Adaptive Multi-Task Deep Learning Framework (AMDLF) adopts a dual-branch architecture, purpose-built for concurrent speech enhancement and sound source localization. Unlike unimodal pipelines that independently address either noise suppression or localization accuracy, AMDLF unifies these tasks into a shared computational backbone while retaining task-specific processing. This design is motivated by prior evidence that speech enhancement without spatial modeling risks degrading binaural cues essential for localization [7], [10], whereas unimodal localization pipelines fail under adverse acoustic conditions due to the masking of temporal fine structure [12], [17].",
+      "label": "ai_generated",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "3.1.1 Enhancement Branch: Time–Frequency Attention-Guided Transformer",
+      "label": "human",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The first branch is dedicated to speech enhancement, drawing on the principle that non- stationary noise is best separated in the time–frequency (T–F) domain. Given an input noisy speech signal 𝑥(𝑡) , the short-time Fourier transform (STFT) is applied in the Eq.1: 𝑋(𝑡, 𝑓) = ∑",
+      "label": "ai_generated",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "𝑥(𝑛)𝑤(𝑡−𝑛)𝑒ି௝2గ௙௡/ே (1)",
+      "label": "human",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Where 𝑤(⋅) is a windowing function and 𝑁 is the frame length.",
+      "label": "ai_generated",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The transformer operates 𝑋(𝑡, 𝑓) to learn a mapping 𝑀(𝑡, 𝑓) that enhances speech components while suppressing noise: 𝑆መ(𝑡, 𝑓) = 𝑀(𝑡, 𝑓) ⋅𝑋(𝑡, 𝑓) (2)",
+      "label": "human",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "In Eq.2,𝑀(𝑡, 𝑓) is derived using multi-head self-attention with positional encoding across both frequency and temporal axes. Unlike conventional spectral masking ([21], [23]), attention mechanisms allow the network to dynamically weigh harmonic structures, improving robustness under fluctuating SNR conditions as shown by Mamun and Hansen (2023) [17]. To further refine perceptual fidelity, a perceptual loss 𝐿௉ is incorporated, combining PESQ and STOI gradients: 𝐿௉=",
+      "label": "ai_generated",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "𝛼ቀ1 −𝑆𝑇𝑂𝐼൫𝑆መ, 𝑆൯ቁ+ 𝛽ቀ1 −𝑃𝐸𝑆𝑄൫𝑆መ, 𝑆൯ቁ (3)",
+      "label": "human",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "with hyperparameters 𝛼 and 𝛽 empirically tuned to balance intelligibility and quality.",
+      "label": "ai_generated",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "3.1.2 Localization Branch: Graph-Convolutional Recurrent Network",
+      "label": "human",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The localization branch leverages binaural cues—interaural time differences (ITD) and interaural level differences (ILD)—which are vital for sound source localization [5], [14], [15].",
+      "label": "ai_generated",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Given left and right ear signals,𝑋௅(𝑡, 𝑓) and 𝑋ோ(𝑡, 𝑓),the ITD and ILD features are computed as in Eq.4: 𝛥𝑇(𝑡, 𝑓) = 𝑎𝑟𝑔𝑚𝑎𝑥𝜏𝛴𝑛𝑋𝐿(𝑛,𝑓)𝑋𝑅 ∗(𝑛−𝜏,𝑓) (4) 𝛥𝐿(𝑡, 𝑓) = 20𝑙𝑜𝑔10 ቚ𝑋𝐿(𝑡,𝑓) 𝑋𝑅(𝑡,𝑓)ቚ (5)",
+      "label": "human",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "These features are represented as a graph, where nodes correspond to frequency bins and edges encode cross-frequency correlations reflecting spatial cues [22], [24]. A graph convolutional layer (GCL) aggregates neighborhood information: 𝐻(௟ା1) = 𝜎൫𝐷ି1/2𝐴𝐷ି1/2𝐻(௟)𝑊(௟)൯",
+      "label": "ai_generated",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "In Eq.6, 𝐴 is the adjacency matrix,𝐷 its degree matrix,𝐻(௟) the input features, and the input features, and 𝑊(௟) trainable weights.",
+      "label": "ai_generated",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "To capture temporal dependencies, recurrent units (e.g., gated recurrent units, GRUs) are stacked, producing a spatiotemporal embedding 𝑍(𝑡). The final azimuth estimate 𝜃෠ is obtained via regression: 𝜃෠௧= 𝑓௥௘௚൫𝑍(𝑡)൯ (7) This architecture aligns with evidence that recurrent networks outperform static classifiers in modeling dynamic auditory environments [9], [13]. Figure 2 illustrates the architecture diagram of Graph-Convolutional Recurrent Network.",
+      "label": "human",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Figure 2: Architecture Diagram of Graph-Convolutional Recurrent Network 3.1.3 Cross-Task Fusion Module The two branches are fused through a cross-task feature exchange mechanism. Specifically, enhanced spectrogram embeddings 𝑆መ(𝑡, 𝑓) from the enhancement branch are fed into the localization branch to preserve binaural cues, while localization embeddings 𝑍(𝑡) feed back into the enhancement module to emphasize spatially coherent sources. Mathematically, this is modeled as in Eq.8: 𝐹௘௡ℎ(𝑡, 𝑓) = 𝑆መ(𝑡, 𝑓) + 𝛾𝑍(𝑡) (8) 𝐹௟௢௖(𝑡, 𝑓) = 𝑍(𝑡)𝛿𝑆መ(𝑡, 𝑓) (9) Where 𝛾 and 𝛿 are learnable scaling parameters. This co-dependency reduces the loss of spatial information observed in conventional enhancement pipelines [7], [12], while preventing localization errors caused by noisy input [10], [18]. The final joint loss is expressed as in Eq.10: 𝐿௧௢௧௔௟= 𝜆1𝐿௘௡ℎ+ 𝜆2𝐿௟௢௖+ 𝜆3𝐿௉ (10) Where 𝐿௘௡ℎ is mean squared error in the T–F domain,𝐿௟௢௖ is azimuth prediction error, and 𝜆௜ are balancing weights. This formulation ensures balanced optimization across enhancement and localization tasks [23], [25], [26]. While the architecture ensures balanced enhancement and localization, its performance in unseen acoustic environments depends on how effectively it adapts to noise variability. To address this, the next section introduces Adaptive Noise Profiling, which dynamically re- weights input conditions to maintain robust performance across non-stationary noise scenarios. 3.2 Adaptive Noise Profiling One of the challenges in processing sounds through a cochlear implant (CI) is that of real-world noise, which includes speech babble, urban traffic as well as highly reverberant spaces. Unlike stationary backgrounds, such environments induce time-variant distortions that mask the TFS, and degrade the efficacy of IAC cues [2], [7], [10], [15], [19]. Although conventional methods such as synchronized automatic gain control (AGC) address binaural inputs to maintain balance",
+      "label": "human",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "between the two ears, static weights are used in these approaches and do not track dynamic non-stationary noise that changes rapidly with time, leading to erratic benefit perception [7], [12]. To solve the problem, AMDLF introduces an Adaptive Noise Profiling(ANP) module that can adjust weights of noise components adaptively in inference to keep not only intelligibility but the location as well. 3.2.1 Noise Energy Estimation For each frame of the noisy input 𝑋(𝑡, 𝑓) noise energy is first estimated using a minimum- statistics approach adapted to the CI context [17], [23]. The instantaneous noise estimate 𝑁෡(𝑡, 𝑓) is derived as in Eq.11: 𝑁෡(𝑡, 𝑓) = 𝑚𝑖𝑛ఛఢ[௧ି௅,௧]|𝑋(𝜏, 𝑓)|2 (11)",
+      "label": "human",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Where 𝐿 is the temporal look-back window. This ensures responsiveness to transient fluctuations while maintaining stability in stationary segments. The speech-to-noise ratio (SNR) is then computed per frequency bin: 𝑆𝑁𝑅(𝑡, 𝑓) = 10𝑙𝑜𝑔10 |௑(௧,௙)|2 ே෡(௧,௙)ାఢ",
+      "label": "ai_generated",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "In E.12, 𝜖 prevents division instability. Unlike classical Wiener filtering, which assumes global stationarity [18], Eq.12 provides local spectral adaptation critical for CI listeners in fluctuating environments [25], [26].",
+      "label": "ai_generated",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "3.2.2 Adaptive Weighting Function",
+      "label": "human",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "To integrate noise awareness into the learning process, ANP applies a dynamic weighting function 𝑊(𝑡, 𝑓) to the enhancement and localization branches: 𝑊(𝑡, 𝑓) = 1 1ା௘షഀ(ೄಿೃ(೟,೑)షഁ)",
+      "label": "ai_generated",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "In Eq.13, 𝛼 controls slope and 𝛽 is a threshold parameter. High-SNR regions receive weights close to 1, prioritizing clean speech, while low-SNR bins are attenuated to prevent noise leakage into the feature space.",
+      "label": "ai_generated",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The enhanced spectrogram embedding thus becomes: 𝑆መ஺ே௉(𝑡, 𝑓) = 𝑊(𝑡, 𝑓) ⋅𝑆መ(𝑡, 𝑓) (14) and the localization embedding is modulated as in Eq.15: 𝑍஺ே௉(𝑡) = 𝛴௙𝑊(𝑡, 𝑓) ⋅𝑍(𝑡, 𝑓) (15)",
+      "label": "human",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "This ensures cross-task consistency, where noise-robust features are fed simultaneously to both branches, in contrast to earlier independent optimization strategies [10], [13], [22].",
+      "label": "ai_generated",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "3.2.3 Temporal Smoothing and Non-Stationarity Compensation Since abrupt weighting shifts may distort temporal dynamics, the ANP employs an exponential moving average smoothing: 𝑊(𝑡, 𝑓) = 𝜆⋅𝑊(𝑡, 𝑓) + (1 −𝜆) ⋅𝑊(𝑡−1, 𝑓) (16) with smoothing parameter 0 < 𝜆< 1.",
+      "label": "human",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "This design draws on prior perceptual studies showing that temporal stability of cues is critical for CI users to perceive sound continuity in dynamic environments [3], [6], [14], [20].",
+      "label": "ai_generated",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Additionally, reverberation compensation is achieved using an adaptive dereverberation filter ℎ௥௘௩(𝑡, 𝑓): 𝑌(𝑡, 𝑓) = 𝑆መ஺ே௉(𝑡, 𝑓) −ℎ௥௘௩(𝑡, 𝑓) ∗𝑆መ஺ே௉(𝑡, 𝑓) (17)",
+      "label": "human",
+      "page_num": 12,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "In Eq.ℎ௥௘௩(𝑡, 𝑓) is updated online using least-mean-square adaptation. This step directly counters late reflections, known to disrupt CI spatial coding [2], [9], [15].",
+      "label": "ai_generated",
+      "page_num": 12,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "3.2.4 Loss Integration",
+      "label": "human",
+      "page_num": 12,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The adaptive noise profiling is optimized jointly with enhancement and localization tasks by incorporating a noise-aware penalty term: 𝐿஺ே௉=",
+      "label": "ai_generated",
+      "page_num": 12,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "𝛴௧,௙൫1 −𝑊(𝑡, 𝑓)൯⋅ห𝑆መ(𝑡, 𝑓) −𝑆(𝑡, 𝑓)ห 2 (18) This encourages the model to focus learning on low-SNR regions without over-suppressing perceptually important speech cues [23], [25], [26]. Although ANP is robust to different acoustic conditions, a low-latency processing for practical clinical implementation considering the device constraints of CIs. The next section explains the optimization technique for real-time implant deployment, including pruning, quantization and hardware-aware inference design to keep a trade-off between accuracy and computation efficiency. 3.3 Optimization of Time for Implant Placement in Real-Time Realization of the AMDLF on cochlear implant (CI) devices in practice requires low-latency computation while achieving high speech enhancement and localization accuracy. Real-time requirements severely restrict the memory foot- print, compute cycles and hardware resources, especially for wearable/ implantable auditory prostheses [18], [25]. To mitigate this, we exploit model pruning and quantization, which are widely used in neural network optimization for embedded systems [25], [26]. 3.3.1 Model Pruning Model pruning removes redundant weights while preserving critical signal-processing capabilities. Given a weight matrix 𝑊 in the transformer or graph-convolutional recurrent layers, the pruned matrix 𝑊′ is obtained as in Eq.19: 𝑊௜௝ ′ = 𝑊௜௝, ห𝑊𝑖𝑗ห> 𝜃 ห𝑊𝑖𝑗ห> 𝜃, 𝑊௜௝ ′ = 0 (19) In Eq.19, 𝜃 is a pruning threshold determined through sensitivity analysis, balancing model sparsity and performance [21], [22], [24]. The resulting sparsity ratio 𝜌 is defined as in Eq.20: 𝜌= 𝑁𝑢𝑚𝑏𝑒𝑟 𝑜𝑓 𝑧𝑒𝑟𝑜 𝑤𝑒𝑖𝑔ℎ𝑡𝑠 𝑇𝑜𝑡𝑎𝑙 𝑤𝑒𝑖𝑔ℎ𝑡𝑠 (20) Higher 𝜌 reduces memory and computation but excessive pruning may degrade both speech enhancement and localization accuracy, as evidenced in prior CI-specific transformer studies [21], [23]. 3.3.2 Quantization",
+      "label": "human",
+      "page_num": 12,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "To further reduce computational load, fixed-point quantization converts floating-point parameters to lower bit-width representations. For a parameter 𝑤𝜖𝑊′, the quantized value 𝑤ෝ is computed as in Eq.21: 𝑤ෝ= 𝑟𝑜𝑢𝑛𝑑ቆ ௪ି௪೘೔೙ ௪೘ೌೣି௪೘೔೙⋅൫2௕−1൯ቇ⋅ ௪೘ೌೣି௪೘೔೙ 2್ି1 + 𝑤௠௜௡ (21) Where 𝑏 is the target bit-width, and 𝑤௠௜௡,𝑤௠௔௫",
+      "label": "human",
+      "page_num": 13,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "are the minimum and maximum weight values, respectively [17], [25], [26]. Quantization allows the CI processor to compute matrix multiplications efficiently, reducing inference time while maintaining perceptual fidelity for both speech and spatial cues [11], [18].",
+      "label": "ai_generated",
+      "page_num": 13,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "3.3.3 Latency Evaluation",
+      "label": "human",
+      "page_num": 13,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The total inference latency 𝑇௜௡௙ for AMDLF is the sum of processing times for the enhancement branch 𝑇ா,localization branch 𝑇௅, adaptive noise profiling 𝑇஺ே௉,and",
+      "label": "ai_generated",
+      "page_num": 13,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "cross-task fusion 𝑇ி: 𝑇௜௡௙= 𝑇ா+ 𝑇௅+ 𝑇஺ே௉+ 𝑇ி (22)",
+      "label": "human",
+      "page_num": 13,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Optimization techniques aim to achieve 𝑇௜௡௙<",
+      "label": "ai_generated",
+      "page_num": 13,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "𝑇௠௔௫,where 𝑇௠௔௫",
+      "label": "human",
+      "page_num": 13,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "is the clinically acceptable latency threshold for CI users (typically <10 ms) ([8], [11], [25]). Empirical evaluation of pruned and quantized AMDLF demonstrates latency reduction exceeding 35% compared to baseline models without significant loss in speech intelligibility or localization accuracy [17],",
+      "label": "ai_generated",
+      "page_num": 13,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "[18], [25]. 3.3.4 Clinical Feasibility Considerations",
+      "label": "human",
+      "page_num": 13,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Integration with bimodal streaming and electro-haptic devices ensures practical deployment without compromising user experience ([8], [11], [18]). Specifically, haptic feedback latency is tightly coupled with auditory feature extraction; thus, pruned and quantized models maintain synchronicity across modalities.",
+      "label": "ai_generated",
+      "page_num": 13,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "For instance, the haptic stimulus intensity 𝐻(𝑡)can be computed in real-time as in Eq.23: 𝐻(𝑡) = 𝑓ቀ𝑆መ஺ே௉(𝑡, 𝑓), 𝑍஺ே௉(𝑡)ቁ (23)",
+      "label": "human",
+      "page_num": 13,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Where 𝑓(⋅) maps enhanced spectral and localization embeddings to tactile intensity, preserving interaural time difference (ITD) cues critical for spatial awareness [14], [18]. The combination of pruning, quantization, and integration with electro-haptic/bimodal frameworks provides a computationally efficient, low-latency solution suitable for CI platforms. The following section details experimental setup, including datasets, evaluation metrics, and implementation protocols used to validate AMDLF under both laboratory and real-world acoustic conditions.",
+      "label": "ai_generated",
+      "page_num": 13,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "3.4 Perceptually Guided Training Strategy",
+      "label": "human",
+      "page_num": 13,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Training the AMDLF framework requires not only minimizing conventional reconstruction errors but also aligning model outputs with perceptual auditory quality and spatial fidelity, which are critical for cochlear implant (CI) users [27],[28].Traditional mean squared error (MSE) or L1 loss functions inadequately capture the nuanced perceptual deficits in noisy or reverberant environments. Consequently, AMDLF employs a perceptually guided multi-task loss combining speech intelligibility, perceptual quality, and localization accuracy.",
+      "label": "ai_generated",
+      "page_num": 13,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "3.4.1 Multi-Objective Loss Function",
+      "label": "human",
+      "page_num": 14,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Let 𝑆መ(𝑡, 𝑓) denote the enhanced speech spectrogram and 𝑆(𝑡, 𝑓)the clean target spectrogram. The speech enhancement loss leverages a combination of Short-Time Objective Intelligibility",
+      "label": "ai_generated",
+      "page_num": 14,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "(STOI) and Perceptual Evaluation of Speech Quality (PESQ): 𝐿௦௣௘௘௖ℎ= 𝜆1 ቀ1 −𝑆𝑇𝑂𝐼൫𝑆መ, 𝑆൯ቁ+ 𝜆2 ቀ1 −𝑃𝐸𝑆𝑄൫𝑆መ, 𝑆൯ቁ (24)",
+      "label": "human",
+      "page_num": 14,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "In Eq.24, 𝜆1and 𝜆2are weighting factors to balance intelligibility and perceived quality [26], [17], [23]. This formulation ensures that optimization directly targets perceptual fidelity rather than merely spectral reconstruction. For the localization branch, let 𝜃෠ represent the predicted direction-of-arrival (DoA) and 𝜃 the ground truth. The localization loss is defined as the mean squared angular error: 𝐿௟௢௖=",
+      "label": "ai_generated",
+      "page_num": 14,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "1 ே∑ ⬚ ே ௜ୀ1 ൫𝜃෠௜−𝜃௜൯ 2 (25)",
+      "label": "human",
+      "page_num": 14,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "In Eq.25,𝑁 is the number of sound sources or frames considered [30],[31]. This ensures precise spatial perception critical for CI users navigating complex acoustic scenes [32]. The overall multi-task loss combines the enhancement and localization objectives: 𝐿௧௢௧௔௟=",
+      "label": "ai_generated",
+      "page_num": 14,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "𝛼𝐿௦௣௘௘௖ℎ+ 𝛽𝐿௟௢௖+ 𝛾𝐿௥௘௚ (26) In Eq.26, 𝐿௥௘௚",
+      "label": "human",
+      "page_num": 14,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "represents L2 regularization to prevent overfitting, while 𝛼, 𝛽,and 𝛾 are tunable hyperparameters controlling the trade-off between speech clarity and localization accuracy",
+      "label": "ai_generated",
+      "page_num": 14,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "[33],[34]. 3.4.2 Perceptual Alignment Benefits",
+      "label": "human",
+      "page_num": 14,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Empirical evidence suggests that perceptual loss functions better reflect CI user experience than raw signal fidelity [35]. By explicitly incorporating PESQ and STOI into training, the network prioritizes features most relevant to speech intelligibility in noise and spatial orientation, while the cross-task fusion module ensures mutual reinforcement between enhancement and localization branches [36]. Additionally, integrating angular loss for DoA guides the model to preserve interaural time and level differences, aligning predictions with human auditory perception [37].",
+      "label": "ai_generated",
+      "page_num": 14,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "3.4.3 Equation-Based Gradients",
+      "label": "human",
+      "page_num": 14,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "For backpropagation, the gradient of the total loss with respect to network parameters 𝜃 is: 𝛥ఏ𝐿𝑡𝑜𝑡𝑎𝑙= 𝛼𝛥𝜃𝐿𝑠𝑝𝑒𝑒𝑐ℎ+ 𝛽𝛥𝜃𝐿𝑙𝑜𝑐+ 𝛾𝛥𝜃𝐿𝑟𝑒𝑔",
+      "label": "ai_generated",
+      "page_num": 14,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "This enables joint optimization across enhancement and localization branches, allowing the AMDLF to simultaneously improve speech quality and spatial acuity, consistent with the perceptual experiences reported in CI users [38],[39],[40]. This perceptually guided training strategy forms the core of AMDLF’s learning paradigm, ensuring the network prioritizes perceptually relevant features over raw signal reconstruction. The subsequent section details experimental design, including dataset selection, objective metrics, and subjective evaluation protocols, to quantify both intelligibility and localization performance across diverse acoustic scenarios.",
+      "label": "ai_generated",
+      "page_num": 14,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Figure 3: Flowchart for the Proposed AMDLF Framework for Speech Enhancement and Sound Localization Figure 3 illustrates the dual-branch structure of the AMDLF model, where one branch performs speech enhancement using a time–frequency attention-guided transformer, and the other predicts sound source direction via a graph-convolutional recurrent network. A cross-task fusion module enables shared auditory representations between the branches, while the adaptive noise profiling component dynamically mitigates non-stationary noise. The framework outputs both enhanced speech and precise direction-of-arrival predictions, demonstrating its integrated approach to improving perceptual clarity and spatial awareness for cochlear implant users.",
+      "label": "ai_generated",
+      "page_num": 15,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "IV Implementation Details 4.1 Data and Simulation Environment",
+      "label": "human",
+      "page_num": 15,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The acoustic experiment of the AMDLF based framework is conducted by using a set of CI signal sets including real and artificial was used to assess speech enhancement and localization in various listening conditions.",
+      "label": "ai_generated",
+      "page_num": 15,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Speech material was taken from standardized speech databases, such as the TIMIT corpus providing phonetically rich sentences and being adopted for CI simulations in several studies [2], [5], [15]. Such data enables systematic modifications of noise types as well reverberation levels, enabling benchmarking enhancement algorithms effectively. Simulated CI maps were developed to model monaural, binaural and bimodal settings",
+      "label": "human",
+      "page_num": 15,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "(including SSD) [9], [16], [20]. The maps included clinical relevant electrode stimulation methods, frequency allocation tables, and compression schemes used in previous research on CI spatial perception and speech understanding [5], [15]. In addition to these (and other) three subcorpora, features were tested with noisy stationary and non-stationary backgrounds such as cafeteria babble, traffic noise and reverberator room impulse responses [2], [4] in order to evaluate the model under realistic conditions. Direction-of-arrival (DoA) estimation criteria were precisely evaluated in tests including 1\\When assessing DoA estimates a variety of virtual loudspeaker arrays were considered at different azimuths (0°, ±45°, ±90°;±135°, 180°) simulating all possible sound environments. ITDs and ILDs were encoded based on anthropometric HRTFs, simulating binaural spatial cues to both actual and virtual CI users. Open-source datasets such as CI-simulated speech from the Open Speech and Hearing Database (OSHD) were also utilized to widen the profile of speakers and background noise. This permitted generalization to previously unseen conditions, evaluating how well the model had learned to cope with new acoustic scenes [2], [5], [20]. The combination of real CI user recordings with simulated auditory environments allows to evaluate the impact of improving speech intelligibility on subjective spatial perception, as well as on estimated objective intelligibility gains, thus providing an accurate benchmark of multi-tasking auditory systems. 4.2 Evaluation Protocols The proposed AMDLF framework is evaluated using both objective signal-level metrics and subjective perceptual assessments to comprehensively capture improvements in speech enhancement and sound localization for cochlear implant (CI) users [19]. 4.2.1 Objective Metrics 1. Signal-to-Noise Ratio Improvement (ΔSNR): 1. Signal-to-Noise Ratio Improvement (ΔSNR): The improvement in SNR quantifies the effectiveness of speech enhancement. It is defined as the difference between the SNR of the processed signal and that of the noisy input: 𝛥𝑆𝑁𝑅= 10𝑙𝑜𝑔10 𝛴𝑡𝑆2(𝑡) 𝛴𝑡ቀ𝑆෠(𝑡)−𝑆(𝑡)ቁ 2 −10𝑙𝑜𝑔10 𝛴𝑡𝑆2(𝑡) 𝛴𝑡𝑁2(𝑡) (28) 2. Perceptual Evaluation of Speech Quality (PESQ): PESQ predicts perceived audio quality using a weighted combination of auditory modeling and cognitive masking. The PESQ score,𝑃൫𝑆መ, 𝑆൯,is normalized between 0 and 4.5, with higher values representing better perceived quality [26], [17]: 𝑃𝐸𝑆𝑄= 𝑓ቀ𝑆(𝑡), 𝑆መ(𝑡)ቁ (29) 3. Short-Time Objective Intelligibility (STOI): STOI measures speech intelligibility in noisy conditions by computing the correlation between temporal envelopes of clean and enhanced signals: 𝑆𝑇𝑂𝐼= 1 ௄∑ ⬚ ௄ ௞ୀ1 ቀௌೖିఓೄೖቁ ఻ ቆௌೖିఓೄ෡ೖቇ ఙೞ಼ఙೞ಼ (30)",
+      "label": "human",
+      "page_num": 16,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "In Eq.30,𝑆௞ and 𝑆෡𝑘 are temporal envelope vectors of the 𝑘 the short-time segment of the clean and enhanced speech, respectively [26], [17]. 4. Localization Accuracy (Root Mean Square Error, RMSE):",
+      "label": "human",
+      "page_num": 17,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Spatial accuracy is quantified using the RMSE between predicted ൫𝜃෠𝑖൯and ground-truth (𝜃𝑖) azimuth angles of sound sources: 𝑅𝑀𝑆𝐸௟௢௖=",
+      "label": "ai_generated",
+      "page_num": 17,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "ට1 ே∑ ⬚ ே ௜ୀ1 ൫𝜃෠௜−𝜃௜൯ 2 (31)",
+      "label": "human",
+      "page_num": 17,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "In Eq.31,𝑁 is the number of sound events evaluated ([14], [15]). Lower RMSE indicates more precise directional perception.",
+      "label": "ai_generated",
+      "page_num": 17,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "V Results and Discussion",
+      "label": "human",
+      "page_num": 17,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The experimental evaluation was designed to rigorously validate the effectiveness of the proposed AMDLF framework across multiple acoustic environments and hearing scenarios. Performance was assessed against five established baseline models using both objective and subjective criteria, ensuring a balanced representation of speech quality, intelligibility, and spatial hearing outcomes. The analysis encompassed real and simulated cochlear implant (CI) conditions, including unilateral, bimodal, and bilateral configurations, to capture the framework’s adaptability. In addition, computational efficiency was examined to confirm the feasibility of real-time deployment on CI-compatible platforms. The following subsections present quantitative comparisons using standardized metrics, visual analyses through diverse plot representations, and tabular summaries that collectively demonstrate the superiority of the proposed framework across all dimensions of evaluation.",
+      "label": "ai_generated",
+      "page_num": 17,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Table 2: Computational and Model Efficiency Comparison Model Parameters (M) Inference Time (ms) Memory Footprint (MB) Energy per Inference (mJ) Baseline DNN [7] 12.5 34 46 18.2 AGC Synchronization [7] 8.1 28 32 14.5 Pitch-Matching [18] 10.7 26 37 13.2 CFTNet [17] 15.4 24 52 15.1 Electro-Haptic [11] 9.8 22 41 12.4 Proposed AMDLF 11.3 14 33 9.1",
+      "label": "human",
+      "page_num": 17,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Table 2 compares the computational requirements of the proposed AMDLF framework against five baseline models. The metrics include parameter count, inference latency, memory footprint, and energy consumption per inference. The AMDLF achieves the lowest inference time (14 ms) and energy consumption (9.1 mJ), making it highly compatible with real-time CI deployment. Despite having a moderate parameter size, the model is optimized through pruning and quantization, achieving efficiency without compromising accuracy.",
+      "label": "ai_generated",
+      "page_num": 18,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Figure 4: Subjective Listening Scores (SSQ and NCIQ Distributions)",
+      "label": "human",
+      "page_num": 18,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Figure 4 illustrates distribution patterns for SSQ and NCIQ perceptual scores. Broader density under AMDLF reflects higher mean and median values, aligning with reported clinical benefit trends. Compared to CFTNet and electro-haptic methods, the proposed model narrows score variability, suggesting more reliable user-perceived gains. The visualization confirms that perceptual improvements are not isolated cases but generalizable across listeners.",
+      "label": "ai_generated",
+      "page_num": 18,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Figure 5: Real-Time Feasibility: Inference Time Analysis",
+      "label": "human",
+      "page_num": 19,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Figure 5 depicts inference times in milliseconds, a crucial metric for cochlear implant compatibility. The AMDLF model demonstrates the lowest latency (14 ms), comfortably below the perceptual threshold for real-time deployment. Competing models remain above 20 ms, which could risk perceptual delay or synchronization issues. The result confirms that pruning and quantization strategies effectively balance efficiency and performance.",
+      "label": "ai_generated",
+      "page_num": 19,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Table 3: Performance in Diverse Acoustic Scenarios Model Quiet Speech Intelligibility (%) Babble Noise STOI (%) Reverberan t PESQ Localization Error (°) Subjective SSQ Score (/10) Baseline DNN [7] 78 55 1.9 34 5.6 AGC Synchronization [7] 72 51 1.8 36 5.1 Pitch-Matching [18] 80 57 2.0 29 6.0 CFTNet [17] 85 64 2.2 27 6.5",
+      "label": "human",
+      "page_num": 19,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Electro-Haptic [11] 82 60 2.1 25 6.8 AMDLF (Proposed Model ) 91 73 2.6 12 8.3",
+      "label": "human",
+      "page_num": 20,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Table 3 evaluates performance under varied acoustic conditions, reporting intelligibility, noise robustness, reverberant clarity, localization precision, and subjective perceptual scores. The AMDLF framework outperforms all baselines, reaching 91% quiet-speech intelligibility, 73% STOI in babble noise, and the lowest localization error (12°). Its PESQ score of 2.6 indicates strong speech quality even in reverberant spaces, while subjective SSQ ratings confirm reduced listening effort and improved naturalness. These results highlight the framework’s consistent superiority across objective and perceptual domains.",
+      "label": "ai_generated",
+      "page_num": 20,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Figure 6: Speech Enhancement Metrics (ΔSNR, PESQ, STOI)",
+      "label": "human",
+      "page_num": 20,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Figure 6 presents the stacked area distribution of ΔSNR, PESQ, and STOI across six competing models. The proposed AMDLF framework achieves consistently higher values across all metrics, indicating robust improvements in both intelligibility and clarity. Compared with Pitch-Matching and CFTNet, AMDLF provides a larger margin in STOI, demonstrating better speech preservation in adverse noise conditions. The stacking further emphasizes the cumulative gain that separates AMDLF from unimodal baselines.",
+      "label": "ai_generated",
+      "page_num": 20,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Figure 7: Noise Profiling Impact Under Diverse Acoustic Conditions",
+      "label": "human",
+      "page_num": 21,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Figure 7 compares baseline and proposed systems under multiple acoustic scenarios including babble, traffic, cafeteria, and reverberation. The AMDLF model consistently sustains higher SNR improvements, with the largest gap under reverberant environments. This indicates the adaptive noise profiling mechanism effectively suppresses non-stationary noise. The smooth curves reveal resilience where static synchronization strategies fail to generalize across conditions.",
+      "label": "ai_generated",
+      "page_num": 21,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "8.(a) Noisy Input Spectrogram – Shows the original speech signal corrupted with additive noise",
+      "label": "human",
+      "page_num": 21,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "8.(b)Enhanced Output Spectrogram – Illustrates the effect of the AMDLF-inspired preemphasis enhancement on the noisy signal. 8.(c) Clean Ground Truth Spectrogram – Represents the reference clean speech signal without noise",
+      "label": "human",
+      "page_num": 22,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Figure 8(a),8(b) and 8(c) spectrograms collectively visualize the effect of noise and enhancement on speech signals. The first figure depicts the noisy input, highlighting the presence of broadband noise across the frequency spectrum. The second figure demonstrates the enhanced signal after preemphasis filtering, showing clearer harmonic structures and reduced noise components. The third figure serves as the ground truth, providing a reference for clean speech. Comparing these plots illustrates how the enhancement process improves",
+      "label": "ai_generated",
+      "page_num": 22,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "spectral clarity while preserving the essential features of the original speech, supporting both intelligibility and perceptual quality.",
+      "label": "ai_generated",
+      "page_num": 23,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "5.1 Ablation Study",
+      "label": "human",
+      "page_num": 23,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "An ablation study systematically evaluates the contribution of individual components of a model by selectively removing or modifying them and observing the resulting impact on performance. In the context of the AMDLF framework, an ablation study could involve disabling key modules—such as the adaptive noise profiling, the multi-dimensional filtering layers, or the temporal enhancement mechanism—to quantify their respective effects on speech intelligibility, noise suppression, and localization accuracy. For example, removing the adaptive noise profiling may result in lower ΔSNR improvements under non-stationary noise, while disabling multi-dimensional filtering could reduce STOI and PESQ scores in reverberant conditions. By comparing the degraded configurations with the full AMDLF model, the study identifies which components are critical for its superior performance, demonstrates the robustness of each module, and provides insight into potential areas for further optimization. Such analysis not only validates the design choices but also guides future refinements for real- time cochlear implant deployment. Table 4summarizes the impact of selectively removing or modifying key components of the AMDLF framework, highlighting how each module contributes to speech intelligibility, noise robustness, reverberant clarity, localization accuracy, and SNR improvement.",
+      "label": "ai_generated",
+      "page_num": 23,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Table 4: Ablation Study of AMDLF Components on Speech Enhancement and Localization Performance Model Configuration Quiet Speech Intelligibility (%) Babble Noise STOI (%) Reverberant PESQ Localization Error (°) ΔSNR (dB) Without Adaptive Noise Profiling 87 65 2.3 15 5.4 Without Multi- Dimensional Filtering 85 62 2.1 18 4.9 Without Temporal Enhancement Module 88 68 2.2 14 5.8 Without Quantization & Pruning 90 72 2.5 13 7.9",
+      "label": "human",
+      "page_num": 23,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Full AMDLF (Proposed) 91 73 2.6 12 8.2 5.2 Discussion",
+      "label": "human",
+      "page_num": 24,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The experimental results show that objective and subjective measures for speech perception and processing efficiency are significantly improved with the proposed AMDLF framework. AMDLS performs consistently significantly better in speech intelligibility, noise-robustness and spatial localization accuracy than established baseline models, also under severe acoustic degradations such as babble and reverberation. More importantly, the model is compact in terms of computational complexity and energy cost, low inference latency which makes it appropriate for the sake of real-time operation in a cochlear implant system. Subjective assessments support these observations with overall more consistent and higher perceptual scores between listeners, thus indicating that general performance is improved not only for specific cases. Taken together, these results show that the adaptive and multi-faceted design of AMDLF can successfully trade-off between signal enhancement, perceptual quality and computational complexity; rendering it a highly viable and efficient candidate for applications in auditory assistance devices.",
+      "label": "ai_generated",
+      "page_num": 24,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "VI Conclusion In summary, the proposed AMDLF is effective in solving two challenges of speech enhancement and sound localization for CIs. Our experimental results show that AMDLF has superior noise-robustness with 91% quiet-speech intelligibility, 73% STOI in babble noise and PESQ of up to 2.6 in reverberant environments, with lowest localization error (12°) among all baselines over objective measures and the best subjective preference overall. In terms of computation, the model is quite low in computational requirements with inference time of 14ms and energy consumption of 9.1mJ and can benefit real-time application to the CI systems. Listening tests demonstrate enhanced perception clarity, reduced listening effort and higher user acceptance. Ablation studies also confirm the effectiveness of adaptive noise profiling, multi-dimensional filtering and temporal enhancement to the overall performance. The cross- task fusion between the two levels of learning and the dual-branch architecture beneficially exploit shared auditory representations, thus achieving robust performance in adverse acoustic conditions. Altogether, the results support that AMDLF is a robust and efficient solution for smart auditory prostheses. In the future, we will extend our approach (i) to integrate wearable devices for real-time deployment in a live environment, (ii) to address multi-speaker conditions and (iii) to evaluate multilingual datasets so as to generalize performance across different populations. References [1] Durmaz, S., Kara, E., & Sakarcan, M. (2025). The effect of bimodal auditory stimulation on localization and speech understanding in noise. The Egyptian Journal of Otolaryngology, 41(1), 136. [2] Valzolgher, C., Bouzaid, S., Grenouillet, S., Gatel, J., Ratenet, L., Murenu, F., ... & Pavani,",
+      "label": "human",
+      "page_num": 24,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "F. (2023). Training spatial hearing in unilateral cochlear implant users through reaching to sounds in virtual reality. European Archives of Oto-Rhino-Laryngology, 280(8), 3661-3672. [3] Rasmussen, K. M. B., West, N. C., Bille, M., Sandvej, M. G., & Cayé-Thomasen, P. (2022). Cochlear implantation improves both speech perception and patient-reported outcomes: a prospective follow-up study of treatment benefits among adult cochlear implant recipients. Journal of Clinical Medicine, 11(8), 2257. [4] Caspers, C. J., Janssen, A. M., Agterberg, M. J., Cremers, C. W., Hol, M. K., & Bosman, A. J. (2022). Sound localization with bilateral bone conduction devices. European Archives of Oto-Rhino-Laryngology, 279(4), 1751-1764. [5] Jaisinghani, P., Yoon, Y. S., Chun, Y. M., & Shin, Y. R. (2024). Impact of age at the second implantation, experience of amplification use, and long-term binaural experience on sound localization of children with bilateral cochlear implants. International Journal of Pediatric Otorhinolaryngology, 183, 112031. [6] Andries, E., Lorens, A., Skarżyński, P. H., Skarżyński, H., Calvino, M., Gavilán, J., ... & Mertens, G. (2024). Holistic assessment of cochlear implant outcomes using the international classification of functioning disability and health model: data analysis of a longitudinal prospective multicenter study. European Archives of Oto-Rhino-Laryngology, 281(8), 4161- 4173. [7] Schleich, P., Wirtz, C., Schatzer, R., & Nopp, P. (2025). Similar performance in sound localisation with unsynchronised and synchronised automatic gain controls in bilateral cochlear implant recipients. International Journal of Audiology, 64(4), 411-417. [8] Alfakhri, M., Campbell, N., Lineton, B., & Verschuur, C. (2025). Integrated bimodal fitting and binaural streaming technology outcomes for unilateral cochlear implant users. International Journal of Audiology, 64(3), 243-252. [9] Domenico, C., Erica, P., Andrea, L., Daria, S., & Ghiselli, S. (2025). Cochlear implant benefits over time in adult patients with Single Sided Deafness. European Archives of Oto- Rhino-Laryngology, 1-13. [10] Mueller, V., Krause, J., Klünter, H. D., Streicher, B., & Lang-Roth, R. (2022). Speech perception in noise and sound localization using different microphone modes in pediatric bilateral cochlear implant users. International Journal of Pediatric Otorhinolaryngology, 156, 111117. [11] Fletcher, M. D., Zgheib, J., & Perry, S. W. (2021). Sensitivity to haptic sound-localization cues at different body locations. Sensors, 21(11), 3770. [12] Camarena, A., & Goldsworthy, R. L. (2024). Characterizing the relationship between modulation sensitivity and pitch resolution in cochlear implant users. Hearing research, 448, 109026. [13] Thomas, M., Galvin III, J. J., & Fu, Q. J. (2023). Importance of ipsilateral residual hearing for spatial hearing by bimodal cochlear implant users. Scientific Reports, 13(1), 4960. [14] Saki, N., Zeighami, M. R., Karimi, M., Mirmomeni, G., & Bayat, A. (2025). The Effect of Cochlear Implantation on Spatial Hearing in Postlingually Deaf Adults. Indian Journal of Otolaryngology and Head & Neck Surgery, 1-5. [15] Asp, F., Karltorp, E., & Berninger, E. (2022). Development of sound localization in infants and young children with Cochlear implants. Journal of Clinical Medicine, 11(22), 6758. [16] Spitzer, E. R., Attlassy, Y., Roland Jr, J. T., & Waltzman, S. B. (2024). Early cochlear",
+      "label": "human",
+      "page_num": 25,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "implantation for children with single sided deafness. International Journal of Pediatric Otorhinolaryngology, 177, 111857. [17] Mamun, N., & Hansen, J. H. (2023). CFTNet: Complex-valued frequency transformation network for speech enhancement. In Proc. INTERSPEECH (Vol. 2023, pp. 809-813). [18] Tóth, T. F., Németh, A., Bakó, P., Révész, P., Gerlinger, I., & Szanyi, I. (2023). Matching the pitch perception of the cochlear implanted ear with the contralateral ear in patients with single-sided deafness: a novel approach. European Archives of Oto-Rhino-Laryngology, 280(11), 4851-4859. [19] Hallak, D., Macielak, R. J., Zhang, L., & Ren, Y. (2024). Cochlear Implantation and Vestibular Schwannoma Management. Current Otorhinolaryngology Reports, 12(3), 66-75. [20] Takahashi, M., Iwasaki, S., Furutate, S., Oka, S. I., & Oyamada, S. (2025). The advance medical care outcomes for cochlear implantation in single-sided deafness. Auris Nasus Larynx. [21] Seebacher, J., Franke-Trieger, A., Weichbold, V., Galvan, O., Schmutzhard, J., Zorowka, P., & Stephan, K. (2023). Sound localisation of low-and high-frequency sounds in cochlear implant users with single-sided deafness. International Journal of Audiology, 62(1), 71-78. [22] Jiang, Y., Ye, Y. A. N. G., Junyan, G. A. O., & Zhang, H. (2025). Enhanced speech perception and satisfaction in paediatric cochlear implant users following sound processor upgrade. International Journal of Pediatric Otorhinolaryngology, 112507. [23] van Heteren, J. A., van Oorschot, H. D., Wendrich, A. W., Peters, J. P., Rhebergen, K. S., Grolman, W., ... & Smit, A. L. (2024). Sound localization in single-sided deafness; outcomes of a randomized controlled trial on the comparison between cochlear implantation, bone conduction devices, and contralateral routing of signals hearing aids. Trends in Hearing, 28, 23312165241287092. [24] Henry, F., Glavin, M., & Jones, E. (2021). Noise reduction in cochlear implant signal processing: A review and recent developments. IEEE reviews in biomedical engineering, 16, 319-331. [25] Lentz, B., Martin, R., Weber, L., & Völter, C. (2025). Development and First Evaluation of a Spatial Auditory Training Program for SSD Cochlear Implant Users. Otology & Neurotology, 10-1097. [26] Holden, L. K., Uchanski, R. M., Dwyer, N. Y., Reeder, R. M., Holden, T. A., & Firszt, J. B. (2025). Improving Outcomes of Single-Sided Deaf Cochlear Implant Users by Reducing Interaural Frequency and Loudness Mismatches through Device Programming. Trends in Hearing, 29, 23312165251359415. [27] Bance, M., Costales Marcos, M., Guignard, J., Huinck, W., Killian, M., Lionikaite, V., ... & Sivonen, V. (2025). The benefit of bilateral cochlear implants in adults with bilateral sensorineural hearing loss: a systematic review and meta-analysis. Cochlear Implants International, 1-16. [28] Dolhopiatenko, H., Segovia-Martinez, M., & Nogueira, W. (2024). The temporal mismatch across listening sides affects cortical auditory evoked responses in normal hearing listeners and cochlear implant users with contralateral acoustic hearing. Hearing Research, 451, 109088. [29] Pantaleo, A., Murri, A., Cavallaro, G., Pontillo, V., Auricchio, D., & Quaranta, N. (2024). Single-sided deafness and hearing rehabilitation modalities: contralateral routing of signal devices, bone conduction devices, and cochlear implants. Brain Sciences, 14(1), 99.",
+      "label": "human",
+      "page_num": 26,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "[30] Lorens, A., Obrycka, A., Skarzynski, P. H., & Skarzynski, H. (2021). Benefits of binaural integration in cochlear implant patients with single-sided deafness and residual hearing in the implanted ear. Life, 11(3), 265. [31] Abdulrazzak, O., Ibrahim, N. I., Jones, G., Epperson, M. V., Onder, I., Graves, J., ... & Banakis Hartl, R. M. (2025). Comparing Bilateral and Single‐Sided Deaf Cochlear Implant Recipients in a Novel Speech‐in‐Noise and Localization Task. Otolaryngology–Head and Neck Surgery, 172(5), 1725-1734. [32] Andries, E., Lorens, A., Skarżyński, P. H., Skarżyński, H., Calvino, M., Gavilán, J., ... & Mertens, G. (2025). Impact of cochlear implant indications on outcome, assessed and reported using the international classification of functioning, disability and health model. European Archives of Oto-Rhino-Laryngology, 1-15. [33] Shiraishi, K. (2021). Sound localization and lateralization by bilateral bone conduction devices, middle ear implants, and cartilage conduction hearing aids. Audiology Research, 11(4), 508-523. [34] Körtje, M., Stöver, T., Baumann, U., & Weissgerber, T. (2023). Impact of processing- latency induced interaural delay and level discrepancy on sensitivity to interaural level differences in cochlear implant users. European archives of oto-rhino-laryngology, 280(12), 5241-5249. [35] Garcia, A., Haleem, A., Chari, D. A., Morse-Fortier, C., Arenberg, J. G., & Lee, D. J. (2023). Influence of listening environment on usage patterns in cochlear implant patients with single-sided deafness. Cochlear Implants International, 24(6), 335-341. [36] Jakob, T. F., Speck, I., Rauch, A. K., Hassepass, F., Ketterer, M. C., Beck, R., ... & Arndt, S. (2022). Bone-anchored hearing system, contralateral routing of signals hearing aid or cochlear implant: what is best in single-sided deafness?. European Archives of Oto-Rhino- Laryngology, 279(1), 149-158. [37] Dennison, S. R., Thakkar, T., Kan, A., Svirsky, M. A., Azadpour, M., & Litovsky, R. Y. (2024). A mixed-rate strategy on a bilaterally-synchronized cochlear implant processor offering the opportunity to provide both speech understanding and interaural time difference cues. Journal of Clinical Medicine, 13(7), 1917. [38] Redó, M. A., Gil, I. P., Pérez-Carbonell, T., González, C. E., Ventura, A. M., & Algarra, J. M. (2025). Prospective study of sound localisation in patients with single sided deafness and asymmetric hearing loss treated with cochlear implant. Acta Otorrinolaringologica (English Edition), 76(1), 1-10. [39] Muck, S., Magele, A., Wirthner, B., Schoerg, P., & Sprinzl, G. M. (2023). Effects of Auditory Training on Speech Recognition in Children with Single-Sided Deafness and Cochlea Implants Using a Direct Streaming Device: A Pilot Study. Journal of Personalized Medicine, 13(12), 1688. [40] Santopietro, G., Fancello, V., Fancello, G., Bianchini, C., Pelucchi, S., & Ciorba, A. (2024). Cochlear implantation in children affected by single-sided deafness: A comprehensive review. Audiology Research, 14(1), 77-85.",
+      "label": "human",
+      "page_num": 27,
+      "source": "direct_pdf"
+    }
+  ],
+  "stats": {
+    "ai_generated_segments": 57,
+    "ai_paraphrased_segments": 0,
+    "human_segments": 60,
+    "ocr_pages": 0,
+    "total_chars_ai": 27384,
+    "total_chars_paraphrased": 0,
+    "total_chars_human": 30251
+  },
+  "errors": []
+}

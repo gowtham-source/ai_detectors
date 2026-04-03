@@ -1,0 +1,104 @@
+{
+  "file_name": "CHAPTER 6.pdf",
+  "file_path": "c:\\Users\\gowth\\Downloads\\ai_plag_detector\\data\\raw_data\\raw_data\\CHAPTER 6.pdf",
+  "submission_date": "2025-12-21",
+  "priority": "LOW",
+  "total_pages": 5,
+  "ai_percentage_reported": 96,
+  "segments": [
+    {
+      "text": "CHAPTER 6 Conclusion and Future Enhancements 6.1 Conclusion This thesis presented a",
+      "label": "human",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "comprehensive investigation into secure and privacy-preserving authentication mechanisms for Internet of Vehicles (IoV) environments by integrating blockchain technology, intelligent learning models, and optimized cryptographic techniques. The research addressed critical IoV challenges such as malicious attack detection, data integrity, identity privacy, and secure communication in highly dynamic vehicular networks. To achieve these objectives, two complementary frameworks were developed: a blockchain-enabled hybrid adaptive authentication model and a systematic blockchain-based privacy-preserving protocol incorporating deep learning–driven attack detection and optimized encryption. The proposed authentication framework leveraged optimized blockchain integration with intelligent learning to eliminate centralized vulnerabilities and ensure trustworthy data exchange among vehicles and infrastructure. The hybrid adaptive learning model enhanced authentication accuracy while significantly reducing false detection rates. Furthermore, the introduction of a Cascaded Dilated Residual Recurrent Neural Network (CD-RRNN) enabled effective identification of complex temporal attack patterns in IoV traffic. To strengthen privacy preservation, an Optimized Key El-Gamal Encryption (OKEE) mechanism was introduced, where optimal key selection using the Modified Manta Ray Foraging Optimization (MMRFO) algorithm reduced encryption overhead and improved security robustness. Extensive experimental evaluations demonstrated that the proposed frameworks consistently outperformed conventional IoV authentication and security solutions across multiple performance metrics, including accuracy, sensitivity, computational efficiency, memory utilization, encryption/decryption time, and security resilience. Overall, this research confirms that the synergistic integration of blockchain, deep",
+      "label": "ai_generated",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "learning, and optimization-driven cryptography provides a scalable, efficient, and secure solution for next-generation intelligent transportation systems.",
+      "label": "ai_generated",
+      "page_num": 4,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "6.2 Major Findings​",
+      "label": "human",
+      "page_num": 4,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The key findings derived from this research are summarized as follows: ●​ Blockchain-Based Authentication Effectiveness: The optimized blockchain-integrated authentication framework achieved high accuracy and reliability, effectively mitigating impersonation, replay, and false data injection attacks while removing single points of failure inherent in centralized IoV systems. ●​ Hybrid Adaptive Learning for Authentication: The OBWO-HANet model demonstrated superior authentication performance by combining intelligent feature learning with optimized parameter tuning, achieving higher sensitivity and lower false positive and false negative rates compared to traditional classifiers. ●​ CD-RRNN-Based Attack Detection: The proposed CD-RRNN model achieved an attack detection accuracy of over 94%, outperforming DNN, SVM, LSTM, and conventional RNN models. Its cascaded and dilated residual architecture effectively captured long-term dependencies and subtle temporal anomalies in vehicular communication data. ●​ Optimized Cryptographic Privacy Preservation: The OKEE scheme with MMRFO-based key optimization significantly reduced encryption and decryption time, memory consumption, and computational overhead compared to classical cryptographic approaches such as DES, AES, ECC, and standard El-Gamal encryption. ●​ Overall System Robustness and Scalability: The combined frameworks ensured secure authentication, efficient intrusion detection, and strong privacy protection under dynamic IoV conditions, making them suitable for large-scale real-time vehicular deployments.",
+      "label": "ai_generated",
+      "page_num": 4,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "6.3 Future Scope",
+      "label": "human",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Although the proposed frameworks demonstrated strong performance, several research directions can be explored to further enhance IoV security and scalability:",
+      "label": "ai_generated",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Development of lightweight deep learning models to reduce computational load on resource-constrained onboard units (OBUs).",
+      "label": "ai_generated",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Integration of federated learning to enable decentralized model training while preserving vehicular data privacy. Exploration of hybrid or adaptive optimization algorithms to further accelerate cryptographic key generation and attack detection.",
+      "label": "ai_generated",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Extension of the proposed frameworks to 5G and 6G-enabled IoV networks for ultra-low latency and high-reliability communication.",
+      "label": "ai_generated",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Incorporation of quantum-resistant cryptographic techniques to prepare IoV systems for future quantum computing threats.",
+      "label": "ai_generated",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Validation of the proposed models on large-scale real-world vehicular datasets and testbeds.",
+      "label": "ai_generated",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Design of energy-aware authentication mechanisms to improve sustainability in intelligent transportation systems.",
+      "label": "ai_generated",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "●​ Integration with edge and fog computing architectures to enhance real-time processing and scalability.",
+      "label": "human",
+      "page_num": 5,
+      "source": "direct_pdf"
+    }
+  ],
+  "stats": {
+    "ai_generated_segments": 10,
+    "ai_paraphrased_segments": 0,
+    "human_segments": 4,
+    "ocr_pages": 0,
+    "total_chars_ai": 4598,
+    "total_chars_paraphrased": 0,
+    "total_chars_human": 223
+  },
+  "errors": []
+}

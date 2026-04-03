@@ -1,0 +1,374 @@
+{
+  "file_name": "Chapter 1-Logu.pdf",
+  "file_path": "c:\\Users\\gowth\\Downloads\\ai_plag_detector\\data\\raw_data\\raw_data\\Chapter 1-Logu.pdf",
+  "submission_date": "2025-12-20",
+  "priority": "LOW",
+  "total_pages": 13,
+  "ai_percentage_reported": 100,
+  "segments": [
+    {
+      "text": "CHAPTER 1 INTRODUCTION TO BLOCKCHAIN-BASED PRIVACY-PRESERVING AUTHENTICATION IN INTERNET OF VEHICLES 1.1 Background",
+      "label": "human",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The rapid evolution of intelligent transportation systems has led to the emergence of the Internet of Vehicles (IoV), an advanced paradigm that integrates vehicles, roadside infrastructure, cloud platforms, and users through wireless communication technologies. IoV enables a wide range of applications such as traffic management, accident prevention, autonomous driving, infotainment services, and real-time navigation. However, the large-scale exchange of sensitive vehicular data, including vehicle identity, location, speed, and driver behavior, has introduced serious security and privacy concerns. Due to the high mobility, dynamic topology, and open wireless communication environment of IoV networks, they are highly vulnerable to various cyber threats such as impersonation attacks, Sybil attacks, replay attacks, false data injection, and unauthorized tracking. Traditional centralized security architectures rely on trusted third parties and centralized servers, which suffer from single-point-of-failure, scalability issues, and increased latency. These limitations make conventional security solutions inadequate for next-generation IoV environments. To address these challenges, blockchain technology has emerged as a promising solution due to its decentralized architecture, immutability, transparency, and cryptographic security. Blockchain eliminates the need for a centralized authority by enabling distributed trust management among vehicles and infrastructure. However, while blockchain enhances trust and data integrity, it introduces challenges such as high computational cost, storage overhead, and privacy leakage if not carefully designed. In addition, the growing sophistication of cyber-attacks necessitates intelligent security mechanisms capable of detecting malicious behavior in real time. Machine learning and deep learning techniques have proven effective in identifying",
+      "label": "ai_generated",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "abnormal patterns and malicious activities in dynamic environments like IoV. Furthermore, ensuring data privacy during communication and storage requires robust cryptographic mechanisms with optimized key management. This thesis focuses on developing efficient, secure, and privacy-preserving authentication protocols for IoV networks by integrating blockchain technology with intelligent learning models and optimized cryptographic techniques.",
+      "label": "ai_generated",
+      "page_num": 4,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "1.2 Internet of Vehicles (IoV) Security and Privacy​",
+      "label": "human",
+      "page_num": 4,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The Internet of Vehicles is an extension of Vehicular Ad Hoc Networks (VANETs) that incorporates cloud computing, edge computing, artificial intelligence, and blockchain technologies. In IoV, vehicles continuously exchange safety and non-safety messages with other vehicles (V2V), roadside units (V2I), pedestrians (V2P), and cloud servers (V2C). While this connectivity improves transportation efficiency and safety, it also exposes vehicles to serious privacy risks. As shown in Figure 1.1, IoV enables multiple communication modes among vehicles, infrastructure, pedestrians, and cloud services, which significantly increases security and privacy challenges.",
+      "label": "ai_generated",
+      "page_num": 4,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Figure 1.1 General Internet of Vehicles (IoV) communication architecture",
+      "label": "ai_generated",
+      "page_num": 4,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Figure 1.1 presents a general Internet of Vehicles (IoV) communication architecture illustrating different communication modes such as Vehicle-to-Vehicle (V2V), Vehicle-to-Infrastructure (V2I), Vehicle-to-Pedestrian (V2P), and Vehicle-to-Network (V2N). Vehicles equipped with on-board units communicate with roadside units (RSUs), cloud platforms, and nearby entities using wireless technologies. This architecture highlights the highly dynamic and distributed nature of IoV networks, which necessitates secure, scalable, and privacy-preserving authentication mechanisms. Vehicular data often contains personally identifiable information such as real-time location, travel routes, and driver behavior. Unauthorized access or manipulation of this data can lead to privacy violations, traffic disruption, and even life-threatening situations. Therefore, IoV systems must ensure:",
+      "label": "ai_generated",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Authentication of legitimate vehicles and infrastructure",
+      "label": "ai_generated",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Data integrity to prevent message tampering",
+      "label": "ai_generated",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Conditional privacy, allowing anonymity with traceability",
+      "label": "ai_generated",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "●​ Resistance to malicious attacks",
+      "label": "human",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Conventional cryptographic solutions alone are insufficient due to scalability constraints and the inability to detect intelligent attacks. Hence, advanced solutions combining blockchain, machine learning, and optimized encryption are required.",
+      "label": "ai_generated",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "1.3 Blockchain-Based Authentication in IoV​",
+      "label": "human",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Blockchain technology provides a decentralized and tamper-proof ledger that securely records transactions among untrusted entities. In IoV networks, blockchain enables secure authentication, data integrity, and trust establishment without relying on a centralized authority.",
+      "label": "ai_generated",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Key Advantages of Blockchain in IoV: ●​ Decentralization: Eliminates single-point-of-failure ●​ Immutability: Prevents unauthorized data modification ●​ Transparency and Traceability: Enables auditing and accountability ●​ Smart Contracts: Automate authentication and access control",
+      "label": "human",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Despite these advantages, blockchain-based IoV systems face challenges such as increased latency, high storage requirements, and privacy leakage due to transparent ledgers. Therefore, blockchain must be combined with intelligent authentication mechanisms and privacy-preserving cryptography to achieve practical deployment. As shown in Figure 1.2, integrating blockchain with IoV communication enables decentralized transaction management, secure data sharing, and reliable authentication across different vehicular scenarios.",
+      "label": "ai_generated",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Figure 1.2 Blockchain-based Internet of Vehicles communication and data-sharing architecture Figure 1.2 illustrates a blockchain-based Internet of Vehicles architecture where vehicular communication scenarios such as Vehicle-to-Vehicle (V2V), Vehicle-to-Infrastructure (V2I), Vehicle-to-Device (V2D), and Vehicle-to-Grid (V2G)",
+      "label": "ai_generated",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "generate transactions that are securely stored and shared through a decentralized blockchain system. The peer-to-peer network, validators, and consensus mechanism ensure secure authentication, data integrity, and trusted information exchange among IoV entities.",
+      "label": "ai_generated",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "1.4 Machine Learning and Deep Learning for Malicious Attack Detection​",
+      "label": "human",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Machine learning techniques play a vital role in detecting malicious activities in IoV networks by analyzing traffic patterns and behavioral anomalies. Traditional rule-based systems fail to adapt to evolving attack strategies, whereas learning-based models can dynamically learn from data.",
+      "label": "ai_generated",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "1.4.1 Machine Learning-Based Authentication",
+      "label": "human",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "In the initial phase of this research, a Hybrid Adaptive Network (HANet) combining Multi-Layer Perceptron (MLP) and Ridge Classifier was employed to detect malicious nodes efficiently. Parameter optimization using Opposition Beluga Whale Optimization (OBWO) further improved detection accuracy while reducing computational overhead.",
+      "label": "ai_generated",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "1.4.2 Deep Learning-Based Authentication",
+      "label": "human",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "To overcome the limitations of conventional machine learning, this research further introduces a Cascaded and Dilated Residual Recurrent Neural Network (CD-RRNN). The CD-RRNN effectively captures temporal dependencies in vehicular data, mitigates vanishing gradient problems, and enhances malicious attack detection accuracy in highly dynamic IoV environments.",
+      "label": "ai_generated",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "1.5 Privacy Preservation Using Optimized Cryptographic Techniques​",
+      "label": "human",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Preserving privacy in Internet of Vehicles (IoV) communication is a critical requirement, as vehicular data often contains sensitive information such as vehicle identity, location, and movement patterns. Unauthorized disclosure of such data can lead to serious privacy violations, tracking, and misuse. Therefore, IoV systems",
+      "label": "ai_generated",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "require strong encryption mechanisms supported by efficient key management strategies to ensure confidentiality during data transmission and storage. Asymmetric cryptographic techniques are widely used in secure communication due to their ability to provide strong security guarantees. Among them, El-Gamal encryption is recognized for its robustness against cryptographic attacks and suitability for secure data exchange. However, the traditional El-Gamal encryption scheme involves high computational complexity, particularly when keys are not optimally selected. This increased complexity can lead to higher encryption and decryption time, making it less suitable for resource-constrained and real-time IoV environments. To overcome these limitations, this research introduces an Optimized Key El-Gamal Encryption (OKEE) scheme, in which encryption keys are optimally generated using the Modified Manta-Ray Foraging Optimization (MMRFO) algorithm. The MMRFO algorithm efficiently explores the search space to select optimal cryptographic keys, thereby reducing computational overhead while maintaining strong security properties. By optimizing key generation, the proposed approach significantly improves encryption efficiency and enhances resistance against cryptographic and brute-force attacks. Furthermore, integrating optimized cryptographic techniques with blockchain technology strengthens overall privacy preservation in IoV networks. Blockchain provides a secure and tamper-resistant platform for storing encrypted transactions, while OKEE ensures that sensitive vehicular information remains confidential even in a decentralized environment. This combined approach effectively balances privacy, security, and performance requirements in dynamic vehicular networks. The integration of optimized cryptography with blockchain offers several advantages:",
+      "label": "ai_generated",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Secure data transmission across vehicular communication channels",
+      "label": "ai_generated",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Confidentiality of vehicular identities and sensitive information",
+      "label": "ai_generated",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Reduced computational overhead, suitable for real-time IoV applications",
+      "label": "ai_generated",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Enhanced scalability for large-scale vehicular networks",
+      "label": "ai_generated",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "1.6 Challenges in Blockchain-Based IoV Authentication",
+      "label": "human",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Despite notable progress in securing Internet of Vehicles (IoV) networks, several critical challenges continue to hinder the effective deployment of blockchain-based authentication mechanisms. These challenges arise due to the unique characteristics of vehicular environments and the inherent complexity of integrating blockchain, intelligent learning models, and cryptographic techniques.",
+      "label": "ai_generated",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "1.6.1 High Mobility and Dynamic Network Topology ​",
+      "label": "human",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "One of the most prominent challenges in IoV authentication is the high mobility of vehicles and the continuously changing network topology. Vehicles frequently join and leave the network at high speeds, resulting in short communication durations and unstable connections. Traditional authentication mechanisms often rely on repeated handshakes or centralized verification, which become inefficient in such dynamic environments. Frequent re-authentication increases latency and communication overhead, making it unsuitable for time-critical IoV applications such as collision avoidance and emergency response systems.",
+      "label": "ai_generated",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "1.6.2 Computational Overhead and Resource Constraints",
+      "label": "human",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Blockchain-based authentication involves cryptographic operations, consensus mechanisms, and ledger maintenance, all of which introduce significant computational overhead. Vehicular on-board units (OBUs) typically have limited processing power, memory, and energy resources. Performing complex encryption, decryption, and blockchain validation tasks can overload these devices, leading to increased response time and reduced system efficiency. Therefore, designing lightweight authentication and encryption mechanisms that maintain strong security without exhausting vehicular resources remains a major challenge.",
+      "label": "ai_generated",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "1.6.3 Privacy Leakage and Data Exposure Risks",
+      "label": "human",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Although blockchain ensures transparency and immutability, these same properties can pose privacy risks in IoV systems. Vehicular communications often include sensitive information such as location, identity, and movement patterns. Storing or",
+      "label": "ai_generated",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "sharing such data on transparent ledgers may unintentionally expose private information to unauthorized entities. Achieving a balance between transparency and privacy is difficult, as complete anonymity can prevent accountability, while full traceability may compromise user privacy. Ensuring conditional privacy, where legitimate users remain anonymous while malicious nodes can be identified when necessary, is a complex research challenge.",
+      "label": "ai_generated",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "1.6.4 Accuracy in Malicious Attack Detection",
+      "label": "human",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "IoV networks are vulnerable to a wide range of sophisticated attacks, including impersonation, Sybil, replay, and false data injection attacks. These attacks are often adaptive and intelligent, making them difficult to detect using static or rule-based security systems. Accurate detection requires adaptive learning models capable of identifying abnormal behavior patterns in real time. However, achieving high detection accuracy while minimizing false positives and false negatives is challenging, especially in highly dynamic vehicular environments with large volumes of data.",
+      "label": "ai_generated",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "1.6.5 Scalability in Large-Scale IoV Networks",
+      "label": "human",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "IoV networks are expected to scale to millions of vehicles communicating simultaneously. Authentication frameworks must therefore be scalable and capable of handling large volumes of transactions without performance degradation. Blockchain consensus mechanisms, if not optimized, can introduce delays and bottlenecks as the network grows. Ensuring fast authentication, efficient data storage, and minimal latency in large-scale IoV deployments is a significant challenge that requires careful architectural design and optimization.",
+      "label": "ai_generated",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "1.6.6 Trade-off Between Security, Privacy, and Performance",
+      "label": "human",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Strengthening security and privacy often increases computational complexity and communication delay, while lightweight solutions may weaken protection against attacks. Achieving an optimal balance between security strength, privacy preservation, computational efficiency, and system scalability is one of the most difficult aspects of",
+      "label": "ai_generated",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "IoV authentication design. This trade-off becomes even more critical in real-time vehicular applications, where delays can directly impact safety.",
+      "label": "ai_generated",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "1.7 Significance of the Research​",
+      "label": "human",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "This research proposes two progressive authentication frameworks for IoV networks:",
+      "label": "ai_generated",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "A machine learning–based blockchain authentication model using HANet with OBWO optimization",
+      "label": "ai_generated",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "An advanced deep learning and cryptography–integrated blockchain framework using CD-RRNN and OKEE with MMRFO The proposed solutions significantly improve authentication accuracy, reduce attack detection latency, enhance privacy preservation, and minimize computational overhead. By integrating intelligent learning models with optimized cryptographic techniques, this research provides a robust, scalable, and secure IoV authentication architecture suitable for real-world deployment.",
+      "label": "ai_generated",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "1.8 Objectives of the Research​ The objectives of the work are:",
+      "label": "human",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "➢​ To design a secure blockchain-based authentication system for Internet of Vehicles (IoV) by using machine learning techniques to detect malicious vehicles, while ensuring data integrity, vehicle anonymity, and controlled traceability in the network. ➢​ To improve the security and efficiency of IoV communication by applying deep learning models and optimized cryptographic methods, so as to reduce computational overhead, increase attack detection accuracy, and provide stronger privacy protection in dynamic vehicular environments.",
+      "label": "ai_generated",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "1.9 Organization Of The Thesis​",
+      "label": "human",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The thesis is organized as follows: Chapter 1 introduces the research background, motivation, key challenges in Internet of Vehicles (IoV) security, and the objectives of the proposed work.",
+      "label": "ai_generated",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Chapter 2 presents a comprehensive review of existing security, privacy, and authentication techniques in IoV, with particular emphasis on blockchain-based and intelligent learning–based approaches, and identifies the research gaps addressed in this thesis. Chapter 3 describes the machine learning–based blockchain authentication framework proposed in this research. This chapter details the use of smart contract–enabled blockchain for secure data storage, the Hybrid Adaptive Network (HANet) for malicious attack detection, and the optimization of model parameters using the Opposition Beluga Whale Optimization (OBWO) algorithm. Chapter 4 presents the advanced deep learning and cryptography–integrated authentication protocol. This chapter explains the Cascaded and Dilated Residual Recurrent Neural Network (CD-RRNN) for effective malicious attack detection, along with the Optimized Key El-Gamal Encryption (OKEE) scheme using Modified Manta-Ray Foraging Optimization (MMRFO) to ensure enhanced privacy preservation and computational efficiency. Chapter 5 provides the experimental setup, performance evaluation, and comparative analysis of the proposed frameworks with existing state-of-the-art IoV authentication methods, using standard performance metrics. Chapter 6 concludes the thesis by summarizing the major contributions, discussing limitations, and outlining potential directions for future research in blockchain-based IoV security.",
+      "label": "ai_generated",
+      "page_num": 12,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "1.10 Summary​",
+      "label": "human",
+      "page_num": 12,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "This chapter introduced the significance of secure and privacy-preserving authentication in Internet of Vehicles (IoV) networks. The shortcomings of conventional centralized security solutions were discussed, highlighting issues such as scalability and single-point-of-failure. The need for decentralized blockchain-based authentication frameworks was emphasized. The role of machine learning and deep learning techniques in detecting malicious activities was outlined. The importance of",
+      "label": "ai_generated",
+      "page_num": 12,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "optimized cryptographic methods for ensuring privacy and efficiency was also presented. The integration of blockchain, intelligent learning models, and cryptography was identified as an effective solution to IoV security challenges. The objectives and scope of the research were summarized. The next chapter presents a detailed literature review of existing IoV security and blockchain-based authentication approaches.",
+      "label": "ai_generated",
+      "page_num": 13,
+      "source": "direct_pdf"
+    }
+  ],
+  "stats": {
+    "ai_generated_segments": 39,
+    "ai_paraphrased_segments": 0,
+    "human_segments": 20,
+    "ocr_pages": 0,
+    "total_chars_ai": 16796,
+    "total_chars_paraphrased": 0,
+    "total_chars_human": 1233
+  },
+  "errors": []
+}

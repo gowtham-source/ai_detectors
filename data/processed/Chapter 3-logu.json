@@ -1,0 +1,920 @@
+{
+  "file_name": "Chapter 3-logu.pdf",
+  "file_path": "c:\\Users\\gowth\\Downloads\\ai_plag_detector\\data\\raw_data\\raw_data\\Chapter 3-logu.pdf",
+  "submission_date": "2025-12-20",
+  "priority": "LOW",
+  "total_pages": 48,
+  "ai_percentage_reported": 84,
+  "segments": [
+    {
+      "text": "CHAPTER 3 Blockchain-Based Privacy-Preserving Authentication Framework Using Hybrid Adaptive Network for Internet of Vehicles 3.1 Preamble",
+      "label": "human",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The rapid growth of intelligent transportation systems has led to the development of the Internet of Vehicles (IoV), where vehicles, roadside units, and cloud servers communicate continuously to support applications such as traffic safety, autonomous driving, and real-time navigation. While IoV improves transportation efficiency and user experience, it also introduces serious security and privacy challenges due to its open wireless environment, high vehicle mobility, and large-scale data exchange. Traditional centralized authentication mechanisms depend on trusted authorities, which suffer from scalability issues, high latency, and single-point-of-failure problems, making them unsuitable for dynamic IoV scenarios. Blockchain technology has emerged as a promising solution by enabling decentralized, tamper-resistant, and transparent authentication without relying on a central entity. However, blockchain alone cannot effectively handle intelligent and evolving cyber-attacks such as impersonation and false data injection. To overcome this limitation, intelligent learning models are required to detect malicious behavior accurately. In this context, this chapter presents an efficient privacy-preserving authentication scheme that integrates blockchain technology with a Hybrid Adaptive Network (HANet) to provide secure, scalable, and intelligent authentication in IoV networks. The proposed framework ensures data integrity, vehicle anonymity, and resistance to malicious attacks while maintaining low computational overhead, thereby making it suitable for real-time vehicular environments.",
+      "label": "ai_generated",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "3.2 Background and Motivation​",
+      "label": "human",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The Internet of Vehicles (IoV) represents a large-scale, heterogeneous communication environment where vehicles, roadside units (RSUs), infrastructure, and users exchange information through wireless networks to enable intelligent transportation services. This interconnected ecosystem supports applications such as traffic",
+      "label": "ai_generated",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "monitoring, accident prevention, and autonomous driving. With the advancement of machine learning and deep learning techniques, data collected by RSUs and vehicles can be effectively utilized to build intelligent systems for vehicular misbehavior detection, trust evaluation, and anomaly identification, as highlighted by Kumar et al. (2022) and Wang et al. (2022). However, traditional machine learning techniques often struggle to operate efficiently in highly distributed and dynamic IoV environments due to limited adaptability and generalization issues. Security and privacy remain major concerns in IoV networks because vehicles continuously transmit sensitive information such as location, identity, and driving patterns. Conventional IoV security solutions are primarily centralized and rely on trusted authorities, which introduce single-point-of-failure problems and scalability limitations, as discussed by Wang et al. (2019) and Qureshi et al. (2022). These centralized approaches are vulnerable to attacks such as unauthorized tracking, identity hijacking, replay attacks, and the injection of false information, which can mislead vehicles and compromise road safety. Moreover, centralized trust models may fail to provide timely authentication and accountability in high-mobility vehicular environments. Another critical challenge is ensuring conditional privacy, where vehicles remain anonymous during normal operation but can be traced and penalized when malicious behavior is detected. Existing trust-based approaches typically depend on third-party authorities to validate transactions, which may themselves become untrustworthy or compromised, as highlighted by Mundhe et al. (2022) and Chaudhary and Singh (2021). As IoV networks grow in scale and complexity, traditional security mechanisms become insufficient due to ineffective malicious node traceability, insecure communication channels, and inefficient data transmission mechanisms. Blockchain technology has emerged as a promising solution to address these challenges by enabling decentralized, tamper-resistant, and transparent data management. Blockchain distributes trust among participating nodes using consensus",
+      "label": "ai_generated",
+      "page_num": 4,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "mechanisms, eliminating the need for centralized authorities, as demonstrated by Wang et al. (2019), Chai et al. (2022), and Feng et al. (2022). In a blockchain-based IoV environment, transactions are recorded through a peer-to-peer network, and each node maintains a synchronized copy of the distributed ledger. Before any transaction is permanently stored, it is validated by multiple nodes, ensuring data integrity and transparency. The immutability property of blockchain ensures that any modification to stored data is computationally infeasible, thereby strengthening resistance against data tampering and insider attacks. Despite these advantages, blockchain-based IoV systems may suffer from communication overhead, storage consumption, and latency issues, particularly when handling large volumes of vehicular data. Federated Learning (FL) has been proposed as an effective solution to mitigate these limitations by allowing vehicles to train local models without sharing raw data, as demonstrated by Lu et al. (2020), Fan et al. (2022), and Wang et al. (2022). FL enhances privacy preservation and reduces network congestion while enabling collaborative learning. However, FL-based IoV systems are still vulnerable to malicious model updates, inference attacks, and inefficient aggregation processes. Machine learning techniques provide intelligent solutions for analyzing large-scale IoV data and identifying abnormal traffic patterns. Hybrid learning models are particularly effective in distinguishing malicious and normal traffic behavior due to their ability to capture complex data patterns, as discussed by Ali et al. (2021) and Nie et al. (2020). Motivated by these observations, this research integrates blockchain technology with a hybrid adaptive machine learning model to ensure secure, efficient, and privacy-preserving authentication in IoV networks. The proposed framework combines smart contract–enabled blockchain with an intelligent Hybrid Adaptive Network (HANet) to detect malicious activities, secure data transmission, reduce latency, and optimize resource utilization in dynamic vehicular environments. The key contributions of the proposed privacy-preserving authentication scheme for Internet of Vehicles are summarized as follows:",
+      "label": "ai_generated",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "A blockchain-based privacy-preserving authentication framework is designed to ensure secure data authentication and reliable communication among vehicles, RSUs, and infrastructure while preventing malicious access.",
+      "label": "ai_generated",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "A smart contract–enabled blockchain mechanism is implemented to restrict unauthorized third-party participation, enhance data integrity, and automate trust verification within the IoV network.",
+      "label": "ai_generated",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "A Hybrid Adaptive Network (HANet), combining Multilayer Perceptron (MLP) and Ridge Classifier, is developed to accurately identify malicious and legitimate traffic patterns in IoV communications.",
+      "label": "ai_generated",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "An Optimized Beluga Whale Optimization (OBWO) algorithm is proposed to fine-tune feature selection and model parameters, enhancing detection accuracy and system efficiency based on the principles introduced by Zhong et al.",
+      "label": "ai_generated",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "(2022). ●​",
+      "label": "human",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Extensive performance evaluation and comparative analysis are conducted against existing classifiers and optimization techniques using multiple metrics to validate the effectiveness, scalability, and robustness of the proposed framework.",
+      "label": "ai_generated",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "3.3 Architecture of the Proposed System​",
+      "label": "human",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The Internet of Vehicles (IoV) is a highly dynamic ad-hoc communication network designed to improve traffic efficiency, road safety, and intelligent transportation services. Although IoV shares several characteristics with conventional Internet of Things (IoT) systems, it operates in open wireless environments where network topology changes rapidly due to vehicle mobility. This dynamic nature significantly increases the complexity of data processing, communication reliability, and service continuity. As a result, IoV networks are more vulnerable to security and privacy threats such as sensitive data exposure, identity impersonation, message forgery, and data manipulation, which may directly endanger passenger safety and property. Blockchain technology offers an effective solution to these challenges by enabling decentralized trust management through distributed consensus mechanisms. In vehicular environments where vehicles cannot inherently trust neighboring nodes,",
+      "label": "ai_generated",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "blockchain ensures that transmitted data cannot be altered once verified and recorded. By eliminating reliance on centralized authorities, blockchain reduces the risk of single-point failures and improves system transparency. However, due to high vehicle speed, frequent handovers, and uncertain communication conditions, reliable and secure data transmission in IoV remains a critical challenge. In addition, traditional centralized key management approaches increase the likelihood of key exposure and unauthorized access. Therefore, there is a strong need for a blockchain-enabled IoV architecture that supports efficient privacy preservation and secure authentication. The overall architecture of the proposed blockchain-based IoV system is illustrated in Figure 3.1.",
+      "label": "ai_generated",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Figure 3.1: Architecture of the Proposed Blockchain-Enabled Privacy-Preserving Authentication Framework for IoV",
+      "label": "human",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "A smart contract–enabled blockchain framework integrated with machine learning is proposed to achieve secure, efficient, and anonymous conditional privacy-preserving authentication in Internet of Vehicles (IoV) networks. In the proposed system, vehicles",
+      "label": "ai_generated",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "are required to register their genuine identity information with the roadside infrastructure before participating in data transmission and message broadcasting. Blockchain technology is employed to store and protect vehicular data in tamper-resistant blocks, ensuring transparency and trust among participating entities. Alongside blockchain, a machine learning-based intrusion detection mechanism is incorporated to recognize and mitigate malicious activities within the IoV network. To ensure secure data communication, the system combines machine learning with a smart contract–assisted blockchain mechanism, enabling automated access control and secure authentication. Feature selection and attack detection are carried out using the proposed Hybrid Adaptive Network (HANet), which integrates a Multilayer Perceptron (MLP) with a Ridge classifier to accurately distinguish between legitimate and malicious traffic patterns. Furthermore, the Optimal Beluga Whale Optimization (OBWO) algorithm is utilized to optimally tune the selected features, enhancing classification accuracy and reducing computational overhead. The performance of the proposed approach is evaluated against existing machine learning-based authentication methods for IoV, demonstrating its effectiveness in terms of security, privacy, and efficiency. The overall architecture of the proposed system is illustrated in Figure 3.2.",
+      "label": "ai_generated",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Figure 3.2: Blockchain-Assisted Secure and Anonymous Authentication Mechanism for IoV 3.3.1 Information on Vehicle Attributes",
+      "label": "human",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "To develop and evaluate the proposed blockchain-based privacy-preserving authentication framework for the Internet of Vehicles (IoV), a publicly available Internet of Vehicles dataset is utilized. The dataset is obtained from the Kaggle repository and contains real-world vehicular attributes relevant to intelligent transportation environments (Harunachiro Magombe, 2023). This dataset provides structured information describing vehicle behavior and movement patterns, which are essential for analyzing network activities and identifying abnormal or malicious actions within IoV systems. The dataset includes multiple vehicular parameters such as speed, acceleration, location-related indicators, collision-related factors, and communication",
+      "label": "ai_generated",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "characteristics. These attributes are widely used in IoV research to support traffic monitoring, collision detection, and security analysis. In the proposed system, the dataset serves as the primary input for training and testing the intelligent learning models integrated with the blockchain-based authentication mechanism. Let the individual vehicle data records extracted from the dataset be represented as , where 𝑉𝑑 . Here, each corresponds to a single vehicle instance containing a set 𝑉𝑑= 1, 2,..., 𝐷 𝑉𝑑 of measured attributes. The complete dataset is denoted by , which represents the 𝐷 collection of all vehicle records used during the experimental evaluation. This structured representation enables effective feature processing, optimized attribute selection, and accurate detection of malicious behavior in the IoV environment. The extracted vehicle attributes are further processed by the proposed Hybrid Adaptive Network (HANet) and optimized using the Improved Beluga Whale Optimization (OBWO) algorithm to enhance authentication accuracy, reduce computational overhead, and strengthen privacy preservation in dynamic vehicular networks.",
+      "label": "ai_generated",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "3.4 Smart Contract–Enabled Blockchain and OBWO for Privacy-Preserving Authentication",
+      "label": "human",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Blockchain technology plays a vital role in ensuring secure and reliable authentication in Internet of Vehicles (IoV) environments by providing tamper-resistant data storage and decentralized trust management. To establish a strong foundation for the proposed authentication framework, an overview of the blockchain architecture and its operational principles is presented in Section 3.4.1. This section explains how distributed ledger technology enhances data integrity and mitigates malicious activities. The secure management of vehicular information using smart contracts is discussed in Section 3.4.2, where the mechanism for storing, validating, and accessing",
+      "label": "ai_generated",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "authentication data on the blockchain is detailed. Smart contracts automate authentication operations while eliminating the need for third-party intervention. Furthermore, Section 3.4.3 introduces the proposed Optimized Beluga Whale Optimization (OBWO) algorithm, which is employed for parameter tuning and privacy enhancement within the authentication process. This section also explains how optimized cryptographic and learning parameters contribute to privacy preservation and efficient authentication in dynamic IoV networks. The overall architecture of the proposed smart contract–assisted blockchain-based privacy-preserving authentication system for IoV is illustrated in Figure 3.3, highlighting the interaction between vehicles, blockchain components, and intelligent optimization modules.",
+      "label": "ai_generated",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ Figure 3.3: System Model of Smart Contract-Assisted Privacy-Preserving Authentication in IoV 3.4.1 The Infrastructure of Blockchain Technology",
+      "label": "human",
+      "page_num": 12,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Blockchain technology, first introduced as the core mechanism behind Bitcoin in 2008, represents a decentralized and autonomous framework for managing and validating time-stamped transactions without reliance on a central authority. It operates as a peer-to-peer (P2P) distributed network in which all participating nodes maintain identical copies of a shared ledger, ensuring consistency and resilience against data tampering. As highlighted by X. Wang et al. (2019) and K. N. Qureshi et al. (2022), blockchain integrates multiple advanced technologies, including asymmetric cryptography, distributed ledger management, smart contracts, and incentive mechanisms, to establish trust in open and untrusted environments such as the Internet of Vehicles (IoV).",
+      "label": "ai_generated",
+      "page_num": 12,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "In a blockchain network, user identities are typically represented through cryptographic public keys, which provide anonymity while preserving authentication and accountability. Transaction data are organized into fundamental units known as blocks, each of which is cryptographically linked to its predecessor, forming an immutable chain. Once a block is validated and appended to the ledger through a consensus process, its contents cannot be altered without modifying all subsequent blocks, a task that is computationally infeasible. This property ensures data integrity, transparency, and traceability, as emphasized by H. Chai et al. (2022) and Xia Feng et al. (2022). Depending on access control and management strategies, blockchains can be broadly categorized into public chains, consortium (permissioned) chains, and private chains, each differing in trust assumptions, consensus mechanisms, and degrees of decentralization. Despite these variations, core blockchain characteristics—such as immutability, encryption, chronological data ordering, openness, and auditability—remain consistent across implementations. Structurally, blockchain systems are commonly organized into layered architectures comprising the data layer, network layer, consensus layer, incentive layer, contract layer, and application layer, as discussed by Chen Mao et al. (2021). This layered infrastructure enables blockchain to support secure, scalable, and privacy-aware applications, making it particularly suitable for authentication and data management in IoV environments.",
+      "label": "ai_generated",
+      "page_num": 13,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Figure 3.4: Layered architecture of blockchain technology for the proposed privacy-preserving authentication framework in Internet of Vehicles (IoV)",
+      "label": "ai_generated",
+      "page_num": 14,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "3.4.2 Data Storage Using Smart Contracts",
+      "label": "human",
+      "page_num": 14,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "In the proposed framework, the collected vehicular data are securely maintained within a 𝑉𝑑 blockchain environment through the use of smart contracts. A smart contract refers to a self-executing program embedded in blockchain blocks, which automatically performs predefined operations once specified conditions are satisfied. The primary purpose of incorporating smart contracts into the blockchain is to enable autonomous and trustworthy service execution without dependence on centralized authorities or external trusted parties.",
+      "label": "ai_generated",
+      "page_num": 14,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "By leveraging smart contracts, the proposed system eliminates the involvement of intermediaries such as administrators, control centers, and centralized service managers, thereby reducing security vulnerabilities and operational overhead. The blockchain enforces the execution of predefined rules and access conditions in a transparent and tamper-resistant manner, ensuring that data handling and authentication procedures are carried out consistently across the network. Furthermore, smart contracts facilitate automated decision-making and verification, enabling a fully decentralized and self-managed authentication process. In the proposed privacy-preserving authentication scheme, vehicular data are stored and managed through smart contract logic to ensure secure access, integrity, and confidentiality. This approach strengthens the overall functionality of the blockchain by providing reliable data storage, preventing unauthorized modifications, and supporting efficient authentication in dynamic IoV environments.",
+      "label": "ai_generated",
+      "page_num": 15,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "4.3 Opposition Beluga Whale Optimization (OBWO)",
+      "label": "human",
+      "page_num": 15,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "A detailed examination of existing optimization techniques reveals that, although many algorithms demonstrate acceptable performance, they often suffer from limitations related to slow convergence and an improper balance between exploration and exploitation. In large-scale learning environments, some methods also become unstable when handling limited or imbalanced training samples, which can indirectly compromise data privacy and model reliability. To overcome these challenges, nature-inspired metaheuristic algorithms have gained attention due to their adaptability and computational efficiency. Among them, the Beluga Whale Optimization (BWO) algorithm has shown strong capability in addressing both unimodal and multimodal optimization problems with relatively low computational cost. The BWO algorithm is inspired by the natural behaviors of beluga whales, marine mammals well known for their advanced communication and coordinated movement patterns. By simulating these behaviors, the original BWO algorithm has been successfully applied to various optimization tasks and has demonstrated competitive performance compared to other metaheuristic approaches. However, the conventional BWO relies on random selection strategies during population initialization and update phases, which can lead to suboptimal convergence and reduced solution accuracy, particularly in complex and high-dimensional problem spaces.",
+      "label": "ai_generated",
+      "page_num": 15,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "To address these shortcomings, an enhanced version referred to as Opposition Beluga Whale Optimization (OBWO) is introduced. The OBWO algorithm incorporates opposition-based learning principles to improve population diversity and guide the search process more effectively toward optimal regions. This enhancement enables the algorithm to better capture complex structural relationships in the learning space and strengthens the propagation of relevant features within the model. As a result, the OBWO-driven parameter tuning process improves convergence speed while minimizing the objective cost function. In the proposed privacy-preserving authentication framework for IoV, OBWO is employed to optimally tune model parameters, thereby enhancing authentication accuracy and system robustness. The improved convergence behavior and scalability of OBWO contribute to reliable performance even in dynamic and large-scale vehicular environments. To formalize the whale selection mechanism in the OBWO process, a newly derived mathematical expression is introduced, as presented in Eq.",
+      "label": "ai_generated",
+      "page_num": 16,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "3.1. ​ ​ ​ ​ ​ (3.1) 𝑠= 𝑏𝑓𝑖𝑡 1.5 ( ) 𝑤𝑓𝑖𝑡×𝑚𝑓𝑖𝑡 ( )",
+      "label": "human",
+      "page_num": 16,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Here, the average fitness value and the optimal fitness value obtained from the BWO algorithm are denoted as and , respectively. In addition, the term represents 𝑏𝑓𝑖𝑡 𝑚𝑓𝑖𝑡 𝑤𝑓𝑖𝑡 the least favorable (worst) fitness value achieved during the optimization process. The original Beluga Whale Optimization algorithm proposed by Changting Zhong et al. (2022) is a population-based metaheuristic inspired by the natural foraging behavior of beluga whales. The optimization process is organized into three major operational phases, namely exploration, exploitation, and whale-fall, which are modeled based on the biological behaviors of pair swimming, prey hunting, and whale fall, respectively. During the exploration stage, beluga whales are randomly distributed across the search space to enhance global search capability and avoid premature convergence. The exploitation stage focuses on refining candidate solutions by intensifying the local search around promising regions of the solution space. Additionally, the whale-fall mechanism introduces probabilistic position updates that help diversify the population and prevent stagnation in local optima. Due to its population-driven nature, the BWO algorithm represents each beluga whale as an individual search agent, where each agent corresponds to a potential solution to the optimization problem. These agents iteratively update their positions throughout the optimization process to improve solution quality. The positions of all search agents are",
+      "label": "ai_generated",
+      "page_num": 16,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "mathematically modeled in a matrix representation, which captures the multidimensional search space and is formally expressed in Eq.",
+      "label": "ai_generated",
+      "page_num": 17,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "3.2. ​ ​ ​ ​ ​ (3.2) Here, the parameter represents the size of the beluga whale population, whereas the 𝑜 parameter corresponds to the population size of the design variables. The key fitness values 𝑒 for each beluga whale are calculated using the expression provided in Eq. (3.3). ​​ ​ ​ ​ (3.3) The transition between the exploration and exploitation stages in the BWO algorithm is governed by the balance factor . This balance factor, which controls the shift between 𝐶𝑔 global search and local refinement, is mathematically defined in Eq. 3.4. ​ ​ ​ ​ ​ (3.4) In this formulation, the current iteration count is denoted by , while the maximum number 𝑢 of iterations is represented by . The parameter is a random value that varies between 𝑈𝑚𝑎𝑥 𝐶0 0 and 1 during each execution of the algorithm. When the balance factor satisfies , 𝐶𝑔> 0. 5 the algorithm operates in the exploration stage; otherwise, when , the exploitation 𝐶𝑔≤0. 5 stage is activated.",
+      "label": "human",
+      "page_num": 17,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The exploration phase of the BWO algorithm is inspired by the pair-swimming behavior of beluga whales. During this stage, the positions of the search agents are updated based on this cooperative swimming mechanism, and the corresponding position update rule is expressed in Eq. 3.5. ​ (3.5) The updated position of the beluga whale along the dimension is represented as . 𝑗 𝑡ℎ 𝑘 𝑡ℎ 𝐻𝑗,𝑘 𝑢+1 The parameter denotes a randomly selected index from the - dimensional 𝑄𝑘𝑘= 1, 2,..., 𝑒 ( ) 𝑒 search space. The current positions of the and beluga whales are denoted by and 𝑗 𝑡ℎ 𝑠 𝑡ℎ 𝐻𝑗,𝑄𝑘 𝑢 , respectively, where indicates the position of the whale in the dimension. 𝐻𝑠,𝑄𝑘 𝑢 𝐻𝑗,𝑄𝑘 𝑢 𝑗 𝑡ℎ 𝑄𝑘 𝑡ℎ In the standard BWO method, beluga whales are selected randomly, which can adversely affect solution accuracy and overall optimization performance.",
+      "label": "human",
+      "page_num": 18,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "To overcome this limitation, the proposed OBWO strategy introduces a controlled random selection mechanism based on Eq.",
+      "label": "ai_generated",
+      "page_num": 18,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The variables and represent random values generated within the ranges 𝑠1 𝑠2",
+      "label": "ai_generated",
+      "page_num": 18,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "These stochastic parameters enhance the diversity of",
+      "label": "ai_generated",
+      "page_num": 18,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "0, 1 ( ), 𝑠𝑖𝑛2π𝑠2 ( ) 𝑐𝑠𝑜2π𝑠2 ( ) search movements and strengthen the exploratory capability of the algorithm.",
+      "label": "human",
+      "page_num": 18,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Following the foraging (preying) behavior of beluga whales, the exploitation phase of the BWO algorithm is executed to refine promising solutions. In this stage, the Lévy flight strategy is employed to enable effective local search and avoid premature convergence. The mathematical formulation governing the exploitation phase is provided in Eq.",
+      "label": "ai_generated",
+      "page_num": 18,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "3.6. ​ ​ (3.6)",
+      "label": "human",
+      "page_num": 18,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The new position of a beluga whale after updating is denoted by , while the optimal 𝐻𝑗 𝑢+1 position identified among all beluga whales is represented as .",
+      "label": "human",
+      "page_num": 19,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The current positions of 𝐻𝑏𝑒𝑠𝑡",
+      "label": "ai_generated",
+      "page_num": 19,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "the selected beluga whale and a randomly chosen whale are expressed as and , 𝐻𝑗 𝑢 𝐻𝑠 𝑢 respectively. The random variables and are independently generated within the interval 𝑠3 𝑠4 to introduce stochastic behavior during the search process. 0, 1 [ ] The parameter defines the adaptive jump magnitude, which controls the 𝐷𝑗= 2𝑠4 1−𝑢 𝑈𝑚𝑎𝑥 ( ) intensity of the Lévy flight movement. This factor plays a crucial role in regulating the step size during exploitation and helps balance global exploration with local refinement. The Lévy flight function itself is denoted by , and its mathematical formulation is provided in Eq. 𝐹𝐿",
+      "label": "ai_generated",
+      "page_num": 19,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "3.7. ​ ​ ​ ​ ​ (3.7) ​ ​ ​ ​ (3.8)",
+      "label": "human",
+      "page_num": 19,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Here, the attributes and are assumed to follow a random distribution and are generated as 𝑣 𝑤 arbitrary integers, while the variable represents a predefined constant, typically set close to the value 1.5. During their natural foraging and migration activities, beluga whales are exposed to several external threats, including human interference, predators such as polar bears, and larger marine species. Although many whales successfully evade these dangers, a fraction of the population fails to survive and eventually sinks to the ocean floor.",
+      "label": "ai_generated",
+      "page_num": 19,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "This phenomenon is",
+      "label": "human",
+      "page_num": 19,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "modeled in the optimization process as the “whale fall” mechanism, which is mathematically represented in Eq. 3.9. ​​ ​ ​ (3.9) The randomly generated parameters are represented as and each taking values 𝑠5, 𝑠6, 𝑠7 within the interval . The movement magnitude of the search agent is defined by the step 0, 1 [ ] size, denoted as , which is mathematically expressed in Eq. 3.10. 𝐻𝑠𝑡𝑒𝑝 ​ ​ ​ (3.10) In this formulation, the parameter corresponds to the step control factor, which is 𝐷2 associated with both the population size and the whale fall phenomenon. The permissible range of the optimization variables is bounded by the lower and upper limits, represented as and , respectively. 𝑙𝑐 𝑢𝑐 Eq. 3.11 formulates the likelihood of the whale falling . 𝐹𝑤 ​​ ​ ​ ​ ​ (3.11) The probability of the whale fall event is gradually adjusted from 0.1 at the initial stage of execution to 0.5 at the final stage. This indicates that as the beluga whales move closer to the optimal food source during the optimization process, their exposure to threats is significantly reduced. The detailed operational steps of the proposed algorithm are presented in Algorithm 1, while the corresponding procedural flow is illustrated in Figure 3.5.​",
+      "label": "human",
+      "page_num": 20,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Algorithm 1: Proposed OBWO Procedure Step 1: Initialize the population matrix and set the maximum number of iterations. Step 2: Compute the objective (fitness) function for all search agents.​ Step 3: For iteration to : 𝑢= 1 𝑈𝑚𝑎𝑥 For each beluga whale to : 𝑗= 1 𝑁𝑝𝑜𝑝 ​ ​ ​ Generate random values using Eq. 3.1. ​ Execute the proposed OBWO updating strategy. ​ Calculate the balance factor using Eq.3.4. ​ Update the whale position in the exploration phase using Eq.3.5. ​ Update the whale position in the exploitation phase using Eq. 3.6. ​ Apply the Lévy flight mechanism using Eq. 3.7. ​",
+      "label": "human",
+      "page_num": 21,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Update the whale-fall position using Eq.",
+      "label": "ai_generated",
+      "page_num": 21,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "3.9. ​ ​ End For Step 4: End For",
+      "label": "human",
+      "page_num": 21,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Step 5: Repeat the above steps until the stopping criterion or optimal solution is achieved. Step 6: Output the best solution obtained by the algorithm.",
+      "label": "ai_generated",
+      "page_num": 21,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Figure 3.5: Flowchart of the proposed Opposition Beluga Whale Optimization (OBWO) algorithm 3.5 Hybrid Adaptive Network–Based Authentication Using Smart Contracts for the",
+      "label": "ai_generated",
+      "page_num": 22,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Internet of Vehicles",
+      "label": "human",
+      "page_num": 22,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Authentication plays a vital role in ensuring that vehicular data are accessed, shared, and stored in a secure and trustworthy manner within Internet of Vehicles (IoV) environments. To strengthen authentication while preserving user privacy, this research integrates intelligent learning techniques with smart contract–enabled blockchain mechanisms. In particular, a Hybrid Adaptive Network (HANet) is developed by combining a Multilayer Perceptron (MLP) model with a Ridge classifier to achieve reliable and efficient authentication. The",
+      "label": "ai_generated",
+      "page_num": 22,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "architectural and operational principles of the MLP and Ridge models are discussed in detail in Subsections 3.5.1 and 3.5.2, respectively, while Subsection 3.5.3 formulates the objective function designed to enhance authentication accuracy and precision. Recent advancements in deep learning have enabled more robust security solutions by facilitating intelligent decision-making over large-scale and dynamic data. Such models have been increasingly adopted to improve privacy protection and authentication in complex networked systems. Nevertheless, many existing deep learning approaches suffer from high training complexity, long convergence time, and susceptibility to overfitting, which limit their practical applicability in real-time IoV scenarios. For instance, convolutional neural networks (CNNs), although effective in feature extraction, often fail to capture long-term dependency patterns and introduce additional computational overhead. To overcome these challenges, this research adopts an MLP–Ridge hybrid framework. The MLP model ensures fast learning and rapid prediction by efficiently capturing nonlinear relationships within vehicular traffic data, whereas the Ridge classifier provides regularization to control overfitting and improve generalization performance. By integrating these complementary models, the proposed HANet achieves a balanced trade-off between learning efficiency, classification robustness, and computational cost, making it well suited for secure and privacy-preserving authentication in IoV networks.",
+      "label": "ai_generated",
+      "page_num": 23,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "3.5.1 Multilayer Perceptron",
+      "label": "human",
+      "page_num": 23,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "A Multilayer Perceptron (MLP) is a widely used form of artificial neural network that is well suited for handling complex and nonlinear data relationships. In the proposed authentication framework, the collected vehicular data are provided as inputs to the MLP model. The 𝑣𝑑 network architecture is composed of three fundamental layers: an input layer, one or more",
+      "label": "ai_generated",
+      "page_num": 23,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "hidden layers, and an output layer.",
+      "label": "ai_generated",
+      "page_num": 24,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The input layer represents a data sample , , where denotes the total number of training 𝑣𝑑= 𝑣𝑑,1, 𝑣𝑑,2,..., 𝑣𝑑,ℎ+1 ( ) 1 ≤𝑑≤𝑚 ( ) 𝑚 samples.",
+      "label": "human",
+      "page_num": 24,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "An additional bias term is included to improve learning flexibility, and 𝑣𝑑,ℎ+1 =−1 represents the number of hidden neurons. ℎ1 During the training process, each input vector is multiplied by a corresponding weight matrix , producing a linear combination that is propagated to the hidden layer. The 𝑤𝑙ϵ𝑅 ℎ+1 ( )× ℎ1+1 ( ) output of each layer is then passed through a nonlinear activation function to capture complex patterns present in the data. This forward propagation continues across layers until the final output layer generates the classification result . Through iterative weight updates, the MLP 𝑧𝑑 ∗ effectively learns discriminative features from vehicular data, enabling accurate identification of normal and malicious behavior in the IoV authentication process. The activation function used in the MLP model is mathematically defined in Eq.",
+      "label": "ai_generated",
+      "page_num": 24,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "3.12: ​ ​ ​ ​ ​ ​ (3.12)",
+      "label": "human",
+      "page_num": 24,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Since Paillier encryption does not directly support the exponentiation operations required by common activation functions, an approximation strategy is adopted. To address this limitation, the activation function is approximated using the Taylor series expansion, which enables efficient computation while preserving privacy. The Taylor-based approximation of the activation function is formulated in Eq.",
+      "label": "ai_generated",
+      "page_num": 24,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "3.13. ​ ​ ​ (3.13)",
+      "label": "human",
+      "page_num": 24,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "To minimize the loss function during the training process, the gradient descent optimization algorithm is employed. This algorithm iteratively updates the model parameters in the",
+      "label": "ai_generated",
+      "page_num": 24,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "direction that reduces the error.",
+      "label": "ai_generated",
+      "page_num": 25,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The mathematical formulation of the gradient descent update rule is presented in Eq. 3.14. ​ ​ ​ (3.14) Here, the number of neurons in the output layer is represented by . The error is computed ℎ3 as the difference between the target output and the actual output . In this context, 𝑧𝑑 𝑧𝑑 ∗ 𝑧𝑑 ∗ denotes the value predicted by the MLP model using the weight parameter and the input 𝑤 vector . The input sample is then updated according to the rule defined in Eq. 3.15. 𝑣𝑑 𝑣𝑑 ​ ​ ​ ​ ​ (3.15) 𝑤←𝑤−µ∆𝑤 The learning rate is denoted by the corresponding parameter. The overall structure of µϵ 0, 1 [ ] the MLP model is depicted in Figure.3.6. ​ Figure 3.6: Architecture of the Multilayer Perceptron (MLP) model used in the proposed blockchain-based privacy-preserving authentication scheme for IoV 3.5.2 Ridge Classifier​ The Ridge classifier is a linear learning model that is well suited for handling high-dimensional data and multicollinearity issues, which are common in IoV environments. In the proposed authentication framework, the Ridge classifier operates as a complementary component to the MLP model and uses the raw vehicular data as its input. The overall 𝑉𝑑 working procedure of the Ridge classifier is divided into three major stages: initialization, training (fit), and prediction.",
+      "label": "human",
+      "page_num": 25,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Initialization stage: In this phase, the key parameters that govern the behavior of the classifier are defined. The regularization parameter is introduced to control the magnitude α of model coefficients, thereby preventing overfitting and stabilizing the classification process.",
+      "label": "human",
+      "page_num": 26,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The parameter max_iter specifies the maximum number of iterations allowed for the optimization solver to converge. In addition, the solver type is selected to efficiently compute the model coefficients; common solvers include options such as cholesky, lsqr, and sparse variants, which are chosen based on the size and characteristics of the training data. Training (fit) stage: During the training phase, the Ridge classifier learns from the labeled vehicular data. The input feature matrix is represented as , while the corresponding class 𝑋 labels are stored in vector . Each row of the matrix corresponds to a feature vector 𝑦 𝑋 associated with a specific vehicle instance. By applying regularized least squares optimization, the classifier estimates a coefficient vector that captures the relationship between the input features and the target classes. The inclusion of the regularization term ensures that the learned model remains robust even in the presence of noisy or redundant attributes. Prediction stage: In the final stage, the trained coefficient vector is utilized to classify new or unseen vehicular data. The Ridge classifier computes a linear combination of the input features and the learned coefficients to generate decision scores, which are then mapped to the corresponding authentication classes. This stage enables efficient and reliable identification of legitimate and malicious entities within the IoV network. The structural workflow of the Ridge classifier adopted in the proposed privacy-preserving authentication mechanism is illustrated in Figure 3.7.",
+      "label": "ai_generated",
+      "page_num": 26,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Figure 3.7 Structural overview of the Ridge classifier employed in the blockchain-based privacy-preserving authentication framework for IoV",
+      "label": "ai_generated",
+      "page_num": 27,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "3.5.3 Machine Learning-Based Authentication Using Smart Contracts​",
+      "label": "human",
+      "page_num": 27,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Internet of Vehicles environments are exposed to a wide range of security threats, including cyber intrusions, Sybil attacks, and the participation of compromised or malicious entities, which seriously affect the reliability of vehicular communications. Prior studies have emphasized that traditional rule-based and cryptographic security mechanisms alone are insufficient to handle such intelligent and evolving attacks in IoV networks (Ali et al., 2021). As a result, intelligent data-driven techniques have gained attention for strengthening authentication and attack detection. Machine learning has emerged as a powerful tool in this context, as it enables systems to learn complex patterns from data and identify abnormal behaviors with high accuracy. Recent research has shown that integrating machine learning with blockchain can significantly improve the security and trustworthiness of distributed systems (Kumar et al., 2022; Wang et al., 2022). Blockchain provides an immutable and decentralized ledger, while machine learning enhances decision-making by analyzing transaction behaviors and network traffic. When combined with smart contracts, this integration enables automated, tamper-resistant, and secure validation of vehicular transactions without relying on centralized authorities. However, existing approaches still face limitations in terms of detection accuracy, computational efficiency, and adaptability to large-scale IoV environments.",
+      "label": "ai_generated",
+      "page_num": 27,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "To address these challenges, this research proposes a Hybrid Adaptive Network (HANet) for malicious activity detection and authentication in blockchain-enabled IoV systems. The HANet model integrates a Multilayer Perceptron (MLP) with a Ridge classifier to leverage the strengths of both learning paradigms. The MLP component effectively captures nonlinear and complex patterns in vehicular data, while the Ridge classifier mitigates overfitting and handles correlated features, as highlighted in earlier machine learning studies (Yadav and Vijayakumar, 2022). Through this hybrid design, every transaction in the IoV network is verified and authenticated before being recorded on the blockchain via smart contracts. During the training phase, the proposed HANet learns to distinguish between legitimate and malicious behaviors, enabling early detection of unauthorized access attempts. The model is capable of processing large volumes of vehicular data efficiently, which is essential for real-time IoV applications. To further enhance performance, key network parameters are optimally tuned using the proposed Opposition Beluga Whale Optimization (OBWO) algorithm, inspired by the work of Zhong et al. (2022). The primary objective of this learning-based authentication framework is to maximize detection accuracy and robustness while minimizing false alarms, as formally defined by the objective function in Eq.",
+      "label": "ai_generated",
+      "page_num": 28,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "3.16. ​ ​ (3.16)",
+      "label": "human",
+      "page_num": 28,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Here, the number of hidden neurons used in the MLP model is represented as , while the ℎ 𝑀𝐿𝑃 total number of training epochs in the MLP is denoted by . The parameter 𝑒𝑝 𝑀𝐿𝑃 𝑠𝑒 𝑀𝐿𝑃 indicates the number of steps executed per epoch during MLP training. Similarly, the hidden neuron count in the Ridge classifier is expressed as ,and its corresponding epoch count is ℎ 𝑟𝑔 denoted by . 𝑒𝑝 𝑟𝑔 In this work, the hidden neurons in the MLP are varied within the range of 5 to 255, and the number of epochs is selected between 5 and 50. The steps per epoch for the MLP are adjusted from 50 to 250.",
+      "label": "ai_generated",
+      "page_num": 28,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "For the Ridge classifier, the hidden neuron count also ranges from 5 to 255, while the number of epochs lies between 5 and 50.",
+      "label": "human",
+      "page_num": 28,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "These parameter ranges are chosen to ensure balanced learning performance and computational efficiency.",
+      "label": "ai_generated",
+      "page_num": 28,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Furthermore, the symbol represents the accuracy metric, while denotes precision. The 𝐴 𝑃 Negative Predictive Value is indicated by , and the False Positive Rate is represented by 𝑁𝑃𝑉 . These evaluation metrics are computed using Eqs. 3.17–3.20 to assess the effectiveness 𝐹𝑃𝑅 of the proposed authentication model. Accuracy measures the similarity between the predicted outcomes and the actual data and is defined as:",
+      "label": "ai_generated",
+      "page_num": 29,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ ​ ​ ​ ​ (3.17)",
+      "label": "human",
+      "page_num": 29,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Precision reflects the proportion of correctly identified positive instances among all predicted positives and is calculated as:",
+      "label": "ai_generated",
+      "page_num": 29,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ ​ ​ ​ ​ ​ (3.18)",
+      "label": "human",
+      "page_num": 29,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "𝑃= 𝑜𝑝 𝑜𝑝+𝑞𝑛 Negative Predictive Value (NPV) indicates the probability that a negative prediction truly corresponds to a non-malicious instance and is given by:",
+      "label": "ai_generated",
+      "page_num": 29,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ ​ ​ ​ ​ (3.19)",
+      "label": "human",
+      "page_num": 29,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "𝑁𝑃𝑉= 𝑜𝑝 𝑜𝑝+𝑢𝑡 Finally, the False Positive Rate (FPR) quantifies the proportion of normal instances incorrectly classified as malicious and is expressed as:",
+      "label": "ai_generated",
+      "page_num": 29,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ ​ ​ ​ ​ (3.20)",
+      "label": "human",
+      "page_num": 29,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "𝐹𝑃𝑅= 𝑠𝑟 𝑠𝑟+𝑜𝑝 Here, the measures of false negative and false positive correspond to incorrectly classified attack and normal instances, respectively, while true negative and true positive represent correctly identified normal and malicious events. Finally, the output scores generated by the MLP and Ridge classifier models are averaged to obtain a final decision for malicious attack detection. This ensemble-based decision mechanism improves robustness by leveraging the complementary strengths of both classifiers. With the support of OBWO-based parameter optimization, the proposed Hybrid",
+      "label": "ai_generated",
+      "page_num": 29,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Adaptive Network (HANet) effectively detects malicious activities in IoV networks while ensuring reliable and privacy-preserving authentication.",
+      "label": "ai_generated",
+      "page_num": 30,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "3.6. Results and Discussion",
+      "label": "human",
+      "page_num": 30,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The proposed privacy-preserving authentication framework was implemented using the Python programming environment to ensure accurate and reliable performance evaluation. A comprehensive set of experiments was conducted to assess the effectiveness of the developed model under realistic IoV conditions. To demonstrate its superiority, the performance of the proposed approach was systematically compared with several existing authentication and security techniques using standard evaluation metrics. This comparative analysis highlights the strengths of the proposed framework in terms of detection accuracy, efficiency, and robustness, thereby validating its suitability for secure and privacy-aware Internet of Vehicles environments.",
+      "label": "ai_generated",
+      "page_num": 30,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "6.1 Simulation Setup",
+      "label": "human",
+      "page_num": 30,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The proposed blockchain-enabled privacy-preserving authentication framework for the Internet of Vehicles (IoV) was implemented using the Python programming environment to evaluate its effectiveness under realistic conditions. The experimental analysis was carried out using the Internet of Vehicles Dataset obtained from the Kaggle repository, which is widely used for IoV-related research. The dataset consists of approximately 1000 instances with seven attributes, enabling a balanced evaluation of security and performance aspects. The selected attributes include the number of traffic lanes, driver status, environmental conditions, vehicle speed, inter-vehicle distance, and braking capability, all of which are critical factors influencing vehicular behavior and network dynamics.",
+      "label": "ai_generated",
+      "page_num": 30,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "For the machine learning and optimization process, key parameters were carefully selected to ensure fair and consistent evaluation. The maximum number of iterations was set to 50, and the population size was fixed at 10 for the optimization process, while the chromosome length was maintained at 50 in the proposed scheme. To validate the effectiveness of the developed Opposition Beluga Whale Optimization-based Hybrid Adaptive Network (OBWO-HANet), its performance was compared with several optimization-assisted authentication models, including Grey Wolf Optimizer–based HANet proposed by Faris et al.",
+      "label": "ai_generated",
+      "page_num": 31,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "(2018), Eurasian Oystercatcher Optimiser–based HANet introduced by Salim et al. (2022), Lion Optimization Algorithm–based HANet developed by Yazdani and Jolai (2016), and the conventional Beluga Whale Optimization–based HANet proposed by Changting Zhong et al. (2022).",
+      "label": "human",
+      "page_num": 31,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "In addition, multiple classification models were employed to evaluate the robustness of the authentication mechanism, including Convolutional Neural Networks as discussed by Nie et al. (2020), Multi-Layer Perceptron models referenced by Yongbiao Li et al. (2015), Ridge Classifier techniques studied by Anagh Singh and Shiva Prakash (2016), and ensemble-based learning approaches presented by Rajkumar Gaur et al. (2022). Furthermore, the security performance of the proposed framework was assessed against several blockchain-based authentication approaches, including blockchain-based reputation and consensus authentication mechanisms proposed by Xiaoliang Wang et al. (2019), batch authentication schemes introduced by Palak Bagga et al. (2020), consortium blockchain architectures discussed by Chen Mao et al. (2021), and smart contract–enabled authentication frameworks presented by Gunasekaran Manogaran et al. (2023). This comprehensive simulation setup ensures a fair and thorough evaluation of the proposed privacy-preserving authentication scheme.",
+      "label": "ai_generated",
+      "page_num": 31,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "3.6.2 Performance Metrics",
+      "label": "human",
+      "page_num": 32,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "To assess the performance of the proposed privacy-preserving authentication framework for IoV, several standard evaluation metrics are employed. These metrics are commonly used to measure classification accuracy, error rates, and reliability in malicious attack detection systems.",
+      "label": "ai_generated",
+      "page_num": 32,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The F1-score represents the harmonic mean of precision and recall, providing a balanced measure of detection performance, as defined in Eq. (3.21).",
+      "label": "ai_paraphrased",
+      "page_num": 32,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Sensitivity evaluates the system’s ability to correctly identify malicious instances, while Specificity measures how accurately legitimate vehicles are recognized without false alarms, as given in Eqs. (3.22) and (3.23), respectively.",
+      "label": "ai_generated",
+      "page_num": 32,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ ​ ​ ​ ​ (3.21) ​ ​ ​ ​ ​ (3.22) ​ ​ ​ ​ (3.23)",
+      "label": "human",
+      "page_num": 32,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The False Negative Rate (FNR) quantifies the proportion of attacks that are incorrectly classified as normal, whereas the False Discovery Rate (FDR) estimates the ratio of false detections among all detected attacks, as shown in Eqs. (3.24) and (3.25). Recall indicates the effectiveness of the system in identifying actual malicious activities and is computed using Eq. (3.26).",
+      "label": "ai_generated",
+      "page_num": 32,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ ​ ​ ​ (3.24)",
+      "label": "human",
+      "page_num": 32,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ ​ ​ ​ (3.25) ​ ​ ​ ​ ​ (3.26)",
+      "label": "human",
+      "page_num": 33,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Finally, the Matthews Correlation Coefficient (MCC) provides a comprehensive performance measure by jointly considering true and false classifications, making it suitable for imbalanced datasets. The MCC formulation is presented in Eq. (3.27).",
+      "label": "ai_generated",
+      "page_num": 33,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ ​ ​ (3.27) 3.6.3 Confusion Matrix Analysis of the Proposed Privacy-Preserving Authentication Task",
+      "label": "human",
+      "page_num": 33,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The effectiveness of the proposed privacy-preserving authentication framework is evaluated using a confusion matrix, as illustrated in Fig. 3.8. The confusion matrix provides a detailed view of the classification outcomes by presenting the correctly and incorrectly identified instances for both legitimate and malicious vehicles. Through this analysis, the overall accuracy of the proposed approach is quantitatively assessed. The results demonstrate that the developed authentication scheme achieves a high level of correctness in identifying malicious activities while minimizing false classifications, thereby confirming the reliability and accuracy of the proposed model.",
+      "label": "ai_generated",
+      "page_num": 33,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Figure 3.8: Confusion matrix analysis of the proposed blockchain-based privacy-preserving authentication scheme for Internet of Vehicles 3.6.4 ROC Analysis of the Proposed Privacy-Preserving Authentication Scheme Using",
+      "label": "ai_generated",
+      "page_num": 34,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Different Classifiers",
+      "label": "human",
+      "page_num": 34,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Figure 3.9 presents the Receiver Operating Characteristic (ROC) analysis of the proposed blockchain-based privacy-preserving authentication scheme for the Internet of Vehicles, compared with several existing classification models. The evaluation is performed by examining the trade-off between the true positive rate and the false positive rate. As observed in Figure 3.10, when the false positive rate is fixed at 0.6, the proposed approach outperforms the conventional classifiers by noticeable margins, achieving improvements of 31.6% over the Convolutional Neural Network, 33.3% over the Multi-Layer Perceptron, 35% over the Ridge classifier, and 36.6% over the ensemble-based method. These results clearly indicate that the proposed authentication framework provides superior detection capability and more reliable classification performance compared to existing approaches.",
+      "label": "ai_generated",
+      "page_num": 34,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Figure 3.9: ROC performance comparison of the proposed blockchain-based privacy-preserving authentication scheme with conventional classifiers in Internet of Vehicles 3.6.5 Convergence Analysis of the Proposed OBWO Algorithm Compared with Existing",
+      "label": "ai_generated",
+      "page_num": 35,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Optimization Methods​",
+      "label": "human",
+      "page_num": 35,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The convergence behavior of the proposed Opposition-Based Beluga Whale Optimization (OBWO) algorithm is analyzed and compared with several conventional optimization techniques, as illustrated in Figure 3.10. Convergence performance is evaluated by observing the variation of the objective function across successive iterations. At an iteration count of 30, the proposed OBWO algorithm demonstrates significantly faster and more stable convergence, achieving improvements of 95% over GWO-HANet, 94.6% over EOO-HANet, 95% over LOA-HANet, and 93.6% over the standard BWO-HANet approach. These results confirm that the OBWO algorithm converges more efficiently than the existing optimization methods, making it highly suitable for parameter tuning in privacy-preserving IoV authentication systems.",
+      "label": "ai_generated",
+      "page_num": 35,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ Figure 3.10: Convergence performance comparison of the proposed OBWO algorithm with conventional optimization techniques 3.6.6 Statistical Analysis of the Proposed OBWO Algorithm in Comparison with Conventional Methods Table 3.1 presents the statistical performance evaluation of the proposed Opposition-Based Beluga Whale Optimization (OBWO) algorithm in comparison with several classical optimization approaches. Based on the best performance values reported in Table 3.1, the proposed OBWO method shows notable improvements of 15.3% over GWO-HANet, 23% over EOO-HANet, 19.2% over LOA-HANet, and 21.5% over the conventional BWO-HANet algorithm. These results demonstrate the superior effectiveness and reliability of the proposed OBWO algorithm for optimization tasks within the proposed authentication framework.",
+      "label": "human",
+      "page_num": 36,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Table 3.1: Statistical performance comparison of the proposed OBWO algorithm with conventional optimization techniques",
+      "label": "ai_generated",
+      "page_num": 36,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Terms GWO-HAN et EOO-HANe t LOA-HANe t BWO-HAN et OBWO-HA Net “BEST” 1.553760376 1.617892281 1.55670825 1.582391687 1.36946878 2 “WORST” 5.556646586 2.824728034 4.678367771 1.804862218 2.72312488 3 “MEAN” 1.893152234 1.763864911 2.03874114 1.7365116 1.48299429 2 “MEDIAN ” 1.553760376 1.617892281 2.034938356 1.793239309 1.45642757 “STD” 0.764213907 0.276649554 0.774157555 0.087188846 0.21310309 4",
+      "label": "human",
+      "page_num": 36,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "3.6.7 Performance Evaluation of the Proposed Privacy-Preserving Authentication Scheme over Conventional Algorithms and Classifiers The effectiveness of the proposed blockchain-enabled privacy-preserving authentication scheme for the Internet of Vehicles is assessed by comparing it with several existing optimization algorithms and classification models, as illustrated in Fig. 3.11 and Fig. 3.12. The evaluation is carried out by varying the batch size to analyze the robustness and consistency of the proposed method under different training conditions. When the batch size is set to 32, the proposed authentication framework demonstrates a notable improvement in accuracy compared to conventional approaches. Specifically, the achieved accuracy shows an enhancement of 17.4% over GWO-HANet, 16.7% over EOO-HANet, 18.2% over LOA-HANet, and 17.5% over BWO-HANet. These results clearly indicate that the designed privacy-preserving authentication scheme delivers superior performance and reliability compared to traditional algorithms, validating its suitability for secure and efficient IoV environments.",
+      "label": "ai_generated",
+      "page_num": 37,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "(a) (b) (c) (d)",
+      "label": "human",
+      "page_num": 37,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "(a) (b) (e) (f)",
+      "label": "human",
+      "page_num": 38,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Figure 3.11: Performance comparison of the proposed blockchain-enabled privacy-preserving authentication scheme for IoV with existing algorithms in terms of",
+      "label": "ai_generated",
+      "page_num": 38,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Accuracy, (b) F1-score, (c) Negative Predictive Value (NPV), (d) Precision, (e) Sensitivity, and (f) Specificity",
+      "label": "ai_generated",
+      "page_num": 38,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "(c) (d) (e) (f)",
+      "label": "human",
+      "page_num": 39,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Figure 3.12: Performance evaluation of the proposed blockchain-based privacy-preserving authentication scheme for IoV across different traditional classifiers with respect to (a) Accuracy, (b) F1-score, (c) Negative Predictive Value (NPV), (d) Precision, (e) Sensitivity, and (f) Specificity 6.8 Overall Comparative Evaluation of the Proposed System against",
+      "label": "ai_generated",
+      "page_num": 39,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Conventional Algorithms and Classifiers",
+      "label": "human",
+      "page_num": 39,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Table 3.2 and Table 3.3 present a comprehensive comparative analysis of the proposed blockchain-based privacy-preserving authentication scheme for the Internet of Vehicles in comparison with existing optimization algorithms and classification models. The evaluation focuses on key performance indicators to demonstrate the robustness and effectiveness of the suggested approach. As observed from the comparative results, the proposed scheme shows a noticeable improvement in sensitivity when benchmarked against traditional",
+      "label": "ai_generated",
+      "page_num": 39,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "optimization-based methods. Specifically, the sensitivity performance is improved by 5.6% over GWO-HANet, 7.4% over EOO-HANet, 1.9% over LOA-HANet, and 5.2% over BWO-HANet. These consistent gains confirm that the proposed authentication framework achieves superior detection capability and reliability, thereby ensuring enhanced security and privacy preservation in IoV environments. Table 3.2: Comparative analysis of the proposed blockchain-based privacy-preserving authentication scheme for IoV with conventional optimization algorithms",
+      "label": "ai_generated",
+      "page_num": 40,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Terms GWO-HAN et EOO-HANe t LOA-HANe t BWO-HAN et OBWO-HA Net “Accuracy” 88.52 86.52 91.96 88.96 93.8 “Sensitivity ” 88.40809845 86.74077015 91.94124653 88.80508138 93.767368 “Specificity ” 88.63361548 86.29584845 91.97904071 89.11729141 93.8331318 “Precision “ 88.76046234 86.53465347 92.08747515 89.23015556 93.9165009 9 “FPR “ 11.36638452 13.70415155 8.020959291 10.88270859 6.16686819 8 “FNR” 11.59190155 13.25922985 8.058753474 11.19491862 6.23263199 7 “NPV” 88.27780008 86.50505051 91.83098592 88.68832732 93.6820925 6 “FDR” 11.23953766 13.46534653 7.912524851 10.76984444 6.08349900 6 “F1-Score” 88.58392999 86.63758921 92.01430274 89.01711102 93.8418752 5 “MCC” 0.770399882 0.730381613 0.839193741 0.779204278 0.87599546 7 Table 3.3: Comparative performance analysis of the proposed blockchain-based privacy-preserving authentication scheme for IoV against conventional classification models Terms CNN MLP Ridge-classi fier Ensemble OBWO-HA Net “Accuracy” 86.1 89.72 88.16 91.6 93.8 “Sensitivity ” 85.9468042 9 89.7578404 1 88.24930528 91.62366018 93.767368 “Specificity “ 86.2555421 2 89.6815800 1 88.06932688 91.57597743 93.8331318",
+      "label": "human",
+      "page_num": 40,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "“Precision“ 86.3926576 2 89.8291617 88.24930528 91.69646404 93.91650099 “FPR “ 13.7444578 8 10.3184199 9 11.93067312 8.424022572 6.166868198 “FNR” 14.0531957 1 10.2421595 9 11.75069472 8.376339817 6.232631997 “NPV” 85.8059342 4 89.6093435 4 88.06932688 91.50221506 93.68209256 “FDR” 13.6073423 8 10.1708383 11.75069472 8.303535956 6.083499006 “F1-Score” 86.1691542 3 89.7934868 9 88.24930528 91.66004766 93.84187525 “MCC” 0.72200469 1 0.79438962 8 0.763186322 0.831991584 0.875995467 3.6.9 Throughput analysis of the proposed blockchain-based privacy-preserving authentication scheme for IoV Figure 3.13 illustrates the throughput performance of the proposed privacy-preserving authentication scheme for IoV in comparison with existing blockchain-based approaches.",
+      "label": "human",
+      "page_num": 41,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The evaluation is carried out by analyzing the amount of successfully processed authentication transactions over time. At an execution time of 20 seconds for the RSU scenario, the proposed scheme demonstrates a notable improvement in throughput compared to BRCA, batch-based authentication, consortium blockchain, and conventional smart contract approaches. This improvement indicates that the proposed framework is capable of handling a higher volume of authenticated communications within the same time duration. The results confirm that integrating smart contracts with an efficient authentication mechanism significantly enhances data processing efficiency, making the proposed solution more suitable for real-time and large-scale IoV environments.",
+      "label": "ai_generated",
+      "page_num": 41,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Figure 3.13: Throughput performance comparison of the proposed blockchain-enabled privacy-preserving authentication scheme for IoV under (a) RSU-level communication and (b) vehicle-level communication 3.6.10 Security level evaluation of the proposed blockchain-based privacy-preserving authentication scheme for IoV The security robustness of the proposed privacy-preserving authentication scheme for IoV using blockchain technology is analyzed and compared with existing approaches, as illustrated in Figure 3.14. The assessment is carried out by examining the security level with respect to increasing blockchain length. As the blockchain size grows, the proposed scheme consistently demonstrates superior security performance compared to BRCA, batch-based authentication, consortium blockchain, and conventional smart contract mechanisms. When the blockchain length reaches 4000, the proposed approach achieves a security improvement of 99.95%, 99.93%, 99.98%, and 99.985% over the respective benchmark methods. These results clearly indicate that the proposed framework offers strong resistance against security threats while ensuring enhanced privacy protection for vehicular communications in IoV networks.",
+      "label": "ai_generated",
+      "page_num": 42,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Figure 3.14: Security performance analysis of the proposed blockchain-enabled privacy-preserving authentication scheme for IoV 6.11 Operating Time Analysis of the Proposed Privacy-Preserving Authentication",
+      "label": "ai_generated",
+      "page_num": 43,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The operating time performance of the proposed privacy-preserving authentication scheme for IoV using blockchain technology is evaluated and compared with existing approaches, as illustrated in Fig. 3.15. In this analysis, vehicle density is considered a key factor to measure the execution efficiency of the authentication process. When the number of vehicles reaches 100, the proposed scheme demonstrates a significant reduction in operating time compared to conventional methods. Specifically, the execution time is reduced by 99.2% compared to BRCA, 99.17% compared to batch-based authentication, 99.26% compared to consortium blockchain, and 99.3% compared to smart contract-based approaches. These results clearly indicate that the proposed authentication framework achieves superior computational efficiency and is highly suitable for large-scale and dense IoV environments.",
+      "label": "ai_generated",
+      "page_num": 43,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Figure 3.15: Operating Time Comparison of the Proposed Blockchain-Enabled Privacy-Preserving Authentication Scheme for IoV",
+      "label": "human",
+      "page_num": 44,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "3.6.12 Comparative Analysis of the Proposed Model with Recent Classifiers A comparative evaluation is carried out to assess the effectiveness of the proposed privacy-preserving authentication model against recent deep learning–based classifiers, and the results are summarized in Table 3.4. The comparison highlights the accuracy achieved by each method, where the developed framework attains a superior accuracy of 93%. This improvement demonstrates the ability of the proposed model to authenticate IoV entities more reliably while preserving privacy. The consistent performance gain indicates that the developed approach offers a more robust and efficient authentication mechanism compared to existing classifiers, making it suitable for secure IoV environments.",
+      "label": "ai_generated",
+      "page_num": 44,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Table 3.4: Comparative Performance Evaluation of the Proposed Privacy-Preserving Authentication Model Terms BRCA Federated Learning MDP OBWO-HANe t Accuracy 81.94 82.94 83.88 93.8 Sensitivit y 81.61 83.07 84.10 93.76 Specificit y 82.28 82.80 83.63 93.83 Precision 83.02 83.68 84.51 93.91 FPR 17.72 17.20 16.37 6.16 FNR 18.39 16.93 15.90 6.23 NPV 80.82 82.16 83.21 93.68 FDR 16.98 16.32 15.49 6.08 F1-Score 82.31 83.37 84.31 93.84 MCC 63.87 65.85 67.73 87.59",
+      "label": "human",
+      "page_num": 44,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "3.6.13 Statistical Analysis of the Developed Framework",
+      "label": "human",
+      "page_num": 45,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The statistical evaluation of the proposed privacy-preserving authentication framework is presented in Table 3.5 to validate its effectiveness and reliability. A significance threshold of 0.005 is adopted during the experimental assessment to ensure rigorous validation of the obtained results and to confirm that the observed performance improvements are statistically meaningful. Table 3.5: Statistical performance evaluation of the proposed privacy-preserving authentication framework",
+      "label": "ai_generated",
+      "page_num": 45,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Comparison Statisti c Adjusted p-value Result GWO-HANet [39]vs OBWO-HANet 1.78885 0.73638 H0 is accepted LOA-HANet [41]vs GWO-HANet [39] 1.34164 1 H0 is accepted EOO-HANet [40]vs OBWO-HANet 1.34164 1 H0 is accepted LOA-HANet [41]vs EOO-HANet [40] 0.89443 1 H0 is accepted GWO-HANet [39]vs BWO-HANet [35] 0.89443 1 H0 is accepted OBWO-HANet vs BWO-HANet [35] 0.89443 1 H0 is accepted LOA-HANet [41]vs OBWO-HANet 0.44721 1 H0 is accepted EOO-HANet [40]vs GWO-HANet [39] 0.44721 1 H0 is accepted EOO-HANet [40]vs BWO-HANet [35] 0.44721 1 H0 is accepted LOA-HANet [41]vs BWO-HANet [35] 0.44721 1 H0 is accepted 3.6.14 Comparison of the Proposed Model with Existing Authentication and Privacy-Preserving Schemes",
+      "label": "human",
+      "page_num": 45,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "This section presents a comparative evaluation of the proposed privacy-preserving authentication framework against several state-of-the-art authentication and privacy protection approaches, as summarized in Table 3.6 and Table 3.7. Existing methods include mutual authentication protocols and user-centric privacy-preserving authentication schemes designed primarily for IoT environments, as well as privacy-preserving mutual authentication mechanisms developed for Vehicular Ad hoc",
+      "label": "ai_generated",
+      "page_num": 45,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Networks (VANETs). In addition, pseudonym-based techniques and public key cryptography approaches are commonly employed to safeguard user privacy in vehicular networks, while learner-centered privacy preservation models have been explored in IoT-based systems. Although these approaches provide varying levels of security and privacy, they often suffer from limitations such as high computational overhead, centralized trust dependency, or limited adaptability to highly dynamic IoV environments. In contrast, the proposed model integrates blockchain, smart contracts, and intelligent learning mechanisms to jointly enhance authentication strength and privacy protection. The comparative results demonstrate that the proposed framework consistently outperforms existing schemes in terms of authentication reliability, privacy preservation, and resistance to unauthorized access. Consequently, the developed model is well-suited for securing IoV networks and mitigating a wide range of cyber and privacy-related attacks in intelligent transportation systems.",
+      "label": "ai_generated",
+      "page_num": 46,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Table 3.6: Comparative Evaluation of the Proposed Framework with Existing State-of-the-Art Privacy-Preserving Approaches Terms Mutual authenticatio n protocol [47] User-centric privacy-prese rving authenticatio n protocol [48] Privacy-prese rving mutual authenticatio n scheme [49] OBWO- HANet Accuracy 85.36842 86.52632 88.68421 90.3684 2 Sensitivit y 85.47544 86.2069 88.50575 90.5956 1 Specificit y 85.25981 86.85048 88.86532 90.1378 6 Precision 85.47544 86.93361 88.97059 90.3125 FPR 14.74019 13.14952 11.13468 9.86214 2 FNR 14.52456 13.7931 11.49425 9.40438 9 NPV 85.25981 86.11987 88.39662 90.4255 3 FDR 14.52456 13.06639 11.02941 9.6875 F1-Score 85.47544 86.56873 88.73756 90.4538 3",
+      "label": "human",
+      "page_num": 46,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "MCC 0.707353 0.730554 0.773691 0.80735 8",
+      "label": "human",
+      "page_num": 47,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Table 3.7: Performance Comparison of the Proposed Authentication Framework with",
+      "label": "ai_generated",
+      "page_num": 47,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Existing Privacy-Preservation Techniques Security level report Terms Pseudonym -based approach [50] Learner- centered approac h [51] Public key cryptograph y [52] OBWO- HANet 1000 0.417177 0.469534 0.553197 0.80933 9 2000 0.458484 0.489177 0.57873 0.84583 6 3000 0.466745 0.453304 0.598922 0.86638 2 4000 0.475007 0.462786 0.566437 0.88541 5 5000 0.466745 0.435301 0.584816 0.83890 3 6000 0.417177 0.468259 0.612526 0.85284 3 7000 0.483268 0.46837 0.618205 0.86832 8 8000 0.491529 0.447467 0.607547 0.84211 5 9000 0.458484 0.469386 0.587673 0.83783 6 10000 0.466745 0.480673 0.568069 0.85152 4",
+      "label": "human",
+      "page_num": 47,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "3.6.15 ANOVA and Wilcoxon Signed-Rank Test Analysis",
+      "label": "human",
+      "page_num": 48,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The statistical significance of the proposed model is evaluated using ANOVA and Wilcoxon signed-rank tests, as presented in Table 3.8. The ANOVA test is applied to examine the differences in authentication accuracy and privacy preservation performance between the proposed framework and existing methods. In addition, the Wilcoxon signed-rank test is employed to assess pairwise performance variations between the proposed approach and conventional algorithms. The outcomes of both tests indicate statistically significant improvements achieved by the proposed model, thereby validating its robustness and superior effectiveness in authentication and privacy protection for IoV environments. Table 3.8: Statistical significance evaluation of the proposed authentication and privacy-preserving model",
+      "label": "ai_generated",
+      "page_num": 48,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Test GWO- HANet [39] EOO- HANet [40] LOA- HANet [41] BWO- HANet [35] OBWO- HANet ANOVA 0.902 0.704 1.209 2.13 2.9801 Wilcoxo n 0.509 0.64 1.902 1.2 2.1942 3.7 Summary​ This chapter presented the",
+      "label": "human",
+      "page_num": 48,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "proposed blockchain-based privacy-preserving authentication model for the Internet of Vehicles, which integrates smart contracts with a Hybrid Adaptive Network optimized using the Opposition Beluga Whale Optimization algorithm. The model effectively ensures secure, decentralized authentication and accurate detection of malicious activities while reducing computational overhead. Although the proposed model demonstrates strong performance, certain challenges related to scalability and advanced security handling remain. To overcome these issues, the next chapter introduces an enhanced model that further improves authentication efficiency, robustness, and privacy preservation in dynamic IoV environments.",
+      "label": "ai_generated",
+      "page_num": 48,
+      "source": "direct_pdf"
+    }
+  ],
+  "stats": {
+    "ai_generated_segments": 87,
+    "ai_paraphrased_segments": 1,
+    "human_segments": 62,
+    "ocr_pages": 0,
+    "total_chars_ai": 52800,
+    "total_chars_paraphrased": 147,
+    "total_chars_human": 13540
+  },
+  "errors": []
+}

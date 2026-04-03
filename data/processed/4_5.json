@@ -1,0 +1,752 @@
+{
+  "file_name": "4_5.pdf",
+  "file_path": "c:\\Users\\gowth\\Downloads\\ai_plag_detector\\data\\raw_data\\raw_data\\4_5.pdf",
+  "submission_date": "2025-12-11",
+  "priority": "LOW",
+  "total_pages": 23,
+  "ai_percentage_reported": 94,
+  "segments": [
+    {
+      "text": "A Continuous-Time Causal Graph Learning Framework for Predicting and Mitigating Cascading Failures in Global Supply Chains Abstract-Global supply chains face increasing exposure to rapidly propagating disruptions triggered by geopolitical conflicts, climate-related shocks, and operational instabilities. Existing predictive approaches, including recent causal graph neural networks, remain limited by static causal structures, discrete-time reasoning, and post-hoc counterfactual analysis. These constraints reduce their ability to anticipate high-velocity cascade effects and to recommend proactive, cost-effective interventions. This work introduces CT-SCaLE, a novel Continuous-Time Structural Causal Learning Engine that unifies Neural ODE-based temporal dynamics, end-to-end differentiable causal structure learning, and counterfactual contrastive representation learning into a single predictive and decision-support architecture. CT-SCaLE learns both the evolving causal topology and the temporal propagation dynamics of disruptions, allowing the model to capture time-varying influences, multi-tier propagation patterns, and realistic feedback loops that traditional DAG-based causal GNNs cannot represent. Evaluations on SupplyGraph and Time-Series Risk datasets show that CT-SCaLE improves disruption prediction accuracy by up to 14.7%, increases early-warning lead time by 22%, and reduces simulated cascade size under optimized interventions by 31.4%, significantly outperforming state-of-the-art baselines.",
+      "label": "human",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "A key contribution is an embedded model-based intervention planner that performs multi-step counterfactual simulations to identify the minimum-cost actions capable of suppressing or redirecting cascading failures. This addresses a critical unmet need: not only forecasting disruptions, but recommending actionable mitigation strategies backed by causal reasoning. By integrating prediction, explanation, and intervention optimization into a continuous-time causal framework, CT-SCaLE establishes a new direction for supply chain analytics, enabling more resilient and adaptive global operations.",
+      "label": "ai_generated",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Keywords-Causal Graph Neural Networks, Supply Chain Resilience, Neural ODEs, Causal Discovery, Counterfactual Learning, Cascading Failures, Intervention Optimization, Graph Machine Learning, Risk Prediction, Continuous-Time Modeling I Introduction",
+      "label": "human",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Global supply chains have evolved into tightly interconnected, multi-tier networks in which localized disruptions can rapidly escalate into systemic failures. Recent years have shown that cascading failures are no longer rare, slow-moving anomalies, but high-velocity phenomena driven by geopolitical tensions, extreme climate events, pandemics, and infrastructure shocks. Trade restrictions, port closures, energy shortages, and regional conflicts now propagate across borders within days rather than months, overwhelming traditional risk buffers and recovery mechanisms [1], [2]. Empirical studies of global shipping, commodity trade, and critical materials supply chains demonstrate that disruptions often trigger nonlinear ripple effects, amplifying losses far beyond the initially affected nodes [3]–[5]. While organizations increasingly invest in resilience strategies, most responses remain reactive in nature, activating only after disruptions are observed, rather than",
+      "label": "ai_generated",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "proactively suppressing failure cascades before they materialize [6], [7]. This growing mismatch between disruption speed and decision latency highlights an urgent need for predictive frameworks that can anticipate cascading failures early and guide timely intervention. A substantial body of research has applied machine learning and network analytics to supply chain risk prediction, leveraging graph-based representations to model inter-firm dependencies and disruption propagation [8]–[10]. However, most graph machine learning approaches remain fundamentally correlation-driven, learning statistical associations rather than causal mechanisms governing failure transmission. Even recent advances in causal graph neural networks typically rely on static directed acyclic graphs, implicitly assuming that causal relationships are time-invariant and acyclic [17], [18]. Such assumptions are misaligned with real supply chains, where causal influence strengths evolve over time, feedback loops are common, and disruption pathways change dynamically in response to interventions. Discrete-time modeling further limits responsiveness by aggregating events into coarse temporal windows, causing early-stage cascades to be missed or detected too late [11], [12]. Moreover, counterfactual reasoning in existing models is often applied post hoc—used to explain predictions after the fact—rather than being integrated into an optimization framework that actively identifies and evaluates preventive interventions under cost and timing constraints [15], [16]. As a result, prevailing methods struggle to support real-time, decision-oriented mitigation of cascading failures. To address these limitations, this paper introduces CT-SCaLE, a Continuous-Time Structural Causal Learning Engine for predicting and mitigating cascading failures in global supply chains. Unlike prior approaches, CT-SCaLE jointly learns both the evolving causal topology of supply chain networks and the continuous-time dynamics governing disruption propagation. The framework leverages Neural Ordinary Differential Equations to model high-frequency temporal evolution, enabling the representation of time-varying causal influence, delayed effects, and feedback-driven escalation. Causal structure learning is embedded end-to-end, allowing the model to adapt its causal graph as network conditions change. Crucially, CT-SCaLE is intervention-aware: counterfactual reasoning is integrated directly into the learning and decision pipeline, enabling the simulation and evaluation of proactive mitigation strategies rather than retrospective explanations. By unifying prediction, causality, and intervention planning within a continuous-time framework, CT-SCaLE is designed to meet the operational demands of modern, disruption-prone supply chains. The contributions of this work are summarized as follows: ●​ Continuous-time causal topology learning: We propose a dynamic causal learning mechanism that captures time-varying influence strengths and feedback loops beyond static DAG representations. ●​ Unified cascade prediction and intervention modeling: CT-SCaLE integrates disruption forecasting with multi-step intervention simulation in a single differentiable architecture.",
+      "label": "ai_generated",
+      "page_num": 4,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "●​ Counterfactual contrastive representation learning: The model learns representations that are explicitly sensitive to intervention outcomes, improving robustness under hypothetical scenarios. ●​ Cost-aware cascading failure mitigation: An embedded intervention planner identifies minimum-cost actions capable of suppressing or redirecting disruption cascades before large-scale propagation occurs. Together, these contributions advance supply chain analytics from passive risk prediction toward continuous-time, causality-driven control of cascading failures, addressing a critical gap in current resilience methodologies.",
+      "label": "ai_generated",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "II Literature Review 2.1 Cascading Failures and Systemic Risk in Supply Chains",
+      "label": "human",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Global supply chains exhibit strong interdependencies that make them inherently vulnerable to cascading failures, where localized disruptions propagate across tiers and regions. Early system-focused studies highlight how national emergencies—including pandemics, climate disasters, cyber incidents, and geopolitical conflicts—can simultaneously impact multiple supply chain layers, leading to severe shortages and logistical bottlenecks (Khan et al., 2022) [1]. These systemic risks are amplified as firms increasingly adopt outsourcing and lean operating models, enhancing efficiency at the expense of robustness. Yang et al. (2021) [2] formally analyzed this phenomenon by modeling underload-driven cascading failures, demonstrating that demand shocks can trigger disproportionate system-wide collapse, even when recovery mechanisms such as safety stock and backup suppliers are in place. Network-based cascading failure models have since been applied to large-scale physical and trade networks. Xu et al. (2024) [3] investigated port-level disruptions in the Global Container Shipping Network, showing that single-node failures can induce widespread traffic redistribution and overload effects across marine logistics systems. Similar cascading dynamics have been observed beyond logistics, including in resource and waste trade systems. Li et al. (2021) [5] analyzed the collapse of the global plastic waste trade, revealing that capacity overloads propagate through international trade networks unless coordinated mitigation strategies are adopted. These studies collectively confirm that cascading failures are nonlocal, nonlinear, and strongly dependent on network structure—yet they largely rely on static simulations rather than predictive learning.",
+      "label": "ai_generated",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "2.2 Ripple Effect Analysis and Recovery-Focused Strategies",
+      "label": "human",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Complementary research has explored the ripple effect by simulating how disruptions spread through multi-echelon supply chains and evaluating post-disruption recovery tactics. KEk et al. (2022) [4] used discrete-event simulation to examine disruption propagation in the copper industry, identifying insufficient safety stock and limited sourcing flexibility as primary amplification factors. Manupati et al. (2022) [6] further examined recovery strategies in complex supply chain networks, integrating blockchain-enabled smart contracts and genetic-algorithm optimization to evaluate both pre- and post-disruption decision-making. While these approaches provide valuable managerial insights, they primarily focus on",
+      "label": "ai_generated",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "response optimization after disruptions occur, rather than anticipating and suppressing cascades during their early evolution. From an organizational and managerial perspective, Park and Singh (2023) [7] emphasized the importance of risk alert tools enabled by big data analytics, showing empirically that robust IT and analytics capabilities significantly enhance firms’ ability to predict risks. However, such alert tools typically operate as early-signal detectors and do not explicitly model how risks propagate across interconnected supply networks. Similarly, resilience reviews across industries—including automotive, pharmaceuticals, shipping, and semiconductors—stress the need for proactive and adaptive mitigation strategies, yet stop short of offering integrated causal-dynamic prediction frameworks (Maheshwari & Jaggi, 2024 [10]; Xiong et al., 2025 [11]).",
+      "label": "ai_generated",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "2.3 Data-Driven Risk Prediction and Digital Supply Chain Surveillance",
+      "label": "human",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "With the growing availability of heterogeneous digital data, machine learning and artificial intelligence have become central to supply chain risk analytics. Brintrup et al. (2024) [12] introduced the concept of Digital Supply Chain Surveillance, highlighting how AI can uncover hidden dependencies and improve visibility across opaque supplier networks. Related work has leveraged IoT data and deep learning to predict logistics failures under natural hazards, achieving high predictive accuracy but relying largely on black-box sequence models (Alzahrani & Asghar, 2023 [13]). Fraud detection studies further illustrate the effectiveness of ML in identifying anomalous transactions and operational irregularities, though they emphasize correlation-based detection rather than causal intervention planning (Lokanan & Maddhesia, 2025 [8]). System-level modeling approaches have also been developed to assess infrastructure-supply chain interdependencies. Oliver et al. (2022) [15] combined model-based systems engineering with discrete-event simulation to evaluate how infrastructure disruptions affect critical supply chains. Analogous cascading failure studies in power and smart grid networks demonstrate that accounting for heterogeneous component roles and interdependencies improves failure prediction accuracy (Salehpour et al., 2022 [16]; Ghasemi et al., 2023 [20]). Despite methodological advances, these frameworks remain domain-specific and lack generalizable learning mechanisms for evolving causal structures.",
+      "label": "ai_generated",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "2.4 Graph Neural Networks and Network-Aware Prediction Models",
+      "label": "human",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Graph-based learning has emerged as a powerful paradigm for modeling inter-firm dependencies and disruption propagation. Yang et al. (2024) [18] applied graph neural networks (GNNs) to predict post-hazard firm-level sales changes, demonstrating that incorporating inter-firm relations significantly improves predictive performance over non-network baselines. Kosasih and Brintrup (2022) [19] further extended GNNs with neurosymbolic reasoning to uncover hidden supply chain relationships, enhancing structural visibility. These methods confirm the value of relational learning but are primarily designed for static or discrete-time analysis and do not explicitly model causal dynamics.",
+      "label": "ai_generated",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Recent studies increasingly recognize that predictive accuracy alone is insufficient for effective risk mitigation. Wyrembek et al. (2025) [17] argued that causal machine learning is essential for intervention planning, enabling decision-makers to evaluate “what-if” scenarios under different managerial actions. However, existing causal GNN approaches typically employ fixed or slowly changing causal graphs, assume acyclic relationships, and conduct counterfactual analysis as a post-processing step rather than integrating it into dynamic decision optimization.",
+      "label": "ai_generated",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "2.5 Research Gap and Motivation",
+      "label": "human",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Across the literature, three limitations persist. First, cascading failure studies rely heavily on static simulation models that lack predictive and adaptive capabilities. Second, machine learning and GNN-based methods largely capture correlations or static network effects, struggling with time-varying causality and feedback loops. Third, causal and counterfactual approaches remain detached from real-time intervention optimization, limiting their utility for proactive cascade suppression. These gaps motivate the development of a continuous-time, causality-driven learning framework that can jointly predict disruption propagation and optimize mitigation actions—forming the foundation of the proposed CT-SCaLE model.",
+      "label": "ai_generated",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "III Problem Formulation",
+      "label": "human",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "We model a global supply chain as a dynamic, causally interacting system evolving in continuous time. The objective is to predict the onset and propagation of cascading disruptions and to identify optimal interventions that mitigate their impact under resource and cost constraints.",
+      "label": "ai_generated",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "3.1 Dynamic Supply Chain Representation Let, ​ ​ ​ ​ ​ (1) 𝐺𝑡 ( ) = 𝑉, 𝐸𝑡 ( ) ( )",
+      "label": "human",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "denote a time-dependent directed graph representing the supply chain at continuous time . 𝑡ϵ𝑅 + ●​ is the set of supply chain entities, including suppliers, manufacturers, 𝑉= 1,..., 𝑁 { } logistics nodes, and distributors. ●​ represents directed operational dependencies that may evolve over 𝐸𝑡 ( ) ⊆𝑉× 𝑉 time due to sourcing changes, capacity shifts, or policy interventions. Unlike static network formulations, the structure is not assumed fixed and may change 𝐸𝑡 ( ) as the system responds to disruptions and managerial actions.",
+      "label": "ai_generated",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "3.2 Node State Dynamics Each node is associated with a continuous-valued state vector 𝑖ϵ𝑉 ​ ​ ​ ​ ​ ​ (2) 𝑥𝑖𝑡 ( )ϵ𝑅 𝑑",
+      "label": "human",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "which captures the operational condition of the entity at time . 𝑡",
+      "label": "ai_generated",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The state vector may include, but is not limited to, latent representations of capacity utilization, inventory stress, delay accumulation, financial strain, and exposure to external shocks.",
+      "label": "ai_generated",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The full system state is defined as in Eq.3: ​ ​ ​ ​ (3) 𝑋𝑡 ( ) = 𝑥1 𝑡 ( ), 𝑥2 𝑡 ( ),..., 𝑥𝑁𝑡 ( ) { }",
+      "label": "human",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "State transitions are governed by causal interactions between nodes and are not assumed to follow discrete update intervals.",
+      "label": "ai_generated",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "3.3 Time-Varying Causal Structure",
+      "label": "human",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "We define a continuous-time causal adjacency matrix",
+      "label": "ai_generated",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": ",​ ​ ​ ​ ​ (4)",
+      "label": "human",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "𝐴𝑡 ( )ϵ𝑅 𝑁×𝑁 In Eq.4, where each entry quantifies the instantaneous causal influence of node on 𝐴𝑖𝑗𝑡 ( ) 𝑗 node at time . 𝑖 𝑡 Key properties of : 𝐴𝑡 ( )",
+      "label": "ai_generated",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Entries are real-valued and direction-specific.",
+      "label": "ai_generated",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The matrix is not restricted to acyclic structure, allowing feedback loops and recurrent causal effects.",
+      "label": "ai_generated",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Causal strengths may increase, weaken, or vanish over time as system conditions evolve. The matrix encodes how disruptions propagate rather than merely where connections 𝐴𝑡 ( ) exist.",
+      "label": "ai_generated",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "3.4 Disruption State Variable",
+      "label": "human",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "To explicitly model cascading failures, we define a disruption intensity variable",
+      "label": "ai_generated",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ ​ ​ ​ ​ ​ (5)",
+      "label": "human",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "𝑧𝑖𝑡 ( )ϵ 0, 1 [ ] for each node , where higher values indicate greater disruption severity. 𝑖 The vector,",
+      "label": "ai_generated",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ ​ ​ ​ ​ (6)",
+      "label": "human",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "𝑍(𝑡) = 𝑧1 𝑡 ( ),.., 𝑧𝑁𝑡 ( ) { } represents the global disruption configuration of the supply chain at time . 𝑡 Disruption intensities are not binary events; they evolve continuously, reflecting early stress accumulation, partial failure, and recovery phases.",
+      "label": "ai_generated",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "3.5 Intervention Modeling",
+      "label": "human",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Managerial actions are represented through intervention variables expressed using a continuous-time do-operator.",
+      "label": "ai_generated",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Let, ​ ​ ​ ​ ​ ​ (7) 𝑑𝑜𝑢, 𝑡 ( )",
+      "label": "human",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Eq.7, denote an intervention applied at time , where specifies the intervention action. 𝑡 𝑢ϵ𝑅 𝑘",
+      "label": "ai_generated",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Typical interventions may include:",
+      "label": "ai_generated",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "●​ Increasing buffer capacity, ●​ Activating backup suppliers, ●​ Rerouting logistics flows, ●​",
+      "label": "human",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Financial or contractual support. An intervention modifies the system dynamics by directly altering selected node states or causal influences while preserving upstream conditions outside the intervention scope.",
+      "label": "ai_generated",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Formally, interventions act by constraining a subset of state variables or causal parameters: ​ or​ ​ ​ ​ (8) 𝑥𝑖𝑡 ( ) ←𝑥𝑖𝑡; 𝑢 ( ) 𝐴𝑖𝑗𝑡 ( ) ←𝐴𝑖𝑗𝑡; 𝑢 ( )",
+      "label": "human",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "with all other variables evolving according to the original causal mechanisms.",
+      "label": "ai_generated",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "3.6 Learning Objective",
+      "label": "human",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The learning objective is to jointly infer the latent causal dynamics governing the continuous-time evolution of the system state and disruption intensity , along with 𝑋𝑡 ( ) 𝑍𝑡 ( ) the time-varying causal structure . In addition, the model seeks to estimate counterfactual 𝐴𝑡 ( ) system trajectories under targeted interventions . The optimization objective balances 𝑑𝑜𝑢, 𝑡 ( ) accurate prediction of future disruptions with the suppression of cascading failure magnitude. Simultaneously, intervention costs are constrained to ensure feasibility, forming the basis for integrated prediction, explanation, and mitigation within the CT-SCaLE framework.",
+      "label": "ai_generated",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "IV CT-SCaLE Architecture 4.1 Continuous-Time Causal Dynamics",
+      "label": "human",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "CT-SCaLE models disruption propagation as a continuous-time causal process to overcome the limitations of discrete snapshot-based prediction. In real supply chains, disruptions evolve asynchronously, with causal effects accumulating and interacting over short timescales that are often missed by discrete-time models. To capture these dynamics, the evolution of each node state is modeled using Neural Ordinary Differential Equations (Neural ODEs).",
+      "label": "ai_generated",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Formally, the system dynamics are defined as in Eq.8: ​ ​ ​ ​ (8) 𝑑𝑥𝑖𝑡 ( ) 𝑑𝑡 = 𝑓θ 𝑥𝑖𝑡 ( ), 𝑗≠𝑖 ∑𝐴𝑖𝑗𝑡 ( ) · 𝑥𝑗𝑡 ( ), 𝑧𝑖𝑡 ( ) ( ) In Eq.8, is a learnable parametric function and represents time-dependent causal 𝑓θ ·( ) 𝐴𝑖𝑗𝑡 ( ) influence.",
+      "label": "human",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Unlike discrete update rules, this formulation allows disruptions to propagate continuously and enables precise modeling of early-stage stress accumulation. The causal adjacency is jointly learned with the state dynamics, allowing influence 𝐴𝑡 ( ) strengths to vary over time in response to environmental changes and interventions. Importantly, causal feedback loops are explicitly permitted, capturing reinforcement effects such as upstream shortages amplifying downstream congestion, which in turn further stresses upstream suppliers. By not enforcing a directed acyclic structure, CT-SCaLE accommodates recurrent causality that frequently arises in operational networks. This continuous-time",
+      "label": "ai_generated",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "formulation avoids temporal aliasing and delayed detection inherent to discrete snapshot methods, enabling earlier and more reliable cascade prediction.",
+      "label": "ai_generated",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Algorithm 1 Continuous-Time Causal Dynamics Learning (CT-SCaLE ODE Module) Input: supply chain graph , node states , initial causal matrix 𝐺(𝑡) 𝑋(𝑡) 𝐴(0) Initialize: ODE parameters , causal parameters , hidden state θ Φ 𝑍(0) For each node in : 𝑖 𝐺(𝑡) ← encode ▷ initial embedding 𝑧𝑖0 ( ) 𝑥𝑖0 ( ) [ ] For to : ▷ continuous-time evolution 𝑡 = 1 𝑇 ← ▷ time-varying causal structure 𝐴(𝑡) 𝑠𝑜𝑓𝑡−𝑐𝑎𝑢𝑠𝑎𝑙−𝑙𝑒𝑎𝑟𝑛𝑒𝑟(𝑍(𝑡), Φ) ← ▷ compute dz/dt 𝑓θ 𝑛𝑒𝑢𝑟𝑎𝑙𝑂𝐷𝐸(𝑍(𝑡), 𝐴(𝑡)) ▷ ODE solver (adjoint method) 𝑍(𝑡+ Δ𝑡) ← 𝑍(𝑡) ∫ 𝑓θ + 𝑑𝑡 ← decode ▷ predicted disruption states 𝑋̂(𝑡) (𝑍(𝑡)) Return: predicted states , causal matrices 𝑋𝑡 ( ) 𝐴(𝑡) 4.2 Differentiable Causal Structure Learning",
+      "label": "human",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Rather than assuming a fixed or manually specified causal topology, CT-SCaLE learns causal structure end-to-end through differentiable optimization. Each potential causal edge is represented by a soft weight,",
+      "label": "ai_generated",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ ​ ​ ​ ​ ​ (9)",
+      "label": "human",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "𝐴𝑖𝑗𝑡 ( )ϵ𝑅 which encodes both the existence and strength of causal influence. Soft causal edges allow the model to express uncertain, partial, or context-dependent causality, avoiding brittle binary graph assumptions common in causal GNNs. To prevent over-dense causal graphs, sparsity is encouraged through regularization, expressed as in Eq.10:",
+      "label": "ai_generated",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ ​ ​ ​ (10)",
+      "label": "human",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "𝐿𝑠𝑝𝑎𝑟𝑠𝑒= λΣ𝑖≠𝑗𝐴𝑖𝑗𝑡 ( ) | | which promotes parsimonious causal explanations while retaining flexibility. Unlike classic causal discovery approaches that enforce strict acyclicity constraints, CT-SCaLE relaxes this requirement, permitting cyclic causal structures where operational feedback is unavoidable. This relaxation represents a fundamental departure from DAG-based causal GNNs, enabling the model to represent dynamic reciprocal dependencies without sacrificing differentiability or stability during training.",
+      "label": "ai_generated",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "4.3 Counterfactual Contrastive Learning",
+      "label": "human",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "CT-SCaLE incorporates counterfactual reasoning directly into representation learning to improve decision robustness. Instead of generating counterfactuals solely for post-hoc explanation, the model is trained to contrast factual system trajectories with counterfactual trajectories induced by hypothetical interventions. Given an observed trajectory , a 𝑋𝑡 ( ) counterfactual trajectory is generated by applying an intervention 𝑋𝑡; 𝑑𝑜𝑢, 𝑡 ( ) ( ) 𝑑𝑜𝑢, 𝑡 ( ) within the causal dynamics. A contrastive objective encourages the model to learn representations that are sensitive to intervention effects:",
+      "label": "ai_generated",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ ​ ​ ​ (11)",
+      "label": "human",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "𝐿𝑐𝑓= ϕ 𝑋𝑡 ( ) ( ) −ϕ 𝑋𝑡 ( ) ( ) | | | |2 In Eq.11, denotes a latent representation function. By learning how interventions alter ϕ ·( ) future outcomes, CT-SCaLE develops internal representations that differentiate controllable and uncontrollable disruption drivers. This mechanism improves the model’s ability to rank intervention strategies and reduces reliance on spurious correlations, supporting more stable decision-making under uncertainty.",
+      "label": "ai_generated",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "4.4 Model-Based Intervention Planner",
+      "label": "human",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Beyond prediction, CT-SCaLE includes an embedded intervention planner that optimizes mitigation strategies through multi-step counterfactual simulation. Using the learned continuous-time causal dynamics, the planner rolls out future trajectories under candidate interventions over a planning horizon : 𝑇",
+      "label": "ai_generated",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "𝑍𝑡:𝑡+𝑇𝑢 ( ) = 𝑆𝑖𝑚𝑢𝑙𝑎𝑡𝑒𝑋𝑡 ( ), 𝐴𝑡 ( ), 𝑑𝑜𝑢, 𝑡 ( ) ( ) The intervention selection problem is formulated as a constrained optimization:",
+      "label": "ai_generated",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ ​ ​ ​ (13)",
+      "label": "human",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "∫𝑧𝑖τ ( )𝑑τ",
+      "label": "human",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "In Eq.13, denotes the intervention cost and the objective penalizes cumulative cascade 𝐶𝑢 ( ) severity. This formulation enables CT-SCaLE to identify not only which actions to deploy, but also when to deploy them for maximum impact. By explicitly modeling the temporal sensitivity of causal propagation, the planner favors early, low-cost actions that suppress cascades before nonlinear amplification occurs. This tight integration of prediction, causality, and optimization distinguishes CT-SCaLE from existing supply chain analytics frameworks and establishes it as a unified decision-support system rather than a standalone forecasting model.",
+      "label": "ai_generated",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Algorithm 2 CT-SCaLE Intervention Planner (Counterfactual Optimization) Input: learned dynamics , causal matrices , cost weights , intervention set 𝑓θ 𝐴(𝑡) λ 𝑈 Initialize: intervention vector , horizon H, objective 𝑢 = 0 𝐽 = ∞ For each candidate intervention in : 𝑢 𝑈",
+      "label": "human",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "← ▷ counterfactual starting state 𝑍𝑐𝑓0 ( ) 𝑎𝑝𝑝𝑙𝑦𝑑𝑜𝐴0 ( ), 𝑢 ( ) For to : 𝑡 = 1 𝐻 ← ▷ updated causal effects 𝐴𝑐𝑓𝑡 ( ) 𝑠𝑜𝑓𝑡_𝑐𝑎𝑢𝑠𝑎𝑙_𝑙𝑒𝑎𝑟𝑛𝑒𝑟 𝑍𝑐𝑓𝑡 ( ) ( ) ← ▷ counterfactual rollout 𝑍𝑐𝑓𝑡+ ∆𝑡 ( ) 𝑍𝑐𝑓𝑡 ( ) + ∫ 𝑓θ𝑐𝑓 𝑑𝑡 End For ← ▷ failure impact 𝐶𝑐𝑎𝑠𝑐𝑎𝑑𝑒 𝑐𝑜𝑚𝑝𝑢𝑡𝑒_𝑐𝑎𝑠𝑐𝑎𝑑𝑒_𝑠𝑖𝑧𝑒𝑍𝑐𝑓 ( ) ← 𝐶𝑐𝑜𝑠𝑡 λ ⋅𝑖𝑛𝑡𝑒𝑟𝑣𝑒𝑛𝑡𝑖𝑜𝑛_𝑐𝑜𝑠𝑡(𝑢) ← + ▷ total objective 𝐽𝑐𝑓 𝐶𝑐𝑎𝑠𝑐𝑎𝑑𝑒 𝐶𝑐𝑜𝑠𝑡 If : 𝐽𝑐𝑓< 𝐽 𝐽 ← 𝐽𝑐𝑓 ▷ best intervention 𝑢* ← 𝑢 End If End For Return: optimal intervention 𝑢* V Experimental Design 5.1 Dataset Description 5.1.1 SupplyGraph Dataset",
+      "label": "human",
+      "page_num": 12,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The experimental evaluation of CT-SCaLE is conducted using SupplyGraph, a real-world benchmark dataset designed specifically for graph-based supply chain planning tasks. The dataset represents a multi-tier supply chain network derived from a large fast-moving consumer goods (FMCG) enterprise, where nodes correspond to operational entities such as factories, processing units, and distribution centers, while directed edges capture material flow and operational dependencies between them. In this study, we utilize a connected subgraph comprising 1,842 nodes and 4,976 directed edges, selected to reflect realistic multi-echelon interactions while maintaining computational tractability for continuous-time modeling. Each node is associated with 12 time-dependent features, including sales indicators, production levels, and operational stress signals, recorded at daily resolution. These temporal node attributes make the dataset well-suited for modeling disruption evolution and cascading effects over time. A temporal split strategy is adopted to ensure realistic evaluation and prevent information leakage. The first 70% of the time horizon is used for training, the subsequent 15% for validation, and the remaining 15% for testing. This setup reflects real-world deployment conditions, where models must forecast future disruptions using only historical observations. SupplyGraph is chosen because it combines industrial realism, explicit network structure, and",
+      "label": "ai_generated",
+      "page_num": 12,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "temporal node dynamics, making it an appropriate benchmark for evaluating continuous-time causal learning and intervention planning in supply chains.",
+      "label": "ai_generated",
+      "page_num": 13,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "5.2 Baseline Models",
+      "label": "human",
+      "page_num": 13,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "CT-SCaLE is compared against four representative baseline models that capture different modeling assumptions commonly used in supply chain analytics:",
+      "label": "ai_generated",
+      "page_num": 13,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Static GNN- A message-passing graph neural network operating on a fixed supply chain graph without temporal dynamics. Node representations are learned through neighborhood aggregation, with predictions generated via feed-forward layers.",
+      "label": "ai_generated",
+      "page_num": 13,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Temporal GNN- A dynamic graph neural network incorporating recurrent state updates to capture discrete-time evolution. While it models temporal trends, causal dependencies are assumed static across time.",
+      "label": "ai_generated",
+      "page_num": 13,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "●​ Causal GNN- A causal graph neural network enforcing a directed acyclic structure and employing counterfactual reasoning in discrete time. Interventions are evaluated post hoc and are not embedded into the optimization loop. ●​ Non-Causal ODE Model- A continuous-time Neural ODE architecture modeling node state evolution without explicit causal structure learning, isolating the benefit of causal reasoning from continuous-time dynamics. All baselines are implemented with comparable parameter budgets and trained under identical optimization settings to ensure fair comparison. 5.3 Evaluation Metrics Model performance is assessed using four complementary metrics that evaluate predictive accuracy, early-warning capability, and mitigation effectiveness. Prediction Accuracy is quantified using mean squared error: ​ ​ ​ ​ (14) 𝑀𝑆𝐸= 1 𝑁𝑇𝑖=1 𝑁 ∑ 𝑡=1 𝑇 ∑ 𝑧𝑖𝑡 ( ) −𝑧𝑖𝑡 ( ) ( ) 2 In Eq.14, and denote true and predicted disruption intensities. 𝑧𝑖𝑡 ( ) 𝑧𝑖𝑡 ( )",
+      "label": "human",
+      "page_num": 13,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Lead-Time Gain measures how early the model identifies an impending disruption relative to a reference baseline:",
+      "label": "ai_generated",
+      "page_num": 13,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ ​ ​ ​ ​ (15)",
+      "label": "human",
+      "page_num": 13,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "∆𝑇= 𝑇𝑏𝑎𝑠𝑒𝑙𝑖𝑛𝑒−𝑇𝑚𝑜𝑑𝑒𝑙 with higher values indicating earlier detection.",
+      "label": "ai_generated",
+      "page_num": 13,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Cascade Size Reduction evaluates mitigation effectiveness: ​ ​ ​ ​ ​ (16) 𝐶𝑆𝑅= 1 − Σ𝑖0 𝑡 ∫𝑧𝑖 𝑖𝑛𝑡𝑒𝑟𝑣𝑒𝑛𝑐𝑒𝑡 ( )𝑑𝑡 Σ𝑖0 𝑡 ∫𝑧𝑖 𝑛𝑜𝑡 ( )𝑑𝑡",
+      "label": "human",
+      "page_num": 13,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "capturing the proportional reduction in cumulative disruption severity.",
+      "label": "ai_generated",
+      "page_num": 13,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Intervention Cost is defined as in Eq.17: ​ ​ ​ ​ (17) 𝐶𝑢 ( ) = Σ𝑘𝑐𝑘𝑢𝑘",
+      "label": "human",
+      "page_num": 14,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "In Eq.17, denotes intervention actions and their associated costs. 𝑢𝑘 𝑐𝑘",
+      "label": "ai_generated",
+      "page_num": 14,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "VI Results and Comparative Analysis 6.1 Comparative Cascade Suppression Behavior of Predictive Models",
+      "label": "human",
+      "page_num": 14,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The propagation of cascading failures in interconnected supply chains is examined by comparing the normalized cascade intensity generated by different predictive and intervention models. The cascade evolution is evaluated across successive propagation steps to track how quickly disruptions are suppressed after an initial shock. Baseline models—including Static GNN, Temporal GNN, Causal GNN, and a non-causal Neural ODE—are compared against the proposed CT-SCaLE framework to assess differences in suppression speed and stabilization behavior. The comparative results of cascade intensity evolution are illustrated in Figure 5.",
+      "label": "ai_generated",
+      "page_num": 14,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Comparative cascade suppression dynamics across baseline models and the proposed CT-SCaLE framework Figure 5 shows that all evaluated models eventually reduce cascade intensity as propagation progresses; however, clear differences emerge during the early stages of disruption spread. Static and temporal GNN-based models exhibit slower initial suppression, allowing higher cascade intensity to persist across early propagation steps. The causal GNN demonstrates improved stabilization compared to non-causal baselines but remains limited by discrete-time updates and static causal assumptions. The non-causal neural ODE captures smooth temporal decay but lacks the ability to adaptively redirect causal influence under intervention. In contrast, CT-SCaLE achieves a significantly steeper early reduction in cascade intensity, stabilizing the system within fewer propagation steps. This behavior indicates that",
+      "label": "ai_generated",
+      "page_num": 14,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "continuous-time causal dynamics combined with intervention-aware learning enable CT-SCaLE to suppress cascading failures earlier, thereby reducing cumulative disruption impact across the supply chain network.",
+      "label": "ai_generated",
+      "page_num": 15,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "6.2 Evaluation Metrics Comparison (MAE, RMSE, Correlation)",
+      "label": "human",
+      "page_num": 15,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "To further evaluate quantitative prediction quality, standard regression error metrics—MAE, RMSE, and correlation—are calculated for all models under identical forecasting settings. The comparative metric distributions are shown in Figure 6.",
+      "label": "ai_generated",
+      "page_num": 15,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Comparison of MAE, RMSE, and correlation across predictive models Figure 6 shows clear performance gaps between baseline models and the proposed CT-SCaLE framework. CT-SCaLE achieves the lowest MAE and RMSE values among all methods, indicating improved numerical stability and reduced prediction deviation. Additionally, CT-SCaLE exhibits the highest correlation score, reflecting stronger alignment between predicted and actual disruption trajectories. Although the causal GNN provides competitive performance relative to other baselines, it is outperformed by CT-SCaLE due to the latter’s ability to jointly model time-varying causal structures and continuous propagation dynamics. These results confirm that CT-SCaLE enhances predictive accuracy while maintaining low computational error across diverse supply chain conditions.",
+      "label": "ai_generated",
+      "page_num": 15,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "6.3 Prediction Accuracy Comparison Across Models",
+      "label": "human",
+      "page_num": 15,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "To evaluate the predictive capability of existing graph-based and dynamic models, we compare classification accuracy across five widely used architectures: Static GNN, Temporal GNN, Causal GNN, a non-causal Neural ODE model, and the proposed CT-SCaLE framework. Prediction accuracy is measured on the SupplyGraph dataset using identical",
+      "label": "ai_generated",
+      "page_num": 15,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "training–testing splits to ensure fair comparison. The comparative accuracy values are visualized in Figure 7.",
+      "label": "ai_generated",
+      "page_num": 16,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Figure 7. Prediction Accuracy Comparison Across Models",
+      "label": "human",
+      "page_num": 16,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Figure 7 shows that the proposed CT-SCaLE framework achieves the highest prediction accuracy among all evaluated models. While traditional Static and Temporal GNNs demonstrate moderate performance improvements, they remain limited by their reliance on discrete representations of supply chain evolution. The causal GNN achieves relatively stronger performance due to its ability to capture structural dependencies, yet it remains constrained by static DAG assumptions. The non-causal ODE model exhibits smooth temporal learning but lacks causal specificity. In contrast, CT-SCaLE surpasses all baselines, achieving an accuracy improvement of approximately 14.7% relative to the weakest GNN baseline. This confirms that integrating continuous-time causal dynamics significantly enhances predictive reliability in complex, rapidly evolving supply chain environments.",
+      "label": "ai_generated",
+      "page_num": 16,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "6.4 Early-Warning Performance Comparison",
+      "label": "human",
+      "page_num": 16,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Early-warning capability is essential to prevent high-velocity disruption propagation in multi-tier supply chains. To assess this ability, we measure the detection probability of each model as a function of lead time—defined as the number of days prior to an observed disruption. The evolution of detection sensitivity for all models is shown in Figure 8.",
+      "label": "ai_generated",
+      "page_num": 16,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Early-warning performance comparison across baseline models and",
+      "label": "ai_generated",
+      "page_num": 17,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Figure 8 shows that all models display a general increase in detection probability when lead time increases. However, the Static and Temporal GNNs exhibit low responsiveness at shorter lead times, indicating delayed recognition of emerging disruptions. The causal GNN and Neural ODE models show improved early-warning curves, but both display slower initial growth compared to CT-SCaLE. The proposed model consistently yields higher detection probabilities across all lead-time intervals, providing approximately 22% greater early-warning capability relative to baseline approaches. This suggests that CT-SCaLE’s continuous-time causal inference mechanism enables the model to anticipate risks earlier and more accurately, giving decision-makers additional time to deploy mitigating interventions.",
+      "label": "ai_generated",
+      "page_num": 17,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "6.5 Multi-Metric Radar Comparison",
+      "label": "human",
+      "page_num": 17,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "To provide a holistic assessment of each method’s operational reliability, a five-dimensional radar comparison is performed using key performance indicators: prediction accuracy, lead-time, cascade reduction, cost efficiency, and robustness. This radar visualization enables simultaneous evaluation of model strengths across multiple dimensions. The resulting comparative radar plot is shown in Figure 9.",
+      "label": "ai_generated",
+      "page_num": 17,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Multi-metric performance comparison between CT-SCaLE and baseline models Figure 9 shows that CT-SCaLE maintains a consistent advantage across all evaluated metrics. While the causal GNN demonstrates moderate strength in robustness and structural understanding, and the temporal GNN performs reasonably well in cost efficiency, neither baseline approaches the balanced and superior profile of CT-SCaLE. In particular, CT-SCaLE achieves higher cascade reduction and robustness scores, indicating more effective handling of nonlinear propagation and uncertainty. The radar distribution highlights the generalizability of CT-SCaLE’s architecture and its ability to simultaneously optimize predictive accuracy, early-warning capacity, and mitigation efficiency.",
+      "label": "ai_generated",
+      "page_num": 18,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "6.6 Convergence of Cascade Suppression",
+      "label": "human",
+      "page_num": 18,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "To examine the stability and learning progression of the mitigation models, convergence behavior is analyzed by observing the reduction in cascade intensity across propagation or training iterations. The comparative convergence curves for baseline models and CT-SCaLE are shown in Figure 10.",
+      "label": "ai_generated",
+      "page_num": 18,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Figure 10.",
+      "label": "human",
+      "page_num": 19,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Convergence behavior of cascade suppression for baseline models vs.",
+      "label": "ai_generated",
+      "page_num": 19,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Figure 10 shows that the baseline models converge slowly and exhibit higher residual cascade intensity across several propagation iterations. By contrast, CT-SCaLE demonstrates a rapid initial decline in cascade intensity, stabilizing significantly earlier than all alternative models. This fast convergence behavior supports the design of CT-SCaLE as a continuous-time causal engine capable of isolating and suppressing disruptive pathways more efficiently. The final plateau level reached by CT-SCaLE indicates a 31.4% improvement in cascade size reduction under optimized intervention strategies compared with baseline models. These findings highlight CT-SCaLE’s ability to mitigate cascading disruptions with faster and more stable convergence characteristics.",
+      "label": "ai_generated",
+      "page_num": 19,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "6.7 Discussion",
+      "label": "human",
+      "page_num": 19,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The results demonstrate that modeling supply chain disruptions through continuous-time causal dynamics provides a substantial advantage over traditional discrete and correlation-based approaches. By capturing how causal influence evolves at fine temporal granularity, CT-SCaLE identifies high-risk propagation paths earlier and enables interventions at the moment they are most effective. For managers, this translates into actionable early-warning signals, reduced reaction delays, and more cost-efficient allocation of mitigation resources across multi-tier networks. Unlike black-box predictive systems, the framework’s learned causal structure and counterfactual simulations offer transparent explanations of why disruptions spread and how targeted actions reshape outcomes, supporting evidence-based decision-making. Importantly, CT-SCaLE is designed for deployment realism: it accommodates incomplete visibility, asynchronous updates, and heterogeneous data streams typical of global supply chains, making it suitable for integration into enterprise risk dashboards and real-time monitoring systems. Collectively, these capabilities position continuous-time causal learning as a practical and strategically valuable direction for resilient supply chain operations.",
+      "label": "ai_generated",
+      "page_num": 19,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "6.8 Limitations and Future Work",
+      "label": "human",
+      "page_num": 20,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Although CT-SCaLE demonstrates strong predictive and intervention capabilities, its performance may be affected by data sparsity in multi-tier supply chains, where incomplete visibility can limit the accuracy of learned causal relationships. Additionally, continuous-time causal identifiability remains challenging in settings with strong confounding or rapidly shifting external conditions, suggesting the need for richer multimodal data integration. Future work will focus on improving real-time deployment efficiency, including adaptive updating, streaming inference, and scalable causal structure learning to support continuous monitoring of large, dynamic global networks.",
+      "label": "ai_generated",
+      "page_num": 20,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "VI Conclusion",
+      "label": "human",
+      "page_num": 20,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "This work introduced CT-SCaLE, a continuous-time causal learning framework that integrates prediction, explanation, and intervention planning for cascading failures in global supply chains. Unlike discrete or correlation-based models, CT-SCaLE captures evolving causal influence and fast disruption propagation, enabling more proactive risk management. Experiments show that the model improves prediction accuracy by 14.7%, extends early-warning lead time by 22%, and reduces cascade size by 31.4%, clearly outperforming advanced baselines. By linking causal reasoning with real-time intervention optimization, CT-SCaLE shifts supply chain analytics from forecasting toward actionable, control-oriented resilience. Future efforts will focus on improving causal identifiability under sparse data, enhancing multimodal integration, and optimizing real-time deployment for large-scale industrial networks.",
+      "label": "ai_generated",
+      "page_num": 20,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ References [1] Khan, R. S., Sirazy, M. R. M., Das, R., & Rahman, S. (2022). An ai and ml-enabled framework for proactive risk mitigation and resilience optimization in global supply chains during national emergencies. Sage Science Review of Applied Machine Learning, 5(2), 127-144. [2] Yang, Q., Scoglio, C. M., & Gruenbacher, D. M. (2021). Robustness of supply chain networks against underload cascading failures. Physica A: Statistical Mechanics and its Applications, 563, 125466. [3] Xu, Y., Peng, P., Claramunt, C., Lu, F., & Yan, R. (2024). Cascading failure modelling in global container shipping network using mass vessel trajectory data. Reliability Engineering & System Safety, 249, 110231. [4] KEk, V., Nadeem, S. P., Ravichandran, M., Ethirajan, M., & Kandasamy, J. (2022). Resilience strategies to recover from the cascading ripple effect in a copper supply chain through project management. Operations Management Research, 15(1), 440-460. [5] Li, C., Wang, L., Zhao, J., Deng, L., Yu, S., Shi, Z., & Wang, Z. (2021). The collapse of global plastic waste trade: Structural change, cascading failure process and potential solutions. Journal of Cleaner Production, 314, 127935. [6] Manupati, V. K., Schoenherr, T., Ramkumar, M., Panigrahi, S., Sharma, Y., & Mishra, P. (2022). Recovery strategies for a disrupted supply chain network: Leveraging blockchain technology in pre-and post-disruption scenarios. International Journal of Production Economics, 245, 108389.",
+      "label": "human",
+      "page_num": 20,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "[7] Park, M., & Singh, N. P. (2023). Predicting supply chain risks through big data analytics: role of risk alert tool in mitigating business disruption. Benchmarking: An International Journal, 30(5), 1457-1484. [8] Lokanan, M. E., & Maddhesia, V. (2025). Supply chain fraud prediction with machine learning and artificial intelligence. International Journal of Production Research, 63(1), 286-313. [9] Hong, L. J., Li, J., Wu, X., & Yi, S. (2025). Future research of supply chain resilience: Network perspectives and incorporation of more stakeholders. Fundamental Research, 5(2), 486-495. [10] Maheshwari, S., & Jaggi, C. K. (2024). Enhancing supply chain resilience through industry-specific approaches to mitigating disruptions. Opsearch, 1-34. [11] Xiong, W., Wu, D. D., & Yeung, J. H. (2025). Semiconductor supply chain resilience and disruption: Insights, mitigation, and future directions. International Journal of Production Research, 63(9), 3442-3465. [12] Brintrup, A., Kosasih, E., Schaffer, P., Zheng, G., Demirel, G., & MacCarthy, B. L. (2024). Digital supply chain surveillance using artificial intelligence: definitions, opportunities and risks. International Journal of Production Research, 62(13), 4674-4695. [13] Alzahrani, A., & Asghar, M. Z. (2023). Intelligent risk prediction system in IoT-based supply chain management in logistics sector. Electronics, 12(13), 2760. [14] Setyadi, A., Pawirosumarto, S., & Damaris, A. (2025). Toward a resilient and sustainable supply chain: Operational responses to global disruptions in the post-COVID-19 era. Sustainability, 17(13), 6167. [15] Oliver, E., Mazzuchi, T., & Sarkani, S. (2022). A resilience systemic model for assessing critical supply chain disruptions. Systems Engineering, 25(5), 510-533. [16] Salehpour, A., Al-Anbagi, I., Yow, K. C., & Cheng, X. (2022). Modeling cascading failures in coupled smart grid networks. IEEE Access, 10, 81054-81070. [17] Wyrembek, M., Baryannis, G., & Brintrup, A. (2025). Causal machine learning for supply chain risk prediction and intervention planning. International Journal of Production Research, 1-20. [18] Yang, S., Ogawa, Y., Ikeuchi, K., Shibasaki, R., & Okuma, Y. (2024). Post-hazard supply chain disruption: Predicting firm-level sales using graph neural network. International Journal of Disaster Risk Reduction, 110, 104664. [19] Kosasih, E. E., & Brintrup, A. (2022). A machine learning approach for predicting hidden links in supply chain with graph neural networks. International Journal of Production Research, 60(17), 5380-5393. [20] Ghasemi, A., de Meer, H., & Kantz, H. (2023). Interaction graph learning of line cascading failure in power networks and its statistical properties. Energy Informatics, 6(Suppl 1), 17. [21] Guo, Z., Sun, K., Su, X., & Simunovic, S. (2023). A review on simulation models of cascading failures in power systems. Ienergy, 2(4), 284-296. [22] Kalejaiye, A. N. (2025). Causal modeling of insider threat behavior using probabilistic graphical networks to strengthen organizational cyber-resilience and trust architectures. Int J Res Publ Rev, 6(07).",
+      "label": "human",
+      "page_num": 21,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "[23] Li, Y. (2025). COUNTERFACTUAL REASONING IN SUPPLY CHAIN DISRUPTION PREDICTION: A CAUSAL GRAPH NEURAL NETWORK APPROACH WITH MULTIMODAL EXTERNAL SIGNALS. [24] Zhu, X. X., Zhu, J., Regan, D., & Wen, Z. M. (2025). Exploring cascading failures in supply chain risk management: A systematic review, 2013-2024. Journal of Safety Science and Resilience, 100234. [25] Namdar, J., Blackhurst, J., Zhao, K., & Song, S. (2024). Cascading disruptions: Impact of modularity and nexus supplier predictions. Journal of Supply Chain Management, 60(3), 18-38. [26] Wang, C., Yang, H., Hu, X., He, X., Liu, J., Liang, C., & Lim, M. K. (2024). Deciphering iron ore trade dynamics: Supply disruption risk propagation in global networks through an improved cascading failure model. Resources Policy, 95, 105157. [27] Liu, H., Han, Y., & Zhu, A. (2022). Modeling supply chain viability and adaptation against underload cascading failure during the COVID-19 pandemic. Nonlinear dynamics, 110(3), 2931-2947. [28] Li, D., Zhou, K., & Han, D. (2024). Hybrid cascade failures in supply chain networks: Robustness, node protection and recovery strategies. International Journal of Modern Physics C, 35(07), 2450085. [29] Colon, C., & Hochrainer-Stigler, S. (2023). Systemic risks in supply chains: a need for system-level governance. Supply Chain Management: An International Journal, 28(4), 682-694. [30] Hosseini Shekarabi, S. A., Kiani Mavi, R., & Romero Macau, F. (2025). Supply chain resilience: A critical review of risk mitigation, robust optimisation, and technological solutions and future research directions. Global Journal of Flexible Systems Management, 26(3), 681-735. [31] Liu, R., Zhang, Q., Lin, D., Zhang, W., & Ding, S. X. (2024). Causal intervention graph neural network for fault diagnosis of complex industrial processes. Reliability Engineering & System Safety, 251, 110328. [32] Yan, D., Zhu, Q., Gu, S., & Wang, Q. (2025). Integrating potential risk paths into railway accident causation analysis: A complex network approach with cascading failure and multimodal data. Reliability Engineering & System Safety, 111922. [33] Li, X., Wang, Y., Xing, J., & Wang, Y. (2025). Causal graph inference with adaptive dynamic structure learning for mechanism-oriented fault diagnosis in dynamic industrial systems. Reliability Engineering & System Safety, 111865. [34] Lijie, C., Yuanhua, D., Jiandong, G., & Xuefan, D. (2025). A Study on Accident Chain Identification for Oil and Gas Pipelines Based on Graph Neural Network Algorithms. Procedia Computer Science, 266, 1012-1019. [35] Nawaz, W., & Li, Z. (2025). Complexity to Resilience: Machine Learning Models for Enhancing Supply Chains and Resilience in the Middle Eastern Trade Corridor Nations. Systems, 13(3), 209. [36] Wei, Z. L., An, H. Y., Yao, Y., Su, W. C., Li, G., Saifullah, ... & Wang, M. J. S. (2025). FSTGAT: Financial Spatio-Temporal Graph Attention Network for Non-Stationary Financial Systems and Its Application in Stock Price Prediction. Symmetry, 17(8), 1344.",
+      "label": "human",
+      "page_num": 22,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "[37] Zhu, P., Chen, X., Zhang, Z., Li, P., Cheng, X., & Dai, Y. (2025). AI-driven hypergraph neural network for predicting gasoline price trends. Energy Economics, 108895. [38] Wang, J. (2025). Multi-Modal Topology-Aware Graph Neural Network for Robust Chemical–Protein Interaction Prediction. International Journal of Molecular Sciences, 26(17), 8666. [39] Adetunji, O., & Odili, O. (2023). Integrative cross-supply-chain and clinical data fusion for proactive mitigation and management of pharmaceutical shortages. Magna Scientia Advanced Biology and Pharmacy, 10(2), 90-110. [40] Li, J., & Niu, J. (2025). Model checking spatial-temporal features of cascading failures in wireless sensor networks. Computing, 107(11), 1-25. [41] Bhat, V. P., Harsha, T. R., & Vinay, S. K. (2025). Revolutionizing AI: Applications of graph neural networks across industries. In Graph Neural Networks: Essentials and Use Cases (pp. 161-188). Cham: Springer Nature Switzerland. [42] Qu, S., Li, X., Lim, M. K., Liu, W., Li, Z., & Wang, Y. (2025). Smart supply chain management: a systematic literature review and future research agenda. International Journal of Logistics Research and Applications, 1-29. [43] Eberhardt, K., Schwärzel, A., Klaus Kaiser, F., Rosenberg, S., & Schultmann, F. (2025). Leveraging knowledge graphs in pharmaceutical supply chains: insights into key drivers of drug shortages. International Journal of Production Research, 1-24. [44] Wasi, A. T., Islam, M. S., & Akib, A. R. (2024). SupplyGraph: A benchmark dataset for supply chain planning using graph neural networks. arXiv.",
+      "label": "human",
+      "page_num": 23,
+      "source": "direct_pdf"
+    }
+  ],
+  "stats": {
+    "ai_generated_segments": 69,
+    "ai_paraphrased_segments": 0,
+    "human_segments": 53,
+    "ocr_pages": 0,
+    "total_chars_ai": 33119,
+    "total_chars_paraphrased": 0,
+    "total_chars_human": 15512
+  },
+  "errors": []
+}

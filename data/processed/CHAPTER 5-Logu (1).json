@@ -1,0 +1,80 @@
+{
+  "file_name": "CHAPTER 5-Logu (1).pdf",
+  "file_path": "c:\\Users\\gowth\\Downloads\\ai_plag_detector\\data\\raw_data\\raw_data\\CHAPTER 5-Logu (1).pdf",
+  "submission_date": "2025-12-21",
+  "priority": "LOW",
+  "total_pages": 6,
+  "ai_percentage_reported": 100,
+  "segments": [
+    {
+      "text": "CHAPTER 5 Results and Discussions 5.1 Introduction",
+      "label": "human",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "This chapter presents a comprehensive experimental evaluation of the proposed blockchain-enabled privacy-preserving authentication frameworks developed in this research. The experimental setup, including dataset configuration, simulation environment, parameter settings, and implementation details, is first described to ensure reproducibility and fairness in evaluation. Subsequently, the performance of the proposed models is analyzed using standard metrics such as accuracy, sensitivity, specificity, F1-score, ROC characteristics, computational time, memory usage, encryption/decryption cost, and security robustness. A detailed comparative analysis is then conducted against recent state-of-the-art IoV authentication and privacy-preserving schemes to demonstrate the effectiveness, scalability, and efficiency of the proposed approaches under dynamic vehicular network conditions. The results clearly highlight the superiority of the proposed frameworks in achieving secure, efficient, and privacy-aware authentication for Internet of Vehicles environments.",
+      "label": "ai_generated",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "5.2 Analysis Of Existing Models​ 5.2.1 Comparative Performance Analysis of the Authentication Framework",
+      "label": "human",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Tables 5.1 and 5.2 present a consolidated comparative evaluation of the proposed blockchain-based privacy-preserving authentication framework against existing optimization-driven models and conventional classification techniques. The comparison is conducted using standard performance metrics, including accuracy, sensitivity, specificity, precision, F1-score, and Matthews Correlation Coefficient (MCC), to comprehensively assess detection reliability and robustness. From the results, it is evident that the proposed OBWO-HANet consistently outperforms all benchmark optimization algorithms such as GWO-HANet, EOO-HANet, LOA-HANet, and BWO-HANet, achieving the highest accuracy of 93.8% and superior sensitivity of 93.76%, which indicates improved attack detection capability.",
+      "label": "ai_generated",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Similarly, when compared with traditional classifiers including CNN, MLP, Ridge classifier, and Ensemble models, the proposed framework demonstrates notable gains across all evaluation metrics, while maintaining lower false positive and false negative rates. These improvements confirm that the integration of blockchain with optimized hybrid learning significantly enhances authentication reliability and privacy preservation in IoV environments, validating the effectiveness of the proposed approach. Table 5.1: Comparative analysis of the proposed blockchain-based privacy-preserving authentication scheme for IoV with conventional optimization algorithms",
+      "label": "ai_generated",
+      "page_num": 4,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Terms GWO-HAN et EOO-HANe t LOA-HANe t BWO-HAN et OBWO-HA Net Accuracy 88.52 86.52 91.96 88.96 93.8 Sensitivity 88.40809845 86.74077015 91.94124653 88.80508138 93.767368 Specificity 88.63361548 86.29584845 91.97904071 89.11729141 93.8331318 Precision 88.76046234 86.53465347 92.08747515 89.23015556 93.9165009 9 FPR 11.36638452 13.70415155 8.020959291 10.88270859 6.16686819 8 FNR 11.59190155 13.25922985 8.058753474 11.19491862 6.23263199 7 NPV 88.27780008 86.50505051 91.83098592 88.68832732 93.6820925 6 FDR 11.23953766 13.46534653 7.912524851 10.76984444 6.08349900 6 F1-Score 88.58392999 86.63758921 92.01430274 89.01711102 93.8418752 5 MCC 0.770399882 0.730381613 0.839193741 0.779204278 0.87599546 7 Table 5.2: Comparative performance analysis of the proposed blockchain-based privacy-preserving authentication scheme for IoV against conventional classification models Terms CNN MLP Ridge-classi fier Ensemble OBWO-HA Net Accuracy 86.1 89.72 88.16 91.6 93.8",
+      "label": "human",
+      "page_num": 4,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Sensitivity 85.9468042 9 89.7578404 1 88.24930528 91.62366018 93.767368 Specificity 86.2555421 2 89.6815800 1 88.06932688 91.57597743 93.8331318 Precision 86.3926576 2 89.8291617 88.24930528 91.69646404 93.91650099 FPR 13.7444578 8 10.3184199 9 11.93067312 8.424022572 6.166868198 FNR 14.0531957 1 10.2421595 9 11.75069472 8.376339817 6.232631997 NPV 85.8059342 4 89.6093435 4 88.06932688 91.50221506 93.68209256 FDR 13.6073423 8 10.1708383 11.75069472 8.303535956 6.083499006 F1-Score 86.1691542 3 89.7934868 9 88.24930528 91.66004766 93.84187525 MCC 0.72200469 1 0.79438962 8 0.763186322 0.831991584 0.875995467 5.3 Performance Evaluation of the Proposed CD-RRNN-Based Attack Detection Model",
+      "label": "human",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Table 5.3 presents the overall performance evaluation of the proposed Cascaded Dilated Residual Recurrent Neural Network (CD-RRNN) for malicious attack detection in Internet of Vehicles environments, in comparison with widely used learning-based classifiers such as DNN, SVM, LSTM, and conventional RNN models. The evaluation is conducted using multiple standard performance metrics to comprehensively assess detection accuracy, robustness, and reliability. As observed from the results, the proposed CD-RRNN achieves the highest accuracy of 94.34% and sensitivity of 94.32%, while maintaining significantly lower false positive and false negative rates compared to all benchmark models. These improvements indicate a strong capability to correctly identify malicious activities while minimizing misclassification of legitimate vehicular communications. The superior performance of CD-RRNN is primarily attributed to its cascaded architecture combined with dilated residual connections, which enhance long-term dependency learning and effectively capture subtle temporal attack patterns. Overall, the results confirm that the proposed attack detection mechanism provides a reliable and efficient solution for strengthening authentication and security in dynamic IoV networks.",
+      "label": "ai_generated",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Table 5.3: Comparative analysis of proposed system with traditional models Terms DNN SVM LSTM RNN CD-RRNN( Proposed Model) Accuracy 86.8 89.16 87.04 91.74 94.34 Sensitivity 86.82016673 89.20206431 87.13775308 91.66335848 94.3231441 Specificity 86.77952439 89.11729141 86.97497 91.8178154 94.35711407 Precision 86.9582505 89.27294398 87.13775308 91.91878981 94.43561208 FPR 13.22047561 10.88270859 13.0592503 8.182184603 5.642885933 FNR 13.17983327 10.79793569 12.86224692 8.336641524 5.676855895 FOR 13.36016097 10.95449054 13.0592503 8.440514469 5.7568438 PT 0.195111666 0.174642947 0.193564606 0.14938492 0.12229579 FM 86.88918118 89.23749711 87.13775308 91.79098529 94.37936134 PLHR 6.567098587 8.196678576 6.672492759 11.20279765 16.71540861 TS 76.81770285 80.56651129 77.20717552 84.82733284 89.35690109 5.4 Summary​",
+      "label": "human",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The proposed blockchain-based authentication and privacy-preserving frameworks demonstrated superior performance compared to conventional IoV security approaches. The OBWO-HANet–based authentication model achieved higher accuracy, sensitivity, and reliability through optimized learning and blockchain integration, while significantly reducing false detection rates. The CD-RRNN–based security framework combined with MMRFO-optimized El-Gamal encryption (OKEE) further strengthened system protection by enabling efficient attack detection, faster encryption and decryption, lower memory consumption, and enhanced robustness. Overall, the experimental results confirm that the integrated learning, optimization, and cryptographic mechanisms effectively improve authentication, intrusion resilience, and data privacy in dynamic IoV environments, outperforming existing advanced models solutions.",
+      "label": "ai_generated",
+      "page_num": 6,
+      "source": "direct_pdf"
+    }
+  ],
+  "stats": {
+    "ai_generated_segments": 5,
+    "ai_paraphrased_segments": 0,
+    "human_segments": 5,
+    "ocr_pages": 0,
+    "total_chars_ai": 4667,
+    "total_chars_paraphrased": 0,
+    "total_chars_human": 2631
+  },
+  "errors": []
+}

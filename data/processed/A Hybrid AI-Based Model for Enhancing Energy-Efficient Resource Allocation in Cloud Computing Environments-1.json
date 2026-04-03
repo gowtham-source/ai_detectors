@@ -1,0 +1,374 @@
+{
+  "file_name": "A Hybrid AI-Based Model for Enhancing Energy-Efficient Resource Allocation in Cloud Computing Environments-1.pdf",
+  "file_path": "c:\\Users\\gowth\\Downloads\\ai_plag_detector\\data\\raw_data\\raw_data\\A Hybrid AI-Based Model for Enhancing Energy-Efficient Resource Allocation in Cloud Computing Environments-1.pdf",
+  "submission_date": "2026-02-03",
+  "priority": "HIGH",
+  "total_pages": 13,
+  "ai_percentage_reported": 100,
+  "segments": [
+    {
+      "text": "A Hybrid AI-Based Model for Enhancing Energy-Efficient Resource Allocation in Cloud Computing Environments Abstract",
+      "label": "human",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Cloud computing environments demand efficient resource allocation mechanisms to optimize performance while minimizing energy consumption. Traditional resource allocation approaches often fail to address the complexities of dynamic cloud workloads. This paper proposes a hybrid AI-based model that combines the strengths of Deep Reinforcement Learning (DRL) and heuristic optimization techniques, such as Genetic Algorithms (GA), to enhance energy-efficient resource allocation. The proposed model integrates the adaptive learning capabilities of DRL with the global optimization potential of GA, enabling real-time energy optimization while maintaining cloud performance. Simulation results demonstrate significant improvements in energy efficiency and resource utilization compared to conventional approaches.",
+      "label": "ai_generated",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Index Terms",
+      "label": "human",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Cloud computing, resource allocation, energy efficiency, deep reinforcement learning, genetic algorithms, hybrid AI model.",
+      "label": "ai_generated",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "I. Introduction",
+      "label": "human",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Cloud computing has revolutionized the IT industry by offering scalable and flexible computing resources. However, the exponential growth in cloud service demand has led to substantial energy consumption, contributing to high operational costs and environmental impacts. Efficient resource allocation is a critical factor in addressing these challenges, as it directly influences the energy consumption of cloud data centers. Traditional resource allocation methods, such as rule-based algorithms and heuristic approaches, have been effective but struggle with the dynamic and complex nature of modern cloud environments. Artificial Intelligence (AI)-based techniques, such as Deep Reinforcement Learning (DRL), have emerged as powerful tools to optimize resource allocation. DRL learns optimal policies through interaction with dynamic environments. However, DRL suffers from high computational overhead and slow convergence. To mitigate these challenges, we propose a hybrid model that integrates DRL with Genetic Algorithms (GA), a heuristic optimization technique known for its robust global search capabilities. This paper presents a hybrid AI-based model designed to enhance energy-efficient resource allocation in cloud environments. The model leverages DRL for adaptive decision-making and GA for fast convergence to near-optimal solutions. We compare the proposed hybrid model's performance with traditional approaches, demonstrating its potential to reduce energy consumption while maintaining resource allocation efficiency.",
+      "label": "ai_generated",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "II. Related Work",
+      "label": "human",
+      "page_num": 4,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Early research on energy-efficient cloud resource management focused on heuristic and consolidation-based approaches. Beloglazov and Buyya [1] proposed dynamic VM consolidation using threshold-based policies to minimize energy consumption while maintaining SLA constraints, establishing a foundational framework for energy-aware cloud data centers. Arabnejad et al. [4] extended this direction by introducing low-energy scheduling for multiple Bag-of-Tasks applications, optimizing task–VM mapping to reduce execution time and power usage. Similarly, Xie et al. [5] addressed heterogeneous cloud environments through processor merging algorithms under deadline constraints, achieving energy savings by consolidating parallel workloads while respecting QoS requirements. With the emergence of learning-based techniques, Mao et al. [2] pioneered the application of Deep Reinforcement Learning (DRL) for resource management, demonstrating that DRL agents can learn adaptive scheduling policies superior to static heuristics under dynamic workloads. Building on this, Xu et al. [3] proposed an energy-aware DRL-based resource allocation model that jointly optimizes performance and power consumption, showing improved convergence and reduced energy usage compared to traditional methods. These works highlight the effectiveness of DRL in handling non-stationary cloud environments. Recent studies have incorporated energy-aware scheduling and load balancing for IoT and edge–cloud scenarios. Zhou et al. [6] proposed AFED-EF, an energy-efficient VM allocation algorithm tailored for IoT workloads, integrating workload prediction with adaptive VM placement to reduce data center power usage. Nabi et al. [8] introduced DRALBA, a dynamic and resource-aware load balancing approach that improves system throughput while lowering energy overhead through intelligent task redistribution. Shu et al. [7] further optimized green cloud scheduling by enhancing agile response mechanisms and improving overall resource utilization. Beyond centralized clouds, Yan et al. [10] addressed joint cloud–edge load balancing using DRL for unmanned surface vehicles, enabling latency-aware task offloading with reduced energy consumption across distributed nodes. Zhang et al. [11] proposed a two-phase service management framework for industrial data centers, combining workload classification and energy-aware scheduling to improve sustainability in manufacturing services. Mandal et al. [12] introduced MECpVmS, an SLA-aware and energy-efficient VM selection policy that balances migration cost, power usage, and service guarantees in green cloud environments.",
+      "label": "ai_generated",
+      "page_num": 4,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "A. Energy-Efficient Resource Allocation",
+      "label": "human",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Energy-efficient resource allocation has been extensively studied in cloud computing. Many researchers have focused on virtual machine (VM) placement, task scheduling, and workload balancing to optimize energy consumption. Techniques like dynamic voltage and frequency scaling (DVFS) and VM consolidation have been widely applied to minimize energy waste in idle servers.",
+      "label": "ai_generated",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "B. AI Techniques in Cloud Resource Management",
+      "label": "human",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "AI techniques, particularly machine learning and reinforcement learning, have gained traction in cloud resource management. DRL, in particular, has demonstrated significant potential in resource allocation by continuously learning from real-time environment interactions​. However, its high computational requirements and slow learning process hinder its real-time application in fast-changing cloud environments.",
+      "label": "ai_generated",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "C. Heuristic Approaches",
+      "label": "human",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Heuristic algorithms, such as Genetic Algorithms (GA) and Particle Swarm Optimization (PSO), have been applied to cloud resource allocation problems​. These techniques are effective in quickly converging to near-optimal solutions but lack the adaptability of AI-based models in dynamic scenarios​.",
+      "label": "ai_generated",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "III. Hybrid AI-Based Resource Allocation Model A. Overview of the Hybrid Model",
+      "label": "human",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The proposed hybrid model combines the adaptive decision-making capabilities of DRL with the global optimization power of GA. DRL learns optimal policies for resource allocation over time, while GA is used to guide the search for optimal or near-optimal solutions in a reduced state-action space. This combination enables faster convergence and lower computational overhead compared to using DRL alone.",
+      "label": "ai_generated",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "B. Model Architecture",
+      "label": "human",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The hybrid model consists of two core components: 1.​ Deep Reinforcement Learning Agent: The DRL agent interacts with the cloud environment and learns to allocate resources based on real-time feedback. It aims to minimize energy consumption while maintaining Service Level Agreements (SLAs).",
+      "label": "ai_generated",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Genetic Algorithm Optimizer: GA operates on the action space generated by the DRL agent, optimizing the allocation of resources by applying evolutionary techniques such as selection, crossover, and mutation​. GA ensures that the DRL agent’s decisions converge faster by selecting optimal actions in each iteration.",
+      "label": "ai_generated",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "C. Workflow 1.​",
+      "label": "human",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The DRL agent interacts with the cloud environment, observing states such as current resource utilization, task queues, and energy consumption.",
+      "label": "ai_generated",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Based on the observations, the DRL agent generates an initial action for resource allocation.",
+      "label": "ai_generated",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "GA takes the action proposed by DRL and refines it by exploring other potential solutions through crossover and mutation, ensuring faster convergence to a near-optimal solution.",
+      "label": "ai_generated",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The final resource allocation is implemented, and the DRL agent receives feedback on the environment's new state and energy consumption, allowing it to update its policy.",
+      "label": "ai_generated",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "IV. Experimental Setup and Evaluation A. Simulation Environment",
+      "label": "human",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "We conducted simulations using CloudSim, a cloud computing simulation tool, to evaluate the performance of the proposed hybrid model. The cloud environment consists of multiple data centers with heterogeneous resources and dynamic workloads. Key metrics include energy consumption, resource utilization, and task execution time.",
+      "label": "ai_generated",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Dataset and Workload Configuration Dataset Characteristics Parameter Value Number of Data Centers 2 Hosts per Data Center 100 VM Types Small, Medium, Large Tasks (Cloudlets) 1,000 – 10,000 Task Length 1,000 – 50,000 MI CPU Utilization Range 10% – 100% Simulation Time 24 hours Power Model Linear Power Model Max Host Power 250 W Idle Power 70 W B. Baseline Models",
+      "label": "human",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "We compare the performance of the hybrid model with two baseline models: 1.​ Traditional Heuristic Model: Uses GA without DRL for resource allocation.",
+      "label": "ai_generated",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Deep Reinforcement Learning Model: Uses DRL alone for resource allocation.",
+      "label": "ai_generated",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "C. Performance Metrics 1.​",
+      "label": "human",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Energy Efficiency: Measured as the total energy consumed per allocated resource.",
+      "label": "ai_generated",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Resource Utilization: The percentage of available resources used by the system.",
+      "label": "ai_generated",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Execution Time: The time taken to allocate resources and execute tasks.",
+      "label": "ai_generated",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Comparative Performance Analysis Comparative Methods:",
+      "label": "human",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "To comprehensively evaluate the effectiveness of the proposed approach, four resource allocation strategies were considered in this study. The Round Robin (RR) method was employed as a baseline non–energy-aware scheduling strategy, representing traditional allocation without optimization objectives. A Genetic Algorithm (GA)–based approach was used to model heuristic optimization, leveraging evolutionary operators to achieve near-optimal resource allocation. The Deep Reinforcement Learning (DRL) model, implemented using a Deep Q-Network (DQN), was adopted to capture adaptive and learning-based decision-making in dynamic cloud environments. Finally, the proposed Hybrid DRL-GA model integrates the adaptive learning capability of DRL with the global search and optimization strength of GA, enabling efficient exploration–exploitation balance and improved energy-aware resource allocation performance.",
+      "label": "ai_generated",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Energy Consumption Analysis Total Energy Consumption (kWh) Workload Size RR GA DRL Hybrid DRL-GA 1,000 Tasks 320 275 260 220 3,000 Tasks 870 740 705 610 5,000 Tasks 1,420 1,210 1,150 980 10,000 Tasks 2,780 2,390 2,260 1,980",
+      "label": "human",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Energy consumption comparison under varying workload sizes. Figure 1 illustrates the variation in total energy consumption as the workload increases from 1,000 to 10,000 tasks for different resource allocation strategies. It is evident that energy consumption rises almost linearly with workload across all methods; however, the rate of increase differs significantly. The Round Robin (RR) approach exhibits the steepest growth curve, reflecting its lack of energy-awareness and inefficient handling of resource utilization under increasing demand. The Genetic Algorithm (GA)–based approach demonstrates improved performance by reducing unnecessary server activation through heuristic optimization, while the Deep Reinforcement Learning (DRL) model further lowers energy consumption by adapting allocation decisions based on real-time system states. Notably, the proposed Hybrid DRL-GA model consistently achieves the lowest energy consumption across all workload levels. This improvement becomes more pronounced under higher workloads, indicating that the integration of GA’s global optimization with DRL’s adaptive learning effectively minimizes energy wastage while maintaining scalable performance. The results confirm the robustness and scalability of the hybrid approach for energy-efficient cloud resource management.",
+      "label": "ai_generated",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Key Observation:",
+      "label": "human",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The experimental results indicate that the proposed Hybrid DRL-GA model achieves a statistically significant reduction in energy consumption across all comparative baselines. Specifically, when compared to the Genetic Algorithm (GA)-based approach, the hybrid model reduces energy consumption by an average of 18.4% with a standard deviation of ±2.1%, demonstrating improved optimization stability. In comparison with the Round Robin (RR) scheduling method, the Hybrid DRL-GA model achieves a substantially higher reduction of 28.7% ± 2.8%, highlighting its effectiveness in mitigating energy inefficiencies inherent in non–energy-aware allocation strategies. Furthermore, relative to the standalone Deep Reinforcement Learning (DRL) model, the hybrid approach yields an additional 12.3% ± 1.9% reduction in energy consumption, confirming that the integration of Genetic Algorithms significantly enhances DRL performance by accelerating convergence and avoiding suboptimal policy decisions.",
+      "label": "ai_generated",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Resource Utilization Efficiency Average Resource Utilization (%) Method CPU Memory Network RR 58.2 61.0 55.4 GA 71.6 73.1 69.5 DRL 78.9 80.4 77.2",
+      "label": "human",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Method CPU Memory Network Hybrid DRL-GA 86.7 88.1 84.9 Fig. 2.",
+      "label": "human",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Comparison of average CPU, memory, and network utilization across different resource allocation strategies.",
+      "label": "ai_generated",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Key Observations:",
+      "label": "human",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The results indicate that the Round Robin (RR) strategy consistently exhibits the lowest utilization across CPU, memory, and network resources, reflecting its static and non–energy-aware scheduling behavior, which leads to significant resource underutilization. The Genetic Algorithm (GA)–based approach improves overall resource utilization by optimizing virtual machine placement through heuristic search; however, its performance is limited by insufficient adaptability to rapidly changing workload conditions. The Deep Reinforcement Learning (DRL) model further enhances resource utilization by employing learning-based decision-making that dynamically adjusts allocations in response to observed system states. Notably, the proposed Hybrid DRL-GA model achieves the highest utilization across all resource dimensions, confirming its effectiveness in consolidating workloads, minimizing idle resources, and thereby contributing to improved energy efficiency in cloud computing environments.",
+      "label": "ai_generated",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "SLA Violation Rate SLA Violation (%) Method SLA Violation RR 9.6 GA 6.8",
+      "label": "human",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Method SLA Violation DRL 4.1 Hybrid DRL-GA 2.9 Key Observations:",
+      "label": "human",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The analysis reveals that the Genetic Algorithm (GA)–based approach, when used independently, lacks sufficient adaptability to respond effectively to dynamic and bursty cloud workloads, leading to suboptimal service performance. In contrast, the Deep Reinforcement Learning (DRL) model improves SLA adherence by continuously learning and adjusting resource allocation policies based on real-time environmental feedback. Building upon these strengths, the proposed Hybrid DRL-GA model further minimizes SLA violations by refining action selection through GA-assisted optimization, enabling more accurate and timely allocation decisions that balance energy efficiency with stringent Quality of Service (QoS) requirements.",
+      "label": "ai_generated",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Convergence and Execution Time Learning Convergence (Episodes) Method Episodes to Converge DRL 1,200 Hybrid DRL-GA 820 Execution Time per Allocation (ms) Method Time (ms) RR 2.1 GA 8.4 DRL 15.6 Hybrid DRL-GA 9.8",
+      "label": "human",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The Convergence Speed (Reward vs Episodes)",
+      "label": "ai_generated",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Fig. 3. Convergence behaviour of DRL and Hybrid DRL-GA models in terms of cumulative reward. Figure 3 depicts the convergence behaviour clearly demonstrates that the proposed Hybrid DRL-GA model achieves significantly faster learning, with an improvement of approximately 30–32% in convergence speed compared to the standalone DRL approach. This accelerated convergence strongly justifies the adoption of the hybrid architecture, as the integration of Genetic Algorithms effectively complements the learning process of DRL by guiding action selection toward near-optimal regions of the solution space. Moreover, the faster policy stabilization directly translates into reduced computational overhead during training and decision-making, thereby supporting the model’s suitability for real-time and large-scale cloud resource allocation scenarios where timely and energy-efficient scheduling decisions are critical.",
+      "label": "ai_generated",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Key Observations:",
+      "label": "human",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The convergence analysis shows that both models initially exhibit low cumulative rewards, corresponding to the exploration phase where the agents interact with the environment to learn effective resource allocation policies. The DRL-only model demonstrates a gradual and relatively slower increase in reward, indicating prolonged exploration and delayed policy stabilization due to the large and complex state–action space. In contrast, the proposed Hybrid DRL-GA model converges significantly faster, reaching near-stable reward values within fewer training episodes. Furthermore, the reduced variance and earlier plateau observed in the hybrid model’s reward curve confirm that GA-guided action refinement effectively accelerates the learning process, minimizes unnecessary exploration, and helps the agent avoid suboptimal policy regions, thereby enhancing overall training efficiency.",
+      "label": "ai_generated",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "D. Results and Analysis",
+      "label": "human",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The results show that the hybrid model outperforms both baseline models in terms of energy efficiency and resource utilization. The hybrid model achieved a 15% reduction in energy consumption compared to the traditional heuristic model and a 20% improvement in resource utilization compared to the DRL-only model. The use of GA helped reduce the",
+      "label": "ai_generated",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "DRL agent’s learning time by 30%, enabling faster convergence and more effective resource allocation. Collectively, the figure-wise analysis confirms that the proposed Hybrid DRL-GA model achieves a superior trade-off between energy efficiency, resource utilization, SLA compliance, and learning efficiency, making it a promising solution for sustainable and scalable cloud computing environments.",
+      "label": "ai_generated",
+      "page_num": 12,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "V. Conclusion",
+      "label": "human",
+      "page_num": 12,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "This paper proposes a hybrid AI-based model that combines the strengths of DRL and GA for energy-efficient resource allocation in cloud environments. The hybrid approach addresses the limitations of DRL, such as slow convergence and high computational overhead, by integrating GA’s global optimization capabilities. Simulation results demonstrate that the hybrid model significantly improves energy efficiency and resource utilization compared to traditional approaches. Future work will explore the integration of other AI techniques, such as transfer learning and multi-agent systems, to further enhance the model’s adaptability and scalability in large-scale cloud environments.",
+      "label": "ai_generated",
+      "page_num": 12,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "References 1.​ Beloglazov, A., & Buyya, R. (2012). Energy-efficient resource management in virtualized cloud data centers. 2012 10th IEEE/ACM International Conference on Cluster, Cloud and Grid Computing (CCGrid). 2.​ Mao, H., Alizadeh, M., Menache, I., & Kandula, S. (2016). Resource management with deep reinforcement learning. Proceedings of the 15th ACM Workshop on Hot Topics in Networks. 3.​ Xu, J., Zhao, S., & Yin, X. (2020). Energy-Aware Resource Allocation in Cloud Environments Using Deep Reinforcement Learning. IEEE Access, 8, 104482–104493. 4.​ Arabnejad, H., Barbosa, J. G., & Prodan, R. (2017). Low-Energy Scheduling Algorithm for Multiple Bag-of-Tasks Applications in Cloud Computing Systems. Journal of Grid Computing. 5.​ G. Xie, G. Zeng, R. Li, and K. Li, (2017) ‘‘Energy-aware processor merging algorithms for deadline constrained parallel applications in heterogeneous cloud computing,’’ IEEE Trans. Sustain. Comput., vol. 2, no. 2, pp. 62–75. 6.​ Z. Zhou, M. Shojafar, M. Alazab, J. Abawajy, and F. Li. (2021), ‘‘AFED-EF:An energy-efficient VM allocation algorithm for IoT applications in a cloud data center,’’ IEEE Trans. Green Commun. Netw., vol. 5, no. 2, pp. 658–669.",
+      "label": "human",
+      "page_num": 12,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "7.​ W. Shu, K. Cai, and N. N. Xiong. (2021) , ‘‘Research on strong agile response task scheduling optimization enhancement with optimal resource usage in green cloud computing,’’ Future Gener. Comput. Syst., vol. 124, pp. 12–20. 8.​ S. Nabi, M. Ibrahim, and J. M. Jimenez. (2021), ‘‘DRALBA: Dynamic and resource aware load balanced scheduling approach for cloud computing,’’ IEEE Access, vol. 9, pp. 61283–61297. 9.​ Z. Zhou, M. Shojafar, M. Alazab, J. Abawajy, and F. Li. (2021), ‘‘AFED-EF:An energy-efficient VM allocation algorithm for IoT applications in a cloud data center,’’ IEEE Trans. Green Commun. Netw., vol. 5, no. 2, pp. 658–669. 10.​L. Yan, H. Chen, Y. Tu, and X. Zhou, (2022) ‘‘A task offloading algorithm with cloud edge jointly load balance optimization based on deep reinforcement learning for unmanned surface vehicles,’’ IEEE Access, vol. 10, pp. 16566–16576. 11.​W. Zhang, R. Yadav, Y. Tian, S. K. S. Tyagi, I. A. Elgendy, and O. Kaiwartya (2022), ‘‘Two-phase industrial manufacturing service management for energy efficiency of data centers,’’ IEEE Trans. Ind. Informat., vol. 18, no. 11, pp. 7525–7536, Nov. 12.​R. Mandal, M. K. Mondal, S. Banerjee, G. Srivastava, W. Alnumay, U. Ghosh, and U. Biswas. (2023), ‘‘MECpVmS: An SLA aware energy-efficient virtual machine selection policy for green cloud computing,’’ Cluster Comput., vol. 26, no. 1, pp. 651–665.",
+      "label": "human",
+      "page_num": 13,
+      "source": "direct_pdf"
+    }
+  ],
+  "stats": {
+    "ai_generated_segments": 32,
+    "ai_paraphrased_segments": 0,
+    "human_segments": 27,
+    "ocr_pages": 0,
+    "total_chars_ai": 16868,
+    "total_chars_paraphrased": 0,
+    "total_chars_human": 4321
+  },
+  "errors": []
+}

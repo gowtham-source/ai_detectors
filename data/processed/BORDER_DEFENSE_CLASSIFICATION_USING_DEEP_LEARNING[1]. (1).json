@@ -1,0 +1,338 @@
+{
+  "file_name": "BORDER_DEFENSE_CLASSIFICATION_USING_DEEP_LEARNING[1]. (1).pdf",
+  "file_path": "c:\\Users\\gowth\\Downloads\\ai_plag_detector\\data\\raw_data\\raw_data\\BORDER_DEFENSE_CLASSIFICATION_USING_DEEP_LEARNING[1]. (1).pdf",
+  "submission_date": "2026-02-03",
+  "priority": "HIGH",
+  "total_pages": 12,
+  "ai_percentage_reported": 87,
+  "segments": [
+    {
+      "text": "BORDER DEFENSE CLASSIFICATION USING DEEP LEARNING",
+      "label": "human",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Abstract— The rapid advancement of deep learning has transformed autonomous defense systems in airplanes, facilitating improved danger detection and reaction capacities. This research introduces a Convolutional Neural Network (CNN) architecture intended for the real-time detection, classification, and neutralization of aerial threats, including missiles, drones, and hostile aircraft. The suggested system employs sophisticated techniques such as residual connections, batch normalization, and data augmentation to achieve high accuracy and adaptability across various operational settings. A comprehensive dataset containing diverse threat signatures was utilized for training and evaluation, resulting in notable performance enhancements compared to existing approaches. The modular and scalable architecture enables easy interface with avionics systems, facilitating real-time decision-making and ongoing learning to counteract emerging threats. The system guarantees dependable performance by enhancing computational efficiency in resource-limited settings. The deployment exhibits significant improvements in situational awareness and operational safety, creating a solid basis for future advancements in autonomous defense systems. Index Terms - Autonomous Defense Systems, Military Defense, Aircraft detection, Aircraft Safety, Deep Learning, Convolutional Neural Network (CNN)",
+      "label": "ai_generated",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "INTRODUCTION",
+      "label": "human",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The progress of modern military and aerospace technology has demanded the creation of sophisticated and autonomous defensive systems to protect aircraft from a varied spectrum of attacks. With the rising employment of hypersonic missiles, drones, and superior radar-evading technology, traditional defense measures typically fall short of fulfilling the demands of rapidly shifting battle scenarios. Autonomous defensive systems, powered by artificial intelligence (AI) and machine learning, present a comprehensive way to overcoming these issues, ensuring prompt threat detection and mitigation with minimal human interaction. Among the AI approaches, Convolutional Neural Networks (CNNs) have emerged as a transformative solution for real-time analysis of visual and sensor data, making them perfect for autonomous defense applications. Deep learning techniques, notably CNNs, have revolutionized picture identification, object detection, and classification jobs by enabling machines to extract complex features from raw data. In the context of autonomous defense systems, CNNs can effectively scan enormous datasets of aerial and radar imagery to identify and categorize possible threats with surprising precision. By exploiting their ability to learn hierarchical representations of data, CNNs can discern between numerous aerial threats, such as enemy aircraft, missiles, and drones, even under tough climatic conditions. These technologies operate in real time, providing rapid decision-making vital for protecting airplanes in dangerous circumstances. Existing defense systems face issues such low accuracy, limited scalability, and lack of deep learning integration, rendering them unsuitable for real-time threat detection and response. Current methods also struggle to respond to evolving threats, underlining the need for scalable, efficient, and adaptive solutions linked with modern avionics systems. This work introduces a comprehensive CNN-based architecture for autonomous defense in airplanes, combining features such residual connections, batch normalization, and data augmentation to boost performance and adaptability. Its modular design provides easy interaction with current systems, enabling real-time decision-making and computational efficiency. By overcoming these limitations, the suggested strategy dramatically increases aircraft survivability and operating efficiency while setting the framework for future breakthroughs in defense systems.",
+      "label": "ai_generated",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "LITERATURE SURVEY",
+      "label": "human",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Several research have studied the application of deep learning techniques in autonomous systems, revealing their potential to boost real-time decision-making, accuracy, and efficiency in difficult circumstances. The following",
+      "label": "ai_generated",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "works provide vital insights into the topic and provide the framework for this research. The research [1] provides a unique strategy for autonomous drone navigation utilizing deep Convolutional Neural Networks (CNNs). The system utilizes visual information from onboard cameras to produce drone steering commands, removing dependency on GPS. Data augmentation strategies are applied to boost adaptability in real-life deployment circumstances. Tested utilizing the Unreal Engine-based AirSim simulator, the system achieved promising results with low departure from guidance paths. However, its performance in varied real-world contexts remains to be completely tested. Another research [2] analyses the necessity for autonomous air defense systems in response to impending hypersonic missile threats. The authors underline the requirement for rapid response skills to fight the high-speed and agility of such threats. By evaluating recent military conflicts and technological breakthroughs, the report underlines the European Defense Agency’s recognition of hypersonic missiles as an emerging disruptive technology. The findings underline the need of creating AI-driven defense technologies to assure airspace security and effective threat mitigation. The research [3] delves at the ethical, legal, and security problems involved with Autonomous Weapons Systems (AWS). The paper explores the militarization of Artificial Intelligence (AI) as a crucial revolution in combat, frequently referred to as the “Third Revolution” following gunpowder and nuclear weapons. The authors investigate governmental strategies and investments in AWS technologies, focusing on the UK Ministry of Defence and global superpowers such as the US, China, and Russia. The report underlines the significance of balancing technical innovation with human monitoring to guarantee responsible deployment. The research [4] examines the application of evolutionary deep learning algorithms for item recognition in aerial and satellite data. The work applies genetic algorithms to enhance hyperparameters for deep learning models, boosting their accuracy and efficiency. The results reveal that optimized models outperform baseline models in detecting airplanes, vehicles, and ships, attaining higher accuracy and shorter training times. However, a modest drop in precision was seen for ship detection, highlighting possible areas for further improvement. The research [5] addresses recent improvements in object detection technology, stressing the significance of deep learning in real-time remote sensing through satellite data. The study suggests close-orbit satellites, unmanned aerial vehicles (UAVs), and autonomous systems as preferred platforms for aircraft identification in civil and military aviation situations. The authors note issues faced in satellite-based remote sensing, such as image resolution limitations, weather conditions, and the difficulty of spotting small, tightly packed aircraft. To tackle these issues, the study assesses the YOLOv5 detection method, known for its single-stage design and improved neural networks, which employ parallel processing on GPUs to enhance detection accuracy and efficiency. The findings illustrate YOLOv5’s capabilities to deliver real-time detection and categorization of ground aircraft, making it a suitable solution for aviation management, surveillance, and national defense applications. However, the study notes the need for future advancements in handling complicated climatic circumstances and different aircraft designs.",
+      "label": "ai_generated",
+      "page_num": 4,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "PROPOSED METHOD",
+      "label": "human",
+      "page_num": 4,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The proposed solution intends to augment aircraft defense capabilities by employing Convolutional Neural Networks (CNNs) for real-time threat identification and categorization. Unlike conventional systems that rely on manual detection and predetermined rules, this system leverages deep learning techniques to automatically identify possible threats such as hostile aircraft, missiles, and drones with great accuracy. The architecture consists of many layers, including convolutional layers for feature extraction, pooling layers for dimensionality reduction, and fully connected layers for classification. To boost performance and adaptability, advanced techniques such as residual connections, batch normalization, and data augmentation are applied. Data sets used in this paper is Military Aircraft Recognition Dataset from Kaggle dataset. This dataset includes 3,842 images across 20 types of military aircraft, annotated with bounding boxes.",
+      "label": "ai_generated",
+      "page_num": 4,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The system is built for real-time processing, ensuring speedy response in urgent situations. There are different approaches to determining the most optimal hyper-parameters for a CNN model: •​ Grid Search: in grid search, a grid of possible parameter values for each parameter to be tuned is defined. The grid search algorithm exhaustively evaluates all possible combinations of parameters and selects the one that results in the best performance. •​ Random Search: While grid search explores all combinations, random search involves sampling parameter values from predefined ranges randomly. It doesn’t guarantee the best results due to random sampling. •​ Automated Hyper-parameter Tuning: we can use libraries such as Keras Tuner and employ their built-in functions that implement search techniques to handle the search process.",
+      "label": "ai_generated",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Since automated, they can be quite efficient and find the most optimal configuration for the model. Furthermore, the modular and scalable architecture provides smooth connection with current avionics systems, delivering a resilient and adaptive defense solution. There different parameters that can be tuned to improve the model: 1.​ Number of convolutional layers: more layers can potentially capture more complex features; however, too many convolutional layers can also lead to overfitting. 2.​ Number of filters: increasing this number can make the model learn more intricate patterns existing in the images; however, it increases computational cost. 3.​ Filter size: this parameter helps capture different levels of details and patterns. Increasing it might help exploit more details. 4.​ Pooling size: pooling is a technique of reducing spatial dimensions of an image; smaller pooling filter sizes retain more spatial information; the catch is it increases the computational cost. 5.​ Activation functions: the ability to learn and generalize is handled by activation functions. For example, if I change ReLU, which I used in the code above, to LeakyReLU or ELU, it might mitigate the “dying ReLU” problem. 6.​ Learning Rate: this is the step size taken to reach convergence during gradient descent optimization. If it’s too high, may cause unstable training. 7.​ Batch size: batch size is the number of training samples processed before updating the model’s weights. Although larger batch sizes may result in faster training, they require more memory. Smaller batch sizes on the other hand, can essentially lead to better generalization but slower convergence. 8.​ Number of epochs: this is the number of times the model iterates over the entire training set. Too few epochs can result in underfitting, while too many of them may result in overfitting. 9.​ Regularization: the dropout seen in my code is one of the regularization techniques; L1/L2 regularization and batch normalization are other examples.",
+      "label": "human",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "These techniques can help prevent overfitting. 10.​Optimizer: the choice of optimizer affects the speed and quality of convergence.",
+      "label": "ai_generated",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "SYSTEM ARCHITECTURE Fig 1. Proposed System Architecture A. Manual Net",
+      "label": "human",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The Manual Net module is a custom-designed CNN model constructed from scratch to offer flexibility in architecture design and parameter tuning. It features many convolutional layers, activation functions, and pooling layers optimized specifically for aviation threat detection. The network is trained using proprietary augmentation strategies to improve resilience across varied environmental circumstances. The manual technique permits fine-tuning of hyperparameters to maximize performance based on unique defense circumstances.",
+      "label": "ai_generated",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "B. VGG (Visual Geometry Group)",
+      "label": "human",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The VGG module provides the popular deep CNN architecture noted for its simplicity and depth, containing 16 or 19 convolutional layers. VGG's hierarchical structure successfully retains spatial hierarchies in input data, making it well-suited for feature extraction and classification applications. The combination of smaller receptive fields and deep structures boosts the detection capabilities of the system, contributing to better accuracy and generalization.",
+      "label": "ai_generated",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "LeNet, one of the pioneering CNN architectures, is applied for lightweight and efficient feature extraction. It comprises of a sequence of convolutional and pooling layers followed by fully linked layers for classification. LeNet's simplicity and computational efficiency make it a good choice for real-time applications where processing capacity is restricted, ensuring rapid response in defense systems.",
+      "label": "ai_generated",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Model Performance Comparison: Table 1. Comparative Analysis Comparative Analysis of Real-Time Performance ●​ ManualNet: o​",
+      "label": "human",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Accuracy of 92.1%, offering a balance between computational efficiency and classification performance.",
+      "label": "ai_generated",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Frame Processing Time: 20ms per frame, making it suitable for near-real-time applications.",
+      "label": "ai_generated",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Sequence Processing Time (10 frames): 200ms, indicating feasibility for batch processing with minimal delay.",
+      "label": "ai_generated",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Suitable for edge devices and real-time applications with moderate computational power.",
+      "label": "ai_generated",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "●​ VGG-16: o​",
+      "label": "human",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Highest accuracy (95.4%), making it the most precise model but also the slowest.",
+      "label": "ai_generated",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Frame Processing Time: 130ms per frame, unsuitable for real-time applications.",
+      "label": "ai_generated",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Sequence Processing Time: 1300ms, indicating significant latency when processing a sequence of images.",
+      "label": "ai_generated",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Best suited for offline analysis or cloud-based deployment where processing time is less critical.",
+      "label": "ai_generated",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "●​ LeNet: o​",
+      "label": "human",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Lowest accuracy (88.7%), but fastest processing time.",
+      "label": "ai_generated",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Frame Processing Time: 12ms, making it highly efficient for real-time inference.",
+      "label": "ai_generated",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Sequence Processing Time: 120ms, indicating ultra-fast processing for real-time surveillance.",
+      "label": "ai_generated",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Ideal for low-power devices or real-time drone-based classification systems. The comparative analysis assesses the performance of several CNN architectures—Manual Net, VGG, and LeNet—based on critical parameters like as accuracy, computational cost, complexity, and applicability for real-time applications. VGG displays improved accuracy because to its deep design but at the tradeoff of increased processing cost. LeNet, on the other hand, offers a lightweight solution ideal for real-time settings with limited processing capacity, whereas Manual Net gives a balanced approach with customizable flexibility. This analysis helps in determining the best appropriate model based on the specific operational needs of the defense system. The proposed deep learning-based autonomous defense system provides a highly precise and efficient technique to identifying and countering airborne threats in real-time. By employing different CNN architectures, the system provides a balance between accuracy and computational economy, making it adaptable to diverse operational contexts. The modular architecture enables for future scalability, assuring long-term viability and integration with advancing military technology.",
+      "label": "ai_generated",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "IMPLEMENTATION",
+      "label": "human",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The implementation of the proposed autonomous defense system involves several stages, starting with data collection and preprocessing, where a large dataset of aerial images, including enemy aircraft, missiles, and drones, is gathered and pre-processed using techniques such as resizing, normalization, and augmentation to enhance model generalization. The following stage focuses on model development, where three deep learning models—Manual Net, VGG, and LeNet—are developed and trained using optimized hyperparameters, employing GPU acceleration for efficient computing. Model evaluation follows, leveraging performance measurements such as accuracy, precision, and recall, along with optimization techniques like dropout regularization and early stopping to increase stability and reduce overfitting. Once trained, the models are deployed by translating them into an H5 format and integrating them into a web application using the Django framework, providing real-time threat detection through an intuitive user interface. Finally, a feedback loop is developed for continual learning and development, ensuring the system adapts to emerging threats and retains high performance in dynamic contexts.",
+      "label": "ai_generated",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Fig 2 . Landing Page RESULTS & DISCUSSION",
+      "label": "human",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The performance of the proposed deep learning-based autonomous defense system was tested through extensive testing on aerial image datasets. The system was tested based on its capacity to effectively detect and classify possible threats, such as hostile aircraft, missiles, and drones, in real-time. The evaluation criteria used include accuracy, precision, recall, and F1-score, which provide insights into the effectiveness of the applied CNN models—Manual Net, VGG, and LeNet.",
+      "label": "ai_generated",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Experimental Validation of Real-Time Capabilities:",
+      "label": "human",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "To validate real-time inference capabilities, the models were tested using a live video feed (30 FPS, 1920x1080 resolution) on an NVIDIA RTX 3090 GPU. ManualNet achieved an effective frame rate of ~50 FPS, making it deployable in real-time scenarios with minimal latency. VGG-16 struggled with live inference, maintaining an average of 7 FPS, making it infeasible for real-time applications. LeNet consistently processed frames at 80 FPS, making it the best choice for high-speed surveillance with minimal delay. These results confirm that ManualNet and LeNet are optimal choices for real-time deployment, whereas VGG-16 is better suited for offline analysis where accuracy is the primary concern.",
+      "label": "ai_generated",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Model Performance Visualization:",
+      "label": "human",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Accuracy Comparison Chart: Illustrates the classification performance of the three models, with VGG-16 achieving the highest accuracy, followed by ManualNet and LeNet.",
+      "label": "ai_generated",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Inference Time Comparison Chart: Shows the time required for each model to process a single input, where LeNet has the fastest inference time, followed by ManualNet, while VGG-16 is significantly slower. Real-Time Frame Processing Comparison Chart: Depicts the number of frames processed per second, highlighting that LeNet achieves the best real-time performance, with ManualNet also being efficient, whereas VGG-16 struggles with high processing latency.",
+      "label": "ai_generated",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Fig 3: Model Performance Visualization Fig 4: Real-time Frame Processing performance",
+      "label": "human",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The below output image Fig 5 displays the system's capabilities to successfully detect and classify an incoming threat. The system accurately recognizes the object within the aerial image and offers a classification label with a high confidence score, displaying the reliability of the model in operational contexts.",
+      "label": "ai_generated",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Fig 5. Detected Output Image",
+      "label": "human",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ ​ Fig 6. Detected aircraft Details",
+      "label": "human",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The accuracy graph Fig 7 presents a comparative examination of the three implemented CNN models over numerous training epochs. It depicts the learning curve, illustrating the improvement in accuracy over time and highlighting the usefulness of various optimization strategies. The results reveal that the VGG model attained the maximum accuracy, followed by Manual Net and LeNet, making it the most suitable choice for deployment in complex defense scenarios.",
+      "label": "ai_generated",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Fig 7: Model Accuracy",
+      "label": "human",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Overall, the suggested system displays great accuracy, real-time processing capabilities, and robustness in diverse operational settings. The discussion of results reveals that integrating deep learning-based threat detection can considerably increase aircraft defense mechanisms by delivering reliable and speedy threat identification. The modular architecture enables for incremental upgrades and scalability, making the system responsive to growing military requirements.",
+      "label": "ai_generated",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "CONCLUSION AND FUTURE WORK",
+      "label": "human",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The integration of deep learning techniques, notably Convolutional Neural Networks (CNNs), into autonomous defensive systems has proven tremendous potential in boosting the safety and operational efficiency of aircraft. The proposed CNN-based architecture provides real-time threat detection and classification, enabling rapid and precise responses to developing aerial threats such as missiles, drones, and hostile aircraft. By combining advanced features including residual connections, batch normalization, and data augmentation, the system achieves increased training stability, adaptability, and accuracy. Its modular architecture provides smooth connection with existing avionics",
+      "label": "ai_generated",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "systems, paving the path for practical deployment in resource-constrained contexts. This research demonstrates the revolutionary significance of AI in modern defense technology and lays a strong platform for ongoing innovation in this domain. Future work will focus on enhancing the architecture by researching advanced model optimization approaches and integrating multi-modal sensor data for increased situational awareness. Additionally, the introduction of edge computing and real-time processing capabilities will be prioritized to further reduce latency and computational overhead. Testing the system in real-world circumstances and resolving ethical problems in autonomous defense applications will also be significant areas of focus. These efforts attempt to produce more robust, efficient, and responsible defense systems to meet the dynamic challenges of current aerospace settings.",
+      "label": "ai_generated",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "REFERENCE [1]​ K. Amer, M. Samy, R. ElHakim, M. Shaker and M. ElHelw, \"Convolutional Neural Network-Based Deep Urban Signatures with Application to Drone Localization,\" 2017 IEEE International Conference on Computer Vision Workshops (ICCVW), Venice, Italy, 2017, pp. 2138-2145, doi: 10.1109/ICCVW.2017.250. [2]​A. Wouters and N. Prakopetz, \"Autonomy in Air Defense Systems,\" Defense Technology Journal, vol. 5, no. 2, pp. 34-41, 2022. [3]​I. Bode and T. Watts, \"Lessons from Air Defense Systems on Meaningful Human Control for the Debate on AWS,\" Journal of Military Ethics, vol. 20, no. 3, pp. 21-36, 2021. [4]​A. K. Thoudoju, \"Detection of Aircraft, Vehicles, and Ships in Aerial and Satellite Imagery using Evolutionary Deep Learning,\" Journal of Image Processing and Applications, vol. 14, no. 1, pp. 15-25, 2021. [5]​ M. Duhter, K. Schultheiss, H. M. Marek, M. L. Starha and H. Kuzu, \"Single-Stage Deep Learning in Aviation: YOLOv5 for Satellite-Based Aircraft Detection,\" 2024 8th International Artificial Intelligence and Data Processing Symposium (IDAP), Malatya, Turkiye, 2024, pp. 1-6, doi: 10.1109/IDAP64064.2024.10711140. [6]​ B. Wang, Y. Zhou, H. Zhang and N. Wang, \"An Aircraft Target Detection Method Based on Regional Convolutional Neural Network for Remote Sensing Images,\" 2019 IEEE 9th International Conference on Electronics Information and Emergency Communication (ICEIEC), Beijing, China, 2019, pp. 474-478, doi: 10.1109/ICEIEC.2019.8784637. [7]​Z. Dong, Z. Li, M. Jiang, X. Chen, J. Wang and Y. Chen, \"Aircraft Target Detection in Remote Sensing Image based on Improved YOLOv8 Algorithm,\" 2024 7th International Conference on Computer Information Science and Application Technology (CISAT), Hangzhou, China, 2024, pp. 874-877, doi: 10.1109/CISAT62382.2024.10695361. [8]​ M. Yu, S. Cheng, J. Rao, J. Lu and Q. Zhao, \"Dataset constructing method for Foreign Object Debris detection in civil aircraft manufacturing and assembly scenarios,\" 2024 16th International Conference on Intelligent Human-Machine Systems and Cybernetics (IHMSC), Hangzhou, China, 2024, pp. 136-139, doi: 10.1109/IHMSC62065.2024.00038. [9]​ F. Bi, Z. Yang, M. Lei and M. Bian, \"Airport Aircraft Detection Based on Local Context DPM in Remote Sensing Images,\" IGARSS 2019 - 2019 IEEE International Geoscience and Remote Sensing Symposium, Yokohama, Japan, 2019, pp. 1362-1365, doi: 10.1109/IGARSS.2019.8897750.",
+      "label": "human",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "[10]​ S. L. Xu, Z. Chen, H. Zhang and H. Su, \"Improved Aircraft Target Detection Algorithm for Remote Sensing Images with YOLOv8,\" 2023 3rd International Conference on Electronic Information Engineering and Computer Science (EIECS), Changchun, China, 2023, pp. 317-321, doi: 10.1109/EIECS59936.2023.10435536. [11]​ Q. Guo, H. Wang, L. Kang, Z. Li and F. Xu, \"Aircraft Target Detection from Spaceborne SAR Image,\" IGARSS 2019 - 2019 IEEE International Geoscience and Remote Sensing Symposium, Yokohama, Japan, 2019, pp. 1168-1171, doi: 10.1109/IGARSS.2019.8898548.",
+      "label": "human",
+      "page_num": 12,
+      "source": "direct_pdf"
+    }
+  ],
+  "stats": {
+    "ai_generated_segments": 32,
+    "ai_paraphrased_segments": 0,
+    "human_segments": 21,
+    "ocr_pages": 0,
+    "total_chars_ai": 18955,
+    "total_chars_paraphrased": 0,
+    "total_chars_human": 5649
+  },
+  "errors": []
+}

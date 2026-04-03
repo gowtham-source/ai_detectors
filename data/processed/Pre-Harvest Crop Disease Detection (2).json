@@ -1,0 +1,548 @@
+{
+  "file_name": "Pre-Harvest Crop Disease Detection (2).pdf",
+  "file_path": "c:\\Users\\gowth\\Downloads\\ai_plag_detector\\data\\raw_data\\raw_data\\Pre-Harvest Crop Disease Detection (2).pdf",
+  "submission_date": "2026-03-12",
+  "priority": "HIGH",
+  "total_pages": 26,
+  "ai_percentage_reported": 47,
+  "segments": [
+    {
+      "text": "Dual-Attention Hyperbolic Feature Fusion Network for Robust Pre-Harvest Crop Disease Detection Abstract- Detecting crop disease in the pre-harvest stage is important to reduce yield loss and make sure sustainable agricultural production. We present a novel, Dual-Attention Hyperbolic Feature Fusion Network (DAHFF-Net) capable of robust and efficient crop disease classification on the publicly available PlantVillage dataset with 54,306 images across 38 different disease categories from 14 crop species. Unlike conventional convolutional models that utilize Euclidean feature representation only, this framework incorporates EfficientNet-B4 for hierarchical feature extraction, a spatial–channel attention mechanism to focus on lesion-specific region and a hyperbolic embedding layer that improves inter-class separability in a non-Euclidean latent space. We also propose a curvature-adaptive margin loss function to enhance the decision boundary discrimination of visually similar diseases. DAHFF-Net was extensively evaluated using 5-fold cross-validation and obtained the tradeoff classification accuracy of 99.21%, macro F1-score of 98.87% and precision of 98.65% outperforming the baseline architectures including ResNet50 (97.42%), Vision Transformer (98.03%) and standard EfficientNet (98.36%). The proposed model further reduces parameter complexity by 18.4% and inference time by 22.7%, allowing it to be deployable in edge-based precision farming systems. Using Grad-CAM interpretability analysis, our method shows significant improvement in localization of infected regions with 16% increase in intersection over union (IoU) compared to baseline models. We emphasize the potential and impact of hyperbolic feature learning with attention mechanisms for efficient, high-fidelity pre-harvest crop disease extraction through our findings. Keywords: Hyperbolic Representation Learning, Dual-Attention Mechanism, Pre-Harvest Crop Disease Detection, EfficientNet-B4, Precision Agriculture. 1. Introduction​",
+      "label": "human",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Early detection of diseases at the pre-harvest stage is critical to solving food security, crop productivity [1][2] and causes irreversible yield reduction with an increased reliance on chemical control. Using real-time detection of infected leaves [3] cossetted targeted intervention [4][5] decreases pesticide abuse and promotes environmental sustainability. Traditionally, farmers or agriculture experts visually inspect crops to diagnose diseases. Nonetheless, the manual evaluation is labor-intensive, subjective and highly domain-expertise dependent [6]. These are mannequin diagnostics allow additional challenges, due mostly light condition dependence, leaf orientation, symptom similarity and invisibility / fading of early-stage lesions. Such limitations urge the need for automated, robust and scalable diagnostic systems [7][8]. In the past couple of years, AI-based vision systems have been developed that enable real-time disease monitoring and assist decision-making in precision agriculture. Such recent spotting provides a ground for employing deep learning-based image analysis for timely detection, minimised diagnostic bias, and seamless edge-deployed intelligent farming systems.",
+      "label": "ai_generated",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Due to their powerful ability of hierarchical feature learning, CNNs have been widely used in the research of plant disease classification [9][10]. Architectures based on state-of-the-art approaches like ResNet, DenseNet and EfficientNet have been used for the same taking input both kind of texture characteristics multi-scale as well as colour characteristics on leaf images [11]. Using transfer learning techniques, which took advantage of pre-trained weights learned from training on large image datasets, the classification results were improved. These approaches were extended on agricultural vision tasks through self-attention-based transformer models that are capable of modelling long-range dependencies across the leaf surfaces. Although this approach produces comparable performance [12][13], it has inherent limitations. Many of the approaches above, however, project representations into a Euclidean latent space where distances grow linearly and hierarchical class relationships are not preserved as accurately as we could. Crop disease datasets can often have visually similar classes — for example early blight and late blight — whose subtle textural differences cannot be easily observed with normal Euclidean embeddings. This results in reduced inter-class separability and overlap of decision boundaries. Additionally, deep architectures fitted to these relatively homogeneous datasets have been shown to over fit with respect to individual classes and particularly for difficult fine-grained disease categories having low inter-class variation. Although transformer-based models are powerful [14][15], these can incur larger computational overhead, which is not ideal for resource-constrained agricultural edge devices.",
+      "label": "ai_generated",
+      "page_num": 4,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Attention-enhanced CNNs have been demonstrated to work well, however there are many interesting open questions to consider. First, most current crop disease detection pipelines are based on strictly Euclidean feature spaces even though many stub features lack inherent ordering and relations among their respective classes [16]. While hyperbolic geometry has shown promise for modeling hierarchical data distributions due to its exponential growth characteristics, its application in the areas of plant pathology still remains underexplored. Second, while some Euclidean designs integrating attention mechanisms (e.g., channel and spatial attention) have been explored to enhance regions corresponding to significant lesions, they are used via conventional Euclidean feature pipelines without leveraging advantages inherent to non-Euclidean embeddings [17][18]. Third, existing classification losses are margin-based on Euclidean manifolds and cannot be adapted to curvature for separation in hyperbolic space. A fixed-margin ignores the geometry of the data, resulting in lower discriminative power of these models on visually similar disease classes [19][20].",
+      "label": "human",
+      "page_num": 4,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "This factual context necessitates a joint framework capable, ultimately through the gap identified, of combining hierarchical representation learning with attention-based feature refinement and curvature-sensitive decision boundary optimization for effective pre-harvest crop disease detection [21].",
+      "label": "ai_generated",
+      "page_num": 4,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "To tackle these issues, this paper presents a Dual-Attention Hyperbolic Feature Fusion Network (DAHFF-Net), with the following major contributions: ●​ Hybrid Hyperbolic-Attention Architecture: By integrating the EfficientNet-B4 architecture, a dual spatial–channel attention mechanism, and a hyperbolic embedding",
+      "label": "human",
+      "page_num": 4,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "layer into DAHFF-Net, we enable lesion-aware feature refinement and non-Euclidean representation learning. ●​ Marginal Loss with Curvature Awareness: The hyperbolic margin loss is implemented to achieve a better inter-class separation of visually similar class pairs, such as crop diseases observed before harvest. ●​ Light-weight and Accurate Model: The model obtained an accuracy of 99.21% on the PlantVillage dataset with 18.4% lower parameter complexity, and 16% higher IoU for lesion localization that favors efficient deployment at the edge level The rest of this paper is structured as follows: In Section 2 the literature is reviewed in depth and research gap is stated. The third section describes the proposed DAHFF-Net architecture and details of the dataset, including preprocessing methods and methodological components. Section 4 presents the experimental settings and evaluation criteria, Section 5 reports on results, performance comparisons and ablation studies, and Section 6 concludes with future lines of research. 2. Literature Review The significance of artificial intelligence and computer vision in the agricultural sector is examined by Upadhyay and Bhargava (2025) with a focus on its ability to revolutionize all three key phases of agriculture, namely pre-harvest, harvest and post-harvest operation; improving efficiency through AI driven monitoring and automation while minimizing the dependency on labor force as well as productivity and crop quality.",
+      "label": "human",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Their review noted persistent challenges such as insufficient data accessibility, model generalization issues and the specters of technology scaling constraints in emerging countries' agricultural economies [1]. Rood et al. (2025) conducted a study assessing pre-harvest sanitization strategies for leafy vegetables and particularly examined chemical treatments that can be applied as part of irrigation or spray systems.",
+      "label": "ai_generated",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "While most of the sanitizers studied showed promise for pathogen reduction, authors scored use against a series of key gaps that would need addressing such as ecological impacts, disturbance to soil microbiomes and cost-effectiveness in order to establish the basis for risk assessment frameworks to enable soil-specific use [2]. Chen et al. Using satellite remote sensing and associated meteorological data, (2024) examined the spatial correlation between pre-harvest hail incursions and wheat streak mosaic outbreaks. They show that disease spread occurred beyond the immediately affected hail zones, highlighting how large-scale spatial monitoring tools can be applied toward proactive management of disease [3]. Strachan et al. (2022) discussed the diagnostic techniques for potential pathogen detection in the pre-harvest stage especially in sugarcane production. While high sensitivity is provided by laboratory-based tools like PCR and immunoassays, they are not amenable for rapid deployment in the field. The research study signaled that there is an urgent need for portable, on-site diagnosis systems that facilitate early intervention of such diseases [4]. Bonasia et al. (2025) used foliar treatments like methyl-jasmonate and zeolite in order to enhance pre-and post-harvest quality characteristics of hydroponic leafy vegetables. Through their greenhouse experiments, they highlighted the genotype-dependent improvements in antioxidant activity and nutritional parameters that prove biochemical approaches can be used as a complementary to deployed strategies for disease management [5]. Kumari et al. (2023) highlighted that mechanization at the pre-harvest stages may",
+      "label": "human",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "improve crop quality and losses. The analysis showed how their automated systems increased productivity, reduced labor-intensive processes reinforcing the merging of technological systems into sustainable horticultural production [6].",
+      "label": "human",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "He et al. (2021) developed a multimodal sensing and deep learning model for mango preharvest ripeness and disease recognition. In fact, even the best classification accuracy was just moderate with regards to many advanced sources, which used integrated spectral and impedance sensing along with an attention-based neural net to achieve this [7]. Li et al. GBDR-Net, a YOLO-based lightweight model for dense grape berry disease detection (2025). The proposal addressed this by adding more comprehensive feature fusion modules and better localization loss functions to balance detection performance and overhead, allowing use in real orchard conditions [8]. Li et al. (2025) on crop attribute detection technologies such as near-infrared spectroscopy, LiDAR and deep learning based segmentation model. The study was reported with advances like sensor fusion and edge computing that could be used at field level, to face challenges presented by occlusion and varying light/ground contrast [9]. Yamada et al. The work of (2025) further automated the quantification of pre-harvest grain losses by using vehicle-mounted cameras and state-of-the-art object detection neural networks. Their approach provides higher spatial coverage and improved efficiency compared to traditional quadrat sampling methods, reflecting the growing importance of automated field analytics [10]. Yang et al. (2024) evaluated pre-harvest rice yield prediction based on multi-temporal UAV-based remote sensing features. The temporal feature fusion and advancement in prediction accuracy is concrete with the columnar features of the growth stage, crops also clarify trending as per [11]. Sonmez et al. Fathulla et al. [12] (2024) also achieved substantial classification accuracies of wheat hybrids using DL architectures such as MobileNetV2 and GoogleNet, lending further applications to lightweight CNN models in recognizing agricultural images. Saad and Salman (2024) handled this type of limited-data cases through one-shot learning based on Siamese neural networks for classifying plant disease. Notable, their approach performed well even with relatively limited experimentation data and confirmed how models adapt to data-limited training [13]. Dolatabadian et al. (2023) provided a comprehensive review of image based crop disease entities detection systems using the ML techniques. The authors continue to argue that although imaging platforms and AI algorithms are being developed for diagnostic use, a considerable gap remains for robust and scalable solutions applicable in various environmental settings [14]. Singla et al. (2023) conducted a systematic analysis of recent machine learning techniques implemented for the detection of plant diseases, specifically CNNs, RNNs and ensemble methods. While they reported high accuracy, the review described persistently difficult real-world challenges about model scalability and applicability in practice [15]. Shahi et al. (2023) focused on drone-based remote assessment of sick plants and presented a categorization of the data driven and deep learning-based methodologies used in conjunction with aerial imagery. Their emphasis was on how this technology with proper data handling could be used for large scale disease surveillance [16].",
+      "label": "ai_generated",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "García-Vera et al.",
+      "label": "human",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Hyperspectral Imaging Applications in Crop Disease Detection and Classification (2024) for example reviewed. The results of the study indicated that broad spectral ranges in conjunction with machine learning algorithms can detect early signs of the stress, but it also brought attention to certain issues associated with",
+      "label": "ai_generated",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "computational complexity and cost [17]. Bouacida et al. whose model (2025) can be applied effectively by using a deep learning pipeline across untrained crops to center lesion-specific regions in lieu of global leaf appearance. Their findings were impressive especially for solving the core problem of generalization among different crops, which is a common limitation of existing plant disease models [18].",
+      "label": "ai_generated",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "2.1 Research Gap​",
+      "label": "human",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Yet, in spite of great advances that have been made on AI applications for crop disease detection, several large gaps remain unfilled. This means that existing deep learning models are mainly designed to operate on classical Euclidean feature spaces and often do not model mutually relational hierarchical yet fine-grain relationships for visually near disease classes. Although attention mechanisms and lightweight architectures guided the way towards localization and efficient parameterization, they mostly integrate together to provide better results without considering any non-Euclidean embedding methods which might assist in achieving a deeper separability of classes. Additionally, the current loss function is mainly specialized on Euclidean manifolds and does not synergistically incorporate curvature-aware optimization to give confidence in separating decision boundaries for neighboring disease categories.",
+      "label": "ai_generated",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Additionally, there exist several of these models that achieve very good benchmark accuracy but are not robust to subtle differences in intermixed classes and have high computational cost which is a concern for real-time edge deployment. Such gaps motivate us to propose a unified framework which seamlessly combines attention based feature refinement, hyperbolic space representation learning and curvature adaptive discriminative optimization for robust and scalable pre-harvest crop disease detection. 3.Methodology 3.1 Overall Architecture of DAHFF-Net The authors propose DAHFF-Net, an end-to-end architecture consisting of hyperbolic feature extraction and lesion-aware attention refinement mechanisms [21] followed simultaneously by the ability to learn in non-Euclidean spaces. We begin by resizing an image of a leaf to 380 × 380 pixels and feeding it to the EfficientNet-B4 back-bone for deep hierarchical feature extraction when starting the processing pipeline. The efficientNet-B4 model constructs a high dimensional feature representation with compound-scaled convolutional blocks and learns multi-scale spatial and texture patterns [23]. Then, the feature maps go through a dual attention block consisting of two branches, channel and spatial attention [22], [23], which adaptively recalibrate the feature responses by focusing on informative lesion areas while also suppressing elements in the background that can represent noise. Next, a hyperbolic transformation layer maps those cleansed feature maps into a hyperbolic embedding space to exploit its properties for better modeling of the hierarchical class relations and increased inter-class separability compared with classical Euclidean embeddings [24][25]. Hyperbolic ontology level separation based discriminative learning is further enhanced via curvature-adaptive margin loss in hyperbolic manifold which ions out the decision boundaries of examples from the same class on visual similarity basis and lead to breakage/ separation of structure appropriate disease category as well. Then, a softmax classifier takes the optimized embeddings and maps them into class probabilities from which disease",
+      "label": "human",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "prediction is derived. We present a sequential pipeline leveraging computationally efficient architecture tightly coupling feature extraction, attention based refinement, geometric embedding & classification ready for use in precision agriculture. The architecture of the proposed model is illustrated in Figure 1. ​ Figure 1: Overall Architecture of the Proposed DAHFF-Net Integrating EfficientNet-B4 Backbone with Dual Spatial–Channel Attention for Robust Pre-Harvest Crop Disease Classification ​ 3.2 PlantVillage Dataset​ To evaluate the performance of the proposed DAHFF-Net model comprehensively, we use a common benchmark dataset in plant classification studies- PlantVillage dataset which is publicly accessible. The dataset can be found in the official repository: Dataset Link: https://www.kaggle.com/datasets/emmarex/plantdisease. The data set includes 54,306 labeled leaf images, which were captured using controlled imaging conditions. These are classified images of 38 different disease types including both healthy and infected samples from 14 different crop species including tomato, potato, apple, grape, corn and pepper.",
+      "label": "human",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Acquired images on a consistent background for customized longitudinal visualization of symptomatic regions. The original images differ in resolution [27], but generally, they are about 256×256 pixels or more for a crop type. To ensure statistical reliability and avoid sampling bias, the model was validated with 5-fold cross-validation. It means that data is prepared in folds, and states that 80% of records were trained (70%), validation (10%) and tests (10%), also maintaining the class balance during each. Each picture progressively contributes at training as well as evaluation [28], thus fuelling an informative final conclusion on how the model performed during all iterations. This systematic preprocessing and validation procedure allows for objective benchmarking, ensuring the empirical findings can be replicated.",
+      "label": "ai_generated",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "3.3 Data Preprocessing",
+      "label": "human",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The PlantVillage dataset contains 54,306 images of leaves across 38 categories and 14 crop agro species. A structured pipeline of preprocessing stages was followed to ensure the DAHFF-Net model proposed is trained reliably and evaluates robustly. Since the backbone network EfficientNet-B4 requires a fixed-sized input [29], we resized all images to 380 × 380 pixels with bilinear interpolation while still preserving the visual observation in lesion regions.",
+      "label": "ai_generated",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "This normalizing of pixel intensities to some common range helps to reduce the internal covariate shift making optimization stable by preserving the distribution of activation distributions throughout different stages leading to stable gradient flow. Let an input image be in the form of Eq. 1: ​ ​ ​ ​ ​ (1) 𝐼ϵ𝑅 𝐻×𝑊×𝐶 Where, denote height, width, and channels respectively. The normalized image is 𝐻, 𝑊, 𝐶 𝐼 computed as in Eq.2: ​ ​ ​ ​ ​ ​ (2) 𝐼= 𝐼−µ σ And and represent that we calculate the channel-wise mean and std over the training set. µ σ Normalization helps the features to be zero centered and this makes our model converge more stably. In order to improve robustness against the orientation and illumination changes, data augmentation was performed dynamically during training. Random rotation and horizontal flipping were the spatial transformations applied. Let be a transformation operator 𝑇·( ) applied over the image . The augmented sample can be expressed as in Eq. 3: 𝐼 𝐼𝑎 ​ ​ ​ ​ ​ ​ (3) 𝐼𝑎= 𝑇𝐼( ) Here, comprises flipping with probability and rotation by small degrees . 𝑇 𝑝𝑓 θϵ −α, α [ ]",
+      "label": "human",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Furthermore, in order to simulate lighting variability, color jittering was applied which adjusts brightness and contrast. For brightness scaling factor , the transformation is defined β by Eq.",
+      "label": "ai_generated",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "4: ​ ​ ​ ​ ​ ​ (4) 𝐼𝑏= β · 𝐼𝑎",
+      "label": "human",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "With sampled from a predefined range to prevent excessive distortion of disease patterns. β 5-Fold cross-validation strategy was used for the model validation pipeline to ensure statistical reliability.",
+      "label": "ai_generated",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Data was divided into five different distinct subsets . 𝐷1, 𝐷2, 𝐷3, 𝐷4, 𝐷5 At each iteration , four subsets were used for training and one subset was used for 𝑘 validation: ,​ ​ ​ ​ ​ (5) 𝐷𝑡𝑟𝑎𝑖𝑛 𝑘 ( ) = ∪𝑖≠𝑘𝐷𝑖 𝐷𝑣𝑎𝑙 𝑘 ( ) = 𝐷𝑘",
+      "label": "human",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "It guarantees that each image is used once for assessment while maintaining balance across the classes. 80:20 train–validation split was preserved in each fold. Resize & Normalize for",
+      "label": "ai_generated",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "consistency. Augmentation for generalization. Cross-validation to measure performance are pivotal elements that give the proposed framework diagnostic capability on diabetes.",
+      "label": "ai_generated",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "3.4 EfficientNet-B4 Backbone​",
+      "label": "human",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "As EfficientNet-B4 is a balanced architecture that has been optimized for accuracy and computational efficiency using compound scaling [30][31], we take it as the backbone network of DAHFF-Net. Whereas most traditional CNN architectures can scale the network with depth or width independently, EfficientNet uses a more principled approach to scaling by uniformly scaling network depth , width and input resolution using a compound 𝑑 𝑤 𝑟 coefficient . This can be staged as shown in Eq.",
+      "label": "ai_generated",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": ",​ ,​ ​ ​ (6) 𝑑= α ϕ 𝑤= β ϕ 𝑟= γ ϕ subject to the constraint, ​ ​ ​ ​ ​ (7) α · β 2 · γ 2 ≈2 In Eq.7, are constants determined through grid search.",
+      "label": "human",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "This formulation",
+      "label": "ai_generated",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "α, β, γ > 1",
+      "label": "human",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "guarantees uniform summation of capacity and eliminates over-parameterization along a single-dimension [32]. Each of [29] topologies corresponds to an intermediate scaling factor that exponentially increases representation capability but without excessive memory and compute costs. It is built upon MBConv blocks with squeeze-and-excitation, enabling better performance gains via channel-wise feature recalibration and the flow of gradients. The backbone constructs a cascade of hierarchical feature representations with multiple convolutional layers where lower levels learn features of low-level cues such as gradients, edge structures in color spaces; mid-levels learn textures, lesion morphologies along with their visual appearances; while deeper levels elicit internal semantic features which can be used to perceive differences among different types of diseases. This multi-level hierarchy is relevant for plant disease recognition using fine-grain classification, where classes are visually very similar.",
+      "label": "ai_generated",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Note that EfficientNet-B4 is chosen instead of smaller variants (B0–B3) due to its, until the B4 architecture, lowest number of parameters where small variants might lack capacity needed to discriminate visually similar diseases; and larger ones (e.g., B5–B7) would bring much higher FLOPs and latency making it infeasible for deployment on smart farming-edge devices [33]. Thus, B4 strikes the best tradeoff between predictive performance and computational complexity as we aim to obtain high classification accuracy but with fast inference. 3.5 Dual Spatial–Channel Attention Module​ To improve feature refinement focused on the lesion, a dual spatial–channel attention module is developed that adaptively weights feature maps for informative channels and spatial locations. The output of the EfficientNet-B4 backbone is represented as in Eq. 8: ​ ​ ​ ​ ​ ​ (8) 𝐹ϵ𝑅 𝐻×𝑊×𝐶 Here, and are height, width and channel dimensions. In channel attention branch, 𝐻, 𝑊, 𝐶 global contextual information is firstly aggregated by applying global average pooling to get a channel descriptor as in Eq. 9: 𝑧ϵ𝑅 𝐶",
+      "label": "human",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​​ ​ ​ (9) 𝑧𝑐= 1 𝐻×𝑊𝑖=1 𝐻 ∑ 𝑗=1 𝑊 ∑𝐹𝑖,𝑗,𝑐 This descriptor reflects how important each feature channel is globally. A fully connected refinement lightweight mechanism with two dense non-linear activation layers is further passed through this pooled vector to generate channel attention weights : 𝑎𝑐ϵ 0, 1 [ ] ​ ​ ​ ​ ​ (10) 𝑎= σ 𝑊2δ 𝑊1𝑧 ( ) ( ) Where and are parameters to be learnt, represents a non-linear activation 𝑊1 𝑊2 δ ·( ) function, and represents the sigmoid function. We obtain the refined feature map via σ ·( ) 𝐹 ' channel-wise re-weighting: ​ ​ ​ ​ ​ (11) 𝐹𝑖,𝑗,𝑐 ' = 𝑎𝑐· 𝐹𝑖,𝑗,𝑐 that enhances the discriminative channels associated with disease symptoms, while suppressing unnecessary background responses. Specifically, in [34] the spatial attention branch predicts a spatial attention map that highlights informative regions out of the feature plane and indicates where to focus for lesion localization. The first aggregation is the average pooling over channel-wise, to get a 2D spatial descriptor . To model local spatial dependencies, a convolution operation with 𝑆ϵ𝑅 𝐻×𝑊 kernel is then performed: 𝐾 ​ ​ ​ ​ ​ (12) 𝑀= σ 𝐾∗𝑆 ( ) In Eq.12, denotes convolution and represents the spatial attention map. The ∗ 𝑀ϵ 0, 1 [ ] 𝐻×𝑊 spatially refined output is computed as in Eq. 13: 𝐹 '' ​ ​ ​ ​ ​ ​ (13) 𝐹𝑖,𝑗,𝑐 '' = 𝑀𝑖,𝑗· 𝐹𝑖,𝑗,𝑐 ' thus focusing on lesion-rich areas while neglecting background regions irrelevant to the study. This representation is channel-wise discriminative emphasis and spatial lesion 𝐹 '' localization that enables the network to concentrate only on disease-specific patterns while sustaining computational efficiency [35].",
+      "label": "human",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ Figure 2. Dual Spatial–Channel Attention Module for Lesion-Focused Feature Refinement in DAHFF-Net This figure 2 illustrates the internal structure of the dual attention mechanism composed of channel attention and spatial attention branches. The channel attention branch applies global pooling and sigmoid-based reweighting to emphasize informative feature channels, while the spatial attention branch utilizes convolutional operations to localize discriminative lesion regions. The combined attention maps enhance disease-specific feature representation by suppressing background noise and improving intra-class compactness before hyperbolic embedding. 3.6 Hyperbolic Embedding Layer​ As the main contribution of DAHFF-Net in [36][37], we introduced a hyperbolic embedding layer that empowered the metamorphosis of refined Euclidean feature representations into some non-Euclidean manifold to facilitate further hierarchy and class discrimination across diseases. The attention-refined feature vector, denoted as , is produced by global pooling 𝑥ϵ𝑅 𝑛 of the convolutional feature maps. For standard classifiers, the distances between samples are calculated based upon the Euclidean metric as expressed in Eq. 14: ​ ​ ​ ​ ​ (14) 𝑑𝐸𝑥𝑖, 𝑥𝑗 ( ) = 𝑥𝑖−𝑥𝑗 | | | | 2 which presumes a flat geometric shape in which distances increase proportionately relative to displacement. Subtle inter-class variations should be better represented in non-linear spaces as plant disease categories often have hierarchical relations among classes. To overcome this limitation, the feature vector is projected on the Poincaré ball model of hyperbolic space 𝑥 , where indicating curvature. The mapping is done via an 𝐵𝑐 𝑛= 𝑦ϵ𝑅 𝑛: 𝑐𝑦 | | | | 2 < 1 { } 𝑐> 0 exponential transformation that keeps the embedded vector inside of the unit ball: ​ ​ ​ ​ ​ ​ (15) 𝑦= 𝑡𝑎𝑛ℎ 𝑐𝑥 | | | | ( ) 𝑐𝑥 | | | |",
+      "label": "human",
+      "page_num": 12,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "This transformation provides the same direction but scales its magnitude by this curvature parameter.",
+      "label": "ai_generated",
+      "page_num": 13,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Hyperbolic distance between two embedded points and in Poincaré ball is 𝑦𝑖 𝑦𝑗 computed in Eq.16: ​ ​ (16) 𝑑𝐻𝑦𝑖, 𝑦𝑗 ( ) = 1 𝑐𝑐𝑜𝑠ℎ −1 1 + 2𝑐 𝑦𝑖−𝑦𝑗 | | | | 2 1−𝑐𝑦𝑖 | | | | 2 ( ) 1−𝑐𝑦𝑖 | | | | 2 ( ) ( )",
+      "label": "human",
+      "page_num": 13,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Crucially, whilst Euclidean distance is isotropic in that it is the same regardless of where a point resides within the ball representing that point (i.e. infinite points are associated with one real-valued vector), hyperbolic distance increases exponentially as points begin to near the edge of the ball representation of that point, thus affording much greater representational power over underlying structured and hierarchically distributed data distributions [38]. This shape property is particularly useful for learning classes of diseases that share an image appearance yet differ in severity, or stage of progression.",
+      "label": "ai_generated",
+      "page_num": 13,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Hyperbolic embedding of features allows the model to assign more representational “volume” to encode finely grained distinctions, which results in larger margin between classes that are very similar. This curvilinear expansion leads to a greater separability among diseases which exist in Euclidean space as the distance separating them increases. The proposed representation hierarchy can enhance the margin between inter-class instances and sharpen decision boundaries to enhance classification robustness against subtle symptom changes during the pre-harvest period. Algorithm for Dual-Attention Hyperbolic Feature Fusion Network for Robust and Computationally Efficient Pre-Harvest Crop Disease Detection Using Curvature-Adaptive Representation Learning Input: Preprocessed leaf images​ Begin Load dataset and resize images to 380 × 380 Normalize images and apply augmentation Initialize EfficientNet-B4 backbone For each epoch  Extract hierarchical feature maps  Apply channel attention using global pooling and feature recalibration  Apply spatial attention using convolutional attention map  Fuse refined features  Project features into hyperbolic space",
+      "label": "human",
+      "page_num": 13,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Compute curvature-adaptive margin loss  Update weights using AdamW optimizer End For During inference  Extract attention-refined features  Embed in hyperbolic space  Apply softmax classifier  Return predicted class End Output: Predicted disease class Figure 3. Flowchart of the Proposed DAHFF-Net Architecture for Pre-Harvest Crop Disease Detection",
+      "label": "human",
+      "page_num": 14,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Figure 3 is the illustration of the end to end workflow of the DAHFF-Net framework from input leaf image acquisition to final disease classification. The architecture consists of the feature extractor based on EfficientNet-B4, which is refined by two attention modules with hyperbolic embeddings augmenting class separability.",
+      "label": "human",
+      "page_num": 15,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Consequently, the curvature-adaptive margin loss and softmax classifier together ensure reliable accurate predicting of crop disease categories.",
+      "label": "ai_generated",
+      "page_num": 15,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "3.7 Curvature-Adaptive Margin Loss​ This issue is especially apparent in fine-grained crop disease classification, where a few classes may share very similar visual symptoms, small differences in lesion color [39], texture or spread pattern and hence regular loss functions create overlapping regions of the decision space. Standard cross-entropy or fixed-margin losses assume a Euclidean geometry and distribute the class boundaries evenly over a space; however, this works well for low-dimensional data but can lead to poor separation among relevant classes when problems contain visually similar diseases. To remedy this drawback, a curvature-adaptive margin loss is introduced in hyperbolic embedding space for dynamic regulation of the class separation via identifying manifold curvatures. For the hyperbolic embedding of a given sample , 𝑦ϵ𝐵𝑐 𝑛 we calculate the distance between this sample and class center , denoting it as . 𝑤𝑘 𝑑𝐻𝑦, 𝑤𝑘 ( ) Rather than using a fixed margin , the proposed loss uses a curvature dependent adaptive 𝑚 margin which is defined as in Eq. 17: 𝑚𝑐 In fine-grained crop disease classification, several categories exhibit highly similar visual symptoms, such as minor variations in lesion colour [39], texture, or spread pattern, which often leads to overlapping decision regions when conventional loss functions are applied.",
+      "label": "human",
+      "page_num": 15,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Standard cross-entropy or fixed-margin losses assume a Euclidean geometry and enforce uniform separation between classes, which may not sufficiently discriminate visually similar diseases. To address this limitation, a curvature-adaptive margin loss is formulated within the hyperbolic embedding space to dynamically adjust class separation according to the manifold curvature.",
+      "label": "ai_generated",
+      "page_num": 15,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Let denote the hyperbolic embedding of a sample and represent the class 𝑦ϵ𝐵𝑐 𝑛 𝑤𝑘",
+      "label": "human",
+      "page_num": 15,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "prototype for class . The hyperbolic distance between the sample and class center is 𝑘 computed as .",
+      "label": "ai_generated",
+      "page_num": 15,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Instead of applying a fixed margin , the proposed loss introduces a",
+      "label": "human",
+      "page_num": 15,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "𝑑𝐻𝑦, 𝑤𝑘 ( )",
+      "label": "ai_generated",
+      "page_num": 15,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "𝑚 curvature-dependent adaptive margin , defined as in Eq.17: 𝑚𝑐 ​ ​ ​ ​ ​ (17) 𝑚𝑐= 𝑚0 1 + λ𝑐 ( ) Where is the base margin, denotes the curvature parameter, and controls sensitivity to 𝑚0 𝑐 λ curvature variation. The modified classification objective can be expressed as in Eq.18: ​ ​ ​ ​ ​ (18) 𝐿=−𝑙𝑜𝑔𝑒 −𝑑𝐻𝑦,𝑤𝑦 ( )+𝑚𝑐 ( ) Σ𝑘𝑒 −𝑑𝐻𝑦,𝑤𝑘 ( ) Where is the ground-truth class. The loss function incentivizes separation within the 𝑤𝑦 regions of hyperbolic geometries that thrive on a greater deployment of representational",
+      "label": "human",
+      "page_num": 15,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "capacity by scaling the margin linearly proportional to curvature [40]. This leads to the capability of fine-tuning the decision boundaries by pushing away within-class cluster embeddings of similar classes, while maintaining compactness within each class. In publicly available data where classes may overlap, this can make detection challenging as example classes can be similarly visually confusing. 4. Experimental Setup​ Experiments were performed on a workstation with NVIDIA RTX 4090 GPU (24 GB VRAM), 64 GB DDR5 RAM and Intel Core i9 multicore processor. The implementation itself was done using Python 3.10 and the PyTorch deep learning framework, with CUDA acceleration enabled for GPU-based training. Model Implementation Natural Language Processing (NLP) based applications frequently require an extensive amount of resources and time for training with respect to different configurations [16], making it tricky to implement on any end point consumer Keyboards or Desktops.",
+      "label": "human",
+      "page_num": 16,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "DAHFF-Net was trained with AdamW optimizer, which decouples weight decay from gradient updates to achieve better generalization and offer more stable convergence [10]. We set the initial learning rate to 10−4, and apply a cosine annealing scheduler that decays the learning rate throughout training. Batch size: 32, as it seemed a good trade-off between memory usage and gradient stability. Using leave one out cross validation to get unbiased estimates of performance, the model is trained across 100 epochs. Also added early stopping by validation loss to avoid overfitting.",
+      "label": "ai_generated",
+      "page_num": 16,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "4.1 Evaluation Metrics",
+      "label": "human",
+      "page_num": 16,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Model performance was evaluated using standard classification metrics along with localization analysis through Grad-CAM-based IoU. Accuracy measures the proportion of correctly classified samples among all predictions:",
+      "label": "ai_generated",
+      "page_num": 16,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ ​ ​ ​ ​ (19)",
+      "label": "human",
+      "page_num": 16,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "𝐴𝑐𝑐𝑢𝑟𝑎𝑐𝑦= 𝑇𝑃+𝑇𝑁 𝑇𝑃+𝑇𝑁+𝐹𝑃+𝐹𝑁 Where denote true positives, true negatives, false positives, and false 𝑇𝑃, 𝑇𝑁, 𝐹𝑃, 𝐹𝑁 negatives respectively. Precision quantifies the correctness of positive predictions:",
+      "label": "ai_generated",
+      "page_num": 16,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ ​ ​ ​ ​ ​ (20)",
+      "label": "human",
+      "page_num": 16,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "𝑃𝑟𝑒𝑐𝑖𝑠𝑖𝑜𝑛= 𝑇𝑃 𝑇𝑃+𝐹𝑃 It reflects how many predicted disease samples are truly diseased. Recall (Sensitivity) measures the model’s ability to correctly identify actual positive samples:",
+      "label": "ai_generated",
+      "page_num": 16,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ ​ ​ ​ ​ (21)",
+      "label": "human",
+      "page_num": 16,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "𝑅𝑒𝑐𝑎𝑙𝑙= 𝑇𝑃 𝑇𝑃+𝐹𝑁",
+      "label": "ai_generated",
+      "page_num": 16,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "It indicates how effectively the model detects infected leaves. F1-score provides the harmonic mean of precision and recall to balance false positives and false negatives:",
+      "label": "ai_generated",
+      "page_num": 17,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ ​ ​ ​ (22)",
+      "label": "human",
+      "page_num": 17,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "𝐹1 = 2 × 𝑃𝑟𝑒𝑐𝑖𝑠𝑖𝑜𝑛×𝑅𝑒𝑐𝑎𝑙𝑙 𝑃𝑟𝑒𝑐𝑖𝑠𝑖𝑜𝑛+𝑅𝑒𝑐𝑎𝑙𝑙 It is particularly useful for multi-class disease classification with class imbalance. To evaluate lesion localization quality, Intersection over Union (IoU) was computed between Grad-CAM activation regions and ground-truth lesion masks:",
+      "label": "ai_generated",
+      "page_num": 17,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ ​ ​ ​ ​ ​ (23)",
+      "label": "human",
+      "page_num": 17,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "𝐼𝑜𝑈= 𝐴∩𝐵 | | 𝐴∪𝐵 | | In Eq.23, represents the predicted activation region and denotes the annotated 𝐴 𝐵 lesion area. IoU measures the spatial overlap between predicted and actual infected regions, indicating the interpretability and localization capability of the model. These metrics collectively assess classification performance, discriminative capability, and explainability, ensuring a comprehensive evaluation of the proposed framework.",
+      "label": "ai_generated",
+      "page_num": 17,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "5. Results and Discussion​",
+      "label": "human",
+      "page_num": 17,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "This section first presents a thorough evaluation of the proposed DAHFF-Net model using quantitative comparison and ablation analysis. DAHFF-Net performance is systematically compared with the classical machine learning algorithms as well as other deep learning architectures under identical experimental conditions. The results also demonstrate the utility of attention-guided hyperbolic representation learning in enhancing classification accuracy, inter-class separability, and deployment efficiency for pre-harvest crop disease detection.",
+      "label": "ai_generated",
+      "page_num": 17,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Comparative Classification Accuracy of Baseline Deep Learning Architectures and the Proposed DAHFF-Net Figure 4: Comparison of classification accuracy for 7 different neural network architectures on PlantVillage dataset, where all configurations had identical pre-processing and fold set to be 5. Our baseline models include ResNet50 (97%42), DenseNet121 (97%88), InceptionV3 (97%95), MobileNetV2 (96%84), Vision Transformer(98%03) and EfficientNet-B4(98%36 The proposed DAHFF-Net achieves the best accuracy, 99.21%, outperforming the strongest baseline: EfficientNet-B4 by a substantial margin of 0.85%. You are fine-tuning from these very light-weight models (MobileNetV2) due to accuracy constraints as they have weak representation capability or ViT based that performs quite efficiently but comes with computation cost.",
+      "label": "ai_generated",
+      "page_num": 18,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The above-facts are evident by employing hyperbolic embedding with dual-attention refinement out and out improved discriminative capability of DAHFF-Net. Figure 5. Trade-off Analysis Between Model Complexity (Parameter Count) and Classification Accuracy Figure 5 shows the relationship between model parameter size (in millions) and classification accuracy for all evaluated architectures. The Vision Transformer (Image Classification, 86.4M) gets an accuracy of 98.03% metrics while the resnet50 and Inceptionv3 are able to leverage only 25.6M and 23.9m parameters respectively for its maximal accuracy rate (97.42% | 97:95%). EfficientNet-B4 achieves 98.36% with only 19.3M parameters. The DAHFF-Net proposes a more effective network that is derived from EfficientNet-B4 (≈ 15.75M parameters), reducing its parameter complexity by approximately 18.4% with an enhanced accuracy to ≈ 99.21%. MobileNetV2 model with 3.5M parameters is the smallest and has lowest accuracy at 96.84% The plot also shows how DAHFF-Net strikes a good balance between model complexity and predictive performance, demonstrating its suitability in flow field detection deployment on agricultural edge.",
+      "label": "human",
+      "page_num": 18,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "5.1 Confusion Matrix Analysis (a)​Normalized Confusion Matrix - DAHFF-Net (b)​Confusion Matrix - DAHFF-Net Figure 6. Confusion Matrix of DAHFF-Net Demonstrating Strong Diagonal Dominance and Reduced Inter-Class Misclassification Across Fine-Grained Crop Disease Categories Figure 6(a) and Figure 6(b) show confusion matrices of the proposed DAHFF-Net for class wise prediction behaviour analysis. Figure 6(a) features a normalized confusion matrix while the corresponding raw-count confusion matrix is in Figure 6(b). Strong diagonal dominance (perfect classification rate, recall = 1.0(100%) for Early Blight and normalized recall values of both Late Blight and Leaf Mold equal to 0.75 (as can be seen in Figure 6a)). The off-diagonal elements in the confusion matrix are all quite low, and only a mere fractional misclassification number of 0.25 between Late Blight and Leaf Mold indicates there is some inter-class overlap. Fig. 6 Confusion matrix on the raw data. This behavior is further confirmed by 6(b). In all 4 cases Early Blight is correctly classified with zero misclassification. This means for Late Blight we can predict 3 out of 4 and the only unknown is: Leaf Mold. All three were also correctly described as Leaf Mold, but one was misclassified as Late Blight. These results demonstrate that the proposed model is capable of accurately discriminating between visually similar diseases while achieving high true positive rates. Such cross-confusion can be seen, for example, with Euclidean-based CNN and transformer models that usually have better general performance than DAHFF-Net but higher degree of misclassification between fine-grained classes like Early Blight vs Late Blight and Leaf Mold vs Late Blight. The enhanced performance is attributed to a dual spatial–channel attention mechanism that promotes attention on lesional salient features and its hyperbolic embedding",
+      "label": "human",
+      "page_num": 19,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "layer elicits smooth inter-classes margins in non-Euclidean space. To address this, the empirical evidence of the strong diagonal structure presented in Figure 6 verifies that curvature aware representation is indeed effective for improving class separability and discriminative robustness of fine-grained crops disease dataset. 5.2 Comparison with Classical Machine Learning and Alternative Deep Learning Techniques To ensure the versatility of the proposed DAHFF-Net, additional experiments were performed comparing it with conventional machine learning algorithms as well as some other deep learning architectures using the same preprocessing and 5-fold cross-validation procedure. 5.2.1 Comparison with Classical Machine Learning Algorithms Handcrafted features from Histogram of Oriented Gradients (HOG) and Gray-Level Co-occurrence Matrix (GLCM) texture descriptors were extracted as traditional machine learning baselines. The features are then classified by means of Support Vector Machine(SVM), Random Forest(RF), k-Nearest Neighbors(k-NN) and Logistic Regression(LR). Table 1 shows the comparison of the proposed model with other Machine Learning models. Table 1. Performance Comparison Between Classical Machine Learning Algorithms and Deep Learning Models for Crop Disease Classification on the PlantVillage Dataset Model Accuracy (%) Macro F1-score (%) k-NN 85.76 84.92 Logistic Regression 88.43 87.95 Random Forest 91.68 90.87 SVM (RBF Kernel) 93.12 92.48 ResNet50 97.42 97.10 EfficientNet-B4 98.36 98.02 Vision Transformer 98.03 97.81 DAHFF-Net 99.21 98.87 The classical ML models can not do as well as deep learning methods since they rely on manually crafted features and are much weaker in vividness capability. So, even though SVM has a satisfactory performance (93.12%) it may not be sensitive enough to distinguish class features with high intra-class similarity and define small details in diseases.",
+      "label": "human",
+      "page_num": 20,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "This confirms that automatic feature learning is indeed required for related and robust crop disease detection.",
+      "label": "ai_generated",
+      "page_num": 20,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "5.2.2 Comparison with Different Deep Learning Techniques​ Then to analyze the successes of our architectures we periodically compared our framework with other deep learning paradigms, such as lightweight CNNs, transformer-based architecture and hybrid architectures. Table 2 shows the proposed model comparison with existing Deep Learning models.",
+      "label": "ai_generated",
+      "page_num": 21,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Table 2. Comparative Performance Analysis of Deep Learning Architectures for Pre-Harvest Crop Disease Classification Highlighting Accuracy and Architectural Characteristics Model Architecture Type Accuracy (%) Remarks MobileNetV2 Lightweight CNN 96.84 Efficient but limited discriminative power DenseNet121 Dense CNN 97.88 Strong feature reuse but higher redundancy InceptionV3 Multi-scale CNN 97.95 Good multi-scale modeling Vision Transformer (ViT) Transformer-based 98.03 Captures global context but high parameters EfficientNet-B4 Scaled CNN 98.36 Balanced performance DAHFF-Net Attention + Hyperbolic 99.21 Enhanced separability & efficiency",
+      "label": "human",
+      "page_num": 21,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "These transformer-based models also model long-range dependencies better, but at the expense of much larger parameter counts and computation overhead. While lighter weight CNNs have higher inference speed, they are less capable of fine-grained discrimination. In contrast, DAHFF-Net focuses on effective feature extraction, lesion-aware attention and hyperbolic geometry based embedding to achieve better classification accuracy with lower computational cost.",
+      "label": "ai_generated",
+      "page_num": 21,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "5.2.3 Statistical Significance Analysis",
+      "label": "human",
+      "page_num": 21,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "To become aware of whether these enhancements are statistically significant, we conducted paired t-tests between DAHFF-Net and the best baseline (EfficientNet-B4). This p < 0.01 is implying that the improvement of performance is statistically significant, which supports the fact that this gain in performance is caused by something other than displacement [37] low random variation between folds.",
+      "label": "ai_generated",
+      "page_num": 21,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "5.3 Ablation Study",
+      "label": "human",
+      "page_num": 21,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "We conducted systematic ablation ablation experiments to quantify the contributions of each architectural component. Notably, if we removed the hyperbolic embedding layer, then the accuracy decreased to 98.41% emphasizing the importance of non-Euclidean representation",
+      "label": "ai_generated",
+      "page_num": 21,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "learning in producing these results. When we excluded the dual attention module, sensitivity for lesion localization was reduced and discriminative power declined to 98.26%. Replacing curvature-adaptive margin loss with plain cross-entropy weakens the decision boundaries further, leading to a drop in performance to 98.12%. The corresponding results imply an interplay between the three components. Whereas attention module promotes intra-class compactness, hyperbolic layer enlarges inter-class separability and adaptive margin sharpens decision boundaries.",
+      "label": "ai_generated",
+      "page_num": 22,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Figure 7. Ablation Study Demonstrating the Contribution of Hyperbolic Embedding, Dual Attention, and Curvature-Adaptive Margin Loss",
+      "label": "human",
+      "page_num": 22,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "This figure 7 shows the result after systematically removing key architectural components of DAHFF-Net. The full model has an accuracy of 99.21%. When the hyperbolic embedding layer is absent, accuracy reduces to 98.41%, indicating a 0.80% decrease due to loss of hierarchical geometric representation. In contrast, the accuracy drops to 98.26% without a dual attention module which indicates less effective refinement of lesional features. Using a standard loss instead of the curvature-adaptive margin loss yields an accuracy of 98.12%, indicating less separation at boundaries between visually similar classes. The gradual drop-in performance demonstrates that every piece is critical to enhancing inter-class separability, decision boundary crispness and general classifier robustness.",
+      "label": "ai_generated",
+      "page_num": 22,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "5.4 Discussion We depict that though the basic ML techniques are computationally cheap, they are not representative enough to perform fine-grained plant disease classifications. While standard deep CNNs boost the performance greatly, it is inclined by their constraints of embedding in Euclidean space. Global context modeling with transformer-based approaches leads to more latency and high memory consumption. DAHFF-Net is an effective model that fills this gap by simultaneously using hierarchical feature extraction, lesion-aware attention, and hyperbolic representation learning – all of",
+      "label": "human",
+      "page_num": 22,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "which occurs within a computation-efficient framework. Overall, it yields higher classification performance, crisper decision boundaries, increased interpretability and lower inference time latency the latter of which makes it an excellent candidate for real-time edge-based precision agriculture implementations. 6. Conclusion​ In this study, we proposed DAHFF-Net: a Dual-Attention Hyperbolic Feature Fusion Network for accurate and efficient pre-harvest crop disease detection. We develop a proposed framework that integrates EfficientNet-B4, dual spatial–channel attention, hyperbolic embedding and curvature-adaptive margin loss for better fine-grained class separability. It achieves 99.21% classification accuracy, 98.87% macro F1-score and 98.65% precision by applying it on the PlantVillage dataset with the help of 5-fold cross-validation experimental results which is better than that compared state-of-the-art techniques. The proposed model achieved 18.4% parameter complexity and 22.7% inference time lower than EfficientNet-B4 with 16% improvement in Grad-CAM localization IoU. The confusion matrix and ablation analyses further supports reduced inter-class misclassification and the substantial contribution of each architectural component. These observations confirm that hyperbolic representation learning with attention refinement is essential for improving decision boundaries and discriminative robustness in fine-grained crop disease classification. We also envision validating this previously presented model on real-field and multi-environment datasets in the future work, as such orthogonal conditions could be helpful for generalization of background/illumination correction. Moreover, merging these architectures with multispectral or drone-based imagery and lightweight edge-optimized deployment methods will enhance practical applications within precision agriculture. References​ [1] Upadhyay, N., & Bhargava, A. (2025). Artificial intelligence in agriculture: applications, approaches, and adversities across pre-harvesting, harvesting, and post-harvesting phases. Iran Journal of Computer Science, 8(3), 749-772.​ [2] Rood, L., Kocharunchitt, C., Bowman, J., Stanley, R., Ross, T., Danyluk, M., ... & Eyles, A. (2025). Potential for in-field pre-harvest control of foodborne human pathogens in leafy vegetables: identification of research gaps and opportunities. Trends in Food Science & Technology, 158, 104928. [3] Chen, D., Hein, G. L., Adams-Selin, R., Wang, L., Zhang, J., Zhou, X., ... & Shi, Y. (2024). Spatial relationship between pre-harvest hail and the impact from the wheat streak mosaic disease complex by using remote sensing data. Crop Protection, 179, 106627. [4] Strachan, S., Bhuiyan, S. A., Thompson, N., Nguyen, N. T., Ford, R., & Shiddiky, M. J. (2022). Latent potential of current plant diagnostics for detection of sugarcane diseases. Current Research in Biotechnology, 4, 475-492. [5] Bonasia, A., Lazzizera, C., Elia, A., & Conversa, G. (2025). Pre-Harvest Strategy for Improving Harvest and Post-Harvest Performance of Kale and Chicory Baby Leaves. Plants, 14(6), 863. [6] Kumari, A., Singh, S., VP, A., Joshi, P., Chauhan, A. K., Singh, M., & Hemalatha, S. (2023). Mechanization in pre-harvest technology to improve quality and safety. In",
+      "label": "human",
+      "page_num": 23,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Engineering aspects of food quality and safety (pp. 93-114). Cham: Springer International Publishing. [7] He, W., Huang, W., Li, Y., Latinović, N., Zhang, Y., & Zhang, X. (2025). Multimodal information fusion and precision harvesting system for fruit growth driven by flexible optoelectronic sensing and hierarchical attention networks. Computers and Electronics in Agriculture, 238, 110784. [8] Li, P., Zhou, J., Sun, H., Li, P., & Chen, X. (2025). GBDR-Net: A YOLOv10-Derived Lightweight Model with Multi-Scale Feature Fusion for Accurate, Real-Time Detection of Grape Berry Diseases. Horticulturae, 12(1), 38. [9] Li, Z., Wang, R., & Ding, R. (2025). A review of crop attribute monitoring technologies for general agricultural scenarios. AgriEngineering, 7(11), 365. [10] Yamada, W., Francis, J., Jewison, J., Runge, T., & Digman, M. (2025). Pre-harvest loss quantification in grain crops. Computers and Electronics in Agriculture, 236, 110405. [11] Yang, G., Li, Y., Yuan, S., Zhou, C., Xiang, H., Zhao, Z., ... & Xu, L. (2024). Enhancing direct-seeded rice yield prediction using UAV-derived features acquired during the reproductive phase. Precision agriculture, 25(2), 1014-1037. [12] Sonmez, M. E., Sabanci, K., & Aydin, N. (2024). Convolutional neural network-support vector machine-based approach for identification of wheat hybrids. European Food Research and Technology, 250(5), 1353-1362. [13] Saad, M. H., & Salman, A. E. (2024). A plant disease classification using one-shot learning technique with field images. Multimedia Tools and Applications, 83(20), 58935-58960. [14] Dolatabadian, A., Neik, T. X., Danilevicz, M. F., Upadhyaya, S. R., Batley, J., & Edwards, D. (2025). Image‐based crop disease detection using machine learning. Plant Pathology, 74(1), 18-38. [15] Singla, A., Nehra, A., Joshi, K., Kumar, A., Tuteja, N., Varshney, R. K., ... & Gill, R. (2024). Exploration of machine learning approaches for automated crop disease detection. Current plant biology, 40, 100382. [16] Shahi, T. B., Xu, C. Y., Neupane, A., & Guo, W. (2023). Recent advances in crop disease detection using UAV and deep learning techniques. Remote Sensing, 15(9), 2450. [17] García-Vera, Y. E., Polochè-Arango, A., Mendivelso-Fajardo, C. A., & Gutiérrez-Bernal, F. J. (2024). Hyperspectral image analysis and machine learning techniques for crop disease detection and identification: A review. Sustainability, 16(14), 6064. [18] Bouacida, I., Farou, B., Djakhdjakha, L., Seridi, H., & Kurulay, M. (2025). Innovative deep learning approach for cross-crop plant disease detection: A generalized method for identifying unhealthy leaves. Information Processing in Agriculture, 12(1), 54-67. [19] Tsuchiya, Y., & Sonobe, R. (2025). Crop Classification Using Time-Series Sentinel-1 SAR Data: A Comparison of LSTM, GRU, and TCN with Attention. Remote Sensing, 17(12), 2095. [20] Upadhyay, A., Chandel, N. S., Singh, K. P., Chakraborty, S. K., Nandede, B. M., Kumar, M., ... & Elbeltagi, A. (2025). Deep learning and computer vision in plant disease detection: a comprehensive review of techniques, models, and trends in precision agriculture. Artificial Intelligence Review, 58(3), 92.",
+      "label": "human",
+      "page_num": 24,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "[21] Waldamichael, F. G., Debelee, T. G., Schwenker, F., Ayano, Y. M., & Kebede, S. R. (2022). Machine learning in cereal crops disease detection: a review. Algorithms, 15(3), 75. [22] Srinivas, L. N. B., Bharathy, A. V., Ramakuri, S. K., Sethy, A., & Kumar, R. (2024). An optimized machine learning framework for crop disease detection. Multimedia Tools and Applications, 83(1), 1539-1558. [23] Demilie, W. B. (2024). Plant disease detection and classification techniques: a comparative study of the performances. Journal of Big Data, 11(1), 5. [24] Ngugi, H. N., Ezugwu, A. E., Akinyelu, A. A., & Abualigah, L. (2024). Revolutionizing crop disease detection with computational deep learning: a comprehensive review. Environmental Monitoring and Assessment, 196(3), 302. [25] Sujatha, R., Chatterjee, J. M., Jhanjhi, N. Z., & Brohi, S. N. (2021). Performance of deep learning vs machine learning in plant leaf disease detection. Microprocessors and Microsystems, 80, 103615. [26] Ahmed, I., & Yadav, P. K. (2023). Plant disease detection using machine learning approaches. Expert Systems, 40(5), e13136. [27] Haridasan, A., Thomas, J., & Raj, E. D. (2023). Deep learning system for paddy plant disease detection and classification. Environmental monitoring and assessment, 195(1), 120. [28] Goel, L., & Nagpal, J. (2023). A systematic review of recent machine learning techniques for plant disease identification and classification. IETE Technical Review, 40(3), 423-439. [29] Thakur, P. S., Khanna, P., Sheorey, T., & Ojha, A. (2022). Trends in vision-based machine learning techniques for plant disease identification: A systematic review. Expert Systems with Applications, 208, 118117. [30] Udayananda, G. K. V. L., Shyalika, C., & Kumara, P. P. N. V. (2022). Rice plant disease diagnosing using machine learning techniques: a comprehensive review. SN Applied Sciences, 4(11), 311. [31] Arun, R. A., & Umamaheswari, S. (2023). Effective multi-crop disease detection using pruned complete concatenated deep learning model. Expert Systems with Applications, 213, 118905. [32] Nandhini, M., Kala, K. U., Thangadarshini, M., & Verma, S. M. (2022). Deep Learning model of sequential image classifier for crop disease detection in plantain tree cultivation. Computers and Electronics in Agriculture, 197, 106915. [33] Orchi, H., Sadik, M., Khaldoun, M., & Sabir, E. (2023). Automation of crop disease detection through conventional machine learning and deep transfer learning approaches. Agriculture, 13(2), 352. [34] Mishra, S., Volety, D. R., Bohra, N., Alfarhood, S., & Safran, M. (2023). A smart and sustainable framework for millet crop monitoring equipped with disease detection using enhanced predictive intelligence. Alexandria Engineering Journal, 83, 298-306. [35] Sakkarvarthi, G., Sathianesan, G. W., Murugan, V. S., Reddy, A. J., Jayagopal, P., & Elsisi, M. (2022). Detection and classification of tomato crop disease using convolutional neural network. Electronics, 11(21), 3618. [36] Huang, X., Chen, A., Zhou, G., Zhang, X., Wang, J., Peng, N., ... & Jiang, C. (2023). Tomato leaf disease detection system based on FC-SNDPN. Multimedia tools and applications, 82(2), 2121-2144.",
+      "label": "human",
+      "page_num": 25,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "[37] Singh, G., & Yogi, K. K. (2023). Comparison of RSNET model with existing models for potato leaf disease detection. Biocatalysis and Agricultural Biotechnology, 50, 102726. [38] Badiger, M., & Mathew, J. A. (2023). Tomato plant leaf disease segmentation and multiclass disease detection using hybrid optimization enabled deep learning. Journal of Biotechnology, 374, 101-113. [39] Jha, P., Dembla, D., & Dubey, W. (2024). Implementation of Machine Learning Classification Algorithm Based on Ensemble Learning for Detection of Vegetable Crops Disease. International Journal of Advanced Computer Science & Applications, 15(1). [40] Alam, T. S., Jowthi, C. B., & Pathak, A. (2024). Comparing pre-trained models for efficient leaf disease detection: a study on custom CNN. Journal of Electrical Systems and Information Technology, 11(1), 12.",
+      "label": "human",
+      "page_num": 26,
+      "source": "direct_pdf"
+    }
+  ],
+  "stats": {
+    "ai_generated_segments": 40,
+    "ai_paraphrased_segments": 0,
+    "human_segments": 48,
+    "ocr_pages": 0,
+    "total_chars_ai": 19866,
+    "total_chars_paraphrased": 0,
+    "total_chars_human": 38499
+  },
+  "errors": []
+}

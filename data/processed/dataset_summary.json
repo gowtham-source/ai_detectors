@@ -1,0 +1,1223 @@
+{
+  "processed_at": "2026-04-03T13:39:11.933331",
+  "total_files": 67,
+  "priority_cutoff": "2026-01-15",
+  "files": [
+    {
+      "file_name": "1 (24).pdf",
+      "submission_date": "2025-12-28",
+      "priority": "LOW",
+      "ai_percentage_reported": null,
+      "total_pages": 10,
+      "segments": 8,
+      "stats": {
+        "ai_generated_segments": 0,
+        "ai_paraphrased_segments": 0,
+        "human_segments": 8,
+        "ocr_pages": 0,
+        "total_chars_ai": 0,
+        "total_chars_paraphrased": 0,
+        "total_chars_human": 25798
+      },
+      "errors": []
+    },
+    {
+      "file_name": "2 (5).pdf",
+      "submission_date": "2025-12-10",
+      "priority": "LOW",
+      "ai_percentage_reported": null,
+      "total_pages": 15,
+      "segments": 13,
+      "stats": {
+        "ai_generated_segments": 0,
+        "ai_paraphrased_segments": 0,
+        "human_segments": 13,
+        "ocr_pages": 0,
+        "total_chars_ai": 0,
+        "total_chars_paraphrased": 0,
+        "total_chars_human": 17702
+      },
+      "errors": []
+    },
+    {
+      "file_name": "3 (3).pdf",
+      "submission_date": "2025-12-10",
+      "priority": "LOW",
+      "ai_percentage_reported": null,
+      "total_pages": 15,
+      "segments": 13,
+      "stats": {
+        "ai_generated_segments": 0,
+        "ai_paraphrased_segments": 0,
+        "human_segments": 13,
+        "ocr_pages": 0,
+        "total_chars_ai": 0,
+        "total_chars_paraphrased": 0,
+        "total_chars_human": 18059
+      },
+      "errors": []
+    },
+    {
+      "file_name": "4_5.pdf",
+      "submission_date": "2025-12-11",
+      "priority": "LOW",
+      "ai_percentage_reported": 94,
+      "total_pages": 23,
+      "segments": 122,
+      "stats": {
+        "ai_generated_segments": 69,
+        "ai_paraphrased_segments": 0,
+        "human_segments": 53,
+        "ocr_pages": 0,
+        "total_chars_ai": 33119,
+        "total_chars_paraphrased": 0,
+        "total_chars_human": 15512
+      },
+      "errors": []
+    },
+    {
+      "file_name": "5 (1).pdf",
+      "submission_date": "2025-12-12",
+      "priority": "LOW",
+      "ai_percentage_reported": null,
+      "total_pages": 25,
+      "segments": 23,
+      "stats": {
+        "ai_generated_segments": 0,
+        "ai_paraphrased_segments": 0,
+        "human_segments": 23,
+        "ocr_pages": 0,
+        "total_chars_ai": 0,
+        "total_chars_paraphrased": 0,
+        "total_chars_human": 52370
+      },
+      "errors": []
+    },
+    {
+      "file_name": "_ Employee Attrition Prediction-scopus (1).pdf",
+      "submission_date": "2026-01-08",
+      "priority": "LOW",
+      "ai_percentage_reported": null,
+      "total_pages": 18,
+      "segments": 16,
+      "stats": {
+        "ai_generated_segments": 0,
+        "ai_paraphrased_segments": 0,
+        "human_segments": 16,
+        "ocr_pages": 0,
+        "total_chars_ai": 0,
+        "total_chars_paraphrased": 0,
+        "total_chars_human": 40378
+      },
+      "errors": []
+    },
+    {
+      "file_name": "_Agile Maturity on Enterprise Software Project Success (1).pdf",
+      "submission_date": "2025-12-19",
+      "priority": "LOW",
+      "ai_percentage_reported": null,
+      "total_pages": 24,
+      "segments": 22,
+      "stats": {
+        "ai_generated_segments": 0,
+        "ai_paraphrased_segments": 0,
+        "human_segments": 22,
+        "ocr_pages": 0,
+        "total_chars_ai": 0,
+        "total_chars_paraphrased": 0,
+        "total_chars_human": 44745
+      },
+      "errors": []
+    },
+    {
+      "file_name": "_Autonomous Recognition and Speech Rendering of Tamil Stone Inscriptions (1).pdf",
+      "submission_date": "2026-01-09",
+      "priority": "LOW",
+      "ai_percentage_reported": null,
+      "total_pages": 27,
+      "segments": 25,
+      "stats": {
+        "ai_generated_segments": 0,
+        "ai_paraphrased_segments": 0,
+        "human_segments": 25,
+        "ocr_pages": 0,
+        "total_chars_ai": 0,
+        "total_chars_paraphrased": 0,
+        "total_chars_human": 63286
+      },
+      "errors": []
+    },
+    {
+      "file_name": "_Cyberbullying Detection (1) (1).pdf",
+      "submission_date": "2025-12-16",
+      "priority": "LOW",
+      "ai_percentage_reported": null,
+      "total_pages": 25,
+      "segments": 23,
+      "stats": {
+        "ai_generated_segments": 0,
+        "ai_paraphrased_segments": 0,
+        "human_segments": 23,
+        "ocr_pages": 0,
+        "total_chars_ai": 0,
+        "total_chars_paraphrased": 0,
+        "total_chars_human": 43715
+      },
+      "errors": []
+    },
+    {
+      "file_name": "_Dental Caries in Radiographic Images.pdf",
+      "submission_date": "2026-02-02",
+      "priority": "HIGH",
+      "ai_percentage_reported": null,
+      "total_pages": 26,
+      "segments": 24,
+      "stats": {
+        "ai_generated_segments": 0,
+        "ai_paraphrased_segments": 0,
+        "human_segments": 24,
+        "ocr_pages": 0,
+        "total_chars_ai": 0,
+        "total_chars_paraphrased": 0,
+        "total_chars_human": 52971
+      },
+      "errors": []
+    },
+    {
+      "file_name": "_Secure Cloud-Integrated IoT Healthcare Systems (1)-1 (1).pdf",
+      "submission_date": "2026-03-12",
+      "priority": "HIGH",
+      "ai_percentage_reported": null,
+      "total_pages": 27,
+      "segments": 25,
+      "stats": {
+        "ai_generated_segments": 0,
+        "ai_paraphrased_segments": 0,
+        "human_segments": 25,
+        "ocr_pages": 0,
+        "total_chars_ai": 0,
+        "total_chars_paraphrased": 0,
+        "total_chars_human": 60188
+      },
+      "errors": []
+    },
+    {
+      "file_name": "_Secure Cloud-Integrated IoT Healthcare Systems (1).pdf",
+      "submission_date": "2026-03-12",
+      "priority": "HIGH",
+      "ai_percentage_reported": 28,
+      "total_pages": 27,
+      "segments": 72,
+      "stats": {
+        "ai_generated_segments": 33,
+        "ai_paraphrased_segments": 0,
+        "human_segments": 39,
+        "ocr_pages": 0,
+        "total_chars_ai": 14369,
+        "total_chars_paraphrased": 0,
+        "total_chars_human": 45168
+      },
+      "errors": []
+    },
+    {
+      "file_name": "A Hybrid AI-Based Model for Enhancing Energy-Efficient Resource Allocation in Cloud Computing Environments-1.pdf",
+      "submission_date": "2026-02-03",
+      "priority": "HIGH",
+      "ai_percentage_reported": 100,
+      "total_pages": 13,
+      "segments": 59,
+      "stats": {
+        "ai_generated_segments": 32,
+        "ai_paraphrased_segments": 0,
+        "human_segments": 27,
+        "ocr_pages": 0,
+        "total_chars_ai": 16868,
+        "total_chars_paraphrased": 0,
+        "total_chars_human": 4321
+      },
+      "errors": []
+    },
+    {
+      "file_name": "AI-Based Smart Glasses System (1) (2).pdf",
+      "submission_date": "2026-01-28",
+      "priority": "HIGH",
+      "ai_percentage_reported": null,
+      "total_pages": 18,
+      "segments": 16,
+      "stats": {
+        "ai_generated_segments": 0,
+        "ai_paraphrased_segments": 0,
+        "human_segments": 16,
+        "ocr_pages": 0,
+        "total_chars_ai": 0,
+        "total_chars_paraphrased": 0,
+        "total_chars_human": 36337
+      },
+      "errors": []
+    },
+    {
+      "file_name": "AI_1) A Neuro-Symbolic Curriculum Framework for Contextualized Augmented Reality Interventions in Autism Behavioral and Cognitive Development.pdf",
+      "submission_date": "2025-10-23",
+      "priority": "LOW",
+      "ai_percentage_reported": null,
+      "total_pages": 28,
+      "segments": 26,
+      "stats": {
+        "ai_generated_segments": 0,
+        "ai_paraphrased_segments": 0,
+        "human_segments": 26,
+        "ocr_pages": 0,
+        "total_chars_ai": 0,
+        "total_chars_paraphrased": 0,
+        "total_chars_human": 70276
+      },
+      "errors": []
+    },
+    {
+      "file_name": "AI_2) A Proactive Risk Anticipation and Multi-Agent Orchestration Algorithm for Benchmarking Clinical AR Assistants in the AR-ClinAgent Framework.pdf",
+      "submission_date": "2025-10-23",
+      "priority": "LOW",
+      "ai_percentage_reported": null,
+      "total_pages": 26,
+      "segments": 24,
+      "stats": {
+        "ai_generated_segments": 0,
+        "ai_paraphrased_segments": 0,
+        "human_segments": 24,
+        "ocr_pages": 0,
+        "total_chars_ai": 0,
+        "total_chars_paraphrased": 0,
+        "total_chars_human": 60751
+      },
+      "errors": []
+    },
+    {
+      "file_name": "AI_3) Meta-Adaptive Quantum Protocol Synthesis for Secure Communications under Dynamic Adversaries (1).pdf",
+      "submission_date": "2025-10-23",
+      "priority": "LOW",
+      "ai_percentage_reported": null,
+      "total_pages": 28,
+      "segments": 26,
+      "stats": {
+        "ai_generated_segments": 0,
+        "ai_paraphrased_segments": 0,
+        "human_segments": 26,
+        "ocr_pages": 0,
+        "total_chars_ai": 0,
+        "total_chars_paraphrased": 0,
+        "total_chars_human": 61500
+      },
+      "errors": []
+    },
+    {
+      "file_name": "AI_4) A Bayesian State-Space Observer Framework for Integrated Fish Stock Estimation, Disease Prediction, and Fertilizer-Driven Nutrient Impact Analysis in Deep Sea Fisheries.pdf",
+      "submission_date": "2025-10-23",
+      "priority": "LOW",
+      "ai_percentage_reported": null,
+      "total_pages": 28,
+      "segments": 26,
+      "stats": {
+        "ai_generated_segments": 0,
+        "ai_paraphrased_segments": 0,
+        "human_segments": 26,
+        "ocr_pages": 0,
+        "total_chars_ai": 0,
+        "total_chars_paraphrased": 0,
+        "total_chars_human": 59423
+      },
+      "errors": []
+    },
+    {
+      "file_name": "AI_A Few-Shot Contrastive Learning Framework for Industrial Dataset Cleaning Using Cross-Domain Embedding Optimization (2).pdf",
+      "submission_date": "2025-10-31",
+      "priority": "LOW",
+      "ai_percentage_reported": null,
+      "total_pages": 27,
+      "segments": 25,
+      "stats": {
+        "ai_generated_segments": 0,
+        "ai_paraphrased_segments": 0,
+        "human_segments": 25,
+        "ocr_pages": 0,
+        "total_chars_ai": 0,
+        "total_chars_paraphrased": 0,
+        "total_chars_human": 64399
+      },
+      "errors": []
+    },
+    {
+      "file_name": "AI_A Novel Deep Learning Framework with Trust-Aware Attention and Conversation Memory for Predicting Trus.pdf",
+      "submission_date": "2025-11-17",
+      "priority": "LOW",
+      "ai_percentage_reported": 100,
+      "total_pages": 28,
+      "segments": 177,
+      "stats": {
+        "ai_generated_segments": 98,
+        "ai_paraphrased_segments": 4,
+        "human_segments": 75,
+        "ocr_pages": 0,
+        "total_chars_ai": 44641,
+        "total_chars_paraphrased": 1211,
+        "total_chars_human": 13808
+      },
+      "errors": []
+    },
+    {
+      "file_name": "AI_Baskaran VIT- Keywrods.pdf",
+      "submission_date": "2025-11-21",
+      "priority": "LOW",
+      "ai_percentage_reported": null,
+      "total_pages": 29,
+      "segments": 27,
+      "stats": {
+        "ai_generated_segments": 0,
+        "ai_paraphrased_segments": 0,
+        "human_segments": 27,
+        "ocr_pages": 0,
+        "total_chars_ai": 0,
+        "total_chars_paraphrased": 0,
+        "total_chars_human": 53859
+      },
+      "errors": []
+    },
+    {
+      "file_name": "AI_Monisha-pre asault prediction.pdf",
+      "submission_date": "2025-10-24",
+      "priority": "LOW",
+      "ai_percentage_reported": null,
+      "total_pages": 28,
+      "segments": 26,
+      "stats": {
+        "ai_generated_segments": 0,
+        "ai_paraphrased_segments": 0,
+        "human_segments": 26,
+        "ocr_pages": 0,
+        "total_chars_ai": 0,
+        "total_chars_paraphrased": 0,
+        "total_chars_human": 62887
+      },
+      "errors": []
+    },
+    {
+      "file_name": "AI_Padmavathi- Legal Decision-Making.pdf",
+      "submission_date": "2025-10-24",
+      "priority": "LOW",
+      "ai_percentage_reported": null,
+      "total_pages": 24,
+      "segments": 22,
+      "stats": {
+        "ai_generated_segments": 0,
+        "ai_paraphrased_segments": 0,
+        "human_segments": 22,
+        "ocr_pages": 0,
+        "total_chars_ai": 0,
+        "total_chars_paraphrased": 0,
+        "total_chars_human": 54686
+      },
+      "errors": []
+    },
+    {
+      "file_name": "AI_Processor-Based Embedded Systems - Swetha MCE.pdf",
+      "submission_date": "2025-10-25",
+      "priority": "LOW",
+      "ai_percentage_reported": null,
+      "total_pages": 27,
+      "segments": 25,
+      "stats": {
+        "ai_generated_segments": 0,
+        "ai_paraphrased_segments": 0,
+        "human_segments": 25,
+        "ocr_pages": 0,
+        "total_chars_ai": 0,
+        "total_chars_paraphrased": 0,
+        "total_chars_human": 59593
+      },
+      "errors": []
+    },
+    {
+      "file_name": "AI_QIOT 2 Continuty paper (1).pdf",
+      "submission_date": "2025-10-30",
+      "priority": "LOW",
+      "ai_percentage_reported": null,
+      "total_pages": 28,
+      "segments": 26,
+      "stats": {
+        "ai_generated_segments": 0,
+        "ai_paraphrased_segments": 0,
+        "human_segments": 26,
+        "ocr_pages": 0,
+        "total_chars_ai": 0,
+        "total_chars_paraphrased": 0,
+        "total_chars_human": 58612
+      },
+      "errors": []
+    },
+    {
+      "file_name": "AI_Soma sundari paper.pdf",
+      "submission_date": "2025-10-24",
+      "priority": "LOW",
+      "ai_percentage_reported": null,
+      "total_pages": 26,
+      "segments": 24,
+      "stats": {
+        "ai_generated_segments": 0,
+        "ai_paraphrased_segments": 0,
+        "human_segments": 24,
+        "ocr_pages": 0,
+        "total_chars_ai": 0,
+        "total_chars_paraphrased": 0,
+        "total_chars_human": 57252
+      },
+      "errors": []
+    },
+    {
+      "file_name": "AI_Speech Enhancement and Sound Localization.pdf",
+      "submission_date": "2025-10-22",
+      "priority": "LOW",
+      "ai_percentage_reported": 66,
+      "total_pages": 27,
+      "segments": 117,
+      "stats": {
+        "ai_generated_segments": 57,
+        "ai_paraphrased_segments": 0,
+        "human_segments": 60,
+        "ocr_pages": 0,
+        "total_chars_ai": 27384,
+        "total_chars_paraphrased": 0,
+        "total_chars_human": 30251
+      },
+      "errors": []
+    },
+    {
+      "file_name": "AI_Throat Cancer Metastasis- Ramesh Sangeetha.pdf",
+      "submission_date": "2025-11-19",
+      "priority": "LOW",
+      "ai_percentage_reported": null,
+      "total_pages": 28,
+      "segments": 26,
+      "stats": {
+        "ai_generated_segments": 0,
+        "ai_paraphrased_segments": 0,
+        "human_segments": 26,
+        "ocr_pages": 0,
+        "total_chars_ai": 0,
+        "total_chars_paraphrased": 0,
+        "total_chars_human": 60991
+      },
+      "errors": []
+    },
+    {
+      "file_name": "AI_ZK-Chain--BC-1.pdf",
+      "submission_date": "2025-08-22",
+      "priority": "LOW",
+      "ai_percentage_reported": 83,
+      "total_pages": 28,
+      "segments": 118,
+      "stats": {
+        "ai_generated_segments": 55,
+        "ai_paraphrased_segments": 1,
+        "human_segments": 62,
+        "ocr_pages": 0,
+        "total_chars_ai": 29204,
+        "total_chars_paraphrased": 436,
+        "total_chars_human": 20524
+      },
+      "errors": []
+    },
+    {
+      "file_name": "AIDCMEDD-PBSD_ A Personalized Baseline Shift Detection Framew (1).pdf",
+      "submission_date": "2026-01-22",
+      "priority": "HIGH",
+      "ai_percentage_reported": null,
+      "total_pages": 18,
+      "segments": 16,
+      "stats": {
+        "ai_generated_segments": 0,
+        "ai_paraphrased_segments": 0,
+        "human_segments": 16,
+        "ocr_pages": 0,
+        "total_chars_ai": 0,
+        "total_chars_paraphrased": 0,
+        "total_chars_human": 37778
+      },
+      "errors": []
+    },
+    {
+      "file_name": "bhuvaneshwari EEC (2) (1).pdf",
+      "submission_date": "2025-12-26",
+      "priority": "LOW",
+      "ai_percentage_reported": null,
+      "total_pages": 26,
+      "segments": 24,
+      "stats": {
+        "ai_generated_segments": 0,
+        "ai_paraphrased_segments": 0,
+        "human_segments": 24,
+        "ocr_pages": 0,
+        "total_chars_ai": 0,
+        "total_chars_paraphrased": 0,
+        "total_chars_human": 56840
+      },
+      "errors": []
+    },
+    {
+      "file_name": "BORDER_DEFENSE_CLASSIFICATION_USING_DEEP_LEARNING[1]. (1).pdf",
+      "submission_date": "2026-02-03",
+      "priority": "HIGH",
+      "ai_percentage_reported": 87,
+      "total_pages": 12,
+      "segments": 53,
+      "stats": {
+        "ai_generated_segments": 32,
+        "ai_paraphrased_segments": 0,
+        "human_segments": 21,
+        "ocr_pages": 0,
+        "total_chars_ai": 18955,
+        "total_chars_paraphrased": 0,
+        "total_chars_human": 5649
+      },
+      "errors": []
+    },
+    {
+      "file_name": "Breast Cancer Histopathological Image Multi-Classification (1) (2).pdf",
+      "submission_date": "2026-03-31",
+      "priority": "HIGH",
+      "ai_percentage_reported": 32,
+      "total_pages": 26,
+      "segments": 65,
+      "stats": {
+        "ai_generated_segments": 27,
+        "ai_paraphrased_segments": 0,
+        "human_segments": 38,
+        "ocr_pages": 0,
+        "total_chars_ai": 16764,
+        "total_chars_paraphrased": 0,
+        "total_chars_human": 43373
+      },
+      "errors": []
+    },
+    {
+      "file_name": "Breast Cancer Histopathological Image Multi-Classification (2) (1).pdf",
+      "submission_date": "2026-03-31",
+      "priority": "HIGH",
+      "ai_percentage_reported": 20,
+      "total_pages": 27,
+      "segments": 58,
+      "stats": {
+        "ai_generated_segments": 21,
+        "ai_paraphrased_segments": 0,
+        "human_segments": 37,
+        "ocr_pages": 0,
+        "total_chars_ai": 10525,
+        "total_chars_paraphrased": 0,
+        "total_chars_human": 50557
+      },
+      "errors": []
+    },
+    {
+      "file_name": "Chapter 1-Logu.pdf",
+      "submission_date": "2025-12-20",
+      "priority": "LOW",
+      "ai_percentage_reported": 100,
+      "total_pages": 13,
+      "segments": 59,
+      "stats": {
+        "ai_generated_segments": 39,
+        "ai_paraphrased_segments": 0,
+        "human_segments": 20,
+        "ocr_pages": 0,
+        "total_chars_ai": 16796,
+        "total_chars_paraphrased": 0,
+        "total_chars_human": 1233
+      },
+      "errors": []
+    },
+    {
+      "file_name": "Chapter 2-LR.pdf",
+      "submission_date": "2025-12-20",
+      "priority": "LOW",
+      "ai_percentage_reported": 99,
+      "total_pages": 19,
+      "segments": 41,
+      "stats": {
+        "ai_generated_segments": 21,
+        "ai_paraphrased_segments": 1,
+        "human_segments": 19,
+        "ocr_pages": 0,
+        "total_chars_ai": 17768,
+        "total_chars_paraphrased": 893,
+        "total_chars_human": 13528
+      },
+      "errors": []
+    },
+    {
+      "file_name": "Chapter 3-logu.pdf",
+      "submission_date": "2025-12-20",
+      "priority": "LOW",
+      "ai_percentage_reported": 84,
+      "total_pages": 48,
+      "segments": 150,
+      "stats": {
+        "ai_generated_segments": 87,
+        "ai_paraphrased_segments": 1,
+        "human_segments": 62,
+        "ocr_pages": 0,
+        "total_chars_ai": 52800,
+        "total_chars_paraphrased": 147,
+        "total_chars_human": 13540
+      },
+      "errors": []
+    },
+    {
+      "file_name": "Chapter 4 (1).pdf",
+      "submission_date": "2025-12-21",
+      "priority": "LOW",
+      "ai_percentage_reported": 94,
+      "total_pages": 37,
+      "segments": 120,
+      "stats": {
+        "ai_generated_segments": 67,
+        "ai_paraphrased_segments": 0,
+        "human_segments": 53,
+        "ocr_pages": 0,
+        "total_chars_ai": 49486,
+        "total_chars_paraphrased": 0,
+        "total_chars_human": 7171
+      },
+      "errors": []
+    },
+    {
+      "file_name": "CHAPTER 5-Logu (1).pdf",
+      "submission_date": "2025-12-21",
+      "priority": "LOW",
+      "ai_percentage_reported": 100,
+      "total_pages": 6,
+      "segments": 10,
+      "stats": {
+        "ai_generated_segments": 5,
+        "ai_paraphrased_segments": 0,
+        "human_segments": 5,
+        "ocr_pages": 0,
+        "total_chars_ai": 4667,
+        "total_chars_paraphrased": 0,
+        "total_chars_human": 2631
+      },
+      "errors": []
+    },
+    {
+      "file_name": "CHAPTER 6.pdf",
+      "submission_date": "2025-12-21",
+      "priority": "LOW",
+      "ai_percentage_reported": 96,
+      "total_pages": 5,
+      "segments": 14,
+      "stats": {
+        "ai_generated_segments": 10,
+        "ai_paraphrased_segments": 0,
+        "human_segments": 4,
+        "ocr_pages": 0,
+        "total_chars_ai": 4598,
+        "total_chars_paraphrased": 0,
+        "total_chars_human": 223
+      },
+      "errors": []
+    },
+    {
+      "file_name": "Coral Reef Health Classifier (1).pdf",
+      "submission_date": "2026-01-29",
+      "priority": "HIGH",
+      "ai_percentage_reported": null,
+      "total_pages": 18,
+      "segments": 16,
+      "stats": {
+        "ai_generated_segments": 0,
+        "ai_paraphrased_segments": 0,
+        "human_segments": 16,
+        "ocr_pages": 0,
+        "total_chars_ai": 0,
+        "total_chars_paraphrased": 0,
+        "total_chars_human": 36896
+      },
+      "errors": []
+    },
+    {
+      "file_name": "Electric Vehicle Power Converters (1).pdf",
+      "submission_date": "2026-02-06",
+      "priority": "HIGH",
+      "ai_percentage_reported": null,
+      "total_pages": 27,
+      "segments": 25,
+      "stats": {
+        "ai_generated_segments": 0,
+        "ai_paraphrased_segments": 0,
+        "human_segments": 25,
+        "ocr_pages": 0,
+        "total_chars_ai": 0,
+        "total_chars_paraphrased": 0,
+        "total_chars_human": 50210
+      },
+      "errors": []
+    },
+    {
+      "file_name": "Enhanced Glioma Diagnosis and Prognosis Prediction (1).pdf",
+      "submission_date": "2025-12-18",
+      "priority": "LOW",
+      "ai_percentage_reported": null,
+      "total_pages": 27,
+      "segments": 25,
+      "stats": {
+        "ai_generated_segments": 0,
+        "ai_paraphrased_segments": 0,
+        "human_segments": 25,
+        "ocr_pages": 0,
+        "total_chars_ai": 0,
+        "total_chars_paraphrased": 0,
+        "total_chars_human": 56236
+      },
+      "errors": []
+    },
+    {
+      "file_name": "Gesture- Scopus  (1).pdf",
+      "submission_date": "2026-01-07",
+      "priority": "LOW",
+      "ai_percentage_reported": null,
+      "total_pages": 18,
+      "segments": 16,
+      "stats": {
+        "ai_generated_segments": 0,
+        "ai_paraphrased_segments": 0,
+        "human_segments": 16,
+        "ocr_pages": 0,
+        "total_chars_ai": 0,
+        "total_chars_paraphrased": 0,
+        "total_chars_human": 35397
+      },
+      "errors": []
+    },
+    {
+      "file_name": "GNN (1).pdf",
+      "submission_date": "2025-12-26",
+      "priority": "LOW",
+      "ai_percentage_reported": null,
+      "total_pages": 29,
+      "segments": 27,
+      "stats": {
+        "ai_generated_segments": 0,
+        "ai_paraphrased_segments": 0,
+        "human_segments": 27,
+        "ocr_pages": 0,
+        "total_chars_ai": 0,
+        "total_chars_paraphrased": 0,
+        "total_chars_human": 55564
+      },
+      "errors": []
+    },
+    {
+      "file_name": "Hybrid Botox-OA–LRNN  (1).pdf",
+      "submission_date": "2026-02-04",
+      "priority": "HIGH",
+      "ai_percentage_reported": null,
+      "total_pages": 26,
+      "segments": 24,
+      "stats": {
+        "ai_generated_segments": 0,
+        "ai_paraphrased_segments": 0,
+        "human_segments": 24,
+        "ocr_pages": 0,
+        "total_chars_ai": 0,
+        "total_chars_paraphrased": 0,
+        "total_chars_human": 46122
+      },
+      "errors": []
+    },
+    {
+      "file_name": "Image Denoising and Inpainting -scopus (1) (1).pdf",
+      "submission_date": "2025-12-20",
+      "priority": "LOW",
+      "ai_percentage_reported": 52,
+      "total_pages": 17,
+      "segments": 69,
+      "stats": {
+        "ai_generated_segments": 35,
+        "ai_paraphrased_segments": 1,
+        "human_segments": 33,
+        "ocr_pages": 0,
+        "total_chars_ai": 13520,
+        "total_chars_paraphrased": 177,
+        "total_chars_human": 22453
+      },
+      "errors": []
+    },
+    {
+      "file_name": "Intelligent Image De-Noising (1).pdf",
+      "submission_date": "2026-01-29",
+      "priority": "HIGH",
+      "ai_percentage_reported": null,
+      "total_pages": 17,
+      "segments": 15,
+      "stats": {
+        "ai_generated_segments": 0,
+        "ai_paraphrased_segments": 0,
+        "human_segments": 15,
+        "ocr_pages": 0,
+        "total_chars_ai": 0,
+        "total_chars_paraphrased": 0,
+        "total_chars_human": 34573
+      },
+      "errors": []
+    },
+    {
+      "file_name": "Kidney Tumor Segmentation -plag reduced.pdf",
+      "submission_date": "2026-01-22",
+      "priority": "HIGH",
+      "ai_percentage_reported": null,
+      "total_pages": 31,
+      "segments": 29,
+      "stats": {
+        "ai_generated_segments": 0,
+        "ai_paraphrased_segments": 0,
+        "human_segments": 29,
+        "ocr_pages": 0,
+        "total_chars_ai": 0,
+        "total_chars_paraphrased": 0,
+        "total_chars_human": 59523
+      },
+      "errors": []
+    },
+    {
+      "file_name": "Lightweight Homomorphic Encryption (1) (1).pdf",
+      "submission_date": "2025-12-26",
+      "priority": "LOW",
+      "ai_percentage_reported": null,
+      "total_pages": 25,
+      "segments": 23,
+      "stats": {
+        "ai_generated_segments": 0,
+        "ai_paraphrased_segments": 0,
+        "human_segments": 23,
+        "ocr_pages": 0,
+        "total_chars_ai": 0,
+        "total_chars_paraphrased": 0,
+        "total_chars_human": 56159
+      },
+      "errors": []
+    },
+    {
+      "file_name": "linnet_turnitinchecks_at_gmail_com_1770788876096 (1).pdf",
+      "submission_date": "2026-02-11",
+      "priority": "HIGH",
+      "ai_percentage_reported": null,
+      "total_pages": 25,
+      "segments": 23,
+      "stats": {
+        "ai_generated_segments": 0,
+        "ai_paraphrased_segments": 0,
+        "human_segments": 23,
+        "ocr_pages": 0,
+        "total_chars_ai": 0,
+        "total_chars_paraphrased": 0,
+        "total_chars_human": 52483
+      },
+      "errors": []
+    },
+    {
+      "file_name": "Manuscript (8) (2).pdf",
+      "submission_date": "2026-01-09",
+      "priority": "LOW",
+      "ai_percentage_reported": 20,
+      "total_pages": 28,
+      "segments": 53,
+      "stats": {
+        "ai_generated_segments": 16,
+        "ai_paraphrased_segments": 0,
+        "human_segments": 37,
+        "ocr_pages": 0,
+        "total_chars_ai": 9428,
+        "total_chars_paraphrased": 0,
+        "total_chars_human": 45786
+      },
+      "errors": []
+    },
+    {
+      "file_name": "Mental Health Detection (3).pdf",
+      "submission_date": "2026-01-25",
+      "priority": "HIGH",
+      "ai_percentage_reported": null,
+      "total_pages": 19,
+      "segments": 17,
+      "stats": {
+        "ai_generated_segments": 0,
+        "ai_paraphrased_segments": 0,
+        "human_segments": 17,
+        "ocr_pages": 0,
+        "total_chars_ai": 0,
+        "total_chars_paraphrased": 0,
+        "total_chars_human": 37891
+      },
+      "errors": []
+    },
+    {
+      "file_name": "Paper 2.pdf",
+      "submission_date": "2026-02-06",
+      "priority": "HIGH",
+      "ai_percentage_reported": 99,
+      "total_pages": 8,
+      "segments": 42,
+      "stats": {
+        "ai_generated_segments": 27,
+        "ai_paraphrased_segments": 0,
+        "human_segments": 15,
+        "ocr_pages": 0,
+        "total_chars_ai": 21044,
+        "total_chars_paraphrased": 0,
+        "total_chars_human": 3886
+      },
+      "errors": []
+    },
+    {
+      "file_name": "Paper 4 (3).pdf",
+      "submission_date": "2026-02-06",
+      "priority": "HIGH",
+      "ai_percentage_reported": 100,
+      "total_pages": 8,
+      "segments": 44,
+      "stats": {
+        "ai_generated_segments": 25,
+        "ai_paraphrased_segments": 0,
+        "human_segments": 19,
+        "ocr_pages": 0,
+        "total_chars_ai": 18692,
+        "total_chars_paraphrased": 0,
+        "total_chars_human": 6081
+      },
+      "errors": []
+    },
+    {
+      "file_name": "PCOS Risk Detection (1).pdf",
+      "submission_date": "2026-01-19",
+      "priority": "HIGH",
+      "ai_percentage_reported": null,
+      "total_pages": 19,
+      "segments": 17,
+      "stats": {
+        "ai_generated_segments": 0,
+        "ai_paraphrased_segments": 0,
+        "human_segments": 17,
+        "ocr_pages": 0,
+        "total_chars_ai": 0,
+        "total_chars_paraphrased": 0,
+        "total_chars_human": 39257
+      },
+      "errors": []
+    },
+    {
+      "file_name": "Plant Leaf Disease Identification (1).pdf",
+      "submission_date": "2026-02-03",
+      "priority": "HIGH",
+      "ai_percentage_reported": null,
+      "total_pages": 25,
+      "segments": 23,
+      "stats": {
+        "ai_generated_segments": 0,
+        "ai_paraphrased_segments": 0,
+        "human_segments": 23,
+        "ocr_pages": 0,
+        "total_chars_ai": 0,
+        "total_chars_paraphrased": 0,
+        "total_chars_human": 56055
+      },
+      "errors": []
+    },
+    {
+      "file_name": "Pre-Harvest Crop Disease Detection (2).pdf",
+      "submission_date": "2026-03-12",
+      "priority": "HIGH",
+      "ai_percentage_reported": 47,
+      "total_pages": 26,
+      "segments": 88,
+      "stats": {
+        "ai_generated_segments": 40,
+        "ai_paraphrased_segments": 0,
+        "human_segments": 48,
+        "ocr_pages": 0,
+        "total_chars_ai": 19866,
+        "total_chars_paraphrased": 0,
+        "total_chars_human": 38499
+      },
+      "errors": []
+    },
+    {
+      "file_name": "Pre-Harvest Crop Disease Detection (3) (1).pdf",
+      "submission_date": "2026-03-31",
+      "priority": "HIGH",
+      "ai_percentage_reported": 26,
+      "total_pages": 26,
+      "segments": 77,
+      "stats": {
+        "ai_generated_segments": 33,
+        "ai_paraphrased_segments": 0,
+        "human_segments": 44,
+        "ocr_pages": 0,
+        "total_chars_ai": 11558,
+        "total_chars_paraphrased": 0,
+        "total_chars_human": 48038
+      },
+      "errors": []
+    },
+    {
+      "file_name": "Product Evaluation Using Online Reviews (1) (1).pdf",
+      "submission_date": "2026-01-08",
+      "priority": "LOW",
+      "ai_percentage_reported": 0,
+      "total_pages": 25,
+      "segments": 23,
+      "stats": {
+        "ai_generated_segments": 0,
+        "ai_paraphrased_segments": 0,
+        "human_segments": 23,
+        "ocr_pages": 0,
+        "total_chars_ai": 0,
+        "total_chars_paraphrased": 0,
+        "total_chars_human": 55098
+      },
+      "errors": []
+    },
+    {
+      "file_name": "QIOT - 1 (1).pdf",
+      "submission_date": "2026-01-02",
+      "priority": "LOW",
+      "ai_percentage_reported": null,
+      "total_pages": 27,
+      "segments": 25,
+      "stats": {
+        "ai_generated_segments": 0,
+        "ai_paraphrased_segments": 0,
+        "human_segments": 25,
+        "ocr_pages": 0,
+        "total_chars_ai": 0,
+        "total_chars_paraphrased": 0,
+        "total_chars_human": 66389
+      },
+      "errors": []
+    },
+    {
+      "file_name": "RAG-scopus (1) (1).pdf",
+      "submission_date": "2026-01-12",
+      "priority": "LOW",
+      "ai_percentage_reported": 0,
+      "total_pages": 17,
+      "segments": 15,
+      "stats": {
+        "ai_generated_segments": 0,
+        "ai_paraphrased_segments": 0,
+        "human_segments": 15,
+        "ocr_pages": 0,
+        "total_chars_ai": 0,
+        "total_chars_paraphrased": 0,
+        "total_chars_human": 36899
+      },
+      "errors": []
+    },
+    {
+      "file_name": "RAG-scopus (1).pdf",
+      "submission_date": "2026-01-12",
+      "priority": "LOW",
+      "ai_percentage_reported": 0,
+      "total_pages": 17,
+      "segments": 15,
+      "stats": {
+        "ai_generated_segments": 0,
+        "ai_paraphrased_segments": 0,
+        "human_segments": 15,
+        "ocr_pages": 0,
+        "total_chars_ai": 0,
+        "total_chars_paraphrased": 0,
+        "total_chars_human": 36899
+      },
+      "errors": []
+    },
+    {
+      "file_name": "scopus-GAN.pdf",
+      "submission_date": "2025-12-20",
+      "priority": "LOW",
+      "ai_percentage_reported": null,
+      "total_pages": 17,
+      "segments": 15,
+      "stats": {
+        "ai_generated_segments": 0,
+        "ai_paraphrased_segments": 0,
+        "human_segments": 15,
+        "ocr_pages": 0,
+        "total_chars_ai": 0,
+        "total_chars_paraphrased": 0,
+        "total_chars_human": 35681
+      },
+      "errors": []
+    },
+    {
+      "file_name": "spine.pdf",
+      "submission_date": "2025-12-20",
+      "priority": "LOW",
+      "ai_percentage_reported": null,
+      "total_pages": 25,
+      "segments": 23,
+      "stats": {
+        "ai_generated_segments": 0,
+        "ai_paraphrased_segments": 0,
+        "human_segments": 23,
+        "ocr_pages": 0,
+        "total_chars_ai": 0,
+        "total_chars_paraphrased": 0,
+        "total_chars_human": 47116
+      },
+      "errors": []
+    },
+    {
+      "file_name": "survey paper (1) (1).pdf",
+      "submission_date": "2026-01-29",
+      "priority": "HIGH",
+      "ai_percentage_reported": null,
+      "total_pages": 32,
+      "segments": 30,
+      "stats": {
+        "ai_generated_segments": 0,
+        "ai_paraphrased_segments": 0,
+        "human_segments": 30,
+        "ocr_pages": 0,
+        "total_chars_ai": 0,
+        "total_chars_paraphrased": 0,
+        "total_chars_human": 72179
+      },
+      "errors": []
+    },
+    {
+      "file_name": "Thesis-Logu-SRM.pdf",
+      "submission_date": "2025-12-21",
+      "priority": "LOW",
+      "ai_percentage_reported": 78,
+      "total_pages": 132,
+      "segments": 419,
+      "stats": {
+        "ai_generated_segments": 216,
+        "ai_paraphrased_segments": 3,
+        "human_segments": 200,
+        "ocr_pages": 0,
+        "total_chars_ai": 142387,
+        "total_chars_paraphrased": 1512,
+        "total_chars_human": 69682
+      },
+      "errors": []
+    }
+  ],
+  "totals": {
+    "high_priority": 23,
+    "low_priority": 44,
+    "unknown_priority": 0,
+    "total_segments": 3004,
+    "ai_generated_segments": 1045,
+    "ai_paraphrased_segments": 11,
+    "human_segments": 1948,
+    "ocr_pages": 0
+  }
+}

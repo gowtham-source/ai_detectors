@@ -1,0 +1,1082 @@
+{
+  "file_name": "AI_A Novel Deep Learning Framework with Trust-Aware Attention and Conversation Memory for Predicting Trus.pdf",
+  "file_path": "c:\\Users\\gowth\\Downloads\\ai_plag_detector\\data\\raw_data\\raw_data\\AI_A Novel Deep Learning Framework with Trust-Aware Attention and Conversation Memory for Predicting Trus.pdf",
+  "submission_date": "2025-11-17",
+  "priority": "LOW",
+  "total_pages": 28,
+  "ai_percentage_reported": 100,
+  "segments": [
+    {
+      "text": "A Novel Deep Learning Framework with Trust-Aware Attention and Conversation",
+      "label": "ai_generated",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Memory for Predicting Trust in Conversational Agents",
+      "label": "human",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Abstract-Predicting user trust in conversational agents remains a significant challenge. Most existing models fail to capture both the temporal dynamics of trust formation and the nuanced interplay between emotional, behavioral, and contextual signals. To address this, we present ConTrust, a deep learning architecture specifically designed for the Conversational Trust Dataset, which contains 3,909 conversations (26,329 turns total, with 12,569 agent turns annotated for trust). Unlike traditional regression or shallow learning approaches, ConTrust integrates six key innovations. First, a trust-aware self-attention mechanism adaptively weights conversational cues based on their trust relevance. Second, an LSTM-based conversation memory module models longitudinal trust evolution. Third, we fuse textual, temporal, and behavioral features through multi-modal integration. Fourth, hierarchical attention captures dependencies at both turn and conversation levels. Fifth, multi-task learning jointly optimizes trust, emotion, and engagement predictions. Sixth, adaptive loss weighting dynamically balances these competing objectives. Extensive evaluations demonstrate ConTrust's substantial improvements over established baselines. While ensemble methods achieved R²=0.946 (RMSE=0.401), and strong learners like Random Forest (R²=0.944) and XGBoost (R²=0.938) performed competitively, ConTrust reaches R²=0.982 with RMSE=0.248. Crucially, 90% of predictions fall within ±0.5 error—a clear advance in trust modeling. Beyond these metrics, ConTrust offers interpretability by revealing how trust evolves with sentiment polarity, emotional congruence, and engagement intensity. This research contributes a scalable, domain-adaptable framework for trust prediction, establishing ConTrust as a foundation for reliable conversational agents in high-stakes domains such as healthcare, education, and customer support. Keywords-ConTrust, conversational trust prediction, trust-aware attention, conversation memory, multi-modal fusion, hierarchical attention, multi-task learning, adaptive loss weighting, deep learning, human-AI trust",
+      "label": "ai_generated",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "I Introduction",
+      "label": "human",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The degree to which users trust conversational systems fundamentally shapes their willingness to rely on automated agents for decision-making, assistance, and emotionally sensitive exchanges. While early research prioritized syntactic correctness and task completion [1][2], more recent work reveals a different picture: user acceptance hinges on perceived reliability, emotional responsiveness, and consistency maintained across time [3][4]. Interestingly, dissatisfaction often traces back to seemingly minor conversational missteps-delayed responses, emotionally misaligned phrasing, or overly generic engagement behavior [5][6]. Traditional supervised models, trained on isolated utterances, have consistently struggled with trust signals precisely because trust accumulates gradually rather than emerging from single turns [7][8]. As conversational agents proliferate across healthcare, educational support, advisory systems, and assistive technologies, we urgently need granular models that understand both message content and the trajectories of entire interactions [9][10].",
+      "label": "ai_generated",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "A key limitation lies in existing datasets: they rarely offer explicit annotations for trust evolution, emotional valence, or engagement dynamics. Benchmarks designed for intent recognition or casual chit-chat evaluation almost never incorporate temporal indicators, behavioral markers, or longitudinal discourse context [11][12]. Generic turn-level annotations provide coarse labels, yet they fail to capture how psychological impressions shift with response timeliness, tone, or dialogue pacing [13][14]. When researchers retrofit trust estimators onto legacy corpora, the results often gloss over the nuanced interdependence between emotion, sentiment, and credibility cues. Even worse, studies limited to textual features completely miss delayed responses, perceived responsiveness, and fluctuating conversational involvement-all critical factors for trust assessment under realistic interaction conditions [15][16]. To model trust as a cumulative, contextually grounded construct rather than a post-hoc outcome, we need structurally rich datasets with layered annotations. Recent work in multi-modal learning offers a promising direction, demonstrating that merging linguistic sequences with behavioral traces, engagement markers, and temporal features substantially improves performance [17][18]. Architectures employing cross-attention, hierarchical encoders, and memory components have already shown success in sentiment interpretation, dialogue outcome prediction, and empathy recognition. However, trust represents a distinct relational dimension-one shaped by perceived competence, communication style, and emotional coherence across successive turns. Multi-goal interactions involving varied agent profiles demand systems that track both immediate cues and broader conversational arcs. By enriching trust annotations with emotional signals, sentiment shifts, latency data, and interaction depth, predictive frameworks can finally reflect the subtleties of real conversational judgment. Such a system could approximate, for instance, how users weigh early misalignments against later recovery efforts, or how stable tone coupled with low latency cultivates confidence across turns. Building architectures that model trust holistically requires supervisory signals capturing both immediate response quality and accrued conversational credibility [19][20]. Hybrid models combining memory mechanisms with attention-based feature integration exploit trust-related annotations far more effectively than single-task regressors constrained to surface patterns. Emotion recognition and engagement estimation function best as auxiliary signals that refine latent representations rather than distract from the primary trust prediction task. Integrating losses across multiple tasks encourages the model to learn shared regularities-particularly valuable in dialogues where emotional alignment and responsiveness directly influence trust trajectories. That said, without adaptive balancing of task contributions during training, performance can easily skew toward dominant signals while neglecting subtle yet trust-critical cues.",
+      "label": "ai_generated",
+      "page_num": 4,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Key Contributions​",
+      "label": "human",
+      "page_num": 4,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "At its core, this research introduces a purpose-built conversational trust framework grounded in a dataset with fine-grained annotations spanning sentiment, emotion, latency, and engagement. Rather than treating trust as an isolated target, our hierarchical, multi-modal deep learning architecture captures both localized trust signals and their longitudinal evolution across full dialogue trajectories. We employ an adaptive training strategy that aligns",
+      "label": "ai_generated",
+      "page_num": 4,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "trust prediction with emotion recognition and engagement estimation, ensuring careful balance across these interdependent objectives. The paper unfolds as follows. We begin by reviewing literature on trust modeling in conversational agents, deliberately highlighting persistent gaps in longitudinal annotation, multi-modal integration, and behavioral context. The methodology section then details our dataset construction, annotation layers, and the architectural design principles that guide each module. In experimentation, we outline training conditions, baseline comparisons, and rigorous evaluation protocols. Our results examine predictive performance across all three metrics—trust, emotion, and engagement-before turning to a focused discussion on interpretability and generalizability. Finally, we synthesize these findings in the conclusion, positioning them against emerging challenges in conversational trust assessment.",
+      "label": "ai_generated",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "II Literature Review",
+      "label": "human",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Li et al. (2024) emphasized that conversational features derived from lexical and acoustic cues can effectively predict human trust in AI agents, identifying linguistic sentiment and MFCC-based acoustic markers as pivotal mediators for dynamic trust estimation [1]. Building upon this trust–communication nexus, Kraus et al. (2021) introduced the notion of proactive dialogue, illustrating how predictive conversational strategies can preempt user dissatisfaction and reinforce perceived system reliability in human–machine collaboration [2]. Complementing these insights, Li et al. (2024) proposed trajectory epistemic network analysis (T-ENA) to trace dynamic trust evolution through conversational sequences, demonstrating that trust transitions are shaped by topic diversity and adaptive agent responses [3]. Ng (2025) extended these findings by developing a longitudinal model that integrates hedonic and social motivations with sequential feedback mechanisms, revealing that sustained trust in conversational AI depends on usability and motivational reinforcement over time [4]. Similarly, Cho et al. (2023) explored algorithmic personalization in AI-based content curation, noting that while optimization enhances satisfaction, trust perception varies with age and digital proficiency, suggesting the importance of demographic-sensitive modeling [5]. Kolenik et al. (2024) further advanced trust modeling by simulating theory of mind in conversational psychotherapy systems, showing that empathy-driven dialogue and cognitive modeling significantly strengthen user confidence and therapeutic outcomes [6]. From a social cognition perspective, Hoffman et al. (2021) observed that children develop parasocial relationships with AI agents, forming attachments rooted in perceived social realism and emotional reciprocity, which underscores the affective dimension of trust formation [7]. Likewise, Weiler et al. (2022) demonstrated that inoculation messaging mitigates user resistance by preparing individuals for system imperfections, thus stabilizing trust following conversational failures [8]. Wölfel et al. (2023) contributed to educational domains by comparing generative and knowledge-based chatbots, concluding that while generative models enhance perceived naturalness and engagement, domain-grounded systems yield greater factual reliability and functional trust [9]. Ahmad et al. (2022) addressed personalization deficits in healthcare-oriented conversational agents by designing",
+      "label": "ai_generated",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "personality-adaptive dialogue frameworks, establishing principles that align empathetic responses with user mental states to build adaptive and authentic trust [10]. Choung et al. (2023) reaffirmed the multidimensionality of trust by differentiating between human-like and functionality-based dimensions, demonstrating that functional dependability has a stronger influence on AI adoption and continued engagement [11]. Extending trust-centered design into the healthcare context, Adikari et al. (2022) proposed an empathic conversational agent framework that integrates NLP and AI algorithms for real-time monitoring of patient emotions and behavioral transitions. Their model effectively bridges the gap between clinical interventions and emotional well-being, validating conversational empathy as a core enabler of patient-centered healthcare [12].",
+      "label": "ai_generated",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "In the education sector, Xie et al. (2021) developed the Motivational Online Conversational Agent (MOCA) employing motivational interviewing and adaptive dialogue.",
+      "label": "ai_paraphrased",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Their results revealed that multi-turn motivational interactions enhance learner engagement and emotional investment, demonstrating conversational agents’ potential in sustaining human motivation [13]. Nelekar et al. (2022) presented the Managing Stress at University (ECA) system, an explainable conversational framework tailored to Indian students, showing that culturally adaptive explanations significantly reduce stress, strengthen user–agent trust, and enhance behavioral change intentions [14]. Expanding on the technological landscape, Allouch et al. (2021) offered a comprehensive taxonomy of conversational agents, mapping the evolution of deep learning and emotional intelligence integration while underscoring the necessity of ethical design and dataset diversity for sustainable CA development [15]. Schouten et al. (2023) introduced an Embodied Conversational Agent coach for low-literacy learners, revealing that empathetic and supportive ECAs enhance engagement, self-efficacy, and positive affect in digital skill training. This highlights conversational coaching as a promising avenue for inclusive AI-driven learning [16]. Finally, Sidaoui et al. (2024) proposed a Corporate Digital Responsibility (CDR) framework for ethical CA integration within service ecosystems, emphasizing that embedding digital governance and ethical accountability ensures socially responsible and trustworthy conversational AI deployment [17].",
+      "label": "ai_generated",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "2.1 Research Gap",
+      "label": "human",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Despite the extensive progress across trust modeling, motivational dialogue, empathy-driven frameworks, and ethical conversational agent design, several research gaps persist. Existing models largely emphasize individual dimensions of trust—such as sentiment cues, personalization, or emotional alignment—without integrating these factors into a unified, dynamic framework capable of capturing trust evolution across multi-turn dialogues. Moreover, most prior approaches rely on static or domain-specific datasets, limiting generalizability across diverse conversational contexts. While studies highlight the importance of empathy, explainability, and longitudinal interaction, few architectures jointly model linguistic, temporal, and behavioral signals to predict trust adaptively. Additionally, ethical and governance-based frameworks provide conceptual guidance but lack computational realization within deep learning pipelines. To bridge these gaps, the present research introduces ConTrust, a comprehensive deep learning architecture that fuses trust-aware attention, longitudinal memory, and multi-modal learning for real-time trust",
+      "label": "ai_generated",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "estimation, simultaneously addressing emotional, contextual, and engagement-driven trust dynamics within human–AI conversations.",
+      "label": "ai_generated",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "III Methodology",
+      "label": "human",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Our proposed framework draws on recent advances in conversational trust modeling, emotion-aware dialogue systems, and multi-modal learning to create a unified architecture that dynamically predicts user trust in human–AI interactions [21][22]. Rather than treating trust as an isolated attribute, ConTrust integrates trust-aware self-attention, conversation memory modeling, and multi-task optimization to simultaneously assess trust, emotion, and engagement across multi-turn dialogues [23]. The architecture fuses linguistic, temporal, and behavioral representations to capture micro-level response cues alongside macro-level conversational trajectories. This aligns with emerging research prioritizing interpretability, contextual adaptation, and human-centered trust mechanisms [24][25]. Through adaptive loss weighting and cross-modal fusion, ConTrust learns to balance competing objectives, addressing key limitations of prior single-dimensional trust models. This design enables generalization across diverse dialogue contexts, offering a scalable framework for real-time trust estimation within conversational AI ecosystems.",
+      "label": "ai_generated",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "3.1 Dataset Preparation​",
+      "label": "human",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "We previously introduced the Conversational Trust Dataset specifically to model trust in conversational agents. This addresses a critical gap: the lack of large-scale, ecologically valid corpora capturing both linguistic and behavioral signals that underpin human–AI trust dynamics. Conventional dialogue datasets focus primarily on intent recognition or task completion; ours was explicitly designed to reflect multi-dimensional trust cues across real-world conversational contexts. The dataset contains 3,909 multi-turn dialogues with 26,329 conversational turns, including 12,569 annotated agent responses. A panel of 15 trained annotators evaluated each response using a standardized 7-point Likert scale across four trust dimensions: competence, benevolence, integrity, and overall trustworthiness. Inter-annotator agreement exceeded κ=0.75, confirming annotation robustness. Beyond trust labels, we incorporated seven discrete emotions, sentiment polarity scores, response latency measures, and engagement metrics such as dialogue length, turn-taking balance, and emotional entropy. These features ensure the dataset captures not only surface-level linguistic performance but also the temporal, affective, and relational factors that shape trust [26]. Conversations were drawn from 35 scenarios spanning healthcare, technical support, travel planning, and open-domain queries. Agent responses originated from 23 distinct conversational models with diverse training paradigms, representing behaviors from highly-aligned instruction-tuned models to less predictable base models. For this research, we partitioned the dataset into 3,127 training and 782 validation conversations, maintaining balance across trust levels and emotional contexts. Preprocessing was designed for multi-modal learning: textual features were normalized, tokenized, and",
+      "label": "ai_generated",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "embedded; temporal features such as latency were standardized; and behavioral indicators like engagement intensity and emotional variability were engineered as structured features. This multi-layered preparation transforms the dataset into a rich, trust-centered modeling space that aligns seamlessly with the ConTrust architecture.",
+      "label": "ai_generated",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "By fusing linguistic, emotional, temporal, and engagement signals, the dataset supports accurate trust prediction while enabling exploration of how trust evolves dynamically across interactions—an essential capability for this work.",
+      "label": "ai_paraphrased",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Text Encoding and Multi-Scale Temporal Feature Embedding in ConTrust Figure 1 depicts ConTrust's text encoding and preprocessing pipeline. Multi-scale patch embedding captures temporal variations such as latency, engagement intensity, and emotional variability, converting them into structured temporal features. These features merge with contextual representations from BERT and DistilBERT encoders, which utilize multi-head attention (MHA) and feed-forward normalization layers to extract semantic and contextual dependencies. The resulting unified embedding space fuses linguistic and temporal cues, establishing the foundation for trust-aware representation learning in subsequent modules.",
+      "label": "ai_paraphrased",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "3.2 ConTrust Architecture",
+      "label": "human",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "ConTrust represents a comprehensive deep learning framework purpose-built to model trust dynamics in conversational agents.",
+      "label": "ai_paraphrased",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Unlike conventional architectures that rely primarily on textual features, ConTrust integrates linguistic, temporal, and behavioral modalities while explicitly encoding how trust evolves across multi-turn dialogues. The architecture comprises six interdependent modules: Trust-Aware Self-Attention, Conversation Memory, Multi-Modal Fusion, Hierarchical Attention, Multi-Task Learning, and Adaptive Loss",
+      "label": "ai_generated",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Weighting. Together, these components capture fine-grained signals at the turn level while simultaneously modeling long-range dependencies across entire conversations.",
+      "label": "ai_generated",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Figure 2. Overall ConTrust Framework Architecture for Conversational Trust Prediction",
+      "label": "human",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Figure 2 illustrates the end-to-end ConTrust architecture for modeling dynamic trust evolution. The framework begins with text encoding and preprocessing, where BERT and DistilBERT encode per-turn utterances while multi-scale patch embedding extracts temporal cues such as latency, engagement intensity, and emotional variability. These representations integrate within the Multi-Modal Fusion and Trust-Aware Self-Attention Stack, which performs cross-attentive alignment across linguistic and temporal modalities and modulates attention through trust affinity weighting. The Conversation Memory and Hierarchy Layer employs a Bi-LSTM to capture longitudinal trust evolution, integrating turn-level and conversation-level attention for multi-granular trust dynamics. The Multi-Task Heads jointly optimize trust regression, engagement regression, and emotion classification, with an Adaptive Loss Weighting (ALW) mechanism that dynamically balances task objectives. Together, these components enable ConTrust to capture both fine-grained conversational cues and cumulative behavioral trust trajectories, producing accurate and interpretable trust predictions.",
+      "label": "ai_generated",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "3.2.1 Trust-Aware Self-Attention",
+      "label": "human",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "ConTrust's foundation is the Trust-Aware Self-Attention (TASA) mechanism, which extends conventional Transformer attention by embedding trust-specific weights. While traditional self-attention computes token contributions through query-key dot products, this formulation ignores crucial trust cues such as sentiment polarity, emotional intensity, and engagement dynamics [27][28].",
+      "label": "ai_generated",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "To address this limitation, we introduce a trust relevance score for each input element τ𝑖 (token or turn), which is learned jointly with the attention parameters.",
+      "label": "ai_generated",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The modified attention score between query and key is defined as in Eq.1: 𝑞𝑖 𝑘𝑗 ​ ​ ​ ​ ​ (1) α𝑖𝑗= 𝑒𝑥𝑝 𝑞𝑖·𝑘𝑗𝑇 𝑑𝑘 ·τ𝑗 ( ) 𝑙=1 𝑛 ∑𝑒𝑥𝑝 𝑞𝑖·𝑘𝑙 𝑇 𝑑𝑘·τ𝑙 ( )",
+      "label": "human",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Where, and denote the query and key vectors, is the dimension of the key vectors, 𝑞𝑖 𝑘𝑗 𝑑𝑘 τ𝑗 represents the trust relevance score for element , dynamically learned from auxiliary features 𝑗 (e.g., sentiment, emotion, latency).",
+      "label": "ai_generated",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The final output representation is computed as in Eq.2: ​ ​ ​ ​ ​ ​ (2) 𝑧𝑖= 𝑗=1 𝑛 ∑α𝑖𝑗ν𝑗",
+      "label": "human",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "In Eq.2, denotes the value vector associated with element . 𝑣𝑗 𝑗 By modulating the standard attention weights with trust relevance, TASA ensures that turns containing trust-critical signals (e.g., emotionally aligned responses, timely agent feedback) exert a greater influence on downstream representations. This mechanism allows ConTrust to move beyond purely lexical salience and instead capture how conversational cues directly impact perceived trustworthiness.",
+      "label": "ai_generated",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Algorithm 1: Trust-Aware Self-Attention (TASA) Input: token/turn embeddingsInputs: token/turn embeddings , auxiliary trust 𝑥1,..., 𝑥𝑛 { } features , projection matrices , and key dimension . ϕ1,..., ϕ𝑛 { } 𝑊𝑄, 𝑊𝐾, 𝑊𝑉 𝑑𝑘 For each element ; 𝑗= 1.. 𝑛 ​ Compute , and . 𝑞𝑗= 𝑊𝑄𝑥𝑗, 𝑘𝑗= 𝑊𝐾𝑥𝑗 𝑣𝑗= 𝑊𝑉𝑥𝑗 ​ Derive the trust relevance score τ𝑗= 𝑇𝑟𝑢𝑠𝑡𝑆𝑐𝑜𝑟𝑒𝑁𝑒𝑡𝑤𝑜𝑟𝑘ϕ𝑗 ( ) For each element 𝑖= 1... 𝑛 ​ For each element 𝑗= 1.. 𝑛 ​ ​ Compute the similarity score 𝑠𝑖𝑗= 𝑞1·𝑘𝑗 𝑑𝑘 ​ ​ Modulate it with trust relevance: 𝑠𝑖𝑗= 𝑠𝑖𝑗× τ𝑗 ​ ​ Normalize attention: . α𝑖= 𝑠𝑜𝑓𝑡𝑚𝑎𝑥𝑗𝑠𝑖𝑗 ( )",
+      "label": "human",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Return the set of outputs 𝑧1,..., 𝑧𝑛 { }",
+      "label": "ai_generated",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Output: trust-aware outputs 𝑧1,.., 𝑧𝑛 { }",
+      "label": "human",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "3.2.2 Conversation Memory Module",
+      "label": "human",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "While Trust-Aware Self-Attention emphasizes the relative importance of conversational cues at a single turn or within localized contexts, conversational trust is inherently dynamic and cumulative. Trust does not emerge from isolated utterances; rather, it evolves as the dialogue unfolds, shaped by the consistency, timeliness, and affective alignment of responses. To explicitly model this longitudinal trajectory, ConTrust incorporates a Conversation Memory Module implemented using a Long Short-Term Memory (LSTM) network [29]. The LSTM is chosen for its ability to retain information across extended sequences while selectively updating or discarding context through gated mechanisms. Let denote the 𝑥𝑡 trust-aware representation of the agent’s response at turn produced by the Trust-Aware 𝑡 Self-Attention layer). The LSTM updates its hidden state and cell state as presented in ℎ𝑡 𝑐𝑡",
+      "label": "ai_generated",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Eq.3 to Eq.8: ​​ ​ ​ ​ (3) 𝑖𝑡= σ 𝑊𝑖𝑥𝑡+ 𝑈𝑖ℎ𝑡−1 + 𝑏𝑖 ( ) ​ ​ ​ ​ (4) 𝑓𝑡= σ 𝑊𝑓𝑥𝑡+ 𝑈𝑓ℎ𝑡−1 + 𝑏𝑓 ( ) ​ ​ ​ ​ (5) 𝑜𝑡= σ 𝑊𝑜𝑥𝑡+ 𝑈𝑜ℎ𝑡−1 + 𝑏𝑜 ( ) ​ ​ ​ ​ (6) 𝑐𝑡= 𝑡𝑎𝑛ℎ𝑊𝑐𝑥𝑡+ 𝑈𝑐ℎ𝑡−1 + 𝑏𝑐 ( ) ​ ​ ​ ​ (7) 𝑐𝑡= 𝑓𝑡⊙𝑐𝑡−1 + 𝑖𝑡⊙𝑐𝑡 ​ ​ ​ ​ ​ (8) ℎ𝑡= 𝑜𝑡⊙𝑡𝑎𝑛ℎ𝑐𝑡 ( )",
+      "label": "human",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Where, are the input, forget, and output gates, is the candidate memory state, is 𝑖𝑡, 𝑓𝑡, 𝑜𝑡 𝑐𝑡 𝑐𝑡 the updated cell state storing accumulated trust dynamics, is the hidden state representing ℎ𝑡 the trust trajectory at turn , denotes the sigmoid activation, and represents element-wise 𝑡σ ⊙ multiplication.​​",
+      "label": "ai_generated",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The hidden state effectively encodes how trust has evolved from the beginning of the ℎ𝑡 conversation up to turn .",
+      "label": "human",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "By maintaining this longitudinal trust memory, the module enables",
+      "label": "ai_generated",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "ConTrust to recognize patterns such as trust decay due to repeated latency violations or trust reinforcement from consistent, empathetic responses. The final conversation-level representation is obtained by aggregating the hidden states across all turns:",
+      "label": "ai_generated",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ ​ ​ ​ ​ (9)",
+      "label": "human",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "∑ℎ𝑡 3.2.3 Multi-Modal Fusion Engine",
+      "label": "human",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Trust in conversational agents is not determined solely by the textual quality of responses but also by temporal consistency (e.g., latency) and behavioral cues (e.g., engagement intensity, emotional variability). To holistically capture these dimensions, ConTrust incorporates a",
+      "label": "ai_generated",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Multi-Modal Fusion Engine, which integrates textual, temporal, and behavioral streams into a unified representation through cross-attention mechanisms. Let the three modalities be defined as follows: ●​ Textual features: , obtained from tokenized utterances and 𝑋 𝑡𝑒𝑥𝑡= 𝑥1 𝑡𝑒𝑥𝑡, 𝑥2 𝑡𝑒𝑥𝑡,...., 𝑥𝑇 𝑡𝑒𝑥𝑡 { } enriched with trust-aware embeddings.",
+      "label": "ai_generated",
+      "page_num": 12,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "●​ Temporal features: ,",
+      "label": "human",
+      "page_num": 12,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "representing standardized",
+      "label": "ai_generated",
+      "page_num": 12,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "𝑋 𝑡𝑒𝑚𝑝= 𝑋1 𝑡𝑒𝑚𝑝, 𝑋2 𝑡𝑒𝑚𝑝,..., 𝑋𝑇 𝑡𝑒𝑚𝑝 { }",
+      "label": "human",
+      "page_num": 12,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "response latencies and turn positions.",
+      "label": "ai_generated",
+      "page_num": 12,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "●​ Behavioral features: capturing engagement indicators such 𝑋 𝑏𝑒ℎ= 𝑋1 𝑏𝑒ℎ, 𝑋2 𝑏𝑒ℎ,..., 𝑋𝑇 𝑏𝑒ℎ { }",
+      "label": "human",
+      "page_num": 12,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "as conversation length, turn-taking balance, and emotional entropy. To enable cross-modal alignment, we compute attention weights between modalities. For instance, the influence of temporal features on textual features is computed as in Eq.10:",
+      "label": "ai_generated",
+      "page_num": 12,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ ​ ​ (10)",
+      "label": "human",
+      "page_num": 12,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "α𝑖𝑗 𝑡𝑒𝑥𝑡←𝑡𝑒𝑚𝑝= 𝑒𝑥𝑝 𝑞𝑖 𝑡𝑒𝑥𝑡,𝑘𝑗 𝑡𝑒𝑚𝑝",
+      "label": "ai_generated",
+      "page_num": 12,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "𝑑 ( ) 𝑙=1 𝑇 ∑𝑒𝑥𝑝 𝑞𝑖 𝑡𝑒𝑥𝑡,𝑘𝑙 𝑡𝑒𝑚𝑝 𝑑 ( ) Where,",
+      "label": "human",
+      "page_num": 12,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "is the query derived from the textual embedding at turn , is the key",
+      "label": "ai_generated",
+      "page_num": 12,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "derived from the temporal embedding at turn , is the dimensionality scaling factor. 𝑗𝑑",
+      "label": "ai_generated",
+      "page_num": 12,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The fused representation for textual features enhanced by temporal cues is then: ​ ​ ​ ​ ​ (11) 𝑧𝑖 𝑡𝑒𝑥𝑡= 𝑗=1 𝑇 ∑α𝑖𝑗 𝑡𝑒𝑥𝑡←𝑡𝑒𝑚𝑝𝑣𝑗 𝑡𝑒𝑚𝑝 In Eq.11,",
+      "label": "human",
+      "page_num": 12,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "is the value vector from the temporal modality. Similar fusion operations are",
+      "label": "ai_generated",
+      "page_num": 12,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "applied between text–behavioral and temporal–behavioral streams, enabling the model to align emotional and engagement signals with textual semantics.",
+      "label": "ai_generated",
+      "page_num": 12,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Finally, the fused multi-modal embedding is constructed as in Eq.12: ​ ​ ​ ​ ​ (12) 𝑧𝑖 𝑓𝑢𝑠𝑖𝑜𝑛= 𝑧𝑖 𝑏𝑒𝑠𝑡||𝑧𝑖 𝑡𝑒𝑚𝑝||𝑧𝑖 𝑏𝑒ℎ",
+      "label": "human",
+      "page_num": 12,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Where denotes concatenation across modalities. || This cross-attentive fusion strategy allows ConTrust to highlight not just what was said (text), but also how and when it was said (temporal) and how users responded (behavioral). By integrating these perspectives, the engine ensures that subtle cues—such as slight delays reducing trust or emotional alignment increasing trust—are encoded into the conversation-level trust representation.",
+      "label": "ai_generated",
+      "page_num": 12,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "3.2.4 Hierarchical Attention",
+      "label": "human",
+      "page_num": 12,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "While the Multi-Modal Fusion Engine integrates linguistic, temporal, and behavioral information at each conversational turn, effective trust modeling requires balancing fine-grained turn-level cues with global conversation-level dynamics. To achieve this, ConTrust employs a Hierarchical Attention Mechanism consisting of two interconnected layers:",
+      "label": "ai_generated",
+      "page_num": 13,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Turn-Level Attention — captures salient trust signals within individual utterances and immediate local contexts.",
+      "label": "ai_generated",
+      "page_num": 13,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Conversation-Level Attention — aggregates trust-aware turn representations to model long-range dependencies and overall trust trajectories across the dialogue.",
+      "label": "ai_generated",
+      "page_num": 13,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "(a). Turn-Level Attention For each turn , the fused multi-modal embedding is processed with self-attention to 𝑡 𝑧𝑡 𝑓𝑢𝑠𝑖𝑜𝑛 identify the most informative features within the turn: ​ ​ ​ ​ (13) α𝑖𝑗 𝑡𝑢𝑟𝑛= 𝑒𝑥𝑝 𝑞𝑖 𝑡𝑢𝑟𝑛,𝑘𝑗 𝑡𝑢𝑟𝑛 𝑑 ( ) 𝑙=1 𝑚 ∑𝑒𝑥𝑝 𝑞𝑖 𝑡𝑢𝑟𝑛,𝑘𝑙 𝑡𝑢𝑟𝑛 𝑑 ( ) In Eq.13, ,",
+      "label": "human",
+      "page_num": 13,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "are the query and key vectors for features inside turn , is the number",
+      "label": "ai_generated",
+      "page_num": 13,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "𝑞𝑖 𝑡𝑢𝑟𝑛𝑘𝑗 𝑡𝑢𝑟𝑛",
+      "label": "human",
+      "page_num": 13,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "𝑡𝑚 of tokens or sub-features within the turn. The output is a turn-level trust embedding is presented in Eq.",
+      "label": "ai_generated",
+      "page_num": 13,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "14: ​ ​​ ​ ​ ​ (14) ℎ𝑡 𝑡𝑢𝑟𝑛= 𝑗=1 𝑚 ∑α𝑖𝑗 𝑡𝑢𝑟𝑛𝑣𝑗 𝑡𝑢𝑟𝑛",
+      "label": "human",
+      "page_num": 13,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "This embedding reflects the internal salience of words, emotional markers, and behavioral cues that influence trust for that specific turn.",
+      "label": "ai_generated",
+      "page_num": 13,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "(b). Conversation-Level Attention Once turn-level embeddings are obtained, ConTrust applies conversation-level attention ℎ𝑡 𝑡𝑢𝑟𝑛 across all turns to capture how trust evolves and stabilizes throughout the dialogue: 𝑇 ​ ​ ​ ​ (15) α𝑡𝑗 𝑐𝑜𝑛𝑣= 𝑒𝑥𝑝 𝑞𝑡 𝑐𝑜𝑛𝑣·𝑘𝑗 𝑐𝑜𝑛𝑣 𝑑 ( ) 𝑙=1 𝑇 ∑𝑒𝑥𝑝 𝑞𝑡 𝑐𝑜𝑛𝑣·𝑘𝑙 𝑐𝑜𝑛𝑣 𝑑 ( ) ​ ​ ​ (16) 𝐻 𝑐𝑜𝑛𝑣= 𝑗=1 𝑇 ∑α𝑡𝑗 𝑐𝑜𝑛𝑣ℎ𝑗 𝑡𝑢𝑟𝑛",
+      "label": "human",
+      "page_num": 13,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "In Eq.15 and Eq.16, , represent queries and keys across turns, is the 𝑞𝑡 𝑐𝑜𝑛𝑣𝑘𝑗",
+      "label": "ai_generated",
+      "page_num": 13,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "aggregated conversation-level embedding that summarizes global trust trajectories.",
+      "label": "ai_generated",
+      "page_num": 13,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Hierarchical Integration The hierarchical structure ensures that trust-critical micro-patterns (e.g., empathetic wording, timing of a supportive response) detected at the turn level are contextualized within",
+      "label": "ai_generated",
+      "page_num": 13,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "macro-patterns (e.g., steady reinforcement of trust or sudden trust decline) at the conversation level. This dual granularity enables ConTrust to capture both immediate and cumulative trust cues, a capability missing in flat attention models. By combining turn-level and conversation-level attention, the architecture provides interpretable insights into which specific turns drive trust shifts and how overall trust is established or eroded across the conversation.",
+      "label": "ai_generated",
+      "page_num": 14,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Algorithm 2: Hierarchical Attention (Turn-Level and Conversation-Level) Input: fused embeddings per turn 𝑧𝑡 𝑓𝑢𝑠𝑖𝑜𝑛 { } Turn-Level Attention: For each turn , compute intra-turn attention: 𝑡 α𝑖𝑗 𝑡𝑢𝑟𝑛= 𝑒𝑥𝑝 𝑞𝑖 𝑡𝑢𝑟𝑛·𝑘𝑗 𝑡𝑢𝑟𝑛 𝑑 ( ) Σ𝑙𝑒𝑥𝑝 𝑞𝑖 𝑡𝑢𝑟𝑛·𝑘𝑗 𝑡𝑢𝑟𝑛 𝑑 ( ) ​  Compute the aggregated embedding ℎ𝑡 𝑡𝑢𝑟𝑛= Σ𝑗α𝑖𝑗 𝑡𝑢𝑟𝑛𝑣𝑗 𝑡𝑢𝑟𝑛 Conversation-Level Attention: ​ Given , compute cross-turn attention: ℎ𝑡 𝑡𝑢𝑟𝑛 { } 𝑡=1 𝑇 ​ ​ α𝑡𝑗 𝑐𝑜𝑛𝑣= 𝑒𝑥𝑝 𝑞𝑡 𝑐𝑜𝑛𝑣·𝑘𝑗 𝑐𝑜𝑛𝑣 𝑑 ( ) Σ𝑙𝑒𝑥𝑝 𝑞𝑡 𝑐𝑜𝑛𝑣·𝑘𝑙 𝑐𝑜𝑛𝑣 𝑑 ( ) ​ Aggregate conversation representation: 𝐻 𝑐𝑜𝑛𝑣= 𝑗=1 𝑇 ∑α𝑡𝑗 𝑐𝑜𝑛𝑣ℎ𝑗 𝑡𝑢𝑟𝑛 Return and . ℎ𝑡 𝑡𝑢𝑟𝑛 { } 𝐻 𝑐𝑜𝑛𝑣 Output: turn-level embeddings ℎ𝑡 𝑡𝑢𝑟𝑛 { }",
+      "label": "human",
+      "page_num": 14,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Turn-level: fine-grained focus on agent responses In human–AI interaction, agent responses constitute the primary locus for trust judgments. Users continuously evaluate the competence, benevolence, and integrity of an agent based on how it responds to prompts, resolves queries, and aligns with conversational expectations. Thus, ConTrust introduces a turn-level attention mechanism explicitly tailored to emphasize agent responses within the dialogue stream [30].",
+      "label": "ai_generated",
+      "page_num": 14,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Given a conversational turn , the multi-modal representation is constructed by 𝑡 𝑧𝑡 𝑓𝑢𝑠𝑖𝑜𝑛 integrating textual, temporal, and behavioral cues as described in Section 3.2.3. For agent turns, this representation is refined using trust-aware attention weights to highlight features most predictive of trust outcomes.",
+      "label": "ai_generated",
+      "page_num": 15,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The attention distribution is formulated as in Eq.17: ​​ ​ ​ ​ (17) α𝑖𝑗 𝑎𝑔𝑒𝑛𝑡= 𝑒𝑥𝑝 𝑞𝑖 𝑎𝑔𝑒𝑛𝑡·𝑘𝑗 𝑎𝑔𝑒𝑛𝑡 𝑑 ·τ𝑗 ( ) 𝑙=1 𝑚 ∑𝑒𝑥𝑝 𝑞𝑖 𝑎𝑔𝑒𝑛𝑡·𝑘𝑙 𝑎𝑔𝑒𝑛𝑡 𝑑 ·τ𝑙 ( ) Where, and",
+      "label": "human",
+      "page_num": 15,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "are query and key vectors for features within the agent’s response,",
+      "label": "ai_generated",
+      "page_num": 15,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "𝑞𝑖 𝑎𝑔𝑒𝑛𝑡 𝑘𝑗 𝑎𝑔𝑒𝑛𝑡",
+      "label": "human",
+      "page_num": 15,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "is the number of tokens or sub-features in the response, is the trust relevance score 𝑚 τ𝑗 derived from contextual signals (emotion alignment, latency, or engagement). The resulting turn-level trust embedding is expressed as in Eq.18:",
+      "label": "ai_generated",
+      "page_num": 15,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ ​ ​ ​ (18)",
+      "label": "human",
+      "page_num": 15,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "ℎ𝑡 𝑎𝑔𝑒𝑛𝑡= 𝑗=1 𝑚 ∑α𝑖𝑗 𝑎𝑔𝑒𝑛𝑡𝑣𝑗 𝑎𝑔𝑒𝑛𝑡 This embedding ensures that the most trust-informative elements of the agent’s utterance (e.g., precise answers, empathetic tone, reduced latency) are amplified in downstream processing. By focusing attention on agent turns rather than treating all turns equally, ConTrust aligns its representational capacity with human evaluative behavior, where trust is disproportionately shaped by the system’s responses rather than user utterances. This fine-grained modeling enables the architecture to detect subtle shifts in perceived reliability and credibility arising from agent behavior at the turn level.",
+      "label": "ai_generated",
+      "page_num": 15,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Conversation-Level Attention: Aggregation Across Dialogue Trajectory",
+      "label": "human",
+      "page_num": 15,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "While turn-level attention provides fine-grained modeling of trust-critical features in individual agent responses, effective trust prediction also requires an understanding of how trust evolves cumulatively across the entire dialogue. Trust in conversational agents is rarely determined by a single utterance; instead, it emerges as a trajectory, reinforced through consistent competence, or eroded by repeated failures such as delays, irrelevant responses, or emotionally incongruent turns. To capture this longitudinal process, ConTrust incorporates a conversation-level attention mechanism that aggregates turn-level embeddings into a global trust representation.",
+      "label": "ai_generated",
+      "page_num": 15,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "denote the trust-aware embeddings for the agent turns within a",
+      "label": "ai_generated",
+      "page_num": 15,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "ℎ1 𝑎𝑔𝑒𝑛𝑡, ℎ2 𝑎𝑔𝑒𝑛𝑡,..., ℎ𝑇 𝑎𝑔𝑒𝑛𝑡 { }",
+      "label": "human",
+      "page_num": 15,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "𝑇 conversation. The conversation-level attention computes the relative importance of each turn",
+      "label": "ai_generated",
+      "page_num": 15,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "to the overall trust trajectory:",
+      "label": "human",
+      "page_num": 15,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ ​ ​ ​ (19) α𝑖𝑗 𝑐𝑜𝑛𝑣= 𝑒𝑥𝑝 𝑞𝑡 𝑐𝑜𝑛𝑣·𝑘𝑗 𝑐𝑜𝑛𝑣 𝑑 ( ) 𝑙=1 𝑇 ∑𝑒𝑥𝑝 𝑞𝑡 𝑐𝑜𝑛𝑣·𝑘𝑙 𝑐𝑜𝑛𝑣 𝑑 ( ) Where, ,",
+      "label": "human",
+      "page_num": 16,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "are query and key vectors corresponding to turns, is the dimensionality",
+      "label": "ai_generated",
+      "page_num": 16,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "𝑞𝑡 𝑐𝑜𝑛𝑣𝑘𝑗 𝑐𝑜𝑛𝑣",
+      "label": "human",
+      "page_num": 16,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "𝑑 of the key vectors, represents the weight assigned to turn when constructing the α𝑖𝑗 𝑐𝑜𝑛𝑣 𝑗 conversation-level representation at time . 𝑡",
+      "label": "ai_generated",
+      "page_num": 16,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The aggregated conversation-level embedding is then computed as in Eq.20: ​ ​ ​ ​ (20) 𝐻 𝑐𝑜𝑛𝑣= 𝑗=1 𝑇 ∑α𝑡𝑗 𝑐𝑜𝑛𝑣ℎ𝑗 𝑎𝑔𝑒𝑛𝑡",
+      "label": "human",
+      "page_num": 16,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "This representation captures not only the immediate salience of specific turns but also how their relative importance shifts over the dialogue trajectory [16],[17]. For example, a highly competent but emotionally flat response early in the conversation may initially increase trust, but its contribution might be attenuated if subsequent turns exhibit empathy and sustained engagement—signals that human evaluators often associate with benevolence and reliability. Through this aggregation process, ConTrust builds a hierarchical trust profile: local trust signals are preserved at the turn level, while their cumulative interplay is synthesized at the conversation level. This dual structure enables the model to recognize patterns such as gradual trust reinforcement, abrupt trust collapse, or oscillating trust behaviors that are common in real-world human–AI interactions. Ultimately, the conversation-level attention provides ConTrust with the capacity to distill an entire dialogue into a single trust trajectory vector, which serves as the foundation for final trust prediction and downstream multi-task objectives. 3.2.5 Multi-Task Learning: Joint Optimization of Trust, Emotion, and Engagement Trust in conversational agents does not emerge in isolation; it is shaped by a constellation of affective, behavioral, and contextual signals that co-evolve over the course of an interaction. To harness these interdependencies, ConTrust employs a Multi-Task Learning (MTL) framework that jointly optimizes three interconnected objectives:",
+      "label": "ai_generated",
+      "page_num": 16,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "●​ Trust Prediction ●​ Emotion Recognition ●​ Engagement Estimation",
+      "label": "human",
+      "page_num": 16,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Rather than treating these outputs as independent tasks, ConTrust models them as mutually reinforcing predictors, enabling the architecture to learn richer intermediate representations and avoid overfitting to a single target. This design reflects empirical findings in our prior dataset research, where emotional alignment and engagement intensity were shown to correlate strongly with shifts in perceived trust [8],[9].",
+      "label": "ai_generated",
+      "page_num": 16,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Let the final hierarchical embedding of a conversation be represented as . Three 𝐻 𝑐𝑜𝑛𝑣 task-specific heads are applied:",
+      "label": "ai_generated",
+      "page_num": 17,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "●​ Trust Regression Head ​​ ​ ​ ​ (21) 𝑦𝑡𝑟𝑢𝑠𝑡= 𝑓𝑡𝑟𝑢𝑠𝑡𝐻 𝑐𝑜𝑛𝑣 ( )",
+      "label": "human",
+      "page_num": 17,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "trained using Mean Squared Error (MSE).",
+      "label": "ai_generated",
+      "page_num": 17,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "●​ Emotion Classification Head ​ ​ ​ ​ ​ (22) 𝑦𝑒𝑚𝑜𝑡𝑖𝑜𝑛= 𝑓𝑒𝑚𝑜𝑡𝑖𝑜𝑛𝐻 𝑐𝑜𝑛𝑣 ( ) ​",
+      "label": "human",
+      "page_num": 17,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "trained using Cross-Entropy Loss over the seven annotated emotion categories.",
+      "label": "ai_generated",
+      "page_num": 17,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "●​ Engagement Estimation Head ​ ​ ​ ​ (23) 𝑦𝑒𝑛𝑔𝑎𝑔𝑒𝑚𝑒𝑛𝑡= 𝑓𝑒𝑛𝑔𝑎𝑔𝑒𝑚𝑒𝑛𝑡𝐻 𝑐𝑜𝑛𝑣 ( )",
+      "label": "human",
+      "page_num": 17,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "optimized via a hybrid loss combining Binary Cross Entropy and Smooth L1 Regression.",
+      "label": "ai_generated",
+      "page_num": 17,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The overall loss function is a weighted sum of the three task losses: ​ ​ ​ (24) 𝐿𝑡𝑜𝑡𝑎𝑙= λ𝑡𝐿𝑡𝑟𝑢𝑠𝑡+ λ𝑒𝐿𝑒𝑚𝑜𝑡𝑖𝑜𝑛+ λ𝑔𝐿𝑒𝑛𝑔𝑎𝑔𝑒𝑚𝑒𝑛𝑡 In Eq.24, are dynamically adjusted through the Adaptive Loss Weighting λ𝑡, λ𝑒, λ𝑔 mechanism (described in Section 3.2.6).",
+      "label": "human",
+      "page_num": 17,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "This MTL strategy enables the model to learn shared latent representations that encode not only what was said and how it was said, but also how it was received and interpreted behaviorally. By jointly optimizing these complementary objectives, ConTrust achieves more robust generalization, captures implicit trust signals, and improves prediction accuracy beyond what is attainable through single-task approaches.",
+      "label": "ai_generated",
+      "page_num": 17,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Algorithm 3: Multi-Task Learning (MTL) Heads",
+      "label": "human",
+      "page_num": 17,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Inputs: conversation embedding task-specific parameters. 𝐻 𝑐𝑜𝑛𝑣",
+      "label": "ai_generated",
+      "page_num": 17,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Trust Regression Head: ​ ​ 𝑦𝑡𝑟𝑢𝑠𝑡= 𝑓𝑡𝑟𝑢𝑠𝑡𝐻 𝑐𝑜𝑛𝑣 ( ),𝐿𝑡𝑟𝑢𝑠𝑡= 𝑀𝑆𝐸𝑌𝑡𝑟𝑢𝑠𝑡, 𝑦𝑡𝑟𝑢𝑠𝑡 ( ) Emotion Classification Head: ​ ,​ 𝑦𝑒𝑚𝑜𝑡𝑖𝑜𝑛= 𝑠𝑜𝑓𝑡𝑚𝑎𝑥𝑓𝑒𝑚𝑜𝑡𝑖𝑜𝑛𝐻 𝑐𝑜𝑛𝑣 ( ) ( ) 𝐿𝑒𝑚𝑜𝑡𝑖𝑜𝑛= 𝐶𝐸𝑦𝑒𝑚𝑜𝑡𝑖𝑜𝑛, 𝑦𝑒𝑚𝑜𝑡𝑖𝑜𝑛 ( ) Engagement Estimation Head: ​ ,​ . 𝑦𝑒𝑛𝑔= 𝑓𝑒𝑛𝑔𝐻 𝑐𝑜𝑛𝑣 ( ) 𝐿𝑒𝑛𝑔= 𝐵𝐶𝐸/𝑆𝑚𝑜𝑜𝑡ℎ𝐿1 𝑦𝑒𝑛𝑔, 𝑦𝑒𝑛𝑔 ( ) Compute total multi-task loss: ​ 𝐿𝑡𝑜𝑡𝑎𝑙= λ𝑡𝐿𝑡𝑟𝑢𝑠𝑡+ λ𝑒𝐿𝑒𝑚𝑜𝑡𝑖𝑜𝑛+ λ𝑔𝐿𝑒𝑛𝑔 ​ Output: predictions and losses 𝑦𝑡𝑟𝑢𝑠𝑡, 𝑦𝑒𝑚𝑜𝑡𝑖𝑜𝑛, 𝑦𝑒𝑛𝑔 ( ) 𝐿𝑡𝑟𝑢𝑠𝑡, 𝐿𝑒𝑚𝑜𝑡𝑖𝑜𝑛, 𝐿𝑒𝑛𝑔 ( )",
+      "label": "human",
+      "page_num": 17,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "3.2.6 Adaptive Loss Weighting: Dynamic Balancing of Task Objectives",
+      "label": "human",
+      "page_num": 18,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "While multi-task learning enables ConTrust to jointly model trust, emotion, and engagement, uniform weighting of task losses can lead to suboptimal convergence. Some objectives may dominate early training due to differences in gradient magnitudes, variance, or learning difficulty, resulting in imbalanced performance. To address this, ConTrust integrates an Adaptive Loss Weighting (ALW) mechanism that dynamically adjusts task contributions during training to ensure stable optimization across all objectives.",
+      "label": "ai_generated",
+      "page_num": 18,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Given the total loss: ​ ​ ​ (27) 𝐿𝑡𝑜𝑡𝑎𝑙== λ𝑡𝐿𝑡𝑟𝑢𝑠𝑡+ λ𝑒𝐿𝑒𝑚𝑜𝑡𝑖𝑜𝑛+ λ𝑔𝐿𝑒𝑛𝑔𝑎𝑔𝑒𝑚𝑒𝑛𝑡",
+      "label": "human",
+      "page_num": 18,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The loss weights are not static hyperparameters but are updated iteratively based on λ𝑡, λ𝑒, λ𝑔 the relative difficulty and learning dynamics of each task. Following a gradient-based reweighting strategy, each weight is computed as in Eq.28:",
+      "label": "ai_generated",
+      "page_num": 18,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ ​ ​ ​ ​ (28) λ𝑘= 1 𝑍· δ𝐿𝑘/δθ 𝑗=1 3 ∑δ𝐿𝑗/δθ Where, is the loss for the task , represents shared 𝐿𝑘 𝑘ϵ 𝑡𝑟𝑢𝑠𝑡, 𝑒𝑚𝑜𝑡𝑖𝑜𝑛, 𝑒𝑛𝑔𝑎𝑔𝑒𝑚𝑒𝑛𝑡 { } θ model parameters, is a normalization constant ensuring . 𝑍 λ𝑡+ λ𝑒+ λ𝑔= 1",
+      "label": "human",
+      "page_num": 18,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "This formulation assigns higher weights to tasks whose errors are not decreasing sufficiently, preventing premature convergence on easier objectives. Conversely, tasks with rapidly improving gradients receive reduced emphasis, ensuring training stability. By continuously recalibrating the loss landscape, the ALW mechanism enables ConTrust to:",
+      "label": "ai_generated",
+      "page_num": 18,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Prevent gradient domination by a single objective,",
+      "label": "ai_generated",
+      "page_num": 18,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Align shared representations with all learning signals,",
+      "label": "ai_generated",
+      "page_num": 18,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Improve trust prediction by leveraging auxiliary emotion and engagement cues. In combination with the hierarchical and multi-modal architecture, adaptive loss weighting ensures that ConTrust not only achieves higher predictive performance but also maintains balanced generalization across interdependent conversational outcomes.",
+      "label": "ai_generated",
+      "page_num": 18,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Algorithm 4: Adaptive Loss Weighting (ALW) Inputs: task-specific losses ; shared parameters . 𝐿𝑡𝑟𝑢𝑠𝑡, 𝐿𝑒𝑚𝑜𝑡𝑖𝑜𝑛, 𝐿𝑒𝑛𝑔 θ Procedure (Gradient-based Reweighting): 1.Compute gradient magnitudes for each task . 𝑔𝑘= ∆θ𝐿𝑘 | | | | 2 𝑘ϵ 𝑡, 𝑒, 𝑔 { } 2.Assign provisional weights inversely proportional to gradient strength: . 𝑤𝑘= 𝑔𝑘 −1",
+      "label": "human",
+      "page_num": 18,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "3.Normalize weights: λ𝑘= 𝑤𝑘 Σ𝑗𝑤𝑗 4.Update total loss: . 𝐿𝑡𝑜𝑡𝑎𝑙= Σ𝑘λ𝑘𝐿𝑘 5.Backpropagate using . 𝐿𝑡𝑜𝑡𝑎𝑙 Alternative (Loss-rate-based Reweighting): 1.",
+      "label": "human",
+      "page_num": 19,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Maintain a moving average of recent losses. µ𝑘",
+      "label": "ai_generated",
+      "page_num": 19,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "2.Compute improvement ratio . 𝑟𝑘= 𝐿𝑘 µ𝑘+ϵ 3.Assign weights . λ𝑘= 𝑟𝑘 Σ𝑗𝑟𝑗",
+      "label": "human",
+      "page_num": 19,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "4.Compute and update model parameters.​ 𝐿𝑡𝑜𝑡𝑎𝑙",
+      "label": "ai_generated",
+      "page_num": 19,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Output: adaptive weights and total loss . 𝐿𝑡𝑜𝑡𝑎𝑙 IV Implementation Details",
+      "label": "human",
+      "page_num": 19,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The experimentation phase was conducted using the Conversational Trust Dataset, comprising 3,909 conversations, 26,329 dialogue turns, and 12,569 agent responses, annotated across trust, emotion, sentiment, latency, and engagement dimensions. The dataset was split into 80% for training (3,127 conversations) and 20% for validation (782 conversations) to ensure balanced trust distribution and representative coverage of conversational contexts. The proposed ConTrust model was implemented in PyTorch, trained on NVIDIA RTX-class GPUs with 108M parameters, utilizing the AdamW optimizer, an initial learning rate of 1e–4, and cosine annealing scheduling across 50 epochs. Model performance was evaluated using R², RMSE, and within ±0.5 accuracy metrics for trust prediction, alongside Cross-Entropy Loss for emotion recognition and Binary Cross-Entropy with Smooth L1 for engagement estimation. Comparative experiments were performed against traditional baselines, including Random Forest, XGBoost, SVM, LSTM, and an Ensemble model, demonstrating significant performance gains.",
+      "label": "ai_generated",
+      "page_num": 19,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "ConTrust achieved R² = 0.982, RMSE = 0.248, and 90% accuracy within ±0.5 error, outperforming the best baseline (R² = 0.946).",
+      "label": "human",
+      "page_num": 19,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "All experiments were repeated five times to ensure statistical consistency, and attention heatmaps along with trust trajectories were visualized to validate interpretability. The overall results confirm that ConTrust effectively models longitudinal trust evolution, integrates multi-modal cues, and delivers robust generalization across diverse conversational settings.",
+      "label": "ai_generated",
+      "page_num": 19,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "4.1 Experimental Evaluation Protocol",
+      "label": "human",
+      "page_num": 19,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The experimental evaluation followed a structured three-phase protocol comprising baseline benchmarking, end-to-end model training, and comparative validation. ●​ Baseline Benchmarking: Traditional machine learning and shallow deep learning models (Random Forest, XGBoost, SVM, LSTM, and an Ensemble) were trained",
+      "label": "ai_generated",
+      "page_num": 19,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "using 409 engineered linguistic, temporal, and behavioral features to establish a performance reference. ●​ End-to-End ConTrust Training: The proposed ConTrust architecture, integrating Trust-Aware Self-Attention, Conversation Memory, and Multi-Modal Fusion, was trained using raw conversation text, temporal intervals, and engagement features. The training process employed AdamW optimization with discriminative learning rates (2e-5 for encoder, 1e-3 for fusion and memory modules), batch normalization, and adaptive loss weighting to balance the trust, emotion, and engagement objectives. ●​ Comparative Validation: Both ConTrust and the lightweight ConTrust-Fast variant were evaluated against all baselines using R², RMSE, and Within ±0.5 trust accuracy. Inference latency and model stability were additionally measured to evaluate real-time deployability.",
+      "label": "ai_generated",
+      "page_num": 20,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "4.2 Evaluation Metrics",
+      "label": "human",
+      "page_num": 20,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "To assess predictive fidelity, a multi-dimensional evaluation framework was employed encompassing statistical, behavioral, and interpretability measures:",
+      "label": "ai_generated",
+      "page_num": 20,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "●​ Regression Accuracy:",
+      "label": "human",
+      "page_num": 20,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "○​ Quantified using R² (Eq.25) and RMSE (Eq.26) to evaluate variance explanation and prediction error magnitude.",
+      "label": "ai_generated",
+      "page_num": 20,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ ​ ​ ​ (29) 𝑅 2 = 1 −Σ(𝑦−𝑦) 2 Σ(𝑦−𝑦) 2 ​ ​ ​ ​ (30) 𝑅𝑀𝑆𝐸= 1 𝑁Σ(𝑦−𝑦) 2 ●​ Trust Accuracy Range:",
+      "label": "human",
+      "page_num": 20,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "○​ Computed as the percentage of predictions falling within ±0.5 and ±1.0 trust score intervals.",
+      "label": "ai_generated",
+      "page_num": 20,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "●​ Interpretability Analysis:",
+      "label": "human",
+      "page_num": 20,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "○​ Derived from attention-weight heatmaps and longitudinal trust trajectories, capturing which conversation turns most influenced trust prediction.",
+      "label": "ai_generated",
+      "page_num": 20,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "●​ Computational Efficiency:",
+      "label": "human",
+      "page_num": 20,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "○​ Measured through GPU memory utilization, training throughput, and real-time inference latency.",
+      "label": "ai_generated",
+      "page_num": 20,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "V Results and Discussion",
+      "label": "human",
+      "page_num": 20,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The following section presents the quantitative and qualitative outcomes of the ConTrust framework in predicting conversational trust. Performance is evaluated across multiple dimensions, including regression accuracy, multi-modal feature contribution, temporal generalization, and model efficiency. Comparative analyses against traditional and shallow learning baselines are provided to highlight the contribution of each architectural component—Trust-Aware Attention, Conversation Memory, and Multi-Modal Fusion.",
+      "label": "ai_generated",
+      "page_num": 20,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Results demonstrate the scalability, interpretability, and predictive superiority of ConTrust and its optimized variant, ConTrust-Fast, in modeling dynamic trust evolution.",
+      "label": "ai_generated",
+      "page_num": 21,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "5.1 Baseline Model Performance",
+      "label": "human",
+      "page_num": 21,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Table 1 presents the comparative performance of baseline models trained using engineered features. The ensemble of Random Forest, XGBoost, and SVM produced the highest baseline R² (0.946), establishing a strong benchmark for static, feature-engineered approaches.",
+      "label": "ai_generated",
+      "page_num": 21,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Table 1. Comparative Performance of Baseline Models Model R² RMSE MAE ±0.5 Accuracy (%) ±1.0 Accuracy (%) Random Forest 0.9437 0.4097 0.2273 82.18 94.27 XGBoost 0.9382 0.4165 0.2349 81.46 93.80 SVM (RBF) 0.9199 0.4461 0.2652 78.34 91.75 LSTM (shallow) 0.9181 0.4512 0.2728 77.85 91.23 Ensemble 0.9460 0.4011 0.2219 82.45 94.60 Figure 3.",
+      "label": "human",
+      "page_num": 21,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Comparative baseline performance across traditional ML and shallow DL architectures.",
+      "label": "ai_generated",
+      "page_num": 21,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Baseline results indicate that engineered temporal and behavioral features contribute significantly to short-term trust prediction; however, the lack of sequential modeling limits their ability to capture long-term conversational dependencies.",
+      "label": "ai_generated",
+      "page_num": 22,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "5.2 ConTrust Model Results",
+      "label": "human",
+      "page_num": 22,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The ConTrust model achieved a substantial improvement over all baselines, recording R² = 0.982, RMSE = 0.248, and 90% of predictions within ±0.5 trust error. Attention visualizations (Figure 5.4) revealed that emotionally congruent, contextually relevant, and timely responses received higher attention weights—confirming the alignment between computational salience and human trust judgments. Figure 4 depicts the cumulative performance progression across training epochs, illustrating stable convergence and low variance across runs. Qualitative inspection of trust trajectories further revealed that ConTrust effectively modeled gradual trust reinforcement and abrupt trust decay in response to conversational shifts.",
+      "label": "ai_generated",
+      "page_num": 22,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "ConTrust Training Progression Curve (R² vs Epoch) These findings confirm that the integration of Trust-Aware Attention and Conversation Memory enables ConTrust to internalize both immediate and longitudinal trust patterns, improving interpretability and predictive precision.",
+      "label": "ai_generated",
+      "page_num": 22,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "5.2.1 Analysis of Conversation Memory Dynamics",
+      "label": "human",
+      "page_num": 22,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "To empirically examine the effectiveness of the conversation memory component within ConTrust, we analyzed the internal performance of the LSTM-based trust modeling mechanism (Figure 3). The module demonstrated strong predictive consistency with an R²",
+      "label": "ai_generated",
+      "page_num": 22,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "score of 0.918, capturing both immediate and cumulative trust cues from sequential turns. The residual and error distribution plots exhibit symmetrical patterns centered around zero, indicating minimal bias and balanced generalization across trust levels. This validates the design choice of incorporating a Bi-LSTM structure within ConTrust to encode longitudinal dependencies in conversational trust. The Bi-LSTM’s gating mechanisms enable selective retention of critical emotional and contextual features while discarding noise, thereby facilitating stable trust trajectory modeling. These findings support that temporal continuity, as modeled through recurrent memory, is fundamental to capturing the psychological evolution of trust across extended dialogues—an aspect often overlooked in static or single-turn models.",
+      "label": "ai_generated",
+      "page_num": 23,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Performance Visualization of the LSTM-Based Trust Memory Mechanism within ConTrust The figure 5 visualizes the internal performance dynamics of the LSTM-based conversation memory module integrated within ConTrust. Subfigure (a) presents the Actual vs. Predicted Trust Scores, where the model achieves a strong correlation (R² = 0.918), indicating accurate temporal mapping between predicted and true trust trajectories. Subfigure (b) shows the Residuals Plot, confirming stable variance and minimal systematic bias across the trust scale, validating effective sequence modeling. Subfigure (c) illustrates the Error Distribution, which follows an approximately normal shape centered near zero, demonstrating the model’s consistency and low overfitting tendency. Subfigure (d) compares the True and Predicted",
+      "label": "ai_generated",
+      "page_num": 23,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Trust Score Distributions, showing close alignment across trust levels. These results collectively validate the design rationale for employing a Bi-LSTM memory state in ConTrust: by preserving contextual continuity and capturing long-term dependencies in conversational trust evolution, the model effectively learns trust decay and reinforcement patterns that emerge over multiple dialogue turns.",
+      "label": "ai_generated",
+      "page_num": 24,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "5.3 ConTrust-Fast: Efficiency and Scalability",
+      "label": "human",
+      "page_num": 24,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "To address real-time deployment constraints, an optimized variant—ConTrust-Fast—was developed. The architecture reduces input length and employs a lightweight FastTrustAttention mechanism while preserving semantic and temporal fidelity Despite a 60% reduction in parameters, ConTrust-Fast achieved R² = 0.96–0.98, RMSE = 0.25–0.35, and ±0.5 accuracy = 85–90%, maintaining parity with the full model at a fraction of the computational cost.",
+      "label": "ai_generated",
+      "page_num": 24,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Table 2: Comparative Performance Analysis of ConTrust Variants Based on Model Efficiency and Predictive Accuracy Metrics Model Parameters (M) R² RMS E ±0.5 Accuracy (%) Latency (ms/turn) Full ConTrust 108 0.98 2 0.248 90.0 96 ConTrust-Fast 42 0.97 2 0.291 88.2 27",
+      "label": "human",
+      "page_num": 24,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Comparative efficiency and accuracy of ConTrust and ConTrust-Fast architectures. The results demonstrate that ConTrust-Fast preserves the essential accuracy of the full model while enabling real-time inference suitable for live conversational monitoring systems.",
+      "label": "ai_generated",
+      "page_num": 25,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "5.4 Comparative and Ablation Analysis",
+      "label": "human",
+      "page_num": 25,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "An ablation study was conducted to evaluate the contribution of each architectural component. Removing the Trust-Aware Attention reduced R² by 3.6%, omitting the Conversation Memory reduced it by 2.1%, and excluding Multi-Modal Fusion decreased it by 1.8%, confirming the synergistic importance of all modules. Figure 6 visualizes these results as a component-wise performance radar.",
+      "label": "ai_generated",
+      "page_num": 25,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "5.5 Discussion",
+      "label": "human",
+      "page_num": 25,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The overall findings support the hypothesis that trust in conversational agents is a temporally evolving, multi-factor construct influenced by linguistic, emotional, and behavioral interplay. The ConTrust framework’s capacity to integrate these modalities leads to interpretable and reliable predictions aligned with human evaluative behavior. High R² values and reduced RMSE indicate accurate modeling of trust dynamics, while attention visualizations provide transparency—an essential requirement for human-centered AI deployment. Compared to feature-based methods, ConTrust generalizes effectively across scenarios such as banking, travel, and healthcare dialogues. Despite the full model’s large footprint, the ConTrust-Fast variant enables real-world scalability without significant degradation.",
+      "label": "ai_generated",
+      "page_num": 25,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "VI Conclusion",
+      "label": "human",
+      "page_num": 25,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Trust remains a cornerstone of sustainable human–AI interaction, particularly as conversational agents transition from informational tools to emotionally and socially responsive partners. This study introduced ConTrust, a novel deep learning framework that models trust as an evolving, context-dependent phenomenon rather than a static attribute. By integrating Trust-Aware Self-Attention, Conversation Memory, and Multi-Modal Fusion mechanisms, ConTrust holistically captures linguistic, temporal, and behavioral signals within multi-turn dialogues. Experimental evaluations conducted on the Conversational Trust Dataset—comprising over 3,900 annotated conversations and 26,000 dialogue turns—demonstrated the framework’s superior predictive fidelity, achieving R² = 0.982 and RMSE = 0.248, with 90% of trust predictions falling within a ±0.5 margin of error. Beyond numerical performance, the framework provides interpretability and psychological validity by revealing how emotional alignment, response latency, and engagement intensity influence human trust trajectories. The Bi-LSTM-based Conversation Memory Module proved especially effective in capturing longitudinal trust evolution, validating that temporal continuity and sequential coherence are essential determinants of trust perception. Similarly, the Adaptive Loss Weighting (ALW) mechanism ensured balanced learning across trust, emotion, and engagement tasks, enabling ConTrust to generalize across diverse dialogue contexts such as healthcare, education, and customer service. From an operational standpoint, the introduction of ConTrust-Fast, a lightweight variant with a 60% parameter reduction, demonstrated that computational efficiency need not compromise trust-prediction accuracy—achieving comparable R² values (0.972–0.98) with significantly lower latency. This underscores the scalability of the proposed architecture for real-time trust assessment in production environments and embedded conversational systems. Looking forward, future research will explore cross-domain transfer learning, multilingual adaptation, and reinforcement-driven trust calibration, wherein agents dynamically adjust their conversational strategies based on real-time trust feedback. Integrating explainable AI (XAI) modules into ConTrust will further enhance transparency, allowing users to understand why an agent is perceived as trustworthy or not. Ultimately, this work lays the foundation for designing ethically aligned, emotionally intelligent, and context-aware conversational agents that can build, sustain, and justify human trust in complex interaction ecosystems.",
+      "label": "ai_generated",
+      "page_num": 26,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "References​ [1] Li, M., Erickson, I. M., Cross, E. V., & Lee, J. D. (2024). It’s not only what you say, but also how you say it: Machine learning approach to estimate trust from conversation. Human Factors, 66(6), 1724-1741.​ [2] Kraus, M., Wagner, N., Callejas, Z., & Minker, W. (2021). The role of trust in proactive conversational assistants. IEEE Access, 9, 112821-112836. [3] Li, M., Kamaraj, A. V., & Lee, J. D. (2024). Modeling trust dimensions and dynamics in human-agent conversation: A trajectory epistemic network analysis approach. International Journal of Human–Computer Interaction, 40(14), 3571-3582.​ [4] Ng, Y. L. (2025). A longitudinal model of continued acceptance of conversational artificial intelligence. Information Technology & People, 38(4), 1871-1889.​ [5] Cho, H., Lee, D., & Lee, J. G. (2023). User acceptance on content optimization",
+      "label": "human",
+      "page_num": 26,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "algorithms: Predicting filter bubbles in conversational AI services. Universal Access in the Information Society, 22(4), 1325-1338. [6] Kolenik, T., Schiepek, G., & Gams, M. (2024). Computational psychotherapy system for mental health prediction and behavior change with a conversational agent. Neuropsychiatric Disease and Treatment, 2465-2498.​ [7] Hoffman, A., Owen, D., & Calvert, S. L. (2021). Parent reports of children's parasocial relationships with conversational agents: Trusted voices in children's lives. Human Behavior and Emerging Technologies, 3(4), 606-617.​ [8] Weiler, S., Matt, C., & Hess, T. (2022). Immunizing with information–Inoculation messages against conversational agents’ response failures. Electronic Markets, 32(1), 239-258.​ [9] Wölfel, M., Shirzad, M. B., Reich, A., & Anderer, K. (2023). Knowledge-based and generative-AI-driven pedagogical conversational agents: A comparative study of grice’s cooperative principles and trust. Big Data and Cognitive Computing, 8(1), 2.​ [10] Ahmad, R., Siemon, D., Gnewuch, U., & Robra-Bissantz, S. (2022). Designing personality-adaptive conversational agents for mental health care. Information Systems Frontiers, 24(3), 923-943.​ [11] Choung, H., David, P., & Ross, A. (2023). Trust in AI and its role in the acceptance of AI technologies. International Journal of Human–Computer Interaction, 39(9), 1727-1739.​ [12] Adikari, A., De Silva, D., Moraliyage, H., Alahakoon, D., Wong, J., Gancarz, M., ... & Leung, Y. (2022). Empathic conversational agents for real-time monitoring and co-facilitation of patient-centered healthcare. Future Generation Computer Systems, 126, 318-329.​ [13] Xie, T., Liu, R., Chen, Y., & Liu, G. (2021). MOCA: A motivational online conversational agent for improving student engagement in collaborative learning. IEEE Transactions on Learning Technologies, 14(5), 653-664.​ [14] Nelekar, S., Abdulrahman, A., Gupta, M., & Richards, D. (2022). Effectiveness of embodied conversational agents for managing academic stress at an Indian University (ARU) during COVID‐19. British Journal of Educational Technology, 53(3), 491-511.​ [15] Allouch, M., Azaria, A., & Azoulay, R. (2021). Conversational agents: Goals, technologies, vision and challenges. Sensors, 21(24), 8448. [16] Schouten, D. G., Deneka, A. A., Theune, M., Neerincx, M. A., & Cremers, A. H. (2023). An embodied conversational agent coach to support societal participation learning by low-literate users. Universal access in the information society, 22(4), 1215-1241. [17] Sidaoui, K., Mahr, D., & Odekerken-Schröder, G. (2024). Generative AI in responsible conversational agent integration: Guidelines for service managers. Organizational Dynamics, 53(2), 101045.​ [18] Deng, M., Chen, J., Wu, Y., Ma, S., Li, H., Yang, Z., & Shen, Y. (2024). Using voice recognition to measure trust during interactions with automated vehicles. Applied Ergonomics, 116, 104184. [19] Loveys, K., Hiko, C., Sagar, M., Zhang, X., & Broadbent, E. (2022). “I felt her company”: A qualitative study on factors affecting closeness and emotional support seeking with an embodied conversational agent. International Journal of Human-Computer Studies, 160, 102771.",
+      "label": "human",
+      "page_num": 27,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "[20] Kiuchi, K., Otsu, K., & Hayashi, Y. (2024). Psychological insights into the research and practice of embodied conversational agents, chatbots and social assistive robots: a systematic meta-review. Behaviour & Information Technology, 43(15), 3696-3736. [21] Rheu, M., Shin, J. Y., Peng, W., & Huh-Yoo, J. (2021). Systematic review: Trust-building factors and implications for conversational agent design. International Journal of Human–Computer Interaction, 37(1), 81-96.​ [22] Schöbel, S., Schmitt, A., Benner, D., Saqr, M., Janson, A., & Leimeister, J. M. (2024). Charting the evolution and future of conversational agents: A research agenda along five waves and new frontiers. Information Systems Frontiers, 26(2), 729-754.​ [23] Ling, E. C., Tussyadiah, I., Tuomi, A., Stienmetz, J., & Ioannou, A. (2021). Factors influencing users' adoption and use of conversational agents: A systematic review. Psychology & marketing, 38(7), 1031-1051.​ [24] Ohme, J., Araujo, T., Zarouali, B., & de Vreese, C. H. (2022). Frequencies, drivers, and solutions to news non-attendance: Investigating differences between low news usage and news (topic) avoidance with conversational agents. Journalism Studies, 23(12), 1510-1530. [25] Nguyen, V. B., Schlötterer, J., & Seifert, C. (2023, July). From black boxes to conversations: Incorporating xai in a conversational agent. In World Conference on Explainable Artificial Intelligence (pp. 71-96). Cham: Springer Nature Switzerland.​ [26] van Pinxteren, M. M., Pluymaekers, M., Lemmink, J., & Krispin, A. (2023). Effects of communication style on relational outcomes in interactions between customers and embodied conversational agents. Psychology & Marketing, 40(5), 938-953.​ [27] Chandra, S., Shirish, A., & Srivastava, S. C. (2022). To be or not to be… human? Theorizing the role of human-like competencies in conversational artificial intelligence agents. Journal of Management Information Systems, 39(4), 969-1005.​ [28] Park, G., Chung, J., & Lee, S. (2024). Human vs. machine-like representation in chatbot mental health counseling: the serial mediation of psychological distance and trust on compliance intention. Current Psychology, 43(5), 4352-4363. [29] Riefle, L., & Benz, C. (2021). User-specific determinants of conversational agent usage: A review and potential for future research. In International Conference on Wirtschaftsinformatik (pp. 115-129). Springer, Cham. [30] Schindler, D., Maiberger, T., Koschate-Fischer, N., & Hoyer, W. D. (2024). How speaking versus writing to conversational agents shapes consumers’ choice and choice satisfaction. Journal of the Academy of Marketing Science, 52(3), 634-652.",
+      "label": "human",
+      "page_num": 28,
+      "source": "direct_pdf"
+    }
+  ],
+  "stats": {
+    "ai_generated_segments": 98,
+    "ai_paraphrased_segments": 4,
+    "human_segments": 75,
+    "ocr_pages": 0,
+    "total_chars_ai": 44641,
+    "total_chars_paraphrased": 1211,
+    "total_chars_human": 13808
+  },
+  "errors": []
+}

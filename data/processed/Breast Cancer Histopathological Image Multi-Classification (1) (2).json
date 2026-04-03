@@ -1,0 +1,410 @@
+{
+  "file_name": "Breast Cancer Histopathological Image Multi-Classification (1) (2).pdf",
+  "file_path": "c:\\Users\\gowth\\Downloads\\ai_plag_detector\\data\\raw_data\\raw_data\\Breast Cancer Histopathological Image Multi-Classification (1) (2).pdf",
+  "submission_date": "2026-03-31",
+  "priority": "HIGH",
+  "total_pages": 26,
+  "ai_percentage_reported": 32,
+  "segments": [
+    {
+      "text": "Attention-Guided Multi-Autoencoder Explainable Network for Breast Cancer Histopathological Image Multi-Classification Abstract- Breast cancer is the most common and pernicious disturbance among women worldwide, thus an early and precise diagnosis pays a pivotal role in the enhancement of a patient's survival rate. Histopathological image analysis is the gold standard for breast cancer diagnosis, but manual examination by pathologists can be time-consuming and prone to inter-observer variability. In order to overcome these limitations of existing methods, this work presents a new deep learning framework AMAE-GCNet (Attention-guided Multi-AutoEncoder with Grad-CAM Network) for automatic histopathological image based multi-classification of breast cancer. The proposed model is tested on the publicly available annotated BreakHis dataset consisting of 7,909 breast tumor histopathological images which are divided into eight benign and malignant subtypes with different magnification levels. To standardize the images, preprocessing methods such as stain normalization and image resizing are first used. We utilize a transfer learning backbone based on EfficientNet-B4 to elicit deep hierarchical features from the histopathological images. A multi-autoencoder module is therefore included to learn representative compressed latent feature embeddings for reducing unnecessary redundant side information. Moreover, a combined channel–spatial attention mechanism is introduced to emphasize diagnostically important cellular structures but suppress background regions that are irrelevant. These refined feature representations are then processed in a fully connected classifier predicting multiple tumor subtypes respectively. For better interpretability and clinical trustworthiness, we employ Grad-CAM visualization to show the corresponding regions of tissue that drive predictions from individual models. The experimental results show that the proposed AMAE-GCNet framework can achieve 98.72% classification accuracy, 98.41% precision, 98.33% recall and 98.37% F1-score performance, which is superior to some existing deep learning-based breast cancer diagnosis models.",
+      "label": "human",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "With the incorporation of transfer learning, attention-guided feature refinement and explainable visualization, the model proposed in this study is a robust clinical aid for pathologists performing breast cancer analyses.",
+      "label": "ai_generated",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Keywords: Breast Cancer Diagnosis, Histopathological Image Classification, Transfer Learning, Attention Mechanism, Multi-Autoencoder, Grad-CAM Visualization, Explainable AI, Deep Learning. 1.Introduction​",
+      "label": "human",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Breast cancer is still one of the most common and fatal diseases in females around the globe [1][2]. Breast cancer remains one of the most incident cancers reported globally and is a leading cause of female cancer equity-related death around the world [3]. Timely diagnosis and detection are paramount to enhancing survival rates and informing treatment planning. Despite the many existing diagnostic modalities, histopathological evaluation of breast tissue samples remains the gold standard in clinical determination of tumor type and malignancy [4][5]. Pathologists examine tissues under a microscope to find unnatural cell arrangements, leading him or her to deduce either benign or malignant tumors. Considering that, with the",
+      "label": "ai_generated",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "increase in digital pathology applications, histopathological slides can be scanned and processed using computers [6], intelligent computer-aided diagnostic systems have emerged to help clinicians identify cancerous tissues more rapidly. While manual histopathological analysis is considered a reliable diagnostic tool, several factors constitute obstacles in real-world clinical settings. High-throughput microscopic imaging has been resulting in massive numbers of high-resolution images [7][8], which requires a high level of expertise and considerable time to analyze. Additionally, diagnosis based on tissue morphology is subjective, which can result in inter-observer variability among pathologists. Proliferating biopsy samples and a declining number of experienced specialists are adding to the workload in pathology laboratories. Such challenges emphasize the necessity of automated and reliable computational methods that are able to assist pathologists by means of gradually classifying histopathological images with high diagnostic precision in a timely manner [9]. With the introduction of deep learning, most automated medical image analysis approaches have received considerable improvements [10][11]. Convolutional Neural Networks (CNNs) have shown impressive understanding of complex medical images to extract hierarchical features for reliable classification and detection of diseases. Transfer learning methodologies enable already trained deep neural networks to generalize across specific medical datasets [12] with a focus on less extreme dataset labeling. Attention mechanisms have also been proposed to direct neural networks toward diagnostically relevant areas within medical images, enhancing feature representation and classification performance. Concurrently, we are seeing increasing adoption of Explainable Artificial Intelligence (XAI) techniques in medical use cases where clinicians need to interpret model decisions before AI-based systems move into real clinical environments. Recently, several deep learning models are developed for classification of breast cancer histopathological images [13][14], however existing approaches still have significant limitations. Components expressed in this manner often result in more correlated feature representations, making it difficult to discard redundancy through better representation learning. Moreover, many models behave as black-box systems and only output predictions without describing their reasoning process, resulting in less confidence from clinicians. Moreover, the lack of emphasis on visible cellular components and minimal incorporation of explainability methods impede practical deployment in actual diagnostic procedures [15][16]. Hence, a concrete and explainable deep learning structure is required to enhance feature discovery while being able to deliver interpretable visual conclusions for medical confirmation. In an effort to address the aforementioned limitations, this paper presents a new deep learning approach known as Attention-Guided Multi-Autoencoder Explainable Network (AMAE-GCNet) designed for automated multi-classification of breast cancer pathological histopathological images [17]. They proposed an architecture which consists of a transfer learning backbone with a multi-autoencoder module to improve latent feature representation and information redundancy. In addition, a hybrid channel–spatial relevant attention method is applied to highlight diagnostically significant tissue elements and suppress nondiagnostic background signals [18][19].",
+      "label": "ai_generated",
+      "page_num": 4,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Grad-CAM visualization is used to provide the areas of the",
+      "label": "human",
+      "page_num": 4,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "image that contribute most to model predictions [20], improving interpretability and post-processing for clinical reliability. The key contributions in this work are outlined below: ●​ Therefore, we propose a new AMAE-GCNet framework for breast cancer histopathological image multi-classification by combining the transfer learning, multi-autoencoder feature refinement and attention mechanism. ●​ A hybrid channel–spatial attention module is introduced to improve the learning of discriminative features and highlight diagnostically significant cellular regions. ●​ We implement an explainable diagnostic mechanism with Grad-CAM visualization, yielding interpretable heatmaps to support clinical decision-making. The performance of the proposed framework is evaluated using publicly accessible BreakHis histopathological dataset, with the model achieving better classification performance and higher interpretability than state-of-the-art deep learning methods. 2. Literature Review​ In recent years, the analysis of histopathological images of breast cancer has received significant attention owing to improving the demand for automation and reliable diagnosis systems. Several machine-learning and deep learning techniques have been studied for enhancing breast cancer subtype diagnosis from microscopic tissue images. The studies, which were conducted in the earlier days of deep learning, primarily employed hand-crafted feature extraction methods with custom classifiers. For instance, Joseph et al. (2022) performed multi-classification of breast cancer by extracting handcrafted features like Hu moments, Haralick texture attributes, and color histograms with the help of a Deep Neural Network (DNN). Using the BreakHis dataset, their approach made use of data augmentation to reduce overfitting. The classification accuracies were 97.87%, 97.60%, 96.10% and 96.84 about magnifications of 40×, 100×, 200× and 400× with the proposed model using hand-crafted features along with deep neural net for histopathology images processing [1]. Due to the fast evolution of deep learning, convolutional neural networks (CNNs) have been widely applied for medical text classification application. The Efficient Channel Spatial Attention Network (ECSAnet) was proposed in Aldakhil (2023), where the authors integrated EfficientNetV2 with the Convolutional Block Attention Module (CBAM) to improve feature refinement. Our model trained on the BreakHis datasets with stain normalization and augmentation. However, experimental analysis indicated better classification performance than some baseline networks with accuracies of 94.2%, 92.96%, 88.41% and 89.42% at various magnifications following attention-based feature learning during breast cancer classification [2]. Facing the issues of multi-class classification and feature extraction, Liu et al. Paliwal et al. (2023) proposed a Collaborative Transfer Network (CTransNet), consisting of a transfer learning backbone and residual collaborative branch, together with a feature fusion module.",
+      "label": "human",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "It employs DenseNet, such deep features, and combines residual learning for representation. Using the BreakHis dataset for evaluation, CTransNet reached an accuracy of 98.29% and showed strong generalization performance in different breast cancer datasets [3]. Besides deep models, certain scholars have been active in the study of compact networks to",
+      "label": "ai_generated",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "limit computation overload while retaining classification performance. Yusuf et al. (2025) used an Enhanced Shallow Convolutional Neural Network (ES-CNN) for breast histopathology images multi-class classification. The architecture was created by minimizing the computational usage and training duration required for high-fidelity samples. We achieved classification accuracies of 96%, 95%, 98% and 96% for magnifications of (400×,200×,100×,40×) respectively on the BreakHis dataset [4].",
+      "label": "ai_generated",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Similarly, Ukwuoma et al. (2022) proposed the DEEP_Pachi framework that integrates DenseNet201 and VGG16 models to extract global and region specific image features. In this system classification accuracy is improved by extracting spatial information from regions of interest. A solid performance on BreakHis and ICIAR datasets can be observed through experimental evaluation, getting almost perfect classification results for benign and malignant tumor classes [5]. In an effort to improve hybrid methods further hybrid network architectures have been examined for both feature representation and context understanding. Wang et al. (2024) Proposed a two-stage hybrid model which combines ResNet34 with Long Short-Term Memory (LSTM) network. The CNN in these components acts as a feature extractor for spatial features, whereas the LSTM captures contextual dependencies of histopathological images. Using a 4 multi-magnification levels of BreakHis dataset [6] their approach generated accuracies of 93.67,97.08,98.01, and 94.73 respectively with decreasing magnifications Clement et al.(2022) proposed another method, a multi-scale pooled image feature representation with staged approach using an ensemble of multiple deep convolutional neural networks and a Support Vector Machine (SVM) classifier. This ensemble consisted of using ResNet50, DenseNet201 and EfficientNetB0 as feature extractors. They achieved an overall classification accuracy of 97.77% on the eight-class breast cancer subtype classification [7]. Transfer learning is also commonly applied to improve classification performance in case of small datasets of medical images. Ahmad et al. (2022) proposed a transfer learning-based pipeline that extracts discriminative patches from histopathological images and then input them to a pre-trained EfficientNet model. They trained an SVM classifier using the extracted features and achieved superior classification accuracy compared with traditional CNN-based models [8]. For the automatic classification of breast cancer histopathological images into benign and malignant subclasses, Jawad and Khursheed (2022) proposed yet another framework based on DenseNet. Their deep learning model reached accuracies of 96.72% on a multi-class classification and showed good generalization across various histopathological datasets [9]. Recognizing the challenge posed by limited labeled data, Eltoukhy et al. (2022) used residual deep learning-based self-teaching models for breast cancer classification. The framework leverages unlabeled data, so that they can boost the training of a model and thus have better feature representation for histological image classification tasks [10]. In another study, Li et al. (2022), by using OMT as a model fusion framework (MF-OMKT). The proposed framework emulates working pathologists under circumstances where they can first share their knowledge, allowing multiple deep learning models to collaborate. For the multi-class breast cancer classification on BreakHis dataset [11], the proposed system accomplished classification accuracies between 96.14% and 97.53%. Hierarchical features extraction based deep learning architectures have also been promising. The HFEN-Breast model is proposed",
+      "label": "human",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "by Vijayashree, Ramakrishna (2025) which includes several methods including hierarchical feature extraction, attention refinement and semantic fusion mechanisms to improve breast cancer detection performance in mammogram datasets [12]. Novel transformers architectures based on attention mechanisms recently got successful as compared to classical CNN approaches. Abimouloud et al. (2023) presented Vision Transformer (ViT), Compact Convolution Transformers (CCT), and Mobile Vision Transformers (MVIT) hybrid convolution–transformer architectures to classify breast cancer using the BreakHis data set. The Vision Transformer model scored the best accuracy of 98.64% while reducing computational complexity among these models [13]. The latter aims at lightweight CNN architectures to trade-off between performance and computational efficiency. Wang et al. (2022) proposed, a dependency-based lightweight CNN (DBLCNN) was developed to integrate magnification information and binary classification probabilities for effective feature extraction. Not only did the proposed model achieve competitive performance in terms of classification accuracy, but it also greatly decreased computational cost [14]. Similarly, Wang et al. (2023) therefore presented BCMNet, a multi-scale feature fusion network that blends VGG16 with CBAM attention modules in order to extract spatial and channel level features from histopathological images. They achieved an overall accuracy of 92.20%, which proved that multi-scale feature fusion can boost the performance of breast cancer classification models [15]. Also, hybrid architectures that combine convolutional and recurrent neural networks have been investigated. Srikantamurthy et al. (2023) developed a CNN–LSTM fused model based on transfer learning for multi-class breast cancer subtype classification. The proposed system for multi-class classification tasks on the BreakHis dataset [16] obtained an accuracy of 92.5%. Other recent studies have also examined patch-based deep learning architectures. Jackson et al.(2025) 5-BNet, a multi-branch deep learning network that operates on image patches through several convolutional branches with various kernel sizes. They reported 98.1% accuracy for eight-class breast cancer classification using their model [17]. Deep learning based on transformers has also been applied in breast cancer histopathology. Pal et al.(2024) compared several deep learning models such as Vision Transformer (ViT), ConvMixer and VGG-19. Based on their results, Vision Transformer outperformed for more accurate prediction with 98.21% of accuracy in multi-class classification tasks [18]. Multi-scale ensemble learning has been applied in histopathological image classification with promising results. Nakach et al. (2023) developed a transfer learning-based multi-magnification ensemble framework with late fusion strategies. In this case, combining predictions from multiple magnification levels using their approach produced a mean accuracy of 98.82% along with high precision and recall [19]. Zou et al.(2022) proposed another sophisticated architecture, namely, DsHoNet based histopathological image classification for breast cancer.",
+      "label": "human",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Covariance pooling and high-order statistical feature extraction are integrated into the dual-stream network for higher discrimination ability. On the BreakHis dataset, recognition accuracies 99.01% at image level and 99.25% at patient level are achieved [20].",
+      "label": "ai_generated",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "2.1 Research Gap",
+      "label": "human",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Although these studies show good advances in the direction of automated classification of histopathological images for breast cancer, there are still many challenges that need to be addressed. Existing approaches often primarily address feature extraction or classification accuracy but provide limited interpretability of model decisions. Classifying image data may also be unreliable due to redundant feature representations, as well as limited emphasis on diagnostically relevant tissue regions. Thus, the construction of an explainable deep learning framework that combines better feature refinement as well as attention guided learning is still a significant research direction to advance breast cancer histopathology analysis.",
+      "label": "ai_generated",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "3. Materials and Dataset 3.1 BreakHis Dataset",
+      "label": "human",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The proposed study is based on a publicly available database of breast cancer histopathology images known as BreakHis (Breast Cancer Histopathological Image Classification) which remains very popular with researchers in the field when developing CAD systems for breast cancer histopathology analysis. The dataset consists of 7,909 microscopic breast tumor images from biopsy samples and are taken under four varying levels of magnification (40×, 100×, 200×and 400×), allowing models to learn discriminative tissue patterns at different spatial scales. These images are classified as 8 tumor subtypes—4 benign (Adenosis, Fibroadenoma, Phyllodes Tumor, Tubular Adenoma) and 4 malignant ones (Ductal Carcinoma, Lobular Carcinoma Mucinous Carcinoma and Papillary Carcinoma), in accordance with the actual diagnostic classes in real world clinical pathology.",
+      "label": "ai_generated",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "This work splits the dataset into a training set and testing set with 80:20 ratio. The fact that BreakHis is a large-scale, publicly accessible benchmark dataset consisting of multi-class histopathological images and magnification allows the proposed model to derive strong morphological features while also facilitating a fair comparison with other existing methods for breast cancer classification.. 3.2 Data Preprocessing​ This is a common issue in histopathological images seen due to variations in staining intensity, illumination and tissue appearance of slides prepared under various imaging conditions. These variations can adversely affect the learning ability of deep learning models due to random changes in color. Hematoxylin and eosin (H&E) stained images have been standardized in terms of their color distribution using stain normalization to mitigate this problem. This allows color characteristics across different histopathological samples to be standardized, which increases the reliability of feature extraction. The stain normalization process can be represented mathematically by transforming the pixel intensity values of the source image to match the statistical properties of a reference image . The normalized 𝐼𝑠 𝐼𝑟 image is computed as in Eq.1: 𝐼𝑛 ​ ​ ​ ​ (1) 𝐼𝑛= 𝐼𝑠−µ𝑠 σ𝑠 × σ𝑟+ µ𝑟",
+      "label": "human",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Where and represent the mean and standard deviation of the source image, while µ𝑠 σ𝑠 µ𝑟 and correspond to those of the reference image. After normalization, all images are resized σ𝑟 to a fixed spatial resolution of 224 × 224 pixels to maintain uniform input dimensions for the deep learning architecture. The resizing operation can be expressed as a spatial transformation function, ​ ​ ​ ​ ​ (2) 𝐼𝑟𝑥 ', 𝑦 ' ( ) = 𝐼 𝑥 α , 𝑦 β ( ) Where and denote scaling factors applied to the width and height of the original image α β respectively.",
+      "label": "human",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "This resizing step ensures computational efficiency and compatibility with the input requirements of the transfer learning backbone network used in the proposed framework. To improve model generalizability and avoid overfitting, data augmentation techniques [115] are applied to artificially create new training samples. Augmentation makes the model learn for features that are invariant to a few forms of transformations used on images without having to collect extra data about these transformations. We perform several augmentation operations that simulate realistic variations in histopathological image acquisition, such as rotating the image, horizontal and vertical flipping, zooming-in and varying brightness.",
+      "label": "ai_generated",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The rotation transformation in mathematical notation is defined as Eq.3: ​ ​ (3) 𝐼 ' 𝑥, 𝑦 ( ) = 𝐼𝑥𝑐𝑜𝑠θ −𝑦𝑠𝑖𝑛θ, 𝑥𝑠𝑖𝑛θ + 𝑦𝑐𝑜𝑠θ ( )",
+      "label": "human",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Where denotes the brightness scaling factor. Finally, image normalization is performed to γ scale pixel intensity values into a standardized range to stabilize network training. The normalization operation is defined as in Eq.4:",
+      "label": "ai_generated",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ ​ ​ ​ ​ ​ (4)",
+      "label": "human",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Where represents the input image pixel value, and and denote the mean and standard 𝐼 µ σ deviation of the dataset respectively. These preprocessing steps collectively improve the robustness of the proposed model by reducing color variations, standardizing input dimensions, and increasing the variability of training samples, ultimately enabling the network to learn more discriminative representations for accurate breast cancer histopathological image classification.",
+      "label": "ai_generated",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "4. Proposed Methodology ​ 4.1 Overall Architecture of AMAE-GCNet",
+      "label": "human",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "To accurately and interpretable classify the breast cancer histopathological images on multiple classes, we propose an Attention-Guided Multi-Autoencoder Explainable Network (AMAE-GCNet) [21]. The architecture starts with the input of histopathological images, which goes through a preprocessing phase involving stain normalization, resizing, and data augmentation to enhance the quality and consistency of the images. After preprocessing, these images are fed to the EfficientNet-B4 transfer learning backbone that learns deep hierarchical features encoding tissue morphology and cellular components. In this case, a Multi-Autoencoder feature compression module is employed to learn concise latent representation and eliminate redundancy of the extracted features. A hybrid channel–spatial",
+      "label": "ai_generated",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "attention mechanism is incorporated with the intention of developing discriminative capacity in the model [22][23], which focuses on amplifying diagnostically valuable regions while eliminating unrelated background information. The attention-refined feature maps are then fed into a fully connected classifier [24], feeding eight-class breast tumor subtype predictions via a Softmax function. Finally, a Grad-CAM explainability module is used to produce visual heatmaps that mark critical tissue regions responsible for the model's decisions, facilitating interpretability and aiding clinical validation of the automated diagnostic system. The architecture diagram of the proposed model is shown in Figure 1.",
+      "label": "ai_generated",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ Figure 1: Architecture of the proposed AMAE-GCNet framework for breast cancer histopathological image multi-classification with Grad-CAM based explainable visualization. 4.2 EfficientNet-B4 Feature Extraction The AMAE-GCNet framework utilizes EfficientNet-B4 as the backbone network to extract deep features from breast cancer histopathological images. We single out EfficientNet because it reaches excellent accuracy with strong computation efficiency, using a compound scaling method which balances the network depth [25][26], width and resolution. This study employs transfer learning in a way that an EfficientNet-B4 model pretrained on the ImageNet dataset can exploit visual patterns learned by other networks and fine-tune it to effectively classify histopathological image data. Transfer learning addresses the challenge of imposing initial weights when training with a relatively smaller medical dataset by adopting optimal features from the pre-trained model rather than random starting weights. The extraction process can be described mathematically as in Eq. 5: ​ ​ ​ ​ ​ ​ (5) 𝐹= 𝑓𝑋; 𝑊 ( ) Where is the input histopathological image, are the parameters of a pretrained network 𝑋 𝑊 and represents an extracted feature map from EfficientNet-B4 [27] network. EfficientNet 𝐹 uses compound scaling that uniformly scales the network dimensions by a scaling coefficient as defined in Eq. 6: ϕ , , ​ ​ ​ ​ (6) 𝑑𝑒𝑝𝑡ℎ= α ϕ 𝑤𝑖𝑑𝑡ℎ= β ϕ 𝑟𝑒𝑠𝑜𝑙𝑢𝑡𝑖𝑜𝑛= γ ϕ",
+      "label": "human",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "subject to the constraint, ​ ​ ​ ​ ​ (7) α · β 2 · γ 2 ≈2 The parameters, , are constants which control the scaling of depth, width and input α, β γ resolution of the network respectively. Using this process, EfficientNet-B4 can extract hierarchical feature representations that absorb low-level features like edges, textures, and cellular boundaries with high-level semantic patterns associated with tumor morphology 28. The extracted feature maps become input to the next module which is a multi-autoencoder feature refinement, this helps the proposed model learn more discriminative representation for breast cancer histopathological image classification. 4.3 Multi-Autoencoder Feature Learning​ The framework is a novelty in its own right, as it adopts a Multi-Autoencoder Feature Learning module that re-captures and compresses the deep feature maps extracted throughEfficientNet-B4.",
+      "label": "human",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Histopathological images with visual patterns often contain a significant amount of redundancy and irrelevant information such as background tissues, staining artifacts, and non-diagnostic cellular structures which can negatively affect classification performance.",
+      "label": "ai_generated",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "For this purpose [30], stacked autoencoders are used to extract condensed latent representations from the most important tumor features. An autoencoder can be described with two parts: an encoder and a decoder. The encoder converts the high-dimensional input feature vector x into its corresponding lower-dimensional latent representation is expressed in Eq.8: ​ ​ ​ ​ ​ ​ (8) 𝑧= 𝑓𝑊𝑥+ 𝑏 ( ) is the input feature vector from EfficientNet-B4, and and are the weight matrix and 𝑥 𝑊 𝑏 bias term respectively with being some nonlinear activation function like ReLU. A Type 𝑓·( ) of AutoencoderThe encoder compresses the input into a latent representation, and then the decoder reconstructs the original input from that with ​ ​ ​ ​ ​ (9) 𝑥 ' = 𝑔𝑊 '𝑧+ 𝑏 ' ( ) In Eq.9, and are the decoder parameters; denotes the reconstruction function. The 𝑊 ' 𝑏 ' 𝑔·( ) autoencoder attempts to minimize the differences between its input features and reconstructed output, according to some reconstruction loss defined as in Eq. 10: ​ ​ ​ ​ ​ (10) 𝐿= 𝑥−𝑥 ' | | | | 2 AMAE-GCNet architecture in which a large number of autoencoders are sequentially stacked на результат known as a multi-autoencoder structure, thus allowing for the hierarchical compression of features and successively refining feature representations. Where the first autoencoder gains a lower dimensional representation from the EfficientNet feature maps, further autoencoders learn even more compact and discriminative latent features [31]. This stacked learning process allows to reduce redundant information while maintaining inner morphological features of a breast tumor cell. The multi-autoencoder module leverages this corpus to generate highly informative compressed features that improve accuracy on MTC and result in better input representations for the attention mechanism and classification layers of any following framework.",
+      "label": "human",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "4.4 Attention Module​ To further improve the discrimination ability of the AMAE-GCNet framework proposed in this article, a hybrid Channel–Spatial Attention Module is introduced to highlight diagnostically significant tissue structures in histopathological images directly after multi-autoencoder feature learning stage [32][33]. Tumor histology images, like breast cancer (BC) have complex cellular patterns including nuclei, glands and stroma regions; however, only certain regional information contribute significantly in classifying tumors. Hence, the attention mechanism is required to help the network attend informative features while suppressing irrelevant background information. Channel attention mechanism focuses on finding important feature channels with biologically relevant expression patterns. An intermediate feature map was given for channel attention, which is calculated by 𝐹ϵ𝑅 𝐶×𝐻×𝑊 attaching global average pooling and global max pooling on all spatial dimensions with a shared MLP. We define the channel attention map as in Eq. 11: ​ ​ (11) 𝑀𝑐𝐹 ( ) = σ 𝑀𝐿𝑃𝐴𝑣𝑔𝑃𝑜𝑜𝑙𝐹 ( ) ( ) + 𝑀𝐿𝑃𝑀𝑎𝑥𝑃𝑜𝑜𝑙𝐹 ( ) ( ) ( ) Where and indicate global average pooling and max pooling 𝐴𝑣𝑔𝑃𝑜𝑜𝑙·( ) 𝑀𝑎𝑥𝑃𝑜𝑜𝑙·( ) operations respectively, MLP is the multi-layer perceptron to model relationships of channels, denoting sigmoid activation function [34][35]. This operation lets the model activate feature channels that retain significant tumor features. Spatial attention is utilized to emphasize key spatial areas in the histopathological images after optimizing channel characteristics. Spatial attention is calculated by concatenating the average-pooled and max-pooled feature maps along the channel axis, transmitted through a convolutional layer with a kernel as 7 × 7 expressed in Eq. 12: ​ ​ ​ (12) 𝑀𝑠𝐹 ( ) = σ 𝑓 7×7 𝐴𝑣𝑔𝑃𝑜𝑜𝑙𝐹 ( ); 𝑀𝑎𝑥𝑃𝑜𝑜𝑙𝐹 ( ) [ ] ( ) ( ) Where denotes the convolution with a kernel, and means channel-wise 𝑓 7×7 7 × 7 ;[ ] concatenation. This allows for the generation of a spatial attention map, which marks prominent ocular structures in the image, like clusters with abnormal nuclei or tumor boundaries [36]. In this paper, using a by-channel and spatial attention mechanism that are implemented successively in the proposed module, it makes the network able to pay more attention to the diagnostically relevant cellular regions mentioned above or segments of the image, enhancing feature representation which improves breast cancer histopathological image classification accuracy. 4.5 Classification Layer​ The classification layer receives the predicted feature representations for breast cancer subtypes after each feature is refined based on multi-autoencoder and attention module outputs from previous steps. For classification, the suggested AMAE-GCNet model 37[37][38] also proposes adopting fully connected dense layers and using Softmax for obtaining probability scores of all tumor classes. The flattened attention-refined feature vector is fed into a dense layer, which applies linear transformation to produce an output 𝑥 space that has fewer dimensions than the previous stage, appropriate for classification. This transformation can be written in the form of Eq. 13:",
+      "label": "human",
+      "page_num": 12,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ ​ ​ ​ ​ ​ (13) 𝑧= 𝑊𝑥+ 𝑏 where is the input feature vector from the attention module, is the weight matrix of the 𝑥 𝑊 dense layer, is the bias term while is thе output in form class-specific logits.",
+      "label": "human",
+      "page_num": 13,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "These logits",
+      "label": "ai_generated",
+      "page_num": 13,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "are subsequently applied to the Softmax classifier [39] that transforms raw outputs into normalized probability amounts corresponding to eight breast cancer tumor subtypes in BreakHis dataset. Where the probability of input image belonging to class is calculated in 𝑥 𝑖",
+      "label": "ai_generated",
+      "page_num": 13,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Eq. 14: ​ ​ ​ ​ ​ (14) 𝑃𝑦= 𝑖|𝑥 ( ) = 𝑒 𝑧𝑖 𝑗=1 𝑘 ∑𝑒 𝑧𝑗",
+      "label": "human",
+      "page_num": 13,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Where is the logit value for class is the number of classes and the denominator ensures 𝑧𝑖 𝑖, 𝑘 that predicted probabilities over all classes sum to one. Softmax allows the model to represent subtypes with the highest assigned probability being most likely while preserving a probabilistic meaning of predictions. The classifier in this study predicts eight breast cancer subtypes (four benign, four malignant). The classification layer correctly maps the learned representations to the proper tumor class through EfficientNet-B4, multi-autoencoder compression and attention leveraged feature representation shows promising potential for multi-class histopathological image classification [40].",
+      "label": "ai_generated",
+      "page_num": 13,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "4.6 Grad-CAM Explainability",
+      "label": "human",
+      "page_num": 13,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "To improve the interpretability and clinical reliability of the proposed AMAE-GCNet framework, Gradient-weighted Class Activation Mapping (Grad-CAM) is incorporated to provide visual explanations for the model’s predictions.",
+      "label": "ai_generated",
+      "page_num": 13,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Deep learning models often function as black-box systems, making it difficult for clinicians to understand the reasoning behind automated diagnostic decisions. Grad-CAM addresses this limitation by generating visual heatmaps that highlight the most important regions of the input histopathological image contributing to the predicted tumor class. In this approach, the gradients of the target class score are computed with respect to the feature maps of the final convolutional layer. These gradients are then globally averaged to obtain the importance weights for each feature map channel. The weight corresponding to the feature map is calculated as in Eq.15: 𝑘 𝑡ℎ ​ ​ ​ ​ ​ (15) α𝑘= 1 𝑍Σ𝑖Σ𝑗 δ𝑦 𝑐 δ𝐴𝑖𝑗 𝑘 Where refers to the score of class is the feature map from the convolutional layer 𝑦 𝑐 𝑐, 𝐴 𝑘 𝑘 𝑡ℎ in terms of being the number of pixels within this feature map. With these weights, 𝑍 Grad-CAM generates a heatmap by computing a weighted combination of feature maps followed ReLU activation, as shown in Eq. 15: ​​ ​ ​ (16) 𝐿𝐺𝑟𝑎𝑑−𝐶𝐴𝑀= 𝑅𝑒𝐿𝑈Σ𝑘α𝑘𝐴 𝑘 ( ) Eventually this heatmap is upsampled and overlapped onto the original histopathological image, thus visualizing which regions have influence on the model’s classification decision. In upper and breast cancer histopathology context, Grad-CAM highlights abnormal cell structures, the cluster of tumor nuclei and morphological tissue patterns that are related to",
+      "label": "human",
+      "page_num": 13,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "differentiating between benign from malignant tumor subtypes. As a result, the proposed framework offers much-needed interpretability by generating these mini-visual reject explanations that enables pathologists to cross verify if the model is focusing on anatomical meaningful tumor regions during the diagnostic process thereby improving clinical trust as well. Pseudocode for Attention-Guided Multi-Autoencoder Explainable Network for Breast Cancer Histopathological Image Classification Input: Histopathological images from BreakHis dataset Begin Load dataset Preprocess images (stain normalization, resizing, augmentation, normalization) Split dataset into training and testing sets Initialize EfficientNet-B4 with pretrained weights For each epoch do For each image in training set do Extract deep features using EfficientNet-B4 Encode features using multi-autoencoder Decode and refine latent representation Apply channel attention and spatial attention Pass refined features to fully connected layer Predict tumor class using Softmax Compute classification loss Update network parameters using optimizer End For End For Evaluate model on test dataset Compute Accuracy, Precision, Recall, and F1-score For each test image do Generate Grad-CAM heatmap Highlight tumor regions influencing prediction End For Return classification results and visualization maps End",
+      "label": "human",
+      "page_num": 14,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Output: Tumor subtype prediction and Grad-CAM heatmap",
+      "label": "human",
+      "page_num": 15,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The pseudocode provides a high-level overview of the AMAE-GCNet framework to classify breast cancer histopathological images. Starts with loading the dataset and preprocessing: stain normalization, resize images and augment the data for better quality.",
+      "label": "ai_generated",
+      "page_num": 15,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The model employs EfficientNet-B4 for feature extraction, with multi-autoencoder attention being used to refine features and improve the learning of discriminative representations. Lastly, the extracted features are categorized into tumor subtypes and Grad-CAM visualization is produced to emphasize significant tumor regions affecting the model’s prediction. The flowchart representing the proposed model is illustrated in Figure 2. ​ Figure 2: Flowchart of the proposed AMAE GCNet framework for breast cancer histopathological image classification. 5. Experimental Setup In this study, we implemented and tested the proposed AMAE-GCNet model in a high-performance computing environment to ensure efficient training and testing of the deep learning architecture. To speed up the calculations of deep neural networks, all the",
+      "label": "human",
+      "page_num": 15,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "experiments are performed on a system with NVIDIA RTX 3090 GPU, 32 GB RAM, and Intel multi-core processor. We implement the proposed framework using the TensorFlow deep learning framework that offers efficient support for transfer learning, model optimization, and GPU-based parallel processing. A data-splitting of 80:20 is used for training and testing subsets to facilitate evaluating the generalization ability of the model during training. The batch size of 32 is used and the network is trained for 50 epochs that will let the model learn discriminative patterns from histopathological images while avoiding overfitting. In all layers the Adam iteration optimizes the parameters on the basis of a simple adaptive learning methodology chosen with a tiny invariable, 0.0001 used to have stable changing weights while training reporting minimal accuracy variations. In case of categorical multi-class breast tumor classification the cross-entropy loss function is employed to measure the discrepancy between predicted probability distributions and true class labels.",
+      "label": "human",
+      "page_num": 16,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "These experimental settings allow us to train the proposed model effectively and evaluate its classification performance on the BreakHis histopathological image dataset reliably.",
+      "label": "ai_generated",
+      "page_num": 16,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "5.1 Performance Evaluation​",
+      "label": "human",
+      "page_num": 16,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "In order to thoroughly examine the performance of the proposed AMAE-GCNet framework for breast cancer histopathological image classification, several criteria are taken into account. Finally, along with traditional metrics like Accuracy, Precision, Recall and F1-Score, we also have advanced evaluation measures including ROC-AUC，Dice Similarity Coefficient (DSC), Jaccard index & Matthews Correlation Coefficient (MCC) to provide more insights on the classification performance of the model over classes overlap and robustness over class imbalance. In addition, the XAI metrics are also proposed to measure the explainability and robustness. The performance metrics employed thus facilitate both quantitative assessment of pressure segmentation performance and qualitative evaluation of model explanations, resulting in a more clinically applicable proposed framework.",
+      "label": "ai_generated",
+      "page_num": 16,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Accuracy- Measures the overall proportion of correctly classified samples among all predictions. ​ ​ ​ ​ (17)​ 𝐴𝑐𝑐𝑢𝑟𝑎𝑐𝑦= 𝑇𝑃+𝑇𝑁 𝑇𝑃+𝑇𝑁+𝐹𝑃+𝐹𝑁 Precision- It indicates the proportion of correctly predicted positive samples among all samples predicted as positive. ​ ​ ​ ​ ​ (18) 𝑃𝑟𝑒𝑐𝑖𝑠𝑖𝑜𝑛= 𝑇𝑃 𝑇𝑃+𝐹𝑃 Recall (Sensitivity)- Recall measures the ability of the model to correctly identify actual positive samples. ​ ​ ​ ​ ​ (19) 𝑅𝑒𝑐𝑎𝑙𝑙= 𝑇𝑃 𝑇𝑃+𝐹𝑁 F1-Score- F1-score represents the harmonic mean of precision and recall, providing a balanced evaluation of the classification performance. ​​ ​ ​ ​ (20) 𝐹1 = 2×𝑃𝑟𝑒𝑐𝑖𝑠𝑖𝑜𝑛×𝑅𝑒𝑐𝑎𝑙𝑙 𝑃𝑟𝑒𝑐𝑖𝑠𝑖𝑜𝑛+𝑅𝑒𝑐𝑎𝑙𝑙 ROC Curve and AUC​ The True Positive Rate (TPR) and False Positive Rate (FPR) are defined as in Eq.21:",
+      "label": "human",
+      "page_num": 16,
+      "source": "direct_pdf"
+    },
+    {
+      "text": ",​ ​ ​ ​ ​ (21) 𝑇𝑃𝑅= 𝑇𝑃 𝑇𝑃+𝐹𝑁 𝐹𝑃𝑅= 𝐹𝑃 𝐹𝑃+𝑇𝑁 The Area Under Curve (AUC) is computed as in Eq.22: ​ ​ ​ (22) 𝐴𝑈𝐶= 0 1 ∫𝑇𝑃𝑅𝐹𝑃𝑅 ( )𝑑𝐹𝑃𝑅 ( ) Dice Similarity Coefficient (DSC): ​ ​ ​ ​ ​ (23) 𝐷𝑆𝐶= 2𝑇𝑃 2𝑇𝑃+𝐹𝑃+𝐹𝑁 ​ These metric measures overlap between predicted and actual tumor regions. Jaccard Index (Intersection over Union): ​ ​ ​ ​ ​ (24) 𝐽= 𝑇𝑃 𝑇𝑃+𝐹𝑃+𝐹𝑁 It evaluates similarity between predicted and true class labels. Matthews Correlation Coefficient (MCC): ​ ​ ​ ​ (25) 𝑀𝐶𝐶= 𝑇𝑃·𝑇𝑁−𝐹𝑃·𝐹𝑁 𝑇𝑃+𝐹𝑃 ( ) 𝑇𝑃+𝐹𝑁 ( ) 𝑇𝑁+𝐹𝑃 ( ) 𝑇𝑁+𝐹𝑁 ( ) MCC provides a balanced measure even for imbalanced datasets.​ 5.1.1 Explainable AI (XAI) Performance Metrics​ To quantitatively evaluate the interpretability of Grad-CAM visualizations, the following XAI metrics are included. Localization Accuracy- Measures how well the highlighted regions match true tumor regions. ​ ​ ​ ​ ​ (26) 𝐿𝐴= 𝐴𝑟𝑒𝑎𝑜𝑣𝑒𝑟𝑙𝑎𝑝 𝐴𝑟𝑒𝑎𝑔𝑟𝑜𝑢𝑛𝑑𝑡𝑟𝑢𝑡ℎ Intersection over Union for Heatmaps- Evaluates overlap between Grad-CAM heatmap and annotated tumor region. ​ ​ ​ ​ ​ (27) 𝐼𝑜𝑈= 𝐻𝑝𝑟𝑒𝑑∩𝐻𝑡𝑟𝑢𝑒 𝐻𝑝𝑟𝑒𝑑∪𝐻𝑡𝑟𝑢𝑒 Average Drop in Confidence- Measures reduction in prediction confidence when important regions are removed. ​ ​ ​ ​ (28) 𝐷𝑟𝑜𝑝= 𝑓𝑥 ( )−𝑓𝑥𝑚𝑎𝑠𝑘𝑒𝑑 ( ) 𝑓𝑥 ( ) Increase in Confidence- Measures improvement when only important regions are retained. ​ ​ ​ ​ (29) 𝐼𝑛𝑐𝑟𝑒𝑎𝑠𝑒= 𝑓𝑥𝑖𝑚𝑝𝑜𝑟𝑡𝑎𝑛𝑡 ( )−𝑓𝑥 ( ) 𝑓𝑥 ( ) 6.Results and Discussion Table 1: Performance comparison of existing deep learning models and the proposed AMAE-GCNet for breast cancer histopathological image classification.",
+      "label": "human",
+      "page_num": 17,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Model Accuracy (%) Precision (%) Recall (%) F1-Score (%) ResNet50 94.10 93.85 93.70 93.77 DenseNet121 95.30 95.02 94.88 94.95 EfficientNet 96.70 96.42 96.30 96.36 Attention CNN 97.40 97.05 96.92 96.98 AMAE-GCNet (Proposed) 98.72 98.41 98.33 98.37 Table 1 shows the performance comparison of various models for breast cancer histopathological image classification on BreakHis dataset. The baseline models (ResNet50, DenseNet121, EfficientNet, Attention CNN) report accuracies of 94.10%, 95.30%, 96.70% and 97.40%, respectively In comparison, the AMAE-GCNet model proposes a high performance of obtaining an accuracy of 98.72%, precision of 98.41%, recall of 98.33% and F1-score of 98.37%. The results show that we can achieve greatly improved accuracy and explainability compared to advanced models by combining multi-autoencoder feature refinement with attention and Grad-CAM. ​ Figure 3: Grad-CAM based tumor highlight heatmaps illustrating important tissue regions detected by the proposed AMAE-GCNet model for breast cancer histopathological image classification. Figure 3 displays the tumor highlight heatmaps generated by Grad-CAM to show the regions responsible for classification decisions in proposed model AMAE-GCNet. The heatmaps show diagnostically strong cellular fields of breast histopathological images. Regions with high intensity are associated with structures of the tumor that matter most in terms of model prediction. This visualization shows that the framework is correctly emphasizing abnormal tissues instead of background in pathology images. It increases the interpretability and clinical dependability of the automated classification system for breast cancer.​",
+      "label": "human",
+      "page_num": 18,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "(a)​ResNet50 (b)​DenseNet121 (c) EfficientNet (d) Attention CNN (e) AMAE-GCNet(proposed Model) Figure 4: Confusion matrix comparison of deep learning models for multi-class breast cancer histopathological image classification on the BreakHis dataset.",
+      "label": "human",
+      "page_num": 19,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Figure 4 represents the confusion matrices for various deep learning models trained on breast cancer histopathological images. Subfigure (a)–(d) show the classification performance of ResNet50, DenseNet121, EfficientNet and Attention CNN model for eight tumor subtypes. To further validate the improved performance of our proposed method AMAE-GCNet by comparison as shown in Subfigure (e), we need a confusion matrix that can reflect better classification consistency with more correct predictions on the diagonal. The visualization demonstrates the proposed framework is capable of distinguishing both benign and malignant tumor categories with appropriate sampling from each category. In summary, AMAE-GCNet obtains better classification performance than prevailing baseline cases. ​ Figure 5: Training and validation accuracy curves of the proposed AMAE-GCNet model during the learning process. The figure 5 shows the learning and validation accuracy of the AMAE-GCNet model over different training epochs. In addition, the training accuracy continues to improve because a model learns discriminative features from histopathological images. The validation accuracy also consistently cleaves upward, reflecting generalization ability. The final validation accuracy of the model is 98.72%, which shows good classification performance.",
+      "label": "human",
+      "page_num": 20,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ Figure 6: Training and validation loss curves of the AMAE-GCNet model during network optimization. The figure 6 below shows training and validation loss values with respect to the number of training epochs. The training loss keeps reducing all through, as the model learns meaningful feature representations within the dataset. A similar decrease in the validation loss means that the model is converging well without a lot of overfitting. The lowest value of loss at the end, depicting and verifying the quality of the proposed model towards histopathological image classification of breast cancer images. Table 2: Comparative analysis of advanced metrics (AUC, Dice, Jaccard, MCC) for existing models and the proposed AMAE-GCNet on the BreakHis dataset. Model AUC Dice (%) Jaccard (%) MCC ResNet50 0.94 93.10 87.20 0.91 DenseNet121 0.95 94.25 89.10 0.93 EfficientNet 0.97 95.80 91.60 0.95 Attention CNN 0.98 96.75 93.40 0.96 AMAE-GCNet (Proposed) 0.99 98.10 96.25 0.98 Advanced performance metrics of various deep learning models on BreakHis dataset. The baseline models show incremental improvements with EfficientNet obtaining an AUC of 0.97 and Dice score of 95.80% whereas Attention CNN obtains an AUC of 0.98. The AMAE-GCNet model achieves an AUC of 0.99, a Dice score of 98.10%, a Jaccard index of 96.25%, and MCC of 0.98 on the CMB segmentation task, outperforming all other existing methods and evidencing the best classification consistency as well as classification robustness compared with state-of-the-art methods in our experiments (Table 2). These",
+      "label": "human",
+      "page_num": 21,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "outcomes demonstrate the ability of the presented architecture to extract meaningful features while enhancing classification as well as overlap-grounded performance measures. ​ Figure 7: Receiver Operating Characteristic (ROC) curve of the proposed AMAE-GCNet model for breast cancer classification. The diagnostic performance of the AMAE-GCNet model as a receiver operating characteristic graph (ROC curve), in which TPR means true positive rate and FPR is false positive rate, shown in Figure 7. A curve that stays near the top-left corner is indicative of better classification performance.",
+      "label": "human",
+      "page_num": 22,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The·Area Under the Curve obtained by our proposed model is about 0.98 which exhibits a good capability for recognizing tumor types. These results can provide reliable evidence for model applications in medical diagnostics.",
+      "label": "ai_generated",
+      "page_num": 22,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Figure 8: Quantitative evaluation of explainability performance using XAI metrics for the proposed AMAE-GCNet model.",
+      "label": "ai_generated",
+      "page_num": 22,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Figure 8 provides the quantitative aspect of explainable AI validation through the accuracy and predictability of localization, IoU, confidence drop and increase. The AMAE-GCNet model achieves a high localization accuracy to 0.92 and an IoU of 0.89, which means the tumor regions have been identified accurately. In the range of regions highlighted, a low confidence drop (0.08) and the aforementioned higher confidence increase (0.15) testify to their viability. These results demonstrate that the proposed model yields reliable visual explanations for clinical understanding.",
+      "label": "ai_generated",
+      "page_num": 23,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "6.1 Discussion",
+      "label": "human",
+      "page_num": 23,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Through empirical evaluations, the AMAE-GCNet framework demonstrates state-of-the-art performance throughout both primary and secondary evaluation benchmarks, thus validating its success in classifying breast cancer histopathological images. As can be seen from Table 1, the accuracy (98.72%), precision (98.41%), recall (98.33%) and F1-score (98.37%) of all baseline methods ideas are better than them and also proved that we have obtained a reliable classification method over time. Moreover, while the aforementioned metrics in Table 2 indicate a high degree of accuracy for the model, it is important to consider advanced statistics like AUC (0.99), Dice score (98.10%), Jaccard index (96.25%) and MCC (0.98) as indicators of performance capability in tackling class imbalances and facilitating improved overlap-based metrics. Confusion matrix analysis indicates that the model proposed has more correct predictions and lower misclassification across all subtypes of tumors. Furthermore, Grad-CAM visualizations and XAI metrics localization accuracy 0.92, IoU 0.89, low confidence drop 0.08, high confidence increase 0.15 shows that the model is able to learn focusing on clinically relevant tumor regions which can also enhance interpretability for clinical practice. The training and validation curves provide additional evidence of stable convergence and generalization capabilities without signs of overfitting. In conclusion, through the synergistic application of feature refinement, attention mechanism and explainability, AMAE-GCNet provides not only high diagnostic accuracy but can also be used as an effective visual explainer making it applicable for real world clinical settings.",
+      "label": "ai_generated",
+      "page_num": 23,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "7.Conclusion​",
+      "label": "human",
+      "page_num": 23,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "We proposed the AMAE-GCNet, which till-date is the first automated multi-class classification framework for breast histopathology images incorporating EfficientNet-B4, multi-autoencoder feature refinement structure with attention operations and Grad-CAM based explainability method. Experimental results indicate that the proposed model outperforms existing deep learning approaches with accuracy (98.72%), precision (98.41%), recall of 98.33% and F1-score of 98.37%. Furthermore, the model achieves excellent performance based on advanced metrics AUC 0.99, Dice score of 98.10%, Jaccard index: 96.25% and MCC: 0.98 confirming its robustness and reliability Grad-CAM visualizations and XAI evaluation support additional evidence of the model's diagnostically relevant tumor highlight, improving interpretability and clinical trust. Ultimately, the introduced system is a robust and effective solution for breast cancer diagnosis from histopathological images. Future work will extend the model to multi-modal medical imaging and large-scale whole-slide image analysis to improve diagnostic accuracy. Moreover, the use of transformer",
+      "label": "ai_generated",
+      "page_num": 23,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "networks and real-time clinical deployment strategies will increase the proposed approach's extensiveness and applicability in healthcare settings.",
+      "label": "ai_generated",
+      "page_num": 24,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "References [1] Joseph, A. A., Abdullahi, M., Junaidu, S. B., Ibrahim, H. H., & Chiroma, H. (2022). Improved multi-classification of breast cancer histopathological images using handcrafted features and deep neural network (dense layer). Intelligent Systems with Applications, 14, 200066. [2] Aldakhil, L. A., Alhasson, H. F., & Alharbi, S. S. (2024). Attention-based deep learning approach for breast cancer histopathological image multi-classification. Diagnostics, 14(13), 1402. [3] Liu, L., Wang, Y., Zhang, P., Qiao, H., Sun, T., Zhang, H., ... & Shang, H. (2023). Collaborative transfer network for multi-classification of breast cancer histopathological images. IEEE Journal of Biomedical and Health Informatics, 28(1), 110-121. [4] Yusuf, M., Kana, A. F. D., Bagiwa, M. A., & Abdullahi, M. (2025). Multi-classification of breast cancer histopathological image using enhanced shallow convolutional neural network. Journal of Engineering and Applied Science, 72(1), 24. [5] Ukwuoma, C. C., Hossain, M. A., Jackson, J. K., Nneji, G. U., Monday, H. N., & Qin, Z. (2022). Multi-classification of breast cancer lesions in histopathological images using DEEP_Pachi: Multiple self-attention head. Diagnostics, 12(5), 1152. [6] Wang, G., Jia, M., Zhou, Q., Xu, S., Zhao, Y., Wang, Q., ... & Wang, B. (2024). Multi-classification of breast cancer pathology images based on a two-stage hybrid network. Journal of Cancer Research and Clinical Oncology, 150(12), 505. [7] Clement, D., Agu, E., Suleiman, M. A., Obayemi, J., Adeshina, S., & Soboyejo, W. (2022). Multi-class breast cancer histopathological image classification using multi-scale pooled image feature representation (MPIFR) and one-versus-one support vector machines. Applied Sciences, 13(1), 156. [8] Ahmad, N., Asghar, S., & Gillani, S. A. (2022). Transfer learning-assisted multi-resolution breast cancer histopathological images classification. The Visual Computer, 38(8), 2751-2770. [9] Jawad, M. A., & Khursheed, F. (2022). Deep and dense convolutional neural network for multi category classification of magnification specific and magnification independent breast cancer histopathological images. Biomedical Signal Processing and Control, 78, 103935. [10] Eltoukhy, M. M., Hosny, K. M., & Kassem, M. A. (2022). Classification of multiclass histopathological breast images using residual deep learning. Computational Intelligence and Neuroscience, 2022(1), 9086060. [11] Li, G., Li, C., Wu, G., Xu, G., Zhou, Y., & Zhang, H. (2022). MF-OMKT: Model fusion based on online mutual knowledge transfer for breast cancer histopathological image classification. Artificial Intelligence in Medicine, 134, 102433. [12] Vijayashree, H. P., & Ramakrishna, M. (2025). HFEN-Breast: A Hierarchical Feature Extraction Network for Enhanced Breast Cancer Detection in Mammography. SN Computer Science, 6(6), 658.",
+      "label": "human",
+      "page_num": 24,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "[13] Abimouloud, M. L., Bensid, K., Elleuch, M., Ammar, M. B., & Kherallah, M. (2024). Vision transformer based convolutional neural network for breast cancer histopathological images classification. Multimedia Tools and Applications, 83(39), 86833-86868. [14] Wang, C., Gong, W., Cheng, J., & Qian, Y. (2022). DBLCNN: Dependency-based lightweight convolutional neural network for multi-classification of breast histopathology images. Biomedical Signal Processing and Control, 73, 103451. [15] Wang, Y., Deng, X., Shao, H., & Jiang, Y. (2023). Multi-scale feature fusion for histopathological image categorisation in breast cancer. Computer Methods in Biomechanics and Biomedical Engineering: Imaging & Visualization, 11(6), 2350-2362. [16] Srikantamurthy, M. M., Rallabandi, V. S., Dudekula, D. B., Natarajan, S., & Park, J. (2023). Classification of benign and malignant subtypes of breast cancer histopathology imaging using hybrid CNN-LSTM based transfer learning. BMC Medical Imaging, 23(1), 19. [17] Jackson, J., Jackson, L. E., Ukwuoma, C. C., Kissi, M. D., Oluwasanmi, A., & Zhiguang, Q. (2025). A patch-based deep learning framework with 5-B network for breast cancer multi-classification using histopathological images. Engineering Applications of Artificial Intelligence, 148, 110439. [18] Pal, M., Panda, G., Mohapatra, R. K., Rath, A., Dash, S., Shah, M. A., & Mallik, S. (2024). Ensemble approach of deep learning models for binary and multiclass classification of histopathological images for breast cancer. Pathology-Research and Practice, 263, 155644. [19] Nakach, F. Z., Zerouaoui, H., & Idri, A. (2023). Binary classification of multi-magnification histopathological breast cancer images using late fusion and transfer learning. Data Technologies and Applications, 57(5), 668-695. [20] Zou, Y., Chen, S., Che, C., Zhang, J., & Zhang, Q. (2022). Breast cancer histopathology image classification based on dual-stream high-order network. Biomedical Signal Processing and Control, 78, 104007. [21] Irmak, G., & Saygılı, A. (2025). Deep learning-based histopathological classification of breast tumors: A multi-magnification approach with state-of-the-art models. Signal, Image and Video Processing, 19(7), 578. [22] Fu, B., Zhang, M., He, J., Cao, Y., Guo, Y., & Wang, R. (2022). StoHisNet: A hybrid multi-classification model with CNN and Transformer for gastric pathology images. Computer Methods and Programs in Biomedicine, 221, 106924. [23] Çetin-Kaya, Y. (2024). Equilibrium optimization-based ensemble cnn framework for breast cancer multiclass classification using histopathological image. Diagnostics, 14(19), 2253. [24] Mewada, H. (2024). Extended deep-learning network for histopathological image-based multiclass breast cancer classification using residual features. Symmetry, 16(5), 507. [25] Desai, A., & Mahto, R. (2025). Multi-class classification of breast cancer subtypes using ResNet architectures on histopathological images. Journal of Imaging, 11(8), 284. [26] Taheri, S., Golrizkhatami, Z., Basabrain, A. A., & Hazzazi, M. S. (2024). A comprehensive study on classification of breast cancer histopathological images: Binary versus multi-category and magnification-specific versus magnification-independent. IEEE Access, 12, 50431-50443.",
+      "label": "human",
+      "page_num": 25,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "[27] Sharma, M., Mandloi, A., & Bhattacharya, M. (2022). A novel DeepML framework for multi‐classification of breast cancer based on transfer learning. International journal of imaging systems and technology, 32(6), 1963-1977. [28] Rahman, M. M., Khan, M. S. I., & Babu, H. M. H. (2022). BreastMultiNet: A multi-scale feature fusion method using deep neural network to detect breast cancer. Array, 16, 100256. [29] Tummala, S., Kim, J., & Kadry, S. (2022). BreaST-Net: Multi-class classification of breast cancer from histopathological images using ensemble of swin transformers. Mathematics, 10(21), 4109. [30] Kaur, A., Kaushal, C., Sandhu, J. K., Damaševičius, R., & Thakur, N. (2023). Histopathological image diagnosis for breast cancer diagnosis based on deep mutual learning. Diagnostics, 14(1), 95. [31] Abdulaal, A. H., Valizadeh, M., Amirani, M. C., & Shah, A. S. (2024). A self-learning deep neural network for classification of breast histopathological images. Biomedical Signal Processing and Control, 87, 105418. [32] Umer, M. J., Sharif, M., Kadry, S., & Alharbi, A. (2022). Multi-class classification of breast cancer using 6b-net with deep feature fusion and selection method. Journal of Personalized Medicine, 12(5), 683. [33] Aldakhil, L. A., Alharbi, S. S., Aloraini, A., & Alhasson, H. F. (2025). Leveraging attention-based deep learning in binary classification for early-Stage breast cancer diagnosis. Diagnostics, 15(6), 718. [34] Taheri, S., & Golrizkhatami, Z. (2023). Magnification-specific and magnification-independent classification of breast cancer histopathological image using deep learning approaches. Signal, Image and Video Processing, 17(2), 583-591. [35] Sarker, M. M. K., Akram, F., Alsharid, M., Singh, V. K., Yasrab, R., & Elyan, E. (2022). Efficient breast cancer classification network with dual squeeze and excitation in histopathological images. Diagnostics, 13(1), 103. [36] Chattopadhyay, S., Dey, A., Singh, P. K., & Sarkar, R. (2022). DRDA-Net: Dense residual dual-shuffle attention network for breast cancer classification using histopathological images. Computers in biology and medicine, 145, 105437. [37] El-Ghandour, M., Obayya, M., & Yousif, B. (2024). Breast cancer histopathology image classification using an ensemble of optimized pretrained models with a trainable ensemble strategy classifier. Research on Biomedical Engineering, 40(3), 707-729. [38] Deb, D., Dash, R., & Mohapatra, D. P. (2025). MMHBC-Net: a multi-modal hybrid approach for breast cancer classification. Neural Computing and Applications, 37(20), 15469-15499. [39] Aljuaid, H., Alturki, N., Alsubaie, N., Cavallaro, L., & Liotta, A. (2022). Computer-aided diagnosis for breast cancer classification using deep neural networks and transfer learning. Computer Methods and Programs in Biomedicine, 223, 106951. [40] Jiang, B., Bao, L., He, S., Chen, X., Jin, Z., & Ye, Y. (2024). Deep learning applications in breast cancer histopathological imaging: diagnosis, treatment, and prognosis. Breast Cancer Research, 26(1), 137.",
+      "label": "human",
+      "page_num": 26,
+      "source": "direct_pdf"
+    }
+  ],
+  "stats": {
+    "ai_generated_segments": 27,
+    "ai_paraphrased_segments": 0,
+    "human_segments": 38,
+    "ocr_pages": 0,
+    "total_chars_ai": 16764,
+    "total_chars_paraphrased": 0,
+    "total_chars_human": 43373
+  },
+  "errors": []
+}

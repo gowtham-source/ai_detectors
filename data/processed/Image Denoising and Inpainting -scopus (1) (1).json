@@ -1,0 +1,434 @@
+{
+  "file_name": "Image Denoising and Inpainting -scopus (1) (1).pdf",
+  "file_path": "c:\\Users\\gowth\\Downloads\\ai_plag_detector\\data\\raw_data\\raw_data\\Image Denoising and Inpainting -scopus (1) (1).pdf",
+  "submission_date": "2025-12-20",
+  "priority": "LOW",
+  "total_pages": 17,
+  "ai_percentage_reported": 52,
+  "segments": [
+    {
+      "text": "Scene-Adaptive Transformer-GAN Framework with Confidence-Guided Loss for Enhanced Image Denoising and Inpainting in Autonomous Navigation",
+      "label": "human",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Abstract-Image impairments such as noise and missing regions continue to affect the performance of navigation systems in environments with varying lighting, sensor limitations, and dynamic obstacles. Building on unified image restoration techniques, this research introduces a Scene-Adaptive Transformer-GAN framework that adjusts restoration strategies based on the characteristics of each scene. By combining global context modeling through Transformer layers with localized texture refinement using generative adversarial networks, the framework achieves improved preservation of structural details.",
+      "label": "ai_generated",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Confidence-Guided Loss Function is proposed, which dynamically modulates the contribution of denoising and inpainting during training, guided by the uncertainty associated with the input data. The model is trained using progressively complex scenes to ensure smooth adaptation without overfitting. Evaluations across urban, indoor, and low-illumination datasets demonstrate gains of up to 3.4 dB in PSNR, 0.07 in SSIM, and 20% improvement in localization accuracy when compared to existing methods. The architecture’s design enables efficient learning and deployment across a wide range of environments, offering a practical approach for navigation tasks that require dependable image restoration without extensive computational resources. Furthermore, the framework exhibits strong generalization to previously unseen environmental conditions, highlighting its potential for integration into autonomous navigation pipelines. Comprehensive ablation studies confirm the significance of the scene-adaptive mechanism and confidence-guided optimization in achieving superior performance. Keywords- Image denoising, Image inpainting, Transformer networks, Generative adversarial networks (GANs), Scene adaptation",
+      "label": "ai_generated",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "I Introduction​",
+      "label": "human",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Visual data integrity is critical in examples such as the video guidance systems of a self-driving car. Nevertheless, the images acquired in those challenging environments (e.g., dark conditions, dynamically changing scene, and sensor restrictions) typically contain noise and lost areas [1],[2]. These losses can severely deteriorate the performance of downstream tasks such as object detection, localization and path planning [3],[4]. Conventional image restoration algorithms (such as linear filtering and interpolation based methods) often fail to suppress these complicated and space-variant degradation effects in practical applications [5],[6]. The recent advances of the deep learning models, in particular the convolutional neural networks (CNNs), have shown great potential in image denoising and inpainting tasks [7],[8]. However, such models tend to represent generalized degradation as the uniform corruption of the entire image and hence fail to account for spatial heterogeneity present among realistic scenes [9],[10]. This limitation highlights the necessity for more flexible restoration frameworks that can automatically detect and tackle different degradation patterns in an image [11].",
+      "label": "ai_generated",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The emergence of transformer-based frameworks has revolutionized the field of image restoration [12, 13].",
+      "label": "ai_generated",
+      "page_num": 4,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Transformers have demonstrated their effectiveness regarding long-range dependence and context modeling with its self-attention mechanism, which is suitable for tasks that need global knowledge [14]. But their implementation in the area of image restoration is not problem-free [15]. Transformers could be computationally expensive and may have difficulty in local texture refinement that is important for domains such as inpainting [16]. In order to tackle these problems, hybrid models of transformers and generative adversarial networks (GANs) have been considered [17]. Considering the high quality of textures and details, GANs are suitable for local refinement applications. With the combination of transformer for global context modelling and GANs for local texture synthesis, these hybrid models make full use of the advantages of both models, possibly resulting in better/ faster image restoration solutions. However, these hybrid models typically assume a constant level of uncertainty across the image [1],[2]. In practice, different parts of an image may have different amounts of uncertainty resulting from sensor noises, occlusions or illumination variations [3],[4]. The variations can be ignored and compromised image quality would result, for example, the model always oversmooths or undersmooths some regions during reconstructing the image[5],[6]. In order to overcome this drawback, one solution is to employ a confidence-driven loss function [7],[8]. This loss will weigh each pixel’s contribution during training dynamically according to its own uncertainty, thus the model would pay more attention in regions of higher uncertainty and less on lower [9],[10]. Adopting such a mechanism makes the model produce high-quality restoration of contextually and spatially adherent shape [11], [12].",
+      "label": "human",
+      "page_num": 4,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "It is necessary to use the robust and comprehensive metrics [13],[14] for evaluating image restoration models. Conventional quality measurement indexes include peak signal-to-noise ratio (PSNR) and structural similarity index (SSIM), which may lack the perceptual element or specific performance of a certain task such as detecting tumor [15],[16]. For example, in unmanned navigation, a model's ability to recover images in such a way that it benefits tasks like object localization [17] is vital. Thus, in order to evaluate the performance of image restoration models, it is necessary to include not only traditional image quality assessment metrics but also task-specific evaluations. One can also perform ablation studies, e.g., to investigate the contribution of various components in the model, including transformer, GAN and conf-guided loss function to facilitate future improvement/refinement [1],[2]. The key contributions of the paper are: ●​ Scene-Adaptive Restoration Framework: Introduction of a novel image restoration framework that dynamically adjusts its processing strategy based on the spatial characteristics of the input image, enabling more effective handling of varying degradation patterns. ●​ Hybrid Transformer-GAN Architecture: Development of an integrated model combining transformer-based global context modeling with GAN-based local texture refinement, aiming to leverage the strengths of both architectures for enhanced image restoration.",
+      "label": "ai_generated",
+      "page_num": 4,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "●​ Confidence-Guided Loss Function: Proposal of a dynamic loss function that modulates the contribution of each pixel during training based on its associated uncertainty, improving the model's ability to produce high-quality restorations. The remainder of this paper is structured as follows: Section 2 reviews related works in the fields of image denoising, inpainting, and the application of transformers and GANs in image restoration.",
+      "label": "ai_generated",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Section 3 details the proposed methodology, including the scene-adaptive restoration framework, the hybrid transformer-GAN architecture, and the confidence-guided loss function.",
+      "label": "ai_paraphrased",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Section 4 presents the experimental setup, including datasets, evaluation metrics, and baseline methods. Section 5 discusses the results, comparing the proposed model's performance with existing methods and analyzing the impact of each component. Finally, Section 6 concludes the paper and suggests directions for future research. II Literature Review Turn by turn navigation with adverse associativity has been dealt with using a variety of techniques. Peng et al. (2023) proposed RDMAE-Nav, in which Vision Transformer encoders were pre-trained with a denoising objective and regularized by the bidirectional Kullback-Leibler divergence that can handle lots of PointGoalNavigation tasks challenged by visual corruptions successfully [1]. Building on this robustness aspect, Nguyen et al. (2025) combined LIDIA with QR-DQN and achieved a teach-learn image denoiser coupled with reinforcement learning, thereby facilitating real world obstacle navigation for mobile robots in cluttered and uncertain environments through cleaned depth data [2]. In a complementary development Achaibou et al. (2025) proposed an infrared-gradient-based belief-propagation fusion approach to a missing data problem in ToF sensors, with the aim of providing better depth estimation at object boundaries [3]. Similarly, Wang et al. (2025) improved the SLAM system by an EKF method and a multi-sensor fusion and suggest the IB-A* algorithm for faster, more reliable path planning [4]. Similar to robotics, imaging applications for medical and transportation are developed. Guo (the year 2023) proposed a medical denoising wavelet-based multiscale model that was capable of the real-time requirement and was robust with respect to white noise [5]. Nagavarapu et al., for autonomous vehicles, (2025) proposed a hybrid CNN–LSTM for rain removing and reported significant gains in lane marker detection influenced by heavy rains [6]. For security spaces, Vizcarra et al. (2024) showed that adding denoising and inpainting defenses can protect an OCR-based license plate recognition pipeline from adversarial noise [7]. Likewise, Zhong et al. (2024) adopted GANs on fingerprint enhancement involving denoising and inpainting simultaneously to restore fine-scaled details interrupted due to capture discrepancy [8]. To the mathematics side, Zhang et al. (2025) proposed the Corrected Group Sparse Residual Constraint model, and used adaptive penalties to enhance sparsity without over-shrinking coefficients. This scheme achieved better denoising and inpainting performance than previous sparse recovery techniques [9]. To solve the problems in industry, Tao (2024) put forward an augmentation technique of erasing–inpainting using diffusion models for problematic images, obtaining various defective images under insufficient samples to improve surface inspection accuracy [10]. In parallel, Chen et al. (2023) enhanced residual networks with perceptual loss for blind denoising and restored edge structures that were",
+      "label": "human",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "frequently attenuated by state-of-the-art methods [11]. Complementing this, Zhou et al. (2021) utilized non-local sparse clustering to enlarge patch matching schemes, and thus obtain stronger noise suppression and more detailed preservation [12]. Medicare coverage has also contributed to the development of restoration techniques. Kumar et al. (2024) introduced a convolutional autoencoder with skip connections to inpaint cross-sectional regions missing from MRI and CT images at pixel level, as well as global coherence [13]. Outside medical imaging, Zhong et al. Detection/Recognition under Challenging Environments Si (2025) also made a cultural heritage contribution by introducing coarse-to-fine diffusion approach in order to restore wadang pattern appropriately while maintaining semantic and structural integrity of traditional artifact [14]. Expanding this further, Chen et al. (2025) proposed a paired degradation network that concurrently denoised and colorized on the adaptive feature fusion, and achieved superior visual sense across datasets [15]. On the other hand, Zirakkar and Hosseini (2025) indicated a trianglemesh based geometry-sensitive variational model to reduce blocking artifacts and direction-based bias in denoising and inpainting [16]. More recently there were also developments in the fields of anomaly detection and efficiency improvements. Liang et al. (2025) presented a noise-driven autoencoder to improve the anomaly detection by supporting normality learning and integrating scale-aware metrics [17]. Sandooghdaar and Yaghmaee (2025) incorporate hand-engineered inpainting priors into U-Net to result in efficient TD figure restoration that retained perceptual quality with less computational cost [18]. Finally, Shi et al. (2022) proposed to mitigate the spectral bias in deep image prior with a Lipschitz-controlled convolution and Gaussian upsampling. Their algorithm regularized optimization, eliminated reliance on oracle stopping criteria, and sped up convergence for multiple tasks i.e., denoising, inpainting (and super-resolution) [19]. 2.1 Research Gap​ While significant progress has been achieved in navigation, medical imaging, cultural heritage or industrial inspection, available restoration approaches suffer from a number of limitations that lessens their applicability and scalability. A large number of denoising and inpainting methods are tailored to specific domains and do not generalize well to the wide range of environments with different dynamic noise patterns or structural losses. Although being effective, the diffusion-based models and deep autoencoders often need large amounts of training data and computational resources, which limit their application for online autonomous navigation under real time constraints. Furthermore, methods which put an emphasis on local pixel-level accuracy may lack global context consistency [11], and those focusing on holistic global features usually overlook detailed fine structures that result in perceived discrepancies. The lack of mechanisms for adaptively changing the reconstruction strategies in accordance with scene complexity is additionally a limiting factor against robustness, especially when facing unknown or uncertain scenarios.",
+      "label": "human",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "This highlights the need for an adaptive model capable of combining global reasoning and local refinement, using uncertainty-aware optimization to balance denoising and inpainting objectives without overfitting on particular sets of images.",
+      "label": "ai_generated",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "III Proposed Methodology​ To address this issue, we present an adversarial training based framework under dynamic",
+      "label": "human",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "scenarios, integrating denoising and inpainting named Scene-Adaptive Transformer–GAN and a confidence-aware optimization. The architecture combines the Transformer layers for global contextual reasoning and adversarial modules for texture refinement, so that both high-level semantics and localized structural details can be captured. Motivated by formulating hybrid strategies that mediate conventional priors to encode information from deep architectures to maintain image perception accuracy [18], the proposed pipeline introduces a dynamic feature fusion stage, which gradually adapts scene-specific characteristics towards restoration objectives. To meet such efficiency constraints, encoder–decoder-style modular pipelines are engineered for deployment as light weight models with inspiration from state-of-the-art variational and mesh-based formulations for structural recovery [19]. The Confidence-Guided Loss Function selectively focuses on noisy or pathological parts when learning the trade-off between denoising and inpainting during training, to avoid excessive baking of preservation in well-recovered regions, an idea similar to adaptive error control introduced in >emulti-degradation models [20]. For further details, the training protocol adopts curriculum learning strategy by increasing the complexity of scenes similar to recent works for controlling diffusion-based restoration [21], and jointly optimizing uncertainty estimation to improve robustness in unseen environments [22]. Figure 1 illustrates the architecture diagram of the Scene-Adaptive Transformer–GAN framework. Figure 1: Architecture Diagram of the Proposed Model 3.1 Transformer component​ The Transformer component in the proposed framework is responsible for capturing long-range dependencies and global scene context, which are critical for image restoration under uncertain navigation environments [23]. Each input image is divided into non-overlapping patches that are projected into embeddings before being processed by the multi-head self-attention (MHSA) mechanism. Given a set of query ,key , and value 𝑄 𝑘 𝑉 matrices derived from the embeddings, the attention operation is expressed as in Eq.1: ​ ​ ​ ​ (1) 𝐴𝑡𝑡𝑒𝑛𝑡𝑖𝑜𝑛𝑄, 𝐾, 𝑉 ( ) = 𝑠𝑜𝑓𝑡𝑚𝑎𝑥 𝑄𝐾 𝑇 𝑑𝑘 ( )𝑉",
+      "label": "human",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Where denotes the key dimensionality. To improve representational richness, the MHSA 𝑑𝑘 layer aggregates outputs from multiple attention heads as in Eq.2:",
+      "label": "ai_generated",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ ​ ​ ​ (2)",
+      "label": "human",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "𝑀𝐻𝑆𝐴𝑄, 𝐾, 𝑉 ( ) = 𝐶𝑜𝑛𝑐𝑎𝑡ℎ𝑒𝑎𝑑1,...., ℎ𝑒𝑎𝑑ℎ ( )𝑊 𝑂",
+      "label": "ai_generated",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "with each head defined as .This formulation allows ℎ𝑒𝑎𝑑𝑖= 𝐴𝑡𝑡𝑒𝑛𝑡𝑖𝑜𝑛𝑄𝑊𝑖 𝑄, 𝐾𝑊𝑖 𝐾, 𝑉𝑊𝑖 𝑉 ( )",
+      "label": "human",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "the network to simultaneously focus on structural features, global illumination variations, and contextual cues that span across distant spatial regions [24],[25]. In addition, the Transformer encoder employs residual connections and layer normalization to stabilize training, while position embeddings preserve spatial ordering, a property essential for tasks where geometry and semantics must be jointly reconstructed. By embedding these operations into the denoising–inpainting pipeline, the Transformer ensures that scene-level coherence is maintained even under heavy corruption, outperforming purely convolutional baselines in handling global consistency.",
+      "label": "ai_generated",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "3.2 GAN Component​",
+      "label": "human",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The GAN component of the proposed framework focuses on local texture refinement, complementing the Transformer's global context modeling by restoring fine structural details and subtle textures lost during denoising or inpainting. The generator receives the 𝐺 Transformer-enhanced feature maps and produces a refined image ,where 𝐼= 𝐺𝐼𝑇 ( ) 𝐼𝑇 denotes the input features from the Transformer module [26].",
+      "label": "ai_generated",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The discriminator is designed 𝐷 to differentiate between real images and generated outputs , and its objective is 𝐼𝑟 𝐼 formulated as a minimax problem, as presented in Eq.3: ​ ​ (3) 𝑚𝑖𝑛𝐺𝑚𝑎𝑥𝐷𝐿𝐺𝐴𝑁𝐺, 𝐷 ( ) = 𝐸𝐼𝑟 𝑙𝑜𝑔𝐷𝐼𝑟 ( ) [ ] + 𝐸𝐼𝑇 𝑙𝑜𝑔1 −𝐷𝐺𝐼𝑇 ( ) ( ) ( ) [ ]",
+      "label": "human",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "To enhance training stability and improve local texture fidelity, a patch-based discriminator is employed, dividing the image into patches and evaluating realism at a local scale, 𝑁× 𝑁 effectively enforcing high-frequency consistency. Additionally, a feature matching loss is incorporated to minimize the discrepancy between intermediate discriminator activations for real and generated images:",
+      "label": "ai_generated",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ ​ ​ ​ (4)",
+      "label": "human",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "𝐿𝐹𝑀𝐺, 𝐷 ( ) =",
+      "label": "ai_generated",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "𝐿 ∑ 1 𝑁𝑙 𝐷 𝑙( ) 𝐼𝑟 ( ) −𝐷 𝑙( ) 𝐼( ) ||| ||| ||| |||1 In Eq.4, represents the activation at layer of the discriminator and is the number of 𝐷 𝑙( ) 𝑙 𝑁𝑙 elements at that layer. This combination of adversarial and feature-level supervision allows the generator to synthesize fine-grained textures while maintaining structural consistency, ensuring that local details are visually coherent and perceptually realistic, even in highly corrupted regions.",
+      "label": "ai_generated",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "3.3 Scene-Adaptive Mechanism​",
+      "label": "human",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The Scene-Adaptive Mechanism in the proposed framework dynamically adjusts restoration strategies according to the specific characteristics of each input scene, such as illumination variation, noise intensity, and texture complexity [27]. Let denote the feature 𝐹𝑠 representation of a scene extracted from the Transformer–GAN pipeline. An adaptive weighting map is computed using a sigmoid-activated projection: 𝑊𝑠",
+      "label": "ai_generated",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ ​ ​ ​ ​ (5)",
+      "label": "human",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "𝑊𝑠= σ 𝑓θ 𝐹𝑠 ( ) ( ) Where represents a lightweight neural network that learns to encode scene-specific 𝑓θ properties and is the sigmoid function ensuring values lie in .",
+      "label": "ai_generated",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The final restored",
+      "label": "human",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "σ ·( ) 0, 1 [ ]",
+      "label": "ai_generated",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "output is obtained by modulating the contributions of denoising and inpainting pathways 𝐼𝑠 according to : 𝑊𝑠 ​​ ​ (6) 𝐼𝑠= 𝑊𝑠⊙𝐼𝑑𝑒𝑛𝑜𝑖𝑠𝑒+ 1 −𝑊𝑠 ( ) ⊙𝐼𝑖𝑛𝑝𝑎𝑖𝑛𝑡",
+      "label": "human",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "In Eq.6, denotes element-wise multiplication, and are the outputs from ⊙ 𝐼𝑑𝑒𝑛𝑜𝑖𝑠𝑒 𝐼𝑖𝑛𝑝𝑎𝑖𝑛𝑡 denoising and inpainting branches, respectively. This adaptive fusion ensures that regions with higher corruption or missing data receive greater attention from the inpainting pathway, while well-preserved regions are predominantly refined by denoising operations. By continuously learning during training, the system achieves robust generalization across 𝑊𝑠 varying scenes, maintaining structural fidelity and perceptual quality even under previously unseen environmental conditions.​",
+      "label": "ai_generated",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "3.4 Confidence-Guided Loss Function​",
+      "label": "human",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The Confidence-Guided Loss Function is designed to balance the contribution of reliable and uncertain regions during training, thereby improving the robustness of restoration under varying scene conditions [28],[29]. Given a ground truth image and a predicted output , a 𝐼 𝐼",
+      "label": "ai_generated",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "confidence map is generated, where each element quantifies the reliability 𝐶ϵ 0 × 1 [ ]",
+      "label": "human",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "𝐶𝑖𝑗 of the prediction at pixel . The loss is formulated as a confidence-weighted 𝑖, 𝑗 ( ) reconstruction error: ​ ​ ​ ​ (7) 𝐿𝑐𝑜𝑛𝑓= 𝑖=1 𝐻 ∑ 𝐽=1 𝑊 ∑𝐶𝑖𝑗· 𝐼𝑖𝑗−𝐼𝑖𝑗 ||| ||| ||| |||2 2 which ensures that highly confident predictions are penalized more strictly, while",
+      "label": "human",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "uncertain regions are adaptively relaxed.",
+      "label": "human",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "To further enhance perceptual quality, an",
+      "label": "ai_generated",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "adversarial consistency term from the discriminator output is added, yielding the full 𝐷𝐼( ) objective:",
+      "label": "ai_generated",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "𝐿𝑡𝑜𝑡𝑎𝑙= 𝐿𝑐𝑜𝑛𝑓+",
+      "label": "ai_generated",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "λ · 𝐸1 −𝐶 ( ) · 𝑙𝑜𝑔1 −𝐷𝐼( ) ( ) [ ]",
+      "label": "human",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "In Eq.8, controls the trade-off between reconstruction fidelity and perceptual realism. This λ formulation allows the model to dynamically prioritize reliable structures while encouraging the refinement of uncertain areas through adversarial feedback, leading to sharper and context-aware restorations. Figure 2 illustrates the flowchart for the proposed model.",
+      "label": "ai_generated",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ Figure 2: Flowchart for the Proposed Model IV Implementation Details​",
+      "label": "human",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The model was implemented using PyTorch 2.2 with CUDA support. Training was performed on an NVIDIA A100 GPU (40 GB memory), while inference experiments were tested on a single Intel Xeon CPU (2.6 GHz, 64 GB RAM) for runtime benchmarking. Mixed-precision training with AMP (Automatic Mixed Precision) was used to reduce memory overhead and accelerate computations. For GAN stability, spectral normalization was applied to the discriminator, and gradient clipping with a threshold of 1.0 was used in the generator. All experiments were executed on Ubuntu 22.04 with Python 3.10, leveraging TorchVision for preprocessing and NumPy/Matplotlib for evaluation and visualization.",
+      "label": "ai_generated",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "4.1 Training Strategy​",
+      "label": "human",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The proposed framework was trained progressively to ensure stable convergence and effective integration of the transformer-based global modeling, GAN-driven texture refinement, and scene-adaptive loss functions. For dataset preparation, the CelebA-HQ dataset was selected due to its large-scale availability and rich variations in facial attributes, which provide sufficient diversity for evaluating denoising and inpainting performance. All images were resized to pixels, normalized to the range , and augmented 256 × 256 −1, 1 [ ]",
+      "label": "ai_generated",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "using random cropping, flipping, and Gaussian noise injection. Training was conducted in two phases: an initial warm-up phase where only the transformer backbone was optimized to capture structural integrity, followed by a joint training phase incorporating GAN objectives and the confidence-guided loss. This progressive strategy prevented instability often observed in adversarial optimization. Hyperparameters were carefully tuned, with the Adam optimizer employed at a learning rate of , exponential decay rates , 2 × 10 −4 β1 = 0. 5, β2 = 0. 999 ( ) and a batch size of 16. A total of 200 epochs were conducted, with early stopping based on validation PSNR and SSIM scores to avoid overfitting.",
+      "label": "ai_generated",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Table 1: Experimental Configuration and System Specifications Component Configuration Dataset CelebA-HQ (30,000 images, resized to 256×256256 \\times 256) Preprocessing Random crop, horizontal flip, Gaussian noise injection Optimizer Adam ( = , ) 𝑙𝑟2 × 10 −4 β1 = 0. 5, β2 = 0. 999 Batch Size 16 Epochs 200 (with early stopping) Framework PyTorch 2.2 (CUDA-enabled) Training Hardware NVIDIA A100 GPU (40 GB) Testing Hardware Intel Xeon CPU (2.6 GHz, 64 GB RAM) Software Environment Ubuntu 22.04, Python 3.10, TorchVision, NumPy, Matplotlib Training Precision Mixed Precision (AMP) Stability Enhancements Spectral Normalization (Discriminator), Gradient Clipping τ = 1. 0",
+      "label": "human",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Table 1 summarizes the dataset configuration, preprocessing steps, hyperparameters, and system specifications employed for training and evaluating the proposed Scene-Adaptive Transformer-GAN framework. It highlights both the algorithmic parameters, such as optimizer and stability enhancements, and the computational environment, including hardware and software libraries, ensuring reproducibility and transparency of the experimental pipeline.",
+      "label": "ai_generated",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "V Results and Discussion",
+      "label": "human",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Table 2: Comparative Evaluation of Image Restoration Models Across PSNR, SSIM, and Localization Accuracy",
+      "label": "ai_generated",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Model PSNR (dB) Overall PSNR (Urban / Indoor / Low-Illumination) SSIM Localization Accuracy (%) DnCNN 29.5 28.5 / 29.0 / 29.1 0.81 70 UNet 30.1 29.2 / 29.8 / 30.0 0.83 72 GAN-Inpain t 30.8 29.9 / 30.2 / 30.5 0.85 75 CGSRC 31.2 30.5 / 31.0 / 31.2 0.86 78 AFFU 31.6 30.9 / 31.4 / 31.6 0.87 80 SAT-GAN (Proposed Model) 34.6 34.0 / 34.5 / 35.0 0.94 96",
+      "label": "human",
+      "page_num": 12,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Table 2 presents a comprehensive comparison of six image restoration models, including the proposed SAT-GAN. It reports overall PSNR values, dataset-specific PSNR scores (Urban, Indoor, Low-Illumination), SSIM, and localization accuracy. The proposed SAT-GAN consistently outperforms all baseline models, achieving the highest overall PSNR (34.6 dB), superior structural similarity (SSIM = 0.94), and the best localization accuracy (96%), demonstrating its effectiveness in high-fidelity and spatially accurate image restoration tasks.",
+      "label": "ai_generated",
+      "page_num": 12,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ Figure 3: SSIM Comparison Across Models",
+      "label": "human",
+      "page_num": 12,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Figure 3 illustrates the Structural Similarity Index (SSIM) for the six models. The SSIM indicates the perceived image quality relative to ground truth. The proposed SAT-GAN",
+      "label": "ai_generated",
+      "page_num": 12,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "achieves an SSIM of 0.94, showing superior structural preservation and image quality compared to other models, which range from 0.81 to 0.87.",
+      "label": "ai_generated",
+      "page_num": 13,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ Figure 4: Localization Accuracy Across Models",
+      "label": "human",
+      "page_num": 13,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Figure 4 compares localization accuracy for the six models. The proposed SAT-GAN attains a localization accuracy of 96%, clearly outperforming all baseline models, whose accuracies range between 70% and 80%. This demonstrates the model’s strong performance in spatially accurate image reconstruction tasks.",
+      "label": "ai_generated",
+      "page_num": 13,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Figure 5: PSNR Comparison Across Datasets (Urban, Indoor, Low-Illumination)",
+      "label": "ai_generated",
+      "page_num": 13,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Figure 5 shows the distribution of PSNR values for six image restoration models across three datasets. Each box represents the variation in PSNR for a given model. The proposed SAT-GAN model achieves the highest PSNR values, with dataset-specific scores of 34.0 dB (Urban), 34.5 dB (Indoor), and 35.0 dB (Low-Illumination), outperforming existing models significantly.",
+      "label": "ai_generated",
+      "page_num": 14,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "5.1 Ablation Study",
+      "label": "human",
+      "page_num": 14,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "An ablation study was conducted to evaluate the contribution of individual components in the proposed SAT-GAN model.",
+      "label": "ai_generated",
+      "page_num": 14,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Variants were tested by removing transformer blocks, GAN refinement, or the attention module. The results show that each component plays a crucial role in achieving high-performance image restoration. Extensive experiments demonstrate that the full SAT-GAN outperforms other methods by achieving 34.6 dB PSNR, 0.94 SSIM and 96% localization accuracy on average. Removal of any transformer blocks, GAN refinement or attention module results in a clear degradation in PSNR, SSIM and localization accuracy scores showing that our models benefit from their combined effect which results in high-fidelity and spatially accurate reconstructions. Table 3: Ablation Study of SAT-GAN Components Variant PSNR (dB) SSIM Localization Accuracy (%) Without Transformer Blocks 33.2 0.91 90 Without GAN Refinement 33.5 0.92 92 Without Attention Module 33.8 0.92 93 Without Transformer + GAN 32.5 0.89 88 Full SAT-GAN (Proposed) 34.6 0.94 96 To show the effectiveness of each component of our SAT-GAN model, we conduct an ablation study in Table 3. The performance degrades obviously if we discard transformer blocks, GAN refinement or attention modules in terms of PSNR, SSIM and the accuracy of localization. Table 2 The full SAT-GAN model generally demonstrates the highest performance (PSNR = 34.6 dB, SSIM = 0.94, Localization = 96%) and strong synergy between all the elements for high quality image reconstruction both in a spatially accurate sense but also as to resolution.",
+      "label": "human",
+      "page_num": 14,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "5.2 Discussion The experimental results show that SAT-GAN outperforms the current image restoration models on all measurement metrics. First, its excellent PSNR and SSIM scores demonstrate that the pixel-wise detail and structural information are maintained better than baseline models. Second, the high localization accuracy indicates that SAT-GAN preserves location precision, which is important in applications requiring accurate feature reconstruction. Third, the ablation study confirms that the transformer, GAN refiner and attention modules all make significant contributions to performance, suggesting not only is architecture of the model synergistic. Furthermore, Model achieves consistent performance across different datasets (Urban, Indoor, Low-Illumination), which indicates that it can generalize well under different image settings. Finally, these results demonstrate that combining scene-adaptive transformers with GAN-based refinement shows the promise in the future work on image restoration and inpainting tasks both highly restored and structurally preserved. VI Conclusion In this paper, we envisioned a novel scene-adaptive transformer-based GAN model for image restoration, named SAT-GAN, which efficiently integrates attention mechanisms, transformed blocks and GAN refinement to improve the quality of images. Experimental results indicate that, compared with state-of-the-art methods developed and tested on more than 1100 ground- truth calibrated images acquired under varying imaging conditions, SAT-GAN consistently outperforms them in terms of PSNR, SSIM, and the accuracy for localizing edges. Ablation studies also validate the importance of each module to the final result, which demonstrates that the architecture is designed in a synergistic manner. The proposed network yields an average PSNR, SSIM and localization accuracy of 34.6 dB, 0.94 and 96% respectively, which makes it an advanced model for high-quality image restoration. Possible directions of future work include the extension of SAT-GAN to real-time video restoration, low-light imaging and multimodal data fusion, which may significantly improve its versatility in dealing with various complicated visual tasks. References​ [1] Peng, J., Xu, Y., Luo, L., Liu, H., Lu, K., & Liu, J. (2023). Regularized denoising masked visual pretraining for robust embodied pointgoal navigation. Sensors, 23(7), 3553.​ [2] Nguyen, A. T., Pham, D. D., Le, V. N., & Luu, V. H. (2025). Design a path–planning strategy for mobile robot in multi-structured environment based on distributional reinforcement learning. MethodsX, 103554.​ [3] Achaibou, A., Pla, F., & Calpe, J. (2025). Guided Depth Inpainting in ToF Image Sensing based on Near Infrared Information. IEEE Transactions on Computational Imaging.​ [4] Wang, E., Huo, W., Xu, S., Qu, P., & Na, L. (2025). Autonomous navigation of indoor wheeled robots based on improved Gmapping and improved Bidirectional A. Discover Robotics, 1(1), 1-28.​ [5] Guo, G. (2023). Real-time medical image denoising and information hiding model based on deep wavelet multiscale autonomous unmanned analysis: G. Guo. Soft computing, 27(7), 4263-4278.​ [6] Nagavarapu, S. C., Abraham, A., Li, S., & Dauwels, J. (2025). Enhancing autonomous",
+      "label": "human",
+      "page_num": 15,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "vehicle navigation through computer vision: techniques for lane marker detection and rain removal. In Internet of Vehicles and Computer Vision Solutions for Smart City Transformations (pp. 167-191). Cham: Springer Nature Switzerland.​ [7] Vizcarra, C., Alhamed, S., Algosaibi, A., Alnaeem, M., Aldalbahi, A., Aljaafari, N., ... & Anan, M. (2024). Deep learning adversarial attacks and defenses on license plate recognition system. Cluster Computing, 27(8), 11627-11644.​ [8] Zhong, W., Mao, L., & Ning, Y. (2024). Fingerprint image denoising and inpainting using generative adversarial networks. Evolutionary Intelligence, 17(1), 599-607.​ [9] Zhang, T., Li, W., Wu, D., & Gao, Q. (2025). Corrected Group Sparse Residual Constraint Model for Image Denoising and Inpainting. Circuits, Systems, and Signal Processing, 44(2), 1184-1213.​ [10] Tao, H. (2024). Erasing-inpainting-based data augmentation using denoising diffusion probabilistic models with limited samples for generalized surface defect inspection. Mechanical Systems and Signal Processing, 208, 111082.​ [11] Chen, X., Zhan, S., Ji, D., Xu, L., Wu, C., & Li, X. (2023). Image denoising via deep network based on edge enhancement. Journal of Ambient Intelligence and Humanized Computing, 14(11), 14795-14805.​ [12] Zhou, T., Li, C., Zeng, X., & Zhao, Y. (2021). Sparse representation with enhanced nonlocal self-similarity for image denoising. Machine Vision and Applications, 32(5), 110.​ [13] Kumar, P. R., Shilpa, B., Jha, R. K., Raju, B. D., & Mohammed, T. K. (2024). Inpainting non-anatomical objects in brain imaging using enhanced deep convolutional autoencoder network. Sādhanā, 49(2), 181.​ [14] Zhong, X., Chen, W., Guo, Z., Zhang, J., & Luo, H. (2025). Image inpainting using diffusion models to restore eaves tile patterns in Chinese heritage buildings. Automation in Construction, 171, 105997.​ [15] Chen, Y., Xia, R., Yang, K., & Zou, K. (2025). Dual degradation image inpainting method via adaptive feature fusion and U-net network. Applied Soft Computing, 174, 113010.​ [16] Zirakkar, B. B., & Hosseini, A. (2025). Enhancing image restoration using a discrete variational model with triangular mesh-based TV. Numerical Algorithms, 1-29.​ [17] Liang, D., Gao, X., Lu, W., & Li, J. (2025). Inferring Normality from Noised Samples: Enhanced Deep Autoencoder with Image Denoising for Anomaly Detection. Information Sciences, 122503.​ [18] Sandooghdar, A., & Yaghmaee, F. (2025). Enhancing image restoration: parameter-assisted and edge-based inpainting with U-Net mamba. Signal, Image and Video Processing, 19(6), 466.​ [19] Shi, Z., Mettes, P., Maji, S., & Snoek, C. G. (2022). On measuring and controlling the spectral bias of the deep image prior. International Journal of Computer Vision, 130(4), 885-908.​ [20] Abuhussein, M., Almadani, I., Robinson, A. L., & Younis, M. (2024). Enhancing Obscured Regions in Thermal Imaging: A Novel GAN-Based Approach for Efficient Occlusion Inpainting. J, 7(3), 218-235. [21] Elharrouss, O., Damseh, R., Belkacem, A. N., Badidi, E., & Lakas, A. (2025). Transformer-based image and video inpainting: current challenges and future directions.",
+      "label": "human",
+      "page_num": 16,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Artificial Intelligence Review, 58(4), 124.​ [22] Duarte, A., Fernandes, F., Pereira, J. M., Moreira, C., Nascimento, J. C., & Jorge, J. (2024). Selfredepth: Self-supervised real-time depth restoration for consumer-grade sensors. Journal of Real-Time Image Processing, 21(4), 124.​ [23] Zhang, W., Zhang, X., Jin, Z., Wen, Y., & Liu, J. (2024). Inpainting radar missing data via denoising iterative restoration. IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing, 17, 10715-10725.​ [24] Bale, A. S., Kumar, S. S., Kiran Mohan, M. S., & Vinay, N. (2021). A study of improved methods on image inpainting. In Trends and Advancements of Image Processing and Its Applications (pp. 281-296). Cham: Springer International Publishing.​ [25] Kaur, A., & Dong, G. (2023). A complete review on image denoising techniques for medical images. Neural Processing Letters, 55(6), 7807-7850.​ [26] Zhang, W., Zhou, C., Peng, X., & Lian, Z. (2025). InpaintingPose: Enhancing human pose transfer by image inpainting. Image and Vision Computing, 105690.​ [27] Zhong, Z., Niu, L., Mu, X., & Wang, X. (2025). Efficient image inpainting of microresistivity logs: A DDPM-based pseudo-labeling approach with FPEM-GAN. Computers & Geosciences, 196, 105812.​ [28] Cao, X., Quan, P., Mao, Y., Cao, R., Su, L., & Li, K. (2025). TRRS-DM: Two-stage Resampling and Residual Shifting for high-fidelity texture inpainting of Terracotta Warriors utilizing Diffusion Models. Pattern Recognition, 111753.​ [29] Elharrouss, O., Damseh, R., Belkacem, A. N., Badidi, E., & Lakas, A. (2025). Transformer-based image and video inpainting: current challenges and future directions. Artificial Intelligence Review, 58(4), 124.",
+      "label": "human",
+      "page_num": 17,
+      "source": "direct_pdf"
+    }
+  ],
+  "stats": {
+    "ai_generated_segments": 35,
+    "ai_paraphrased_segments": 1,
+    "human_segments": 33,
+    "ocr_pages": 0,
+    "total_chars_ai": 13520,
+    "total_chars_paraphrased": 177,
+    "total_chars_human": 22453
+  },
+  "errors": []
+}

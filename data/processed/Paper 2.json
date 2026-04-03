@@ -1,0 +1,272 @@
+{
+  "file_name": "Paper 2.pdf",
+  "file_path": "c:\\Users\\gowth\\Downloads\\ai_plag_detector\\data\\raw_data\\raw_data\\Paper 2.pdf",
+  "submission_date": "2026-02-06",
+  "priority": "HIGH",
+  "total_pages": 8,
+  "ai_percentage_reported": 99,
+  "segments": [
+    {
+      "text": "XXX-X-XXXX-XXXX-X/XX/$XX.00 ©20XX IEEE",
+      "label": "ai_generated",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Knowledge-Driven Generative AI Models for Intelligent Content Creation and Decision Support Systems",
+      "label": "human",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Abstract— The rapid growth of social media platforms has resulted in massive volumes of user-generated content, offering valuable insights into public opinion, consumer preferences, and emerging social trends. However, the informal writing style, context-dependent expressions, and noisy nature of social media text pose significant challenges for traditional sentiment analysis techniques. To address these issues, this study proposes a Context-Aware Sentiment Analysis framework using a Bidirectional Recurrent Neural Network (Bi-RNN) with an Attention Mechanism. The bidirectional architecture captures sequential dependencies in both forward and backward directions, ensuring that contextual nuances surrounding each word are preserved. The attention mechanism further enhances performance by assigning dynamic importance to sentiment- rich tokens, enabling the model to focus on words that contribute most to sentiment polarity. Pre-trained embeddings are employed to initialize lexical representations, while regularization techniques mitigate overfitting. Experimental evaluation on benchmark datasets such as Twitter Sentiment140 and IMDB reviews demonstrates that the proposed model achieves superior accuracy, precision, recall, and F1-scores compared to baseline methods including CNN, LSTM, and Transformer-based models. On Twitter Sentiment140, the model attained an accuracy of 91.5% and F1- score of 90.7%, while on IMDB reviews, it achieved 93.8% accuracy and 93.2% F1-score. These results highlight the ability of the proposed framework to effectively handle short, noisy, and context-heavy social media text while providing interpretable sentiment predictions. The study emphasizes the potential of context-aware attention-driven recurrent architectures in advancing sentiment classification for large- scale social media analytics.",
+      "label": "ai_generated",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Keywords— Sentiment Analysis; Social Media Analytics; Context-Aware Modeling; Bidirectional RNN; Attention Mechanism; Natural Language Processing. I. INTRODUCTION",
+      "label": "human",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The explosion of social media platforms such as Twitter, Facebook, and Instagram has transformed the way individuals express opinions, share experiences, and influence public discourse. Millions of posts are generated daily, providing a rich source of data for analyzing sentiment trends in domains such as politics, marketing, and healthcare. However, the informal language, use of slang, abbreviations, emojis, and context-dependent expressions inherent in social media make sentiment classification a challenging task for conventional computational methods [1]. Sentiment analysis, often referred to as opinion mining, seeks to identify and classify the polarity of text into categories such as positive, negative, or neutral. Traditional approaches relying on lexicons and machine learning models such as Naïve Bayes or Support Vector Machines have demonstrated reasonable performance but are limited by their dependence on handcrafted features and inability to effectively capture sequential context [2]. These shortcomings have motivated the shift toward deep learning-based approaches, which automatically learn hierarchical representations from raw text data. Recurrent Neural Networks (RNNs) have shown promise in capturing sequential dependencies in natural language. Yet, standard RNNs face limitations such as vanishing gradients, which hinder their ability to model long-range dependencies. To address this, bidirectional RNNs (Bi-RNNs) extend the architecture by processing text in both forward and backward directions, thereby capturing the full context of a sentence. This feature is particularly useful in social media texts, where the meaning of a sentiment often depends on preceding and succeeding words [3]. Attention mechanisms further enhance RNN performance by allowing the model to dynamically focus on sentiment-rich tokens within a sequence. Instead of treating all words equally, attention assigns higher weights to contextually significant words such as “amazing,” “disappointing,” or negations like “not good.” This not only boosts classification accuracy but also improves interpretability by revealing the model’s decision-making process [4]. In this study, we propose a context-aware sentiment analysis framework that integrates a Bidirectional RNN with an Attention Mechanism to effectively classify sentiments in noisy and diverse social media text. The model leverages pre- trained embeddings for semantic richness, Bi-RNN for capturing long-range contextual dependencies, and attention for emphasizing key tokens. We evaluate the framework on benchmark datasets such as Twitter Sentiment140 and IMDB reviews, achieving significant improvements in accuracy and F1-score compared to CNN, LSTM, and Transformer-based baselines. The contributions of this work include: (i) development of a context-aware hybrid architecture tailored for social media text, (ii) improved interpretability through attention visualization, and (iii) extensive evaluation demonstrating robustness across short and long text inputs. The unprecedented rise of social media platforms such as Twitter, Facebook, and Instagram has created a rich ecosystem of user-generated content that reflects real-time opinions, emotions, and societal trends. Sentiment analysis of such content is now indispensable for applications ranging from political forecasting and brand monitoring to crisis",
+      "label": "ai_generated",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Page 3 of 8 - AI Writing Submission",
+      "label": "ai_generated",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Submission ID trn:oid:::2945:347389935",
+      "label": "human",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "management and healthcare analytics [5]. Unlike conventional text sources, however, social media data is inherently noisy, with informal language, abbreviations, sarcasm, and emoji-driven semantics complicating the classification process [6]. Traditional sentiment analysis techniques, including lexicon-based approaches and machine learning models such as Naïve Bayes and Support Vector Machines, have been widely explored. While these methods provide interpretability and decent performance on structured corpora, they fail to capture contextual dependencies in short, ambiguous, and dynamic social media texts [7]. Moreover, handcrafted features such as n-grams and TF-IDF vectors lack the semantic depth needed to handle slang and evolving vocabulary. Deep learning approaches have revolutionized sentiment analysis by enabling end-to-end learning of semantic and syntactic features. Convolutional Neural Networks (CNNs) excel at extracting local features such as sentiment-rich n- grams but struggle with long-term dependencies. On the other hand, Recurrent Neural Networks (RNNs) and their advanced variants like Long Short-Term Memory (LSTM) and Gated Recurrent Units (GRU) capture sequential dependencies more effectively, making them well-suited for modeling language patterns in social media [8]. Despite their advantages, traditional RNNs process text in a unidirectional manner, limiting their ability to fully capture context. For example, the sentiment of a word may depend not only on its preceding tokens but also on subsequent words in the same sentence. To address this challenge, Bidirectional RNNs (Bi-RNNs) were developed, allowing the model to process sequences in both forward and backward directions. This bidirectional mechanism enhances context modeling, improving sentiment classification accuracy in cases involving negations and sarcasm [9]. Further advancements have come through the incorporation of attention mechanisms into recurrent architectures. Instead of treating all words equally, attention mechanisms assign dynamic weights to tokens, allowing the model to focus on contextually important words while ignoring irrelevant ones. This not only improves performance but also enhances interpretability, as it provides insights into the model’s decision-making process [10]. In this paper, we propose a context-aware sentiment analysis framework that integrates Bidirectional RNNs with an attention mechanism to effectively classify sentiments in noisy and dynamic social media texts. The contributions of this work are threefold: (i) the design of a hybrid deep learning model capable of capturing both local and global dependencies, (ii) improved interpretability through attention visualization, and (iii) extensive evaluation on benchmark datasets such as Twitter Sentiment140 and IMDB reviews to validate the robustness of the proposed method.",
+      "label": "ai_generated",
+      "page_num": 4,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "II. LITERATURE SURVEY",
+      "label": "human",
+      "page_num": 4,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Lexicon-based sentiment analysis approaches have long been popular due to their interpretability. Resources such as SentiWordNet and AFINN provide pre-assigned polarity values for words, enabling rule-based classification. However, these methods fail to adapt to the informal style and evolving vocabulary of social media, where sarcasm, emojis, and abbreviations dominate [11]. Machine learning models such as Naïve Bayes, SVM, and Maximum Entropy improved sentiment prediction by using statistical features like TF-IDF and n-grams. Although effective on structured datasets, these models struggle with short, noisy, and context-dependent texts typical of Twitter and Facebook posts [12]. The emergence of distributed embeddings such as Word2Vec, GloVe, and FastText transformed sentiment analysis by providing dense semantic representations of words. These embeddings capture similarity and context beyond surface- level frequency features, significantly improving classification performance across large-scale datasets [13]. Deep learning architectures such as Convolutional Neural Networks (CNNs) were introduced for text classification and sentiment analysis. CNNs excel at capturing local n-gram patterns but are limited in handling long-term dependencies, reducing their effectiveness on longer reviews or multi- sentence posts [14]. Recurrent Neural Networks (RNNs), including LSTM and GRU variants, became the next milestone in sentiment classification. These architectures modeled sequential word dependencies more effectively than CNNs. However, their unidirectional processing limited the capture of contextual cues spanning both past and future tokens [15]. The development of Bidirectional RNNs (Bi-RNNs) addressed this limitation by processing text in both forward and backward directions. This bidirectional context enhanced the classification of ambiguous sentences, such as those involving negations or sarcasm, commonly observed in social media text [16]. To further improve interpretability and performance, attention mechanisms were integrated into RNN-based architectures. Attention models assign dynamic weights to sentiment-rich tokens, ensuring the network focuses on critical words like “fantastic,” “awful,” or “not good,” leading to improved accuracy and transparency [17]. Recent research has explored hybrid architectures combining CNNs, Bi-RNNs, and attention modules. These models leverage CNN for local phrase-level features, Bi-RNN for contextual sequence modeling, and attention for focusing on important tokens. Such hybrids have consistently outperformed single-architecture models in sentiment classification tasks [18]. Transformer-based models such as BERT, RoBERTa, and XLNet have recently achieved state-of-the-art results in NLP tasks, including sentiment analysis. Their self-attention mechanism enables them to capture long-range dependencies without recurrence. However, their high computational cost and memory requirements make them less suitable for real- time sentiment monitoring in large-scale social media streams",
+      "label": "ai_generated",
+      "page_num": 4,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "To balance accuracy, efficiency, and interpretability, several studies now focus on context-aware lightweight models. By",
+      "label": "ai_generated",
+      "page_num": 4,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "integrating Bi-RNNs with attention mechanisms, these models achieve robust performance on noisy datasets while remaining computationally feasible for deployment. Such architectures represent the current research direction for practical sentiment analysis applications [20].",
+      "label": "ai_generated",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "III. DESIGN AND METHODOLOGY OF PROPOSED WORK",
+      "label": "human",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The proposed framework, Context-Aware Bi-RNN with Attention, is designed to capture both global context and fine- grained sentiment cues in noisy social media text. The model combines pre-trained embeddings, Bidirectional RNNs, and a token-level attention mechanism to improve classification accuracy and interpretability.",
+      "label": "ai_generated",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Fig. 1 — Overall Framework of the Proposed Context- Aware Bi-RNN with Attention A. Data Preprocessing",
+      "label": "human",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Social media data is inherently noisy and inconsistent, making preprocessing a critical step before model training. Raw posts often contain URLs, user mentions, hashtags, emojis, repeated characters, and informal language constructs. The preprocessing pipeline begins with text normalization, which includes lowercasing, Unicode standardization, and contraction expansion (e.g., “don’t” → “do not”). Next, noise removal eliminates redundant characters, hyperlinks, and user handles while preserving sentiment-bearing symbols such as emojis. Emojis are mapped into descriptive tokens (e.g., 🙂 → “smile”) to retain their emotional context. Tokenization is applied using whitespace and punctuation rules, followed by stopword handling where negation words (e.g., “not,” “never”) are retained due to their strong influence on polarity. Finally, all sequences are padded or truncated to a fixed maximum length, ensuring uniformity for batch processing and model efficiency.",
+      "label": "ai_generated",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Fig. 2 — Data Preprocessing Pipeline B. Embedding Layer",
+      "label": "human",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "After preprocessing, each token is mapped into a dense semantic vector using pretrained word embeddings. In this study, GloVe embeddings (300 dimensions) are employed to initialize word representations, capturing both syntactic and semantic relationships between words. These embeddings help the model generalize effectively across diverse social media content, reducing reliance on sparse handcrafted features. Formally, for a sentence with 𝑛 tokens, the embedding layer generates a matrix: 𝑋= [𝑤1, 𝑤2, … , 𝑤𝑛], 𝑤𝑖∈ℝ300",
+      "label": "ai_generated",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "This dense representation ensures that semantically similar words such as \"happy\" and \"joyful\" have vectors close in the embedding space, enabling the downstream model to",
+      "label": "ai_generated",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "recognize sentiment equivalence even in informal or contextually varied expressions.",
+      "label": "ai_generated",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "C. Bidirectional RNN for Context Modeling",
+      "label": "human",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The sequential nature of language requires capturing dependencies not only from past words but also from future context within a sentence. To achieve this, the proposed framework employs a Bidirectional Recurrent Neural Network (Bi-RNN) implemented using Gated Recurrent Units (GRUs). Unlike unidirectional models, Bi-RNNs process text in both forward and backward directions, concatenating hidden states to form a richer context representation. This dual perspective is particularly important for handling social media text, where sentiment polarity may depend on surrounding words (e.g., “not good” vs. “good”). The hidden state updates incorporate gating mechanisms to control information flow and mitigate vanishing gradient issues, ensuring effective modeling of long-range dependencies.",
+      "label": "ai_generated",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Fig. 3 — Bi-RNN with Token-Level Attention (Scoring → Weights → Context → Classification) D. Attention Mechanism",
+      "label": "human",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Although Bi-RNNs capture contextual dependencies, not all tokens contribute equally to sentiment classification. To address this, an attention mechanism is integrated into the architecture. Attention assigns dynamic weights (𝛼𝑡) to each token's hidden state based on its contribution to sentiment polarity. Words such as \"amazing,\" \"awful,\" or negations like \"not\" receive higher attention weights, while neutral tokens such as stopwords are downweighted. The attention layer produces a context vector by computing a weighted sum of hidden states: 𝑐= ∑ 𝑛 𝑡=1 𝛼𝑡𝐻𝑡",
+      "label": "ai_generated",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "This context-aware representation ensures that the model selectively focuses on sentiment-rich expressions, thereby enhancing both classification performance and interpretability.",
+      "label": "ai_generated",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "IV. EXPERIMENTAL RESULTS AND ANALYSIS",
+      "label": "human",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The performance of the proposed Context-Aware Bi-RNN with Attention framework was systematically evaluated on benchmark datasets including Twitter Sentiment140 and IMDB movie reviews. The experiments were designed to validate the effectiveness of bidirectional sequence modeling and attention integration in handling noisy, context- dependent social media texts. The dataset was split into 80% training, 10% validation, and 10% testing, ensuring balanced representation of positive, negative, and neutral classes. Preprocessing retained negation terms and mapped emojis into sentiment tokens, preserving the expressive nature of social media posts. The model was implemented in TensorFlow/Keras, optimized using the Adam optimizer with an initial learning rate of 0.001, and trained with a batch size of 64. Dropout and early stopping techniques were applied to minimize overfitting and enhance generalization. On the Twitter Sentiment140 dataset, the proposed model achieved an accuracy of 91.5%, precision of 91.2%, recall of 90.3%, and F1-score of 90.7%. In comparison, CNN and LSTM baselines recorded 87.2% and 88.9% accuracy, while a Transformer-based model achieved 90.4%. These results confirm that the bidirectional context modeling and attention weighting enable superior performance in short, noisy texts typical of Twitter. For the IMDB reviews dataset, which contains longer and more structured content, the model achieved 93.8% accuracy, 93.5% precision, 92.8% recall, and an F1-score of 93.2%. This demonstrates the robustness of the proposed framework across varying text lengths and complexities. Notably, the Bi- RNN component captured long-range dependencies within reviews, while the attention layer ensured that sentiment-rich words and phrases were emphasized. An ablation study was also conducted to measure the contribution of each component. Removing the attention mechanism reduced accuracy by nearly 2%, while excluding bidirectional processing led to performance drops of more than 3%. The complete Bi-RNN with attention model consistently outperformed these simplified versions, validating the necessity of each module. Furthermore, confusion matrix analysis revealed that most misclassifications occurred between neutral and mildly positive or negative instances, reflecting the inherent ambiguity of social media text. Despite these challenges, the proposed model maintained balanced performance across classes, highlighting its ability to generalize well. Overall, the results confirm that the context-aware Bi-RNN with attention achieves superior accuracy, robustness, and interpretability compared to existing sentiment classification models, making it highly suitable for large-scale social media analytics applications.",
+      "label": "ai_generated",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "4. Accuracy Comparison across Models – The Bi- RNN with Attention achieved 91.5% accuracy, outperforming CNN, LSTM, and Transformer baselines.",
+      "label": "ai_generated",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "F1-Score Comparison – The proposed model recorded the highest F1-score (90.7%), showing balanced performance between precision and recall.",
+      "label": "ai_generated",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Precision vs Recall – Precision (91.2%) and recall (90.3%) remain consistently higher for Bi-RNN with Attention, reflecting robustness against misclassification.",
+      "label": "ai_generated",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Ablation Study Results – Accuracy improves progressively from Bi-RNN only (88.2%) to Bi-RNN + Attention (90.1%), and finally to the full model (91.5%), validating each component’s contribution.",
+      "label": "ai_generated",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Confusion Matrix – Most samples were correctly classified across positive, neutral, and negative classes, with minor confusion in neutral cases due to contextual ambiguity",
+      "label": "ai_generated",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "V. CONCLUSION",
+      "label": "human",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "In this work, a context-aware sentiment analysis framework was proposed, integrating Bidirectional Recurrent Neural Networks (Bi-RNNs) with an attention mechanism to address the unique challenges of sentiment classification in social media platforms. The bidirectional structure enabled the model to capture contextual dependencies from both past and future tokens, while the attention layer selectively emphasized sentiment-rich expressions. Together, these components ensured accurate modeling of the informal, noisy, and context-dependent nature of social media text. Comprehensive experiments conducted on Twitter Sentiment140 and IMDB review datasets demonstrated the superior performance of the proposed model compared to baseline CNN, LSTM, and Transformer architectures. The framework achieved an accuracy of 91.5% with F1-score of 90.7% on Twitter, and 93.8% accuracy with 93.2% F1-score",
+      "label": "ai_generated",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "on IMDB, confirming its robustness across both short and long textual inputs. These results validate the effectiveness of combining bidirectional sequence modeling with attention for real-world sentiment analysis. The contributions of this study are threefold: (i) development of a context-aware hybrid Bi-RNN–attention model, (ii) improved interpretability through visualization of attention weights, and (iii) extensive evaluation on benchmark datasets demonstrating consistent improvements in performance. Nevertheless, the model faces limitations such as increased computational requirements compared to traditional RNNs and difficulties in handling highly ambiguous cases like sarcasm or irony. Future work will explore lightweight variants for deployment in real-time applications, domain- adaptive pretraining, and multimodal sentiment analysis that integrates text with visual and audio cues. These directions will further expand the applicability of the proposed framework in large-scale social media analytics, opinion mining, and decision support systems.",
+      "label": "ai_generated",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "REFERENCES [1] Saravanan, V., Parameshachari, B.D., Hussein, A.H.A., Shilpa, N., Adnan, M.M. (2023).",
+      "label": "human",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Deep Learning Techniques Based Secured Biometric Authentication and Classification using ECG Signal.",
+      "label": "ai_generated",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "International Conference on Integrated Intelligence and Communication Systems (ICIICS). https://doi.org/10.1109/ICIICS59993.2023.10421295. [2] Saravanan, V., Yahya, M., Hussein, A.H.A., Ravindran, G., Adnan, M.M. (2023).",
+      "label": "human",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Alzheimer's Disease Prediction using Deep Learning Technique in 3D Brain MRI.",
+      "label": "ai_generated",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "ICIICS 2023. https://doi.org/10.1109/ICIICS59993.2023.10421074. [3] Tamilselvan, S., Babu, M., Rajasekar, P., Shanmugam, R.,",
+      "label": "human",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Kadumbadi, V. (2024). Enhancing IoT Network Capabilities through Edge Computing Strategies.",
+      "label": "ai_generated",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "10th Int. Conf. on Communication and Signal Processing (ICCSP), pp. 306–310. https://doi.org/10.1109/ICCSP60870.2024.10543789. [4] Rajasekar, P., Kalaiselvi, K., Shanmugam, R., Tamilselvan, S., Pandian, A.P. (2024). Cloud Security Frameworks with Distributed Ledger Technology. IEEE ICAIT 2024. https://doi.org/10.1109/ICAIT61638.2024.10690718. [5] Senthilvel, P.G., et al. (2025). Explainable AI in Thermal Modelling Using LSTM Networks. Thermal Science and Engineering Progress, 60. https://doi.org/10.1016/j.tsep.2025.103465. [6] Senthilvel, P.G., et al. (2025). Adaptive Recommender System for Autism using Dilated 1D-CNN-LSTM with Attention. Expert Systems with Applications, 262. https://doi.org/10.1016/j.eswa.2024.125399. [7] Varanasi, S., & Malathi, K. (2023). COOT Optimization-Based LSTM for Patient Waiting Time Prediction. Multimedia Tools and Applications, 83(13), 39315–39333. https://doi.org/10.1007/s11042-023-17045-7. [8] Chaudhari, D. J., & Malathi, K. (2023). Rice Leaf Disease Detection Using Hybrid CNN-SVM. Optical Memory and Neural Networks, 32(1), 39–57. https://doi.org/10.3103/s1060992x2301006x. [9] Vaswani, A., et al. (2017). Attention is All You Need. NeurIPS, 30, 5998–6008. [10] Devlin, J., et al. (2019). BERT: Pre-training of Deep Bidirectional Transformers. NAACL, 4171–4186. [11] Brown, T., et al. (2020). Language Models are Few-Shot Learners. NeurIPS, 33, 1877–1901. [12] Xu, J., et al. (2022). Sentiment Analysis of COVID-19 Tweets Using LSTM and Transformer. IEEE Access, 10, 34321–34332. [13] Zhang, Y., et al. (2021). BiLSTM-Attention Model for Sarcasm Detection. Information Processing & Management, 58(6), 102673. [14] Chen, T., & Guestrin, C. (2016). XGBoost: A Scalable Tree Boosting System. KDD, 785–794. [15] Li, J., et al. (2021). Deep Learning for Fake News Detection on Social Media. ACM Computing Surveys, 54(3), 1–36. [16] Abdi, H., & Williams, L. J. (2010). Principal Component Analysis. Wiley Interdisciplinary Reviews: Computational Statistics, 2(4), 433–459. [17] Hochreiter, S., & Schmidhuber, J. (1997). Long Short-Term Memory. Neural Computation, 9(8), 1735–1780. [18] M Selvam et al, “AI-Powered Cloud Computing for Performance Optimization and Scalability in Distributed Systems”, 2025 International Conference on Computing for Sustainability and Intelligent Future (COMP-SIF). [19] M Selvam et al, “Enhancing Question Answering Systems with Semantic Networks and NLP Techniques”, 2025 International Conference on Computing for Sustainability and Intelligent Future (COMP-SIF). [20] M Selvam et al, “Human-in-the-Loop Models for Ethical AI Grading: Combining AI Speed with Human Ethical Oversight”, EthAIca: Journal of Ethics, AI and Critical Analysis, 413.",
+      "label": "human",
+      "page_num": 8,
+      "source": "direct_pdf"
+    }
+  ],
+  "stats": {
+    "ai_generated_segments": 27,
+    "ai_paraphrased_segments": 0,
+    "human_segments": 15,
+    "ocr_pages": 0,
+    "total_chars_ai": 21044,
+    "total_chars_paraphrased": 0,
+    "total_chars_human": 3886
+  },
+  "errors": []
+}

@@ -1,0 +1,284 @@
+{
+  "file_name": "Paper 4 (3).pdf",
+  "file_path": "c:\\Users\\gowth\\Downloads\\ai_plag_detector\\data\\raw_data\\raw_data\\Paper 4 (3).pdf",
+  "submission_date": "2026-02-06",
+  "priority": "HIGH",
+  "total_pages": 8,
+  "ai_percentage_reported": 100,
+  "segments": [
+    {
+      "text": "XXX-X-XXXX-XXXX-X/XX/$XX.00 ©20XX IEEE Resource-Aware Machine Learning Algorithms for Real-Time Edge Intelligence in IoT Networks",
+      "label": "human",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Abstract— The explosive growth of social media platforms has created vast repositories of user-generated content, where sentiment polarity detection plays a crucial role in understanding public opinion, consumer behavior, and emerging trends. Traditional machine learning models often fail to capture long-range dependencies and nuanced contextual cues in such dynamic data. To address these limitations, we propose an Enhanced Recurrent Neural Network (RNN) with Multi-Level Attention Layers for fine-grained sentiment polarity detection. The framework integrates a hierarchical attention mechanism that operates at the word, sentence, and document levels, enabling the model to selectively emphasize semantically rich features while suppressing irrelevant noise. This multi-level attention not only improves interpretability but also enhances the ability to capture subtle variations in sentiment expressions, including sarcasm and context shifts. Comprehensive experiments were conducted on benchmark social media datasets such as Twitter Sentiment140 and SemEval, demonstrating that the proposed approach achieves superior accuracy, F1-score, and robustness compared to conventional RNNs, CNN-based sentiment classifiers, and transformer baselines. The results confirm that our model effectively balances context preservation and computational efficiency, offering a scalable solution for real-time sentiment monitoring in social media analytics. Keywords— Sentiment polarity detection, Social media analytics, Enhanced recurrent neural network (RNN), Multi-level attention mechanism, Context-aware sentiment analysis, Natural language processing (NLP).",
+      "label": "ai_generated",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "I. INTRODUCTION",
+      "label": "human",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The rapid expansion of social media platforms has transformed the way individuals express opinions, share experiences, and influence public discourse. Platforms such as Twitter, Facebook, and Instagram generate massive amounts of user-generated content daily, reflecting sentiments that are highly valuable for applications ranging from political campaign monitoring to consumer product analysis [1]. Analyzing this vast textual data to determine sentiment polarity—whether positive, negative, or neutral—remains a critical challenge in natural language processing (NLP). Conventional sentiment analysis approaches primarily relied on lexicon-based techniques and shallow machine learning classifiers. These methods often struggled to capture contextual nuances such as sarcasm, irony, or evolving word usage in dynamic social media environments [2]. With the advent of deep learning, recurrent neural networks (RNNs) and long short-term memory (LSTM) models gained popularity for their ability to model sequential dependencies in text. However, their limitations in capturing long-range context and interpretability have restricted their effectiveness in complex sentiment tasks [3]. Recent advancements introduced attention mechanisms, which significantly improved performance in sequence modeling tasks by allowing models to focus selectively on informative parts of input text [4]. Despite these improvements, single-level attention may overlook hierarchical relationships in language, such as the interplay between word-level, sentence-level, and document-level features. This limitation necessitates the exploration of multi- level attention architectures for more comprehensive sentiment representation [5]. The heterogeneity of social media data, including informal grammar, slang, emojis, and multilingual expressions, further complicates sentiment polarity detection [6]. Standard RNN models often fail to generalize across such noisy and diverse inputs, which reduces their robustness in real-world deployments. This motivates the development of enhanced RNN frameworks that incorporate sophisticated attention mechanisms capable of extracting sentiment cues at multiple levels. In recent years, hybrid deep learning models combining CNNs and RNNs have been explored to capture both local and sequential dependencies [7]. While these models improve accuracy, they often suffer from computational overhead and lack interpretability in terms of identifying which features contribute most to sentiment polarity. Addressing this gap requires architectures that balance accuracy, efficiency, and transparency in predictions. Our proposed Enhanced RNN with Multi-Level Attention Layers framework addresses these challenges by integrating hierarchical attention mechanisms. At the word level, attention highlights important tokens within a sentence; at the sentence level, it identifies sentiment-rich sentences within documents; and at the document level, it consolidates global sentiment context [8]. This hierarchical strategy enables the model to preserve nuanced semantic information while filtering out noise inherent in social media content. The interpretability provided by multi-level attention mechanisms is particularly valuable for applications in sensitive domains such as healthcare, finance, and public policy, where decision-makers require not just accurate predictions but also clear explanations of model outputs [9]. Furthermore, the hierarchical structure enhances generalization across datasets with varied linguistic and cultural patterns. Extensive experiments conducted on benchmark datasets such as Twitter Sentiment140 and SemEval demonstrate the superiority of the proposed model over baseline RNN, CNN, and transformer-based classifiers. Evaluation metrics including accuracy, precision, recall, and F1-score consistently highlight the robustness of the enhanced architecture under diverse conditions [10].",
+      "label": "ai_generated",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "In summary, this research contributes to advancing sentiment polarity detection in social media by addressing key limitations of existing models: limited context capture, insufficient interpretability, and poor robustness to noisy data. The proposed Enhanced RNN with Multi-Level Attention Layers achieves a balance between computational efficiency and fine-grained sentiment understanding, offering a scalable solution for real-time analytics. The remainder of this paper is structured as follows: Section II presents a comprehensive literature survey, Section III details the design and methodology of the proposed framework, Section IV discusses experimental results and analysis, and Section V concludes with insights and future research directions.",
+      "label": "ai_generated",
+      "page_num": 4,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "II. LITERATURE SURVEY",
+      "label": "human",
+      "page_num": 4,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The task of sentiment polarity detection in social media has attracted extensive attention in recent years due to its significance in various real-world applications. Early research efforts primarily focused on lexicon-based approaches, where sentiment dictionaries were employed to assign polarity scores to words and aggregate them at the sentence or document level. While computationally inexpensive, these methods suffered from poor adaptability to informal language and domain-specific vocabulary prevalent in social media",
+      "label": "ai_generated",
+      "page_num": 4,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Machine learning-based sentiment classifiers marked the next phase of progress. Models such as support vector machines (SVMs), naïve Bayes, and logistic regression demonstrated improved performance by using handcrafted features like n- grams, part-of-speech tags, and syntactic dependencies [12]. However, the reliance on manual feature engineering limited their scalability and effectiveness in handling the noisy, diverse, and dynamic nature of user-generated content. Deep learning models revolutionized sentiment analysis by enabling automatic feature extraction from raw text. Convolutional Neural Networks (CNNs) were particularly effective in capturing local dependencies and short phrases, offering competitive results in sentiment classification tasks [13]. Nonetheless, CNNs struggled to preserve long-range contextual relationships, a critical factor for nuanced sentiment detection in social media discussions. Recurrent Neural Networks (RNNs) and their variants, particularly Long Short-Term Memory (LSTM) and Gated Recurrent Units (GRU), emerged as powerful architectures for modeling sequential dependencies [14]. These models excelled in capturing temporal patterns in language, making them more effective than traditional classifiers. Yet, standard RNNs faced challenges such as vanishing gradients and limited interpretability, restricting their ability to handle complex sentiment nuances. To address these issues, attention mechanisms were introduced as a significant innovation. By allowing models to selectively focus on sentiment-rich words or phrases, attention enhanced both accuracy and interpretability in sentiment analysis tasks [15]. However, most early implementations relied on single-level attention, which often overlooked hierarchical dependencies across multiple linguistic levels. The emergence of hierarchical attention networks (HANs) demonstrated the potential of multi-level attention mechanisms. These models applied attention at both the word and sentence levels, offering finer granularity and improved performance in sentiment detection [16]. Still, their application to noisy and short-text social media environments remained underexplored, indicating a gap for further research. Transformers and pretrained language models, such as BERT and RoBERTa, have recently gained traction in sentiment analysis for their ability to capture global dependencies and contextual embeddings [17]. Although these models achieve state-of-the-art results on many benchmark datasets, their heavy computational requirements and lack of real-time adaptability pose challenges for large-scale social media monitoring. Hybrid models that combine CNNs, RNNs, and attention layers have also been explored to leverage the strengths of each architecture. For example, CNNs capture local features, while RNNs handle sequential dependencies, and attention layers enhance interpretability [18]. These approaches often improve accuracy but may still suffer from increased computational complexity and reduced scalability in real- world deployments. Another line of research focused on multilingual and cross- domain sentiment analysis, aiming to address the diversity of social media content. Models incorporating transfer learning and domain adaptation techniques attempted to generalize sentiment classifiers across languages and contexts [19]. Although promising, these models often struggled with data imbalance and noise, particularly in low-resource settings. Recent works highlight the need for frameworks that balance accuracy, interpretability, and computational efficiency while handling the noisy, context-rich nature of social media. Enhanced RNNs with multi-level attention mechanisms are emerging as a promising direction to address these gaps, combining the strengths of sequential modeling and hierarchical attention [20].",
+      "label": "ai_generated",
+      "page_num": 4,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "III. DESIGN AND METHODOLOGY OF PROPOSED WORK",
+      "label": "human",
+      "page_num": 4,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The proposed framework, Enhanced RNN with Multi-Level Attention Layers, is designed to effectively capture both local and global contextual dependencies in social media text while providing interpretability through hierarchical attention mechanisms. The methodology is divided into four stages: data preprocessing, embedding representation, enhanced recurrent modeling, and multi-level attention integration.",
+      "label": "ai_generated",
+      "page_num": 4,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Fig. 1. Overall Architecture of the Proposed System A. Data Preprocessing",
+      "label": "human",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Social media data is inherently noisy, containing irregular grammar, abbreviations, slang, hashtags, and emojis. Preprocessing is therefore crucial for robust sentiment detection. The pipeline includes text normalization (lowercasing, spelling correction, and URL removal), tokenization, stopword elimination, and emoji-to-text conversion. Hashtags are decomposed into constituent words (e.g., #HappyDay → happy day) to preserve semantic meaning. Additionally, stemming and lemmatization are applied to reduce word inflections, and padding is performed to maintain uniform sequence lengths across batches.",
+      "label": "ai_generated",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Fig. 2. Multi-Level Attention Mechanism B. Embedding Layer",
+      "label": "human",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Once preprocessed, textual data is converted into dense vector representations using pretrained embeddings such as GloVe or Word2Vec. These embeddings capture semantic relationships between words, ensuring that contextually similar words are represented close together in the vector space. For improved domain adaptation, contextual embeddings from BERT-like models can be fine-tuned. This embedding layer serves as the foundation for downstream RNN modeling.",
+      "label": "ai_generated",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Fig. 3. Flow of Data Preprocessing C. Enhanced Recurrent Neural Network (RNN)",
+      "label": "human",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The backbone of the proposed system is an Enhanced RNN, implemented with gated units (LSTM/GRU) to handle long- range dependencies. Unlike conventional RNNs, the enhanced architecture incorporates residual connections to mitigate vanishing gradients and layer normalization to stabilize training. This ensures that temporal relationships within user-generated posts, such as sarcasm spread across sentences, are effectively captured.",
+      "label": "ai_generated",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "D. Multi-Level Attention Layers",
+      "label": "human",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "To address the limitations of single-level attention, we introduce a multi-level hierarchical attention mechanism operating at three levels: 1.",
+      "label": "ai_generated",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Word-Level Attention: Assigns attention weights to words within a sentence, focusing on sentiment- rich tokens. 2.",
+      "label": "human",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Sentence-Level Attention: Highlights sentiment- dominant sentences within posts, especially useful for multi-sentence reviews or threads.",
+      "label": "ai_generated",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Document-Level Attention: Aggregates sentence- level representations to capture global polarity across an entire document or conversation. This hierarchical attention not only enhances interpretability by showing which components influence classification but also improves classification performance by capturing fine- grained contextual cues.",
+      "label": "ai_generated",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "E. Classification Layer",
+      "label": "human",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The aggregated representation from the multi-level attention mechanism is passed through fully connected dense layers followed by a softmax classifier. The final output corresponds to sentiment polarity labels: positive, negative, or neutral.",
+      "label": "ai_generated",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "IV. EXPERIMENTAL RESULTS AND ANALYSIS",
+      "label": "human",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The performance of the proposed Enhanced RNN with Multi-Level Attention Layers was evaluated on two widely used benchmark datasets: Twitter Sentiment140 and SemEval Task 4. Each dataset was split into training (70%), validation (10%), and testing (20%) sets. Standard evaluation metrics—Accuracy, Precision, Recall, and F1-score—were employed to measure model effectiveness.",
+      "label": "ai_generated",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "A. Experimental Setup",
+      "label": "human",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The model was implemented using TensorFlow/Keras with Adam optimizer (learning rate = 0.001) and categorical cross- entropy loss. Dropout regularization was applied at 0.3 to prevent overfitting. Batch size was set to 64 with early stopping based on validation loss. Pretrained GloVe embeddings (300 dimensions) were used, with fine-tuning allowed during training.",
+      "label": "ai_generated",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "B. Baseline Models for Comparison",
+      "label": "human",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The proposed model was compared with the following baselines:",
+      "label": "ai_generated",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": " CNN-based Sentiment Classifier  Standard RNN  Bi-LSTM  Hierarchical Attention Network (HAN)  BERT (fine-tuned) Table 1. Performance Comparison on Twitter Sentiment140 Dataset Model Accuracy (%) Precision (%) Recall (%) F1- score (%) CNN 82.4 81.2 80.9 81.0 Standard RNN 84.7 83.5 82.9 83.2 Bi-LSTM 86.3 85.1 84.7 84.9 Hierarchical Attention 87.8 87.0 86.5 86.7 BERT (fine-tuned) 89.1 88.5 88.2 88.3 Proposed Enhanced RNN + Multi- Level Attention 91.4 90.7 90.2 90.4",
+      "label": "human",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The proposed model consistently outperformed traditional CNNs, RNNs, and even transformer-based methods like BERT on both datasets. On the Twitter Sentiment140 dataset, it achieved 91.4% accuracy with an F1-score of 90.4%, representing a 2.3% improvement over BERT. Similar gains were observed on the SemEval dataset, where the proposed approach achieved 90.2% F1-score, compared to 87.6% for Hierarchical Attention Networks. This demonstrates the effectiveness of multi-level attention in capturing fine-grained sentiment cues across different linguistic levels. Additionally, the interpretability offered by attention visualizations provides insights into which words and sentences drive classification decisions—an important advantage in real-world applications.",
+      "label": "ai_generated",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Fig. 4. Accuracy Comparison Across Models",
+      "label": "human",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The proposed Enhanced RNN with Multi-Level Attention achieved the highest accuracy (91.4%), outperforming CNN (82.4%), standard RNN (84.7%), Bi-LSTM (86.3%), HAN (87.8%), and even BERT (89.1%). This demonstrates the advantage of hierarchical attention in capturing sentiment nuances in noisy social media data.",
+      "label": "ai_generated",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Precision vs Recall Across Models The precision-recall analysis highlights that the proposed model maintains both high precision (90.7%) and recall (90.2%), ensuring a balanced trade-off between false positives and false negatives. This is crucial in sentiment detection tasks where misclassifications could alter overall sentiment trends.",
+      "label": "ai_generated",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Fig. 6. F1-score Comparison",
+      "label": "human",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The proposed framework achieved an F1-score of 90.4%, the highest among all compared models. This reinforces that the model not only predicts sentiments accurately but also does so consistently across varying class distributions.",
+      "label": "ai_generated",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Training vs Validation Accuracy of Proposed",
+      "label": "ai_generated",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The training and validation curves show steady improvements over 10 epochs, converging at ~91% without significant overfitting. The close alignment of both curves validates the robustness and generalization capability of the proposed model.",
+      "label": "ai_generated",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Fig. 8. Confusion Matrix of Proposed Model",
+      "label": "human",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The confusion matrix demonstrates strong classification ability, with the majority of samples correctly predicted across positive, negative, and neutral classes. Misclassifications were minimal, indicating that the model is capable of handling ambiguous or sarcastic social media posts effectively.",
+      "label": "ai_generated",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "V. CONCLUSION",
+      "label": "human",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "In this study, we proposed an Enhanced RNN with Multi- Level Attention Layers framework for sentiment polarity detection in social media text. Unlike traditional lexicon- based and shallow learning approaches, the proposed model leverages hierarchical attention to capture semantic dependencies at the word, sentence, and document levels, ensuring both higher accuracy and interpretability. Experimental results on benchmark datasets such as Twitter Sentiment140 and SemEval confirm that the proposed approach significantly outperforms conventional CNNs, RNNs, Bi-LSTMs, Hierarchical Attention Networks, and even transformer-based models like BERT, achieving a peak accuracy of 91.4% and F1-score of 90.4%. The success of the framework can be attributed to its ability to selectively focus on sentiment-rich tokens and sentences while filtering out noise, a common characteristic of social media data. The interpretability of the attention mechanism further strengthens the applicability of the model in domains where explainability is critical, such as healthcare, finance, and policy analysis. Despite these advantages, the proposed approach has some limitations. The reliance on pretrained embeddings means performance may degrade in low- resource or multilingual contexts where embeddings are less mature. Furthermore, while our model balances computational efficiency and accuracy, transformer-based architectures still remain superior in handling extremely long documents. Future research will explore cross-lingual sentiment detection, domain adaptation for emerging social media platforms, and the integration of multimodal features such as images, emojis, and audio to further enhance sentiment understanding. Additionally, lightweight deployment strategies will be investigated to enable real-time",
+      "label": "ai_generated",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "large-scale sentiment monitoring on resource-constrained devices. In conclusion, the Enhanced RNN with Multi-Level Attention Layers offers a scalable, interpretable, and high- performing solution for sentiment polarity detection in noisy and diverse social media environments, paving the way for more robust sentiment analysis systems in real-world applications.",
+      "label": "ai_generated",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "REFERENCES [1] Mondal, S., Das, S., Golder, S. S., Bose, R., Sutradhar, S., & Mondal, H. (2024, December). AI-driven big data analytics for personalized medicine in healthcare: Integrating federated learning, blockchain, and quantum computing. In 2024 International Conference on Artificial Intelligence and Quantum Computation-Based Sensor Application (ICAIQSA) (pp. 1-6). IEEE. [2] Gupta, A., Maurya, M. K., Dhere, K., & Chaurasiya, V. K. (2024). Privacy-preserving hybrid federated learning framework for mental healthcare applications: Clustered and quantum approaches. IEEE Access. [3] Innan, N., Khan, M. A. Z., Marchisio, A., Shafique, M., & Bennai, M. (2024, June). Fedqnn: Federated learning using quantum neural networks. In 2024 International Joint Conference on Neural Networks (IJCNN) (pp. 1-9). IEEE. [4] Annan, R., Noland, J., Perkins, K., Yuan, X., Roy, K., & Qingge, L. (2025). Genomic privacy and security in the era of artificial intelligence and quantum computing. Discover Computing, 28(1), 108. [5] Marengo, A., & Santamato, V. (2025). Quantum algorithms and complexity in healthcare applications: a systematic review with machine learning-optimized analysis. Frontiers in Computer Science, 7, 1584114. [6] Gupta, K., Saxena, D., Rani, P., Kumar, J., Makkar, A., Singh, A. K., & Lee, C. N. (2024). An intelligent quantum cyber-security framework for healthcare data management. IEEE Transactions on Automation Science and Engineering. [7] Gurung, D., & Pokhrel, S. R. (2025). Performance analysis and design of a weighted personalized quantum federated learning. IEEE Transactions on Artificial Intelligence. [8] Ilyas, M., & Ilyas, R. (2024). The Role of Quantum Computing in Future Big Data Processing: A Comprehensive Review. Journal of Engineering and Computational Intelligence Review, 2(1), 9-17. [9] Chow, J. C. (2025). Quantum computing and machine learning in medical decision-making: a comprehensive review. Algorithms, 18(3), 156. [10] Guo, Y., Gao, Y., & Song, J. (2024). Molcfl: A personalized and privacy-preserving drug discovery framework based on generative clustered federated learning. Journal of biomedical informatics, 157, 104712. [11] Probul, N., Bakhtiari, M., Kazemi Majdabadi, M., Orbán, B., Fejér, S., Das, S., ... & Baumbach, J. (2023). Newest Advances on the FeatureCloud Platform for Federated Learning in Biomedicine. In 4th Belgrade Bioinformatics Conference (Vol. 4, pp. 49-49). Belgrade: Institute of molecular genetics and genetic engineering. [12] Nasajpour, M., Pouriyeh, S., Parizi, R. M., Han, M., Mosaiyebzadeh, F., Liu, L., ... & Batista, D. M. (2025). Federated Learning in Smart Healthcare: A Survey of Applications, Challenges, and Future Directions. Electronics, 14(9), 1750. [13] Bashir, A. K., Victor, N., Bhattacharya, S., Huynh-The, T., Chengoden, R., Yenduri, G., ... & Liyanage, M. (2023). Federated learning for the healthcare metaverse: Concepts, applications, challenges, and future directions. IEEE Internet of Things Journal, 10(24), 21873-21891. [14] Alzakari, S. A., Sarkar, A., Khan, M. Z., & Alhussan, A. A. (2024). Converging technologies for health prediction and intrusion detection in internet of healthcare things with matrix- valued neural coordinated federated intelligence. IEEE Access, 12, 99469-99498. [15] Smajić, A., Grandits, M., & Ecker, G. F. (2023). Privacy- preserving techniques for decentralized and secure machine learning in drug discovery. Drug Discovery Today, 28(12), 103820. [16] Ewejobi, P., Okokpujie, K., Adetiba, E., & Alao, B. (2024, April). Homomorphic Encryption for Genomics Data Storage on a Federated Cloud: A Mini Review. In 2024 International Conference on Science, Engineering and Business for Driving Sustainable Development Goals (SEB4SDG) (pp. 1-13). IEEE. [17] McWeeney, S., Perciano, T., Susut, C., Chatterjee, L., Fornari, M., Biven, L., & Siwy, C. (2023). Quantum Computing for Biomedical Computational and Data Sciences: A Joint DOE-NIH Roundtable. USDOE Office of Science (SC), Advanced Scientific Computing Research (ASCR), Washington, DC (United States); National Institutes of Health (NIH), Bethesda, MD (United States). [18] Busati, A. (2025). Recent Advances in ML Models and Their Applications in Bioinformatics and Biomedical Engineering. International Journal of Research and Scientific Innovation, 12(3), 778-784. [19] M Selvam et al, “Enhancing User Interaction in Digital Financial Systems Using AI-Driven Front-End Technologies: A Personalised Response Approach”, 2025 International Conference on Data Science, Agents & Artificial Intelligence (ICDSAAI). [20] M Selvam et al, “AI-Powered Cloud Computing for Performance Optimization and Scalability in Distributed Systems”, 2025 International Conference on Computing for Sustainability and Intelligent Future (COMP-SIF).",
+      "label": "human",
+      "page_num": 8,
+      "source": "direct_pdf"
+    }
+  ],
+  "stats": {
+    "ai_generated_segments": 25,
+    "ai_paraphrased_segments": 0,
+    "human_segments": 19,
+    "ocr_pages": 0,
+    "total_chars_ai": 18692,
+    "total_chars_paraphrased": 0,
+    "total_chars_human": 6081
+  },
+  "errors": []
+}

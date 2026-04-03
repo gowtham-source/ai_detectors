@@ -1,0 +1,728 @@
+{
+  "file_name": "AI_ZK-Chain--BC-1.pdf",
+  "file_path": "c:\\Users\\gowth\\Downloads\\ai_plag_detector\\data\\raw_data\\raw_data\\AI_ZK-Chain--BC-1.pdf",
+  "submission_date": "2025-08-22",
+  "priority": "LOW",
+  "total_pages": 28,
+  "ai_percentage_reported": 83,
+  "segments": [
+    {
+      "text": "ZK-IDChain: A Novel Zero-Knowledge Credential and Stake-based Framework for Privacy-Preserving and Sybil-Resistant Decentralized Identity",
+      "label": "human",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Abstract- As decentralized ecosystems expand across finance, governance, and digital services, safeguarding identity privacy while ensuring Sybil resistance has become a critical challenge. Existing decentralized identity solutions often trade off between anonymity and trustworthiness, lacking scalable mechanisms for verifying users without revealing their personal information. This research proposes ZK-IDChain, a novel decentralized identity framework that integrates Zero-Knowledge Proofs (ZKPs), anonymous credential issuance, and a stake-based Sybil resistance mechanism, thereby offering a verifiable, revocable, and privacy-preserving identity infrastructure. ZK-IDChain introduces a new architectural stack where user identities are initialized via ZKP-signed attributes—such as age group, nationality, or institutional affiliation—without disclosing sensitive data. These credentials are augmented with stakeholder-issued reputation tokens and are governed by a dynamic identity decay model, discouraging identity hoarding or replication. To mitigate Sybil attacks, the framework enforces on-chain stake slashing policies triggered by reputation breaches or credential misuse, thereby penalizing malicious actors without compromising privacy. The novelty of the system lies in its hybrid integration of zero-knowledge anonymous claims with adaptive stake dynamics and temporal decay, offering a fine-grained balance between privacy and accountability—unlike existing SSI or ZKP-only models. Experimental evaluation conducted across multiple Ethereum testnets (Ropsten, Goerli) using simulated adversarial environments demonstrated the model’s superiority: Sybil resistance improved by 63.4%, while credential verification time was reduced by 41.2% compared to baseline zk-SNARK-based identity systems. Furthermore, ZK-IDChain maintained over 96.7% anonymity guarantees under multi-party audits and adversarial inference models. These results confirm ZK-IDChain’s viability for real-world deployment in Web3 environments requiring both trust and compliance. This research sets a precedent for next-generation decentralized identity systems that are privacy-centric, regulation-aware, and resistant to malicious replication. Keywords: Decentralized Identity, Zero-Knowledge Proofs, Anonymous Credentials, Stake Slashing, Sybil Resistance, Reputation Tokens, Privacy-Preserving Authentication, Web3 Security, Self-Sovereign Identity (SSI), Identity Decay Model",
+      "label": "ai_generated",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "I Introduction​",
+      "label": "human",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The proliferation of decentralized systems across finance, governance, and digital services underscores an urgent need for identity management solutions that uphold both user privacy and network integrity [1][2]. Existing decentralized identity frameworks often grapple with a fundamental tension: providing verifiable trust while preserving anonymity [3][4]. Traditional Self-Sovereign Identity (SSI) models emphasize user control over personal data but face challenges in deterring Sybil attacks, which exploit the absence of robust identity validation to enable malicious replication [5][6]. Conversely, mechanisms prioritizing Sybil",
+      "label": "ai_generated",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "resistance tend to compromise anonymity by requiring extensive disclosure or centralized verification [7][8]. This paradox highlights the necessity for an integrated approach that simultaneously guarantees privacy and accountability without relying on trusted third parties or excessive data exposure [9]. In response, a novel framework has been designed that synthesizes zero-knowledge proofs (ZKPs), anonymous credential issuance, and stake-based incentives to establish a decentralized identity system resistant to Sybil attacks while ensuring privacy preservation [10][11]. This approach employs zero-knowledge signed attributes, enabling users to authenticate specific identity characteristics—such as demographic or institutional affiliations—without revealing sensitive information [12]. The inclusion of stake-based reputation tokens introduces an economic deterrent to identity misuse, reinforced by an adaptive identity decay mechanism that prevents identity accumulation or prolonged misuse [13]. On-chain enforcement of stake slashing in cases of credential abuse further strengthens deterrence against malicious actors, maintaining network integrity without compromising user anonymity [14]. Experimental validation was conducted on prominent Ethereum testnets, simulating adversarial scenarios to benchmark the framework's performance against existing zk-SNARK-based identity models [15]. Results demonstrate significant improvements in both Sybil resistance and credential verification efficiency, affirming the viability of combining zero-knowledge techniques with stake-based governance. Moreover, anonymity metrics assessed through rigorous multi-party audits confirm that the system sustains high levels of privacy even under sophisticated inference attempts. This multifaceted design addresses critical gaps in decentralized identity, offering a scalable, privacy-respecting, and regulation-compliant infrastructure adaptable to emerging Web3 ecosystems. The key contributions of the paper are:",
+      "label": "ai_generated",
+      "page_num": 4,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "●​ Development of a",
+      "label": "human",
+      "page_num": 4,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "hybrid decentralized identity framework integrating zero-knowledge proof-based anonymous credential issuance with stake-based Sybil resistance mechanisms, balancing privacy and accountability.",
+      "label": "ai_generated",
+      "page_num": 4,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Introduction of a dynamic identity decay model to discourage identity hoarding and replication, enhancing system scalability and fairness.",
+      "label": "ai_generated",
+      "page_num": 4,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Implementation of on-chain stake slashing policies linked to reputation tokens to penalize credential misuse without compromising anonymity.",
+      "label": "ai_generated",
+      "page_num": 4,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Experimental validation on Ethereum testnets demonstrating a 63.4% improvement in Sybil resistance and a 41.2% reduction in credential verification times compared to baseline zk-SNARK systems, while maintaining over 96.7% anonymity under adversarial audits. The organization of this paper proceeds as follows: Section 2 reviews foundational works in decentralized identity, zero-knowledge proofs, and Sybil resistance methodologies, highlighting their limitations. Section 3 details the architecture and protocols underpinning the ZK-IDChain framework, including credential issuance, stake governance, and identity decay. Section 4 describes the experimental setup, testnet deployments, and adversarial",
+      "label": "ai_generated",
+      "page_num": 4,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "simulations. Section 5 analyzes performance metrics, privacy guarantees, and Sybil resistance outcomes. Finally, Section 6 summarizes contributions, discusses potential applications, and outlines future research directions in privacy-preserving decentralized identity systems.​",
+      "label": "ai_generated",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ II Literature Review​",
+      "label": "human",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The rapid growth of the Internet of Things (IoT) has brought unprecedented challenges to digital identity management, particularly in achieving secure, scalable, and privacy-preserving solutions. He et al. (2024) argue that existing identity models fall short in addressing IoT’s unique needs, emphasizing the demand for decentralized identity systems that can securely handle device lifecycle management and legacy compatibility [1]. Building on this, Moriyama and Otsuka (2025) highlight the critical intersection of privacy and Sybil resistance in decentralized identities, proposing hardware-assisted verification methods using Attested Execution Secure Processors combined with zero-knowledge proofs to ensure privacy without trusted intermediaries [2]. Addressing resource constraints common in IoT devices, Yin et al. (2022) introduce SmartDID, a blockchain-based self-sovereign identity (SSI) solution that leverages dual-credential models and zero-knowledge proofs to provide unlinkable, Sybil-resistant identities independent of centralized authorities [3]. Similarly, Dimitriou (2024) focuses on preserving trust in decentralized systems through anonymous reputation mechanisms that use randomizable signatures and zero-knowledge proofs, safeguarding user anonymity while deterring dishonest and Sybil behaviors [4]. Extending the theme of secure identity delegation, Kim et al. (2024) develop efficient schemes for authority delegation and anonymity using sequential aggregate signatures and Merkle trees, effectively reducing computational demands and thwarting Sybil attacks in decentralized identifier (DID) frameworks [5]. Complementing these innovations, He and Inoue (2024) propose CrowdChain, a blockchain-based crowdfunding platform that integrates distributed identities with BLS signatures and zero-knowledge proofs to guarantee user authentication, transaction confidentiality, and robust Sybil resistance [6]. In healthcare IoT environments, Maheshwari and Prasanna (2025) design a hierarchical blockchain edge architecture that marries zero-knowledge proofs with 5G edge computing. Their approach facilitates anonymous, secure user authentication with minimal latency, showcasing how cutting-edge cryptographic protocols can enhance privacy in sensitive Internet of Medical Things (IoMT) applications [7]. Similarly, Payattukalanirappel et al. (2024) address authentication challenges in resource-limited vehicular ad hoc networks (VANETs) by deploying lightweight blockchain-based privacy schemes that effectively resist impersonation and Sybil attacks while maintaining low communication overhead [8]. Figure 1 illustrates the Standard workflow of enrollment, identity proofing, and digital authentication.",
+      "label": "ai_generated",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Figure 1: Standard workflow of enrollment, identity proofing, and digital authentication, showing interactions among applicant, subscriber, claimant, credential service provider (CSP), verifier, and relying party (RP).",
+      "label": "ai_generated",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Source: NIST Special Publication 800-63-3, Volume 3, Digital Identity Guidelines.",
+      "label": "human",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Zooming out to the broader landscape of digital identity, Da Silva Costa and Rupino Da Cunha (2025) present a comprehensive review of blockchain-based SSI, acknowledging its transformative potential but also pinpointing practical hurdles such as identity wallet management, regulatory compliance, and usability issues that impede widespread adoption [10]. In decentralized finance, Al-Shaibani et al. (2021) contribute a privacy-preserving framework for blockchain stock exchanges, which enforces k-anonymity to protect investor identities while balancing privacy with traceability and non-repudiation [11]. Agrawal et al. (2025) tackle Sybil attacks in blockchain-based mobile crowdsensing by innovating a two-phase publisher selection mechanism that combines Proof-of-Stake with reputation-based Proof-of-Work, dynamically mitigating malicious behavior and fostering fair participation [12]. In vehicular networks, Almazroi et al. (2024) leverage fog computing alongside Merkle tree data structures to develop a lightweight Sybil-resistant scheme (FC-LSR) that synchronizes anonymous identity updates while preserving real-time security and privacy [13]. Finally, Siam et al. (2025) offer a detailed examination of blockchain vulnerabilities, categorizing attacks across network, consensus, smart contract, and user layers, and calling for adaptable, context-aware security frameworks that can fortify decentralized ecosystems against evolving threats [14].​",
+      "label": "ai_generated",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ 2.1 Research Gap​",
+      "label": "human",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Despite significant advances in decentralized and self-sovereign identity (SSI) systems, current research predominantly focuses on isolated aspects such as privacy preservation, Sybil resistance, or blockchain-based authentication, often neglecting their combined implementation in heterogeneous, real-world environments. Most existing solutions demonstrate effectiveness in controlled simulations or specific application domains like IoT, healthcare, or vehicular networks, yet their scalability, interoperability, and user-centric usability remain underexplored. Furthermore, practical challenges such as seamless identity",
+      "label": "ai_generated",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "wallet management, regulatory compliance, latency in edge-enabled systems, and adaptability to dynamic networks are rarely addressed comprehensively. This fragmented approach limits the deployment of SSI solutions at scale and underscores the need for integrated frameworks that can harmonize security, privacy, and usability across diverse decentralized ecosystems.​",
+      "label": "ai_generated",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ III Proposed Methodology​",
+      "label": "human",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "To address the identified research gaps, this study proposes an integrated blockchain-based self-sovereign identity (SSI) framework that combines privacy preservation, Sybil resistance, and scalable identity management across heterogeneous networks. The methodology leverages a hybrid cryptographic approach, integrating zero-knowledge proofs and hierarchical Merkle tree structures to ensure unlinkable and verifiable identities while maintaining computational efficiency [15][16]. A two-phase consensus mechanism, combining Proof-of-Stake (PoS) with a reputation-aware Proof-of-Work (PoW), is employed to mitigate Sybil attacks and enforce fair participation among devices and users [17][18]. For IoT and edge-enabled applications, identity wallets are managed through a lightweight fog computing architecture that supports synchronized updates and low-latency authentication [19]. The framework also incorporates regulatory compliance modules, enabling context-aware policy enforcement while maintaining user anonymity and data sovereignty [20]. This methodology provides a comprehensive, secure, and practical solution for deploying SSI in complex, real-world environments.​",
+      "label": "ai_generated",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ 3.1 System Architecture Design​",
+      "label": "human",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The proposed system architecture for decentralized identity management in IoT and vehicular networks adopts a layered design to balance efficiency, security, and scalability [11]. At the base layer, heterogeneous IoT devices—including sensors, smart vehicles, and edge-enabled devices—collect, transmit, and request access to sensitive data. These devices are inherently resource-constrained, which necessitates lightweight protocols for identity verification and authentication [20]. The middle layer incorporates edge and fog nodes, which act as intermediaries between IoT devices and the blockchain network. These nodes handle computationally intensive tasks such as executing zero-knowledge proofs, managing credential issuance, and performing cryptographic operations, thereby offloading the burden from individual IoT devices. At the top layer, a blockchain network maintains a tamper-proof ledger of identities, credentials, and transactions. This ledger ensures data integrity, supports decentralized verification, and enables public auditing without compromising the privacy of individual users or devices. By structuring the architecture in this hierarchical manner, the system achieves low-latency interactions for IoT devices while preserving the decentralized and trustless nature of blockchain-based identity management [21],[22]. The architecture also defines key functional components that interact seamlessly across layers.",
+      "label": "ai_generated",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The identity provider (IdP) is responsible for onboarding devices and generating unique, cryptographically secure identifiers for each entity in the network. The credential management module issues, stores, and revokes digital credentials using a dual- or multi-credential approach with zero-knowledge proof support, ensuring unlinkability and privacy [24]. Verifiers—typically edge nodes or other IoT devices—validate credentials",
+      "label": "human",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "without learning sensitive attributes, preventing unauthorized access and Sybil attacks.",
+      "label": "human",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Finally, the IoT devices themselves act as identity holders, capable of securely presenting credentials when accessing services or communicating with other devices. Integrating these components within a hierarchical blockchain-edge framework significantly reduces communication overhead and computational complexity compared to fully centralized or flat blockchain systems. This design is particularly advantageous for time-sensitive applications such as vehicular networks and healthcare IoT, where rapid verification and secure, decentralized identity management are essential [25].",
+      "label": "ai_generated",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Figure 2 illustrates the workflow of the ZK-IDChain identity management framework. ​ Figure 2: Workflow of the ZK-IDChain identity management framework, illustrating how submitters provide credential propositions, which are verified by voters and certifiers through staking mechanisms.",
+      "label": "human",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The process enforces accountability using rewards for valid verification and penalties for malicious or incorrect submissions, ensuring secure, privacy-preserving, and decentralized identity validation.",
+      "label": "ai_generated",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "3.2 Identity Management Framework​",
+      "label": "human",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The proposed Identity Management Framework is designed to provide a robust, privacy-preserving, and Sybil-resistant identity solution for IoT and vehicular networks. At the core of this framework lies decentralized identity generation, inspired by SmartDID principles [17]. Each IoT device generates a self-sovereign identity (SSI) locally, without relying on centralized authorities [26]. Let represent the identity of the device . The 𝐼𝐷𝑖 𝑖 generation process can be expressed as a hash-based function combining device-specific information and a random nonce , ensuring uniqueness and unpredictability: 𝐷𝑖 𝑟𝑖",
+      "label": "ai_generated",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ ​ ​ ​ ​ (1)",
+      "label": "human",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "𝐼𝐷𝑖= 𝐻𝐷𝑖||𝑟𝑖 ( ) In Eq.1, is a secure cryptographic hash function, and denotes concatenation. This 𝐻·( ) || formulation guarantees that even if device metadata is partially exposed, the resulting identity remains unlinkable to other credentials or devices, thus preserving privacy [27].",
+      "label": "ai_generated",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "To strengthen privacy and functional flexibility, the system employs a dual or multi-credential structure [17], [16]. Each device maintains two distinct credentials: a primary credential for authentication and a secondary credential for service-specific interactions . 𝐶𝑖 𝑃 𝐶𝑖 𝑆 Zero-knowledge proofs (ZKP) are used to validate credentials without revealing underlying identity attributes [38].",
+      "label": "ai_generated",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Formally, the verification function for a credential can be 𝐶𝑖 𝑋 expressed as in Eq.2 and Eq.3: ​ if succeeds​ ​ (2)​ 𝑉𝑒𝑟𝑖𝑓𝑦𝐶𝑖 𝑋, 𝑆 ( ) = 𝑇𝑟𝑢𝑒 𝑍𝐾𝑃𝐶𝑖 𝑋, 𝑆 ( ) ​ otherwise​ ​ ​ (3) 𝑉𝑒𝑟𝑖𝑓𝑦𝐶𝑖 𝑋, 𝑆 ( ) = 𝐹𝑎𝑙𝑠𝑒",
+      "label": "human",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Where represents the service or verifier, and enotes the zero-knowledge proof 𝑆 𝑍𝐾𝑃𝐶𝑖 𝑋, 𝑆 ( ) protocol executed between the device and verifier. This approach ensures unlinkability between different interactions while maintaining strong authentication guarantees. A critical aspect of the framework is Sybil resistance, which prevents malicious entities from generating multiple fake identities to manipulate the system ([18]). The framework integrates mechanisms such as verifiable delay functions (VDFs), reputation-based Proof-of-Work (PoW), or Proof-of-Stake (PoS) schemes.",
+      "label": "ai_generated",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "If represents the verifiable delay function 𝑉𝐼𝐷𝑖, 𝑡",
+      "label": "human",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "output for identity after time , it must satisfy: 𝐼𝐷𝑖 𝑡 ​ ​ ​ ​ ​ (4) 𝑉𝐼𝐷𝑖, 𝑡 ( ) = 𝑓𝐼𝐷𝑖 , 𝑡",
+      "label": "human",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "This property ensures that the creation of multiple identities by a single adversary is computationally prohibitive, enforcing a natural Sybil resistance.",
+      "label": "ai_generated",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Reputation-based approaches further adjust identity trustworthiness dynamically, assigning a weight to each 𝑤𝑖 device, where: ​ ​ ​ ​ ​ (5) 𝑤𝑖= 𝑆𝑢𝑐𝑐𝑒𝑠𝑠𝑓𝑢𝑙 𝑖𝑛𝑡𝑒𝑟𝑎𝑐𝑡𝑖𝑜𝑛𝑠𝑖 𝑇𝑜𝑡𝑎𝑙 𝑖𝑛𝑡𝑒𝑟𝑎𝑐𝑡𝑖𝑜𝑛𝑠𝑖",
+      "label": "human",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "A higher indicates greater reliability, allowing the system to prioritize legitimate devices 𝑤𝑖 in resource-sensitive or critical applications. Finally, the framework achieves seamless integration with the layered architecture by linking the identity credentials directly to the blockchain ledger maintained at edge or fog nodes [15], [20].",
+      "label": "ai_generated",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Each credential issuance and verification event is logged as a transaction represented 𝑇𝑗 as in Eq.6: ​ ​ ​ ​ (6) 𝑇𝑗= 𝐼𝐷𝑖, 𝐶𝑖 𝑋, 𝑇𝑖𝑚𝑒𝑠𝑡𝑎𝑚𝑝, 𝑉𝑒𝑟𝑖𝑓𝑖𝑒𝑟 𝐼𝐷 { }",
+      "label": "human",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "These transactions are cryptographically signed by devices and verified nodes, ensuring immutability and traceability while maintaining unlinkability between credentials. By combining decentralized identity generation, multi-credential ZKP verification, and robust Sybil-resistance mechanisms, the framework provides a comprehensive, privacy-preserving, and trustworthy identity management system tailored to IoT and vehicular ecosystems [29].​",
+      "label": "ai_generated",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ 3.3 Authentication and Authorization Protocol​",
+      "label": "human",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The proposed authentication protocol leverages zero-knowledge proofs (ZKP) to ensure privacy-preserving verification of IoT device identities [17]. Each device holds a 𝐷𝑖 credential generated through the decentralized identity framework. During authentication, 𝐶𝑖 instead of revealing the credential itself, the device computes a proof that satisfies the π𝑖 verifier without disclosing underlying sensitive data. Mathematically, the proof generation 𝑉𝑗 can be represented as in Eq.7:",
+      "label": "ai_generated",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ ​ ​ ​ ​ (7)",
+      "label": "human",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "π𝑖= 𝑍𝐾𝑃𝐶𝑖, 𝑅𝐽 ( ) Where is a challenge or nonce issued by the verifier.",
+      "label": "ai_generated",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The verifier then evaluates the proof",
+      "label": "human",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "using a verification function: ​If proof is valid, otherwise​ (8) 𝐴𝑢𝑡ℎ𝑉𝑒𝑟𝑖𝑓𝑦π𝑖, 𝑅𝑗 ( ) = 𝑇𝑟𝑢𝑒 𝐴𝑢𝑡ℎ𝑉𝑒𝑟𝑖𝑓𝑦π𝑖, 𝑅𝑗 ( ) = 𝐹𝑎𝑙𝑠𝑒",
+      "label": "human",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "This ensures that devices can authenticate securely without disclosing private identity attributes, which is crucial for IoT networks with heterogeneous devices and varying trust levels [30]. To enforce access control, the framework adopts an attribute-based access control (ABAC) model implemented via blockchain smart contracts [16], [19]. Each device’s attributes define its access rights to specific resources or services.",
+      "label": "ai_generated",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The access",
+      "label": "human",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "𝐴𝑖= 𝑎1, 𝑎2,...., 𝑎𝑛 { }",
+      "label": "ai_generated",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "decision function can be formalized as in Eq.9: 𝐹𝐴𝐵𝐴𝐶 if policy holds, otherwise (9) 𝐹𝐴𝐵𝐴𝐶𝐴𝑖, 𝑅𝑘 ( ) = 𝑃𝑒𝑟𝑚𝑖𝑡 𝐴𝑖, 𝑅𝑘 ( ) 𝐹𝐴𝐵𝐴𝐶𝐴𝑖, 𝑅𝑘 ( ) = 𝐷𝑒𝑛𝑦",
+      "label": "human",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Where denotes a requested resource, and evaluates the matching attributes. The 𝑅𝑘 𝑝𝑜𝑙𝑖𝑐𝑦·( ) use of blockchain ensures immutability of access policies and enables automated verification of authorization events, preventing unauthorized access even in decentralized or edge-integrated networks. Delegation management is introduced to handle scenarios where device ownership or user authority changes [31].",
+      "label": "ai_generated",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Each delegation request involves a delegator , a delegatee , ∆𝑗 𝐷𝑖 𝐷𝑘",
+      "label": "human",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "and a validity period . A delegation token is generated using a secure cryptographic 𝑇𝑣 𝑇𝑖,𝑘 function: ​ ​ ​ ​ ​ (10) τ𝑖,𝑘= 𝐻𝐷𝑖||𝐷𝑘||𝑇𝑣||𝑟𝑑 ( )",
+      "label": "human",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "In Eq.10, is a random nonce, and is a secure hash function.",
+      "label": "ai_generated",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Verification of delegation",
+      "label": "human",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "involves checking the token’s integrity and validity: ​ if matches blockchain record and ​ (11)​ 𝑉𝑒𝑟𝑖𝑓𝑦𝐷𝑒𝑙𝑒𝑔𝑎𝑡𝑒τ𝑖,𝑘 ( ) = 𝑉𝑎𝑙𝑖𝑑 τ𝑖,𝑘 𝑡≤𝑇𝑣 ​ otherwise​ ​ ​ (12) 𝑉𝑒𝑟𝑖𝑓𝑦𝐷𝑒𝑙𝑒𝑔𝑎𝑡𝑒τ𝑖,𝑘 ( ) = 𝑉𝑎𝑙𝑖𝑑",
+      "label": "human",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "This ensures secure authority transfer and maintains a tamper-proof delegation log, even in the case of device loss or user handover. Finally, the framework integrates multi-level authentication to strengthen network security, combining ZKP-based authentication, ABAC, and delegation mechanisms.",
+      "label": "ai_generated",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "A composite authentication score can be defined for each device: 𝑆𝑖 (13) 𝑆𝑖= α · 𝐴𝑢𝑡ℎ𝑉𝑒𝑟𝑖𝑓𝑦π𝑖, 𝑅𝑗 ( ) + β · 𝐹𝐴𝐵𝐴𝐶𝐴𝑖, 𝑅𝑘 ( ) + γ · 𝑉𝑒𝑟𝑖𝑓𝑦𝐷𝑒𝑙𝑒𝑔𝑎𝑡𝑒τ𝑖,𝑘 ( )",
+      "label": "human",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "In Eq.13, are tunable weights representing the relative importance of each protocol α, β, γ component. A device is granted access if , with being a system-defined threshold. 𝑆𝑖≥θ θ This mathematical formulation ensures that authentication and authorization decisions are comprehensive, resilient, and privacy-preserving, aligning with the goals of decentralized, blockchain-enabled IoT networks ([20]). By combining these mechanisms, the framework provides a secure, flexible, and verifiable approach to identity and access management, suitable for dynamic IoT environments [31].​",
+      "label": "ai_generated",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ 3.4 Blockchain Integration​",
+      "label": "human",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The integration of blockchain into the proposed identity management framework is crucial for ensuring trust, auditability, and tamper-resistant credential verification. The architecture leverages a lightweight consensus mechanism designed for resource-constrained IoT and VANET environments, balancing security with efficiency [32]. Each block in the 𝐵𝑡 blockchain is validated based on a hash of the current block, the previous block, and a nonce. A block is accepted if its hash falls below a pre-defined threshold , ensuring computational τ feasibility for edge devices while preserving integrity:",
+      "label": "ai_generated",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "is accepted​",
+      "label": "ai_generated",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "𝐻𝐵𝑡||𝐵𝑡−1||𝑛𝑜𝑛𝑐𝑒 ( ) < τ ⇒𝐵𝑡",
+      "label": "ai_generated",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "To maintain privacy-preserving transaction handling, each IoT device credential is hashed 𝐶𝑖 together with a timestamp and a random nonce to produce a transaction hash : 𝑡𝑖 𝑅𝑗 𝑇𝑖",
+      "label": "human",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​​ ​ ​ (15) 𝑇𝑖= 𝐻𝐶𝑖+ 𝑡𝑖+ 𝑅𝑗 ( ) The validity of a transaction is determined using an indicator function: ​ ​ ​ ​ (16) 𝑉𝑎𝑙𝑖𝑑𝑖𝑡𝑦𝑇𝑖 ( ) = 1𝑇𝑖ϵ𝑝𝑒𝑛𝑑𝑖𝑛𝑔 𝑝𝑜𝑜𝑙",
+      "label": "human",
+      "page_num": 12,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "For authentication without revealing sensitive information, zero-knowledge proofs (ZKP) are employed. Each device generates a proof using its credentials and transaction hash: π𝑖",
+      "label": "ai_generated",
+      "page_num": 12,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​​ ​ ​ (17)",
+      "label": "human",
+      "page_num": 12,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "π𝑖= 𝑍𝐾𝑃𝐶𝑖, 𝐻𝑇𝑖 ( ) ( ) Verification of the zero-knowledge proof is expressed as in Eq.18:",
+      "label": "ai_generated",
+      "page_num": 12,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ ​ ​ ​ (18)",
+      "label": "human",
+      "page_num": 12,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "𝑉𝑒𝑟𝑖𝑓𝑦π𝑖, 𝐻𝑇𝑖 ( ) ( )",
+      "label": "ai_generated",
+      "page_num": 12,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "= 1𝑐𝑜𝑛𝑠𝑡𝑟𝑎𝑖𝑛𝑡𝑠 𝑠𝑎𝑡𝑖𝑠𝑓𝑖𝑒𝑑​",
+      "label": "human",
+      "page_num": 12,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Auditability is maintained through hashed logs of identity-related transactions.",
+      "label": "ai_generated",
+      "page_num": 12,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The cumulative hash for an audit trail is defined as: 𝐴𝑘 ​ ​ ​ ​ ​ (19) 𝐴𝑘= 𝐻𝑇1 + 𝑇2 +... + 𝑇𝑛 ( ) The correctness of the audit trail is verified recursively to ensure tamper resistance: ​ ​ ​ ​ (20) 𝑉𝑒𝑟𝑖𝑓𝑦𝐴𝑢𝑑𝑖𝑡𝐴𝑘 ( ) = 1𝐴𝑘=𝐻𝐴𝑘−1+𝑇𝑛 ( ) To further minimize on-chain storage and allow lightweight verification, Merkle trees are employed. The Merkle root aggregates all transactions in a block: 𝑀𝑟 ​ ​ ​ ​ (21) 𝑀𝑟= 𝑀𝑒𝑟𝑘𝑙𝑒𝑅𝑜𝑜𝑡𝑇1, 𝑇2,.., 𝑇𝑛 ( ) Each device can verify the inclusion of its transaction in the Merkle tree: ​​ ​ (22) 𝑉𝑒𝑟𝑖𝑓𝑦𝑀𝑒𝑟𝑘𝑙𝑒𝑇𝑖, 𝑀𝑟 ( ) = 1𝑇𝑖ϵ𝑀𝑒𝑟𝑘𝑙𝑒 𝑡𝑟𝑒𝑒 𝑜𝑓 𝑀𝑟 Finally, a composite verification score ensures that a device is authorized only if all 𝑆𝑐 criteria—proof validity, attribute-based access, and transaction integrity—are satisfied: ​ (23) 𝑆𝑐= α · 𝑉𝑒𝑟𝑖𝑓𝑦π𝑖, 𝐻𝑇𝑖 ( ) ( ) + β · 𝐹𝐴𝐵𝐴𝐶𝐴𝑖, 𝑅𝑘 ( ) + γ · 𝑉𝑎𝑙𝑖𝑑𝑖𝑡𝑦𝑇𝑖 ( ) Access is granted when: ​ ​ ​ ​ ​ (24) 𝑆𝑐≥θ𝑏",
+      "label": "human",
+      "page_num": 12,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "This approach provides a scalable, privacy-preserving, and auditable blockchain integration that suits the low-latency, high-security demands of IoT and VANET applications [15], [16], [20].​ ​ Pseudocode for Decentralized Identity Management with Blockchain Integration Input: IoT device , device credentials , attributes , blockchain 𝐷_𝑖 𝐶_𝑖 𝐴_𝑖 𝐵 Initialize Blockchain with the genesis block 𝐵 𝐵_0 Initialize Edge/Fog Nodes for consensus and transaction handling Define access threshold and privacy parameters θ_𝑏 τ, α, β, γ For each IoT device joining the network: 𝐷_𝑖 Generate self-sovereign identity using SmartDID protocol 𝑆𝐼𝐷_𝑖 Issue credentials 𝐶_𝑖 = {𝑐𝑟𝑒𝑑_1, 𝑐𝑟𝑒𝑑_2, ...} For each credential: Apply zero-knowledge proof to maintain privacy 𝑍𝐾𝑃(𝐶_𝑖) End For Register and hashed credentials on blockchain 𝑆𝐼𝐷_𝑖 𝐻(𝐶_𝑖) 𝐵 Update reputation score based on past interactions (Sybil resistance) 𝑅_𝑖 End For Function Authenticate : (𝐷_𝑖) Compute transaction hash = 𝑇_𝑖 𝐻(𝐶_𝑖 + 𝑡𝑖𝑚𝑒𝑠𝑡𝑎𝑚𝑝 + 𝑟𝑎𝑛𝑑𝑜𝑚_𝑛𝑜𝑛𝑐𝑒) Generate zero-knowledge proof π_i = ZKP(C_i, T_i) 𝐼𝑓 𝑉𝑒𝑟𝑖𝑓𝑦(π_𝑖, 𝑇_𝑖) == 𝑇𝑟𝑢𝑒 𝐴𝑁𝐷 𝑅_𝑖 >= 𝑚𝑖𝑛_𝑟𝑒𝑝𝑢𝑡𝑎𝑡𝑖𝑜𝑛: Return True Else: Return False End If",
+      "label": "human",
+      "page_num": 13,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "End Function Function Authorize : (𝐷_𝑖, 𝑅𝑒𝑠𝑜𝑢𝑟𝑐𝑒 𝑅_𝑘) Compute composite score 𝑆_𝑐 = α * 𝑉𝑒𝑟𝑖𝑓𝑦(π_𝑖, 𝑇_𝑖) + β * 𝐴𝐵𝐴𝐶(𝐴_𝑖, 𝑅_𝑘) + γ * 𝑉𝑎𝑙𝑖𝑑𝑖𝑡𝑦(𝑇_𝑖) If : 𝑆_𝑐 >= θ_𝑏 Grant access Else: Deny access End If End Function Function AddBlock : (𝐵_𝑡) Compute Merkle Root 𝑀_𝑟 = 𝑀𝑒𝑟𝑘𝑙𝑒𝑅𝑜𝑜𝑡(𝑇_1, 𝑇_2, ..., 𝑇_𝑛) Generate nonce for consensus While : 𝐻(𝐵_𝑡 || 𝐵_{𝑡−1} || 𝑛𝑜𝑛𝑐𝑒) >= τ Increment nonce End While Append to blockchain 𝐵_𝑡 𝐵 End Function Function Audit(): For each block in : 𝐵_𝑡 𝐵 Verify Merkle root 𝑀_𝑟 Verify transaction hashes 𝑇_𝑖 Log verified transactions for public auditing End For",
+      "label": "human",
+      "page_num": 14,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "End Function Main Loop: For each incoming request from IoT device : 𝐷_𝑖 If Authenticate : (𝐷_𝑖) == 𝑇𝑟𝑢𝑒 Authorize (𝐷_𝑖, 𝑟𝑒𝑞𝑢𝑒𝑠𝑡𝑒𝑑_𝑟𝑒𝑠𝑜𝑢𝑟𝑐𝑒) AddBlock(new_block) Else: Reject request End If End For End Loop Output: Authenticated, authorized device access and auditable blockchain logs ​ The proposed pseudocode outlines a decentralized identity management framework for IoT and VANET environments, integrating blockchain for secure, auditable credential handling. Each device generates a self-sovereign identity and associated credentials, which are validated using zero-knowledge proofs to ensure privacy [33]. Authentication is performed by verifying these proofs along with device reputation scores to prevent Sybil attacks. Authorized access to resources is granted based on a composite score combining proof verification, attribute-based access policies, and credential validity [34]. Verified transactions are stored in blockchain blocks using a lightweight consensus mechanism, ensuring integrity and immutability [35]. The audit function allows optional public verification of recorded transactions while maintaining device anonymity [36],[37]. Figure 3 illustrates the flowchart for the proposed model.",
+      "label": "human",
+      "page_num": 15,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ Figure 3: Flowchart for the Proposed Model",
+      "label": "human",
+      "page_num": 16,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "IV Experimentation​ The experimentation phase evaluates the proposed decentralized identity management model across IoT and VANET environments. The system is subjected to various identity-related operations, including device onboarding, credential issuance, zero-knowledge proof verification, and Sybil attack detection. Metrics for assessment include security resilience against impersonation and replay attacks, verification latency, transaction throughput, and privacy preservation through credential unlinkability. Simulated scenarios also test hierarchical access control enforcement and delegation protocols to ensure that identity management remains robust under large-scale deployment, while blockchain transaction handling is monitored to measure the computational and communication overhead during routine network operations. 4.1 Experimentation Setup​ The experimental setup utilizes a heterogeneous network of edge devices and IoT sensors integrated with blockchain frameworks.",
+      "label": "human",
+      "page_num": 17,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Edge nodes are powered by Intel Core i7 processors with 16 GB RAM, while IoT devices include Raspberry Pi 4 and Arduino MKR boards for realistic network simulation. Software components include Hyperledger Fabric for private blockchain deployment, Ethereum test networks for smart contract execution, and Python-based cryptographic libraries for zero-knowledge proof implementation and secure key management. Network emulation tools simulate VANET traffic and large-scale IoT communication, providing a controlled environment to measure latency, throughput, and privacy metrics during identity verification processes.​",
+      "label": "ai_generated",
+      "page_num": 17,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "4.2 Evaluation Metrics ●​",
+      "label": "human",
+      "page_num": 17,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Latency (ms)- Time delay for a transaction to complete:",
+      "label": "ai_generated",
+      "page_num": 17,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ ​ ​ ​ (25) 𝐿𝑎𝑡𝑒𝑛𝑐𝑦= 𝑡𝑐𝑜𝑛𝑓𝑖𝑟𝑚𝑎𝑡𝑖𝑜𝑛−𝑡𝑠𝑢𝑏𝑚𝑖𝑠𝑠𝑖𝑜𝑛 Where is the time transaction is confirmed and is when it was 𝑡𝑐𝑜𝑛𝑓𝑖𝑟𝑚𝑎𝑡𝑖𝑜𝑛 𝑡𝑠𝑢𝑏𝑚𝑖𝑠𝑠𝑖𝑜𝑛",
+      "label": "human",
+      "page_num": 17,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Throughput (tx/s) – Number of transactions processed per second:",
+      "label": "ai_generated",
+      "page_num": 17,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ ​ ​ ​ ​ (26) 𝑇ℎ𝑟𝑜𝑢𝑔ℎ𝑝𝑢𝑡= 𝑁𝑡𝑟𝑎𝑛𝑠𝑎𝑐𝑡𝑖𝑜𝑛𝑠 𝑇𝑡𝑜𝑡𝑎𝑙 ​ Where is the total transactions and is the total observed time. 𝑁𝑡𝑟𝑎𝑛𝑠𝑎𝑐𝑡𝑖𝑜𝑛𝑠 𝑇𝑡𝑜𝑡𝑎𝑙 ●​ Computation Cost (J/tx) – Energy consumed per transaction during computation: ​​ ​ (27) 𝐶𝑜𝑚𝑝𝑢𝑡𝑎𝑡𝑖𝑜𝑛 𝐶𝑜𝑠𝑡= 𝑃𝑎𝑣𝑔× 𝑡𝑐𝑜𝑚𝑝",
+      "label": "human",
+      "page_num": 17,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Where is average power consumption and is computation time per 𝑃𝑎𝑣𝑔 𝑡𝑐𝑜𝑚𝑝 transaction.",
+      "label": "ai_generated",
+      "page_num": 18,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "●​ Energy Consumption (Wh/tx) – Total energy used per transaction: ​​ ​ (28) 𝐸𝑛𝑒𝑟𝑔𝑦 𝐶𝑜𝑛𝑠𝑢𝑚𝑝𝑡𝑖𝑜𝑛= 𝑃𝑎𝑣𝑔×𝑡𝑡𝑜𝑡𝑎𝑙 3600",
+      "label": "human",
+      "page_num": 18,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Where is the total transaction time in seconds and is the average power in 𝑡𝑡𝑜𝑡𝑎𝑙 𝑃𝑎𝑣𝑔 watts.",
+      "label": "ai_generated",
+      "page_num": 18,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "V Results and Discussion Table 1: Comparative Analysis of Performance Metrics for Decentralized Identity Verification Systems",
+      "label": "human",
+      "page_num": 18,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Table 1 presents a detailed evaluation of the proposed identity verification model against existing techniques using key performance indicators. Metrics include latency (ms), throughput (transactions per second), computational cost (J/transaction), and energy consumption (Wh/transaction), providing a quantitative assessment of system efficiency. The data highlights improvements in response time and resource utilization while maintaining high throughput across various operational scenarios. This analysis emphasizes the performance advantages of the proposed decentralized framework over traditional and blockchain-assisted identity management approaches.",
+      "label": "ai_generated",
+      "page_num": 18,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Technique Latency (ms) Throughput (tx/s) Computation Cost (J/tx) Scalability (#Devices) SmartDID [17] 200 320 0.48 3000 PetroBlock [15] 250 280 0.60 2000 VDF-Based VANET [18] 180 350 0.40 4000 ZK-IDChain (Proposed Model) 120 450 0.35 5000",
+      "label": "human",
+      "page_num": 18,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Table 2: Assessment of Blockchain-Induced Computational and Storage Overhead in Decentralized Identity Systems Technique Avg Block Size (KB) Transaction Confirmation Time (s) Energy Consumption (Wh/tx) SmartDID [17] 12 3 0.48 PetroBlock [15] 15 4 0.60 VDF-Based VANET [18] 10 2.5 0.40 ZK-IDChain (Proposed Model) 8 2 0.35",
+      "label": "human",
+      "page_num": 19,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Table 2 quantifies the blockchain-related overhead introduced by the proposed identity management framework in comparison with existing solutions. Metrics include block validation time, transaction size, storage requirements, and network propagation delay, providing a holistic view of resource consumption. The table highlights the efficiency of the proposed model in minimizing computational and storage load while ensuring secure, verifiable transactions. It offers a clear benchmark for evaluating the trade-offs between security, auditability, and operational overhead in blockchain-based identity frameworks.",
+      "label": "ai_generated",
+      "page_num": 19,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Figure 4: Latency Distribution Across Increasing Device Counts for the Proposed Identity Management Model Compared with SmartDID, PetroBlock, VDF-Net,",
+      "label": "ai_generated",
+      "page_num": 20,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "EdgeChain, and Two Additional Techniques",
+      "label": "human",
+      "page_num": 20,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Figure 4 illustrates how latency changes with increasing numbers of devices across six identity management techniques. The plot highlights the distribution and density of latency values. The proposed model consistently demonstrates lower median latency, indicating efficient processing even as the device count grows. Compared to SmartDID and PetroBlock, which exhibit wider latency variation, the proposed approach maintains stability.",
+      "label": "ai_paraphrased",
+      "page_num": 20,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "This suggests that the hierarchical blockchain integration reduces computational bottlenecks while supporting a larger network of devices.",
+      "label": "human",
+      "page_num": 20,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Figure 5: Transaction Throughput Comparison Across Multiple Identity Management Techniques Highlighting Scalability and Resource Utilization of the Proposed Model Figure 5 compares transaction throughput (tx/s) among various techniques. The proposed model ZK-IDChain achieves higher throughput for the same number of devices, demonstrating scalability and efficient resource utilization. Traditional approaches such as VDF-Net and EdgeChain exhibit significant throughput fluctuations at higher node densities. The consistent mean throughput of the proposed system confirms the effectiveness of its lightweight consensus protocol in maintaining transaction rates without overloading network resources. Figure 6: Transaction Confirmation Time Variation with Increasing Block Size for the Proposed Model and Existing Approaches, Demonstrating Reduced Blockchain Footprint Figure 6 shows how transaction confirmation time scales with increasing block sizes. Each technique is plotted separately to highlight differences. The proposed model ZK-IDChain exhibits significantly shorter confirmation times across all block sizes, reflecting the minimal blockchain footprint and efficient consensus mechanism. In contrast, other methods like PetroBlock and SmartDID show a steeper increase in confirmation delays. These results emphasize that the proposed design can accommodate larger networks without sacrificing performance.",
+      "label": "human",
+      "page_num": 21,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Figure 7: Composite Security Score Comparison Including Sybil, Replay, and Impersonation Attack Resistance Across the Proposed Model and Five Alternative Techniques Figure 7 visualizes a composite security score, combining resistance to Sybil, replay, and impersonation attacks. The proposed model ZK-IDChain achieves near-maximum values across all three dimensions, outperforming VDF-Net and EdgeChain, which show moderate weaknesses in Sybil and impersonation resistance. The uniform coverage of the proposed model demonstrates that integrating verifiable delay functions and reputation-based identity verification effectively mitigates common attack vectors.",
+      "label": "human",
+      "page_num": 22,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "This makes the system suitable for robust identity management in large-scale deployments.",
+      "label": "ai_generated",
+      "page_num": 22,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Figure 8: Energy Consumption Per Transaction Across Different Identity Management Frameworks, Showcasing Efficiency of the Proposed Lightweight Consensus Mechanism",
+      "label": "human",
+      "page_num": 23,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Figure 8 highlights the energy efficiency of each technique during transaction processing. The proposed model ZK-IDChain consistently consumes less energy per transaction, reflecting the lightweight nature of its consensus and credential verification mechanisms. Other methods, particularly PetroBlock and SmartDID, display wider energy consumption distributions due to more intensive computation requirements. The results validate that the proposed model achieves a balance between security, speed, and energy efficiency, making it suitable for energy-constrained devices.",
+      "label": "ai_generated",
+      "page_num": 23,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Figure 9: Credential Unlinkability Index Across the Proposed Model and Other Existing Systems, Indicating Privacy Preservation and Anonymity Strength",
+      "label": "human",
+      "page_num": 23,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Figure 9 measures the degree of privacy preservation through credential unlinkability. Higher values indicate stronger anonymity. The proposed model ZK-IDChain exhibits the highest median unlinkability and the tightest interquartile range, indicating reliable privacy preservation. Traditional approaches show greater variance and lower median values, suggesting potential risk of identity correlation. These results confirm that integrating zero-knowledge proofs and multi-credential systems in the proposed model effectively prevents identity traceability without compromising performance.",
+      "label": "ai_generated",
+      "page_num": 23,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "5.1 Ablation Study​",
+      "label": "human",
+      "page_num": 23,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The ablation study evaluates the impact of each individual component of the proposed identity management model on overall system performance and security. By selectively disabling or replacing modules such as the zero-knowledge proof-based authentication, Sybil resistance mechanisms, or blockchain consensus layer, the study quantifies the contribution",
+      "label": "ai_generated",
+      "page_num": 23,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "of each to latency, throughput, energy consumption, and security metrics. Results demonstrate that removing the Sybil resistance module significantly increases the vulnerability to fake identity attacks, while excluding the credential unlinkability mechanisms leads to reduced privacy scores. Similarly, replacing the lightweight consensus with a standard proof-of-work approach increases transaction confirmation times and energy overhead. This systematic assessment confirms that each design choice plays a critical role in maintaining a balance between security, performance, and privacy, validating the necessity of the integrated approach proposed.",
+      "label": "ai_generated",
+      "page_num": 24,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Table 3: Impact of Component Modifications on System Performance, Security, and Privacy Metrics Component Removed/Modified Latency (ms) Throughpu t (tx/s) Energy Consumption (Wh/tx) Security Score Privacy Score Sybil Resistance Mechanism ↑ 45% ↓ 30% ↑ 25% ↓ 40% 90% Zero-Knowledge Proof Authentication ↑ 20% ↓ 15% ↑ 10% 95% ↓ 50% Lightweight Blockchain Consensus ↑ 60% ↓ 40% ↑ 55% 98% 92% Credential Unlinkability Module ↑ 10% ↓ 5% ↑ 8% 97% ↓ 35%",
+      "label": "human",
+      "page_num": 24,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Table 3 presents the results of an ablation study evaluating the effect of removing or modifying specific components of the proposed model. Each row shows the percentage change in latency, throughput, energy consumption, security, and privacy scores when a component is altered or removed. The study highlights the contribution of each module—such as the Sybil resistance mechanism, zero-knowledge proof authentication, lightweight blockchain consensus, and credential unlinkability module—to the overall performance and robustness of the system. Metrics are analyzed to demonstrate the criticality of individual components in maintaining high efficiency, strong security, and robust privacy.​",
+      "label": "ai_generated",
+      "page_num": 24,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "5.2 Discussion​",
+      "label": "human",
+      "page_num": 25,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The results demonstrate that the proposed ZK-IDChain model consistently outperforms existing identity verification frameworks across all evaluated metrics. Compared to SmartDID, PetroBlock, and VDF-based systems, it achieves significantly lower latency and higher throughput, indicating efficient processing and scalability under increasing device counts. Energy consumption per transaction is notably reduced due to the lightweight consensus mechanism, while credential unlinkability and security scores confirm robust privacy preservation and resistance to Sybil, replay, and impersonation attacks. The ablation study further validates the critical role of each system component, highlighting that modules such as zero-knowledge proof authentication, Sybil resistance, and credential unlinkability substantially contribute to maintaining overall performance, security, and privacy. These findings collectively confirm that the integrated design approach of ZK-IDChain offers a balanced, high-performing solution for secure and scalable decentralized identity management.",
+      "label": "ai_generated",
+      "page_num": 25,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "VI Conclusion​",
+      "label": "human",
+      "page_num": 25,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The ZK-IDChain framework demonstrates substantial improvements over conventional zk-SNARK-based identity systems, enhancing Sybil resistance by 63.4% and reducing credential verification time by 41.2%. The system maintains over 96.7% anonymity under multi-party audits and adversarial inference scenarios, ensuring strong privacy protection. Latency and energy consumption were significantly lowered, reflecting the efficiency of the lightweight blockchain consensus. Transaction throughput increased markedly, supporting higher scalability without compromising security. Compared to existing models, ZK-IDChain achieves a balanced performance across security, privacy, and computational efficiency. The hierarchical identity and credential management structure contributed to stable operations under high device density. Zero-knowledge proof integration ensures unlinkability and robust authentication without exposing sensitive information. The ablation study confirmed the critical contribution of each module to overall system performance. These results validate ZK-IDChain as a practical solution for decentralized identity verification in Web3 ecosystems. Future work will investigate adaptive consensus mechanisms, cross-domain identity interoperability, and deployment across large-scale, dynamic networks.",
+      "label": "ai_generated",
+      "page_num": 25,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "References​ [1] He, S., Lyu, X., & Chu, D. (2024, November). Legacy Compatible and Sybil Resistant Decentralized Identity Management for IoTs. In International Conference on Blockchain (pp. 33-49). Cham: Springer Nature Switzerland.​ [2] Moriyama, K., & Otsuka, A. (2025). Sybil-Resistant Self-Sovereign Identity Utilizing Attested Execution Secure Processors and Zero-Knowledge Membership Proofs. IEEE Access.​ [3] Yin, J., Xiao, Y., Pei, Q., Ju, Y., Liu, L., Xiao, M., & Wu, C. (2022). SmartDID: A novel privacy-preserving identity based on blockchain for IoT. IEEE Internet of Things Journal, 10(8), 6718-6732.​ [4] Dimitriou, T. (2024, July). Visor: Privacy-Preserving Reputation for Decentralized Marketplaces. In IFIP Annual Conference on Data and Applications Security and Privacy",
+      "label": "human",
+      "page_num": 25,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "(pp. 131-150). Cham: Springer Nature Switzerland.​ [5] Kim, T., Seo, D., Kim, S. H., & Lee, I. Y. (2024). A Comprehensive Approach to User Delegation and Anonymity within Decentralized Identifiers for IoT. Sensors, 24(7), 2215.​ [6] He, Y., & Inoue, K. (2024). CrowdChain: A privacy-preserving crowdfunding system based on blockchain and PUF. Peer-to-Peer Networking and Applications, 17(6), 3669-3687.​ [7] Maheshwari, V., & Prasanna, M. (2025). Privacy-preserving authentication for 5G healthcare with HBZKP: Hierarchical blockchain-based zero knowledge proof for secure edge devices. Ain Shams Engineering Journal, 16(8), 103463.​ [8] Payattukalanirappel, S. J., Vamattathil, P. V., & Cheeramthodika, M. Z. C. (2024). A Blockchain-assisted lightweight privacy preserving authentication protocol for peer-to-peer communication in vehicular ad-hoc network. Peer-to-Peer Networking and Applications, 17(6), 4013-4032.​ [9] Han, J., Li, Z., Liu, J., Wang, H., Xian, M., Zhang, Y., & Chen, Y. (2022). Attribute-based access control meets blockchain-enabled searchable encryption: A flexible and privacy-preserving framework for multi-user search. Electronics, 11(16), 2536.​ [10] da Silva Costa, R., & Rupino Da Cunha, P. (2025). Self-Sovereign Identities: Brief History and Survey of the Field. In Advances in Information Systems Development: Exploring New Horizons and Opportunities (pp. 43-62). Cham: Springer Nature Switzerland.​ [11] Al-Shaibani, H., Lasla, N., Abdallah, M., & Bakiras, S. (2021). Privacy-preserving framework for blockchain-based stock exchange platform. IEEE Access, 10, 1202-1215.​ [12] Agrawal, A., Bhatia, A., & Tiwari, K. (2025). Sybil-resilient Publisher Selection Mechanism in Blockchain-based MCS Systems. IEEE Open Journal of the Computer Society.​ [13] Almazroi, A. A., Alkinani, M. H., Al-Shareeda, M. A., Alqarni, M. A., Almazroey, A. A., & Gaber, T. (2024). FC-LSR: Fog computing-based lightweight Sybil resistant scheme in 5G-enabled vehicular networks. IEEE Access, 12, 30101-30112.​ [14] Siam, M. K., Saha, B., Hasan, M. M., Hossain Faruk, M. J., Anjum, N., Tahora, S., ... & Shahriar, H. (2025). Securing Decentralized Ecosystems: A Comprehensive Systematic Review of Blockchain Vulnerabilities, Attacks, and Countermeasures and Mitigation Strategies. Future Internet, 17(4).​ [15] Jamil, F., Cheikhrouhou, O., Jamil, H., Koubaa, A., Derhab, A., & Ferrag, M. A. (2021). PetroBlock: A blockchain-based payment mechanism for fueling smart vehicles. Applied Sciences, 11(7), 3055.​ [16] Liang, Y., Li, Y., & Shin, B. S. (2022). Private decentralized crowdsensing with asynchronous blockchain access. Computer Networks, 213, 109088.​ [17] Rasheed, A., Mahapatra, R. N., Varol, C., & Narashimha, K. (2021). Exploiting zero knowledge proof and blockchains towards the enforcement of anonymity, data integrity and privacy (ADIP) in the IoT. IEEE Transactions on Emerging Topics in Computing, 10(3), 1476-1491.​ [18] Rajendra, Y., Subramanian, V., & Shukla, S. K. (2024). Sybil attack detection in ultra-dense VANETs using verifiable delay functions. Peer-to-Peer Networking and Applications, 17(3), 1645-1666.​ [19] Swarnkar, M., Bhadoria, R. S., & Sharma, N. (2020). Security, privacy, trust management and performance optimization of blockchain technology. In Applications of blockchain in healthcare (pp. 69-92). Singapore: Springer Singapore.​",
+      "label": "human",
+      "page_num": 26,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "[20] Liu, Y., Wang, J., Yan, Z., Wan, Z., & Jäntti, R. (2023). A survey on blockchain-based trust management for Internet of Things. IEEE internet of Things Journal, 10(7), 5898-5922.​ [21] Luo, C., Xu, L., Li, D., & Wu, W. (2020). Edge computing integrated with blockchain technologies. In Complexity and Approximation: In Memory of Ker-I Ko (pp. 268-288). Cham: Springer International Publishing.​ [22] Nicolas, K., Wang, Y., Giakos, G. C., Wei, B., & Shen, H. (2020). Blockchain system defensive overview for double-spend and selfish mining attacks: A systematic approach. IEEE Access, 9, 3838-3857.​ [23] Wang, Q., Ji, T., Guo, Y., Yu, L., Chen, X., & Li, P. (2020). TrafficChain: A blockchain-based secure and privacy-preserving traffic map. Ieee Access, 8, 60598-60612.​ [24] Chan, W., Gai, K., Yu, J., & Zhu, L. (2025). Blockchain-assisted self-sovereign identities on education: a survey. Blockchains, 3(1), 3.​ [25] Evelyn, H. (2025). Tokenized Identity and Reputation Systems in Web3.​ [26] Szalachowski, P. (2021). Password-authenticated decentralized identities. IEEE Transactions on Information Forensics and Security, 16, 4801-4810.​ [27] Deng, H., Liang, J., Zhang, C., Liu, X., Zhu, L., & Guo, S. (2024). FutureDID: A fully decentralized identity system with Multi-Party verification. IEEE Transactions on Computers, 73(8), 2051-2065.​ [28] Sezer, S., & Prinz, W. (2023). Exploring Privacy-Preserving Approaches for Leveraging Verifiable Credentials on Blockchain: A Comparative Analysis. Edited by Sergey Y. Yurish, 13.​ [29] Kuznetsov, O., Frontoni, E., Katrich, V., Kobylianska, O., & Pshenichnaya, S. (2023). A Comprehensive Decentralized Digital Identity System: Blockchain, Artificial Intelligence, Fuzzy Extractors, and NFTs for Secure Identity Management. In CPITS II (pp. 44-54).​ [30] Rosenberg, M., White, J., Garman, C., & Miers, I. (2023, May). zk-creds: Flexible anonymous credentials from zksnarks and existing identity infrastructure. In 2023 IEEE Symposium on Security and Privacy (SP) (pp. 790-808). IEEE.​ [31] Agrawal, P., Jhanwar, M. P., Sharma, S. V., & Banerjee, S. (2024, July). Publicly auditable privacy-preserving electoral rolls. In 2024 IEEE 37th Computer Security Foundations Symposium (CSF) (pp. 217-232). IEEE.​ [32] Siam, M. K., Saha, B., Hasan, M. M., Hossain Faruk, M. J., Anjum, N., Tahora, S., ... & Shahriar, H. (2025). Securing Decentralized Ecosystems: A Comprehensive Systematic Review of Blockchain Vulnerabilities, Attacks, and Countermeasures and Mitigation Strategies. Future Internet, 17(4).​ [33] Sutradhar, S., Bose, R., Majumder, S., Khan, A. A., Roy, S., Ullah, F., & Prashar, D. (2025). MediGuard: A Survey on Security Attacks in Blockchain-IoT Ecosystems for e-Healthcare Applications. Computers, Materials & Continua, 83(3).​ [34] Yakubu, M. M., Hassan, F. B., Danyaro, K. U., Junejo, A. Z., Siraj, M., Yahaya, S., ... & Abdulsalam, K. (2024). A Systematic Literature Review on Blockchain Consensus Mechanisms' Security: Applications and Open Challenges. Computer Systems Science & Engineering, 48(6).​ [35] Anusuya, R., Karthika Renuka, D., Ghanasiyaa, S., Harshini, K., Mounika, K., & Naveena, K. S. (2021, December). Privacy-preserving blockchain-based EHR using ZK-Snarks. In International Conference on Computational Intelligence, Cyber Security, and",
+      "label": "human",
+      "page_num": 27,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Computational Models (pp. 109-123). Cham: Springer International Publishing.​ [36] Zhu, L. H., Zheng, B. K., Shen, M., Gao, F., Li, H. Y., & Shi, K. X. (2020). Data security and privacy in bitcoin system: a survey. Journal of Computer Science and Technology, 35(4), 843-862.​ [37] Tariq, N., Asim, M., Khan, F. A., Baker, T., Khalid, U., & Derhab, A. (2020). A blockchain-based multi-mobile code-driven trust mechanism for detecting internal attacks in internet of things. Sensors, 21(1), 23.​ [38] Gu, B., & Nawab, F. (2024). zk-oracle: Trusted off-chain compute and storage for decentralized applications. Distributed and Parallel Databases, 42(4), 525-548.",
+      "label": "human",
+      "page_num": 28,
+      "source": "direct_pdf"
+    }
+  ],
+  "stats": {
+    "ai_generated_segments": 55,
+    "ai_paraphrased_segments": 1,
+    "human_segments": 62,
+    "ocr_pages": 0,
+    "total_chars_ai": 29204,
+    "total_chars_paraphrased": 436,
+    "total_chars_human": 20524
+  },
+  "errors": []
+}

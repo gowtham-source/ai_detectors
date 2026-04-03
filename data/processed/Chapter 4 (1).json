@@ -1,0 +1,740 @@
+{
+  "file_name": "Chapter 4 (1).pdf",
+  "file_path": "c:\\Users\\gowth\\Downloads\\ai_plag_detector\\data\\raw_data\\raw_data\\Chapter 4 (1).pdf",
+  "submission_date": "2025-12-21",
+  "priority": "LOW",
+  "total_pages": 37,
+  "ai_percentage_reported": 94,
+  "segments": [
+    {
+      "text": "CHAPTER 4 Blockchain-Based Secure and Energy-Efficient Privacy-Preserving Authentication Protocol for Internet of Vehicles Using Optimized El-Gamal Encryption 4.1 Preamble",
+      "label": "human",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The rapid expansion of the Internet of Vehicles has intensified the need for more advanced security mechanisms that can operate efficiently in highly dynamic and large-scale vehicular environments. Although blockchain-based authentication frameworks provide decentralization and data integrity, relying on a single security layer is often insufficient to counter sophisticated cyber threats and privacy breaches. The increasing volume of vehicular data, strict latency requirements, and frequent vehicle mobility demand authentication schemes that not only ensure strong security but also maintain low computational overhead and real-time responsiveness. To address these emerging challenges, this chapter proposes an enhanced authentication framework that integrates deep learning techniques with optimized cryptographic mechanisms within a blockchain-enabled IoV environment. By combining intelligent learning models with secure encryption strategies, the proposed approach aims to strengthen attack detection accuracy, preserve user privacy, and improve system efficiency. This chapter builds upon the foundation established in the previous chapter and introduces a more robust and scalable solution designed to meet the security and performance requirements of next-generation IoV networks.",
+      "label": "ai_generated",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "4.2 Introduction",
+      "label": "human",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The Internet of Vehicles (IoV) has emerged as a key component of intelligent transportation systems by enabling seamless communication among vehicles, roadside infrastructure, and traffic management entities through On-Board Units (OBUs) and Roadside Units (RSUs). This interconnected environment significantly improves driving safety, traffic efficiency, and overall road utilization by supporting real-time",
+      "label": "ai_generated",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "information exchange and cooperative decision-making (Aman et al., 2021; Qureshi et al., 2022). However, the rapid growth of IoV networks and their open communication nature have also introduced serious security and privacy challenges. Authentication is the first and most critical line of defense in IoV systems. Without proper authentication, malicious vehicles can easily join the network and perform harmful actions, such as impersonating emergency vehicles to bypass traffic regulations or injecting false traffic information to mislead other drivers (Chai et al., 2022). In addition, message integrity is equally important, as tampered data may still appear trustworthy to receiving vehicles, potentially leading to unsafe driving decisions and severe consequences (Xu et al., 2021). Therefore, ensuring message authenticity, integrity, non-repudiation, and traceability is essential for secure IoV communications. Privacy preservation is another major concern in IoV environments, since vehicles continuously generate sensitive data such as location, identity, and movement patterns. Although traceability is required to identify and penalize misbehaving vehicles, unrestricted disclosure of vehicle information can result in unauthorized tracking and privacy violations (Kaltakis et al., 2021; Lin et al., 2021). Conditional privacy-preserving mechanisms aim to balance these conflicting requirements by protecting vehicle anonymity under normal conditions while enabling identity revelation when malicious behavior is detected. Traditional IoV security solutions largely rely on centralized authorities, which suffer from single-point-of-failure issues, limited scalability, delayed response times, and vulnerability to insider attacks (Zhang and Wu, 2021; Kebande et al., 2021). Moreover, centralized trust models struggle to handle the dynamic topology and high mobility of vehicular networks, making them inadequate for next-generation IoV applications. To overcome these limitations, decentralized and intelligent security mechanisms are required.",
+      "label": "ai_generated",
+      "page_num": 4,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Blockchain technology has gained significant attention as a promising solution for IoV security due to its decentralized architecture, immutability, and cryptographic trust mechanisms. By distributing consensus among participating nodes, blockchain enables secure data sharing without relying on a trusted third party (Shen et al., 2022; Tu et al., 2023). However, blockchain-based IoV systems often incur high computational, storage, and communication overhead, particularly during consensus operations and key management processes (Xie et al., 2023). Furthermore, the massive volume of vehicular data can lead to network congestion and latency. To address these challenges, intelligent learning techniques and optimized cryptographic mechanisms are increasingly integrated into blockchain-enabled IoV systems. Deep learning models can effectively detect malicious activities by analyzing complex traffic patterns, while optimized encryption schemes can ensure data confidentiality with reduced computational cost (Wang et al., 2022; Ghimire and Rawat, 2022). Motivated by these advancements, this work proposes a systematic blockchain-based privacy-preserving authentication protocol that combines deep learning-based attack detection with optimized El-Gamal encryption for secure and efficient IoV communications.",
+      "label": "ai_generated",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "4.2.1 Why Blockchain in IoV",
+      "label": "human",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "IoV networks operate in highly dynamic and decentralized environments where vehicles frequently join and leave the network. In such scenarios, centralized security architectures become vulnerable to single-point failures, data manipulation, and trust management issues. Blockchain addresses these challenges by providing a decentralized and tamper-resistant ledger that records all transactions in an immutable manner (Chattaraj et al., 2021; Shen et al., 2022). Through consensus mechanisms, blockchain ensures that only valid and authenticated information is accepted by the network. Additionally, blockchain leverages cryptographic techniques to protect sensitive vehicular data, such as vehicle identities and locations, from unauthorized access.",
+      "label": "ai_generated",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Secure peer-to-peer communication enabled by blockchain eliminates the need for intermediaries, thereby reducing latency and improving reliability for time-sensitive IoV applications (Wu et al., 2023). These features make blockchain a suitable foundation for building secure, trustworthy, and privacy-aware IoV authentication systems.",
+      "label": "ai_generated",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "4.2.2 IoV Use Cases",
+      "label": "human",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The proposed blockchain-based privacy-preserving authentication protocol supports several critical IoV applications. In real-time traffic management, authenticated and trustworthy data sharing among vehicles enables efficient route optimization and congestion control. For vehicle-to-vehicle and vehicle-to-infrastructure payments, blockchain facilitates secure and decentralized financial transactions, such as toll collection and parking fee payments, without relying on centralized payment gateways. In accident reporting systems, blockchain ensures immutable storage of event data, which is crucial for insurance claims and legal investigations. Furthermore, autonomous driving applications rely heavily on trusted communication among vehicles to coordinate maneuvers and ensure safety. In all these use cases, strong authentication and privacy preservation are essential, and the proposed protocol is designed to meet these requirements effectively. 4.3 Systematic View of IoV Network and Dataset Characteristics with",
+      "label": "ai_generated",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Blockchain-Based Storage 4.3.1 System View of the Internet of Vehicles Network",
+      "label": "human",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The Internet of Vehicles (IoV) represents a large-scale intelligent networking paradigm that integrates smart transportation technologies with Internet of Things (IoT) concepts to extend the capabilities of traditional Vehicular Ad Hoc Networks (VANETs). By enabling continuous interaction among vehicles, infrastructure, users, and cloud platforms, IoV supports a wide range of applications such as intelligent",
+      "label": "ai_generated",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "traffic management, collision avoidance, emergency response, autonomous driving, infotainment services, and smart navigation (Aman et al., 2021; Qureshi et al., 2022). An IoV ecosystem is composed of several interconnected entities that collaboratively enable intelligent transportation services. Vehicles are equipped with On-Board Units (OBUs), sensors, and communication modules that collect and transmit real-time vehicular and environmental data. Drivers and passengers interact with these systems to access safety and convenience services. Roadside Units (RSUs), deployed along roadways, act as intermediate communication points that facilitate data exchange between vehicles and backend infrastructure. In addition, cloud servers provide large-scale data storage, analytics, and decision support, while a Central Authority (CA) is traditionally responsible for network registration, credential management, and access control (Xu et al., 2021; Kebande et al., 2021). Through the periodic exchange of safety-related messages, such as beacon or safety broadcast messages, vehicles form a dynamic and socially connected network of smart objects. This interaction allows vehicles to share traffic conditions, road hazards, and driving intentions in real time. Due to the coexistence of heterogeneous users, devices, and services, IoV is classified as a heterogeneous network. Its highly dynamic topology, strict latency requirements, and continuous data generation introduce significant challenges in terms of scalability, reliability, and security (Kaltakis et al., 2021). Conventionally, the IoV architecture follows a layered design that relies on centralized trust management through a central authority. This architecture can be broadly described using four functional layers. The environment sensing and control layer is responsible for collecting raw data through vehicle-mounted sensors. These sensors capture information related to vehicle status, surrounding traffic, road conditions, positioning systems, and wireless signal characteristics. The network access and transport layer manages communication protocols, node connectivity, data validation, and message dissemination between vehicles, RSUs, and infrastructure.",
+      "label": "ai_generated",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The coordination and computing layer handles data processing, resource scheduling, and system management functions. This layer often interacts with cloud or edge computing platforms to support real-time analytics and decision-making. Finally, the application layer provides end-user services by analyzing processed data and responding to safety-critical or convenience-oriented events. Applications at this layer include traffic safety alerts, route optimization, infotainment services, and emergency management. These services can be further categorized into open services, such as real-time traffic updates accessible to all vehicles, and cloud-based services, including centralized traffic monitoring and control platforms (Shen et al., 2022; Tu et al., 2023). A conceptual illustration of the IoV system architecture is presented in Fig. 4.1, highlighting the interaction among vehicles, RSUs, cloud services, and management entities.",
+      "label": "ai_generated",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Figure 4.1: Conceptual Architecture of the Internet of Vehicles Network",
+      "label": "human",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "4.3.2 Dataset Details",
+      "label": "human",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "To validate the proposed authentication and privacy-preserving framework, vehicular data are obtained from the Highway Safety Research Dataset maintained by the National Highway Traffic Safety Administration (NHTSA). This dataset contains comprehensive information related to road traffic scenarios, including vehicle crash records, traffic flow characteristics, and sensor-generated vehicular data collected from real IoV environments across major highways in the United States. Unlike commonly used generic datasets, this source provides realistic and trustworthy data suitable for evaluating security, authentication, and collision-related behaviors in IoV systems. The dataset includes key attributes such as vehicle speed, positional information, traffic conditions, and accident occurrences. For this study, approximately 50,000 data records are utilized to ensure reliable performance assessment and meaningful experimental analysis.",
+      "label": "ai_generated",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "4.3.3 Data Storage in Blockchain​",
+      "label": "human",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The vehicular data collected from the data source are securely stored using 𝐼𝑣 blockchain technology. Blockchain functions as a distributed and shared digital ledger that records transactions among entities that do not necessarily trust one another. Once stored, the data become tamper-resistant, as the ledger is append-only and updated sequentially through a series of interconnected blocks. Each block typically contains the cryptographic hash of the previous block, a timestamp, and the transaction records. This chained structure ensures data integrity, since any attempt to modify stored information would alter the block hash and invalidate all subsequent blocks unless the entire chain is recomputed. Blockchain networks are commonly classified into public blockchains, where any participant can join and validate transactions, and private blockchains, which restrict access to authorized entities only. In IoV environments, this flexibility allows blockchain deployment to be tailored according to security and access control requirements.",
+      "label": "ai_generated",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The adoption of blockchain for vehicular data management offers several key advantages. Immutability ensures that once a block is added, its content cannot be altered without detection. The distributed ledger mechanism enables all participating nodes to maintain synchronized copies of the ledger, enhancing transparency and trust. The consensus mechanism defines the rules by which blocks are validated and appended, ensuring agreement among network participants. In addition, smart contracts—self-executing code deployed on the blockchain—automate transaction validation and authentication once predefined conditions are met. By leveraging these features, blockchain effectively addresses security vulnerabilities, trust issues, and centralized failures in vehicular networks. In the proposed system, smart contracts are utilized to securely record vehicular data and support authentication operations within the IoV framework. 4.3.4 Authentication Mechanism Using Cascaded and Dilated Residual RNN in the IoV Platform Recurrent Neural Networks (RNNs) are employed in this work to support the authentication process within the Internet of Vehicles (IoV) environment. RNNs are well known for their effectiveness in handling sequential data, as they maintain internal memory that captures temporal relationships between consecutive inputs. This capability makes RNNs particularly suitable for IoV authentication tasks, where vehicle messages and network behaviors follow time-dependent patterns. By learning historical dependencies, the model can distinguish between legitimate and malicious transmission behaviors more accurately. As highlighted by Elman (1990) and later extended by Hochreiter and Schmidhuber (1997), RNN-based models are capable of modeling long-term dependencies that are essential for security-sensitive applications. In the proposed framework, the authentication decision is generated iteratively across time steps, where the network updates its hidden state and output based on both the current input and the previously learned context, enabling reliable and continuous authentication in dynamic IoV networks.",
+      "label": "ai_generated",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ ​ ​ ​ (4.1) 𝑗𝑓= α 𝑆𝑦𝑗𝑦𝑗+ 𝑆𝑗𝑗𝑗𝑓−1 + 𝑑𝑗 ( )",
+      "label": "human",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ ​ ​ ​ ​ ​ ​ (4.2) 𝑍𝑗= 𝑆𝑗𝑧+ 𝑑𝑧",
+      "label": "human",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "In this formulation, the variables and represent the input sequence and the 𝑦 𝑧 corresponding output sequence, respectively. The series of hidden state vectors is denoted by , which captures the temporal dependencies within the data. The network 𝑗 parameters include the weight matrix and the bias vector , both of which are 𝑆 𝑑 learned during the training process. The hidden layer activation function is responsible for transforming the weighted inputs into meaningful internal representations. The overall structural architecture of the Recurrent Neural Network is illustrated in Fig.4.2. Figure 4.2 : Structural Architecture of the Recurrent Neural Network (RNN) Residual Connection in Recurrent Neural Networks- Traditional approaches for time-series modeling and authentication are generally effective when data relationships are predominantly linear. However, IoV data streams often exhibit strong nonlinear dependencies due to dynamic traffic conditions, heterogeneous nodes, and varying communication patterns. In addition, standard Recurrent Neural Networks (RNNs) are difficult to train efficiently because of issues such as vanishing gradients and slow convergence, especially when dealing with long sequences. To overcome",
+      "label": "ai_generated",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "these limitations, the Residual Recurrent Neural Network (RRNN) concept, inspired by the residual learning framework proposed by Yufeng Wang et al., 2019, is adopted. The RRNN architecture decomposes the learning process into two interconnected stages. In the first stage, a linear model captures the primary trend of the sequential data. In the second stage, the residual error produced by this linear approximation is forwarded to the RNN, which focuses exclusively on learning the remaining nonlinear patterns. By integrating linear estimation with nonlinear sequence modeling, the RRNN efficiently exploits both characteristics of IoV data. This residual learning mechanism offers two major advantages. First, combining linear and nonlinear representations improves prediction and authentication performance compared to using either approach independently. Second, since the RNN is trained only on residual errors rather than the entire signal, the training process becomes faster, more stable, and computationally less complex. As a result, RRNNs are particularly well suited for IoV authentication tasks where accuracy, scalability, and training efficiency are critical.",
+      "label": "ai_generated",
+      "page_num": 12,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ ​ ​ ​ ​ (4.3) 𝑦~𝑓+𝑗= 𝑔𝑦𝑓 ( ) ​ ​ ​ ​ (4.4) 𝑡~𝑓+𝑗= 𝑦 𝑓+𝑗 −𝑦~𝑓+𝑗 ​ ​ ​ ​ (4.5) 𝑡~𝑓+2𝑗= 𝑅𝑁𝑁𝑡~𝑓+𝑗 [ ] ​ ​ (4.6) 𝑦¯𝑓+2𝑗= 𝑔𝑦𝑓+𝑗 ( ) + 𝑡^𝑓+2𝑗",
+      "label": "human",
+      "page_num": 12,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The expression in Eq. 4.6 represents the final prediction stage of the residual recurrent learning process. In this formulation, denotes the prediction horizon, while and 𝑗 𝑓 𝑓+ 𝑗 indicate the current and future time instants, respectively. The value corresponds to 𝑦~𝑓+𝑗 the output predicted by the linear forecasting function , whereas denotes the 𝑔·( ) 𝑦𝑓+𝑗 actual observed value at time . The difference between these two values defines 𝑓+ 𝑗 the linear prediction error, represented as . The final predicted output, , is 𝑡~𝑓+𝑗 𝑦¯𝑓+2𝑗",
+      "label": "ai_generated",
+      "page_num": 12,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "obtained by combining the linear forecast with the residual correction learned by the nonlinear model. Specifically, Eq. (4.3) computes the preliminary forecast from the input 𝑦~𝑓+𝑗 sequence using the linear predictor . Eq. (4.4) determines the associated 𝑦𝑓 𝑔 prediction error by comparing the linear estimate with the true observation. Eq. (4.5) feeds this residual error into the nonlinear recurrent structure to estimate the future correction term. Finally, Eq. (4.6) aggregates the linear forecast and the predicted residual to generate the refined output. This residual learning strategy, inspired by the residual modeling concept introduced by Yufeng Wang et al., 2019, improves prediction accuracy by allowing the nonlinear network to focus solely on correcting linear estimation errors rather than modeling the entire signal. Proposed CD-RRNN for Authentication- The proposed Cascaded Dilated Residual Recurrent Neural Network (CD-RRNN) is employed to strengthen the authentication mechanism in the IoV environment. Although the Residual Recurrent Neural Network (RRNN) provides faster training and improved learning efficiency, it still faces limitations in fully identifying sophisticated malicious behaviors and is susceptible to gradient degradation when processing long sequential data. To overcome these drawbacks, dilation is integrated into the residual recurrent structure. The dilated RRNN, inspired by the dilated recurrent architecture introduced by Chang et al., 2017, adopts a multi-layer and cell-independent design with hierarchical skip connections across different time steps. These dilated skip connections enable the network to capture long-range temporal dependencies while significantly reducing the risk of vanishing gradients. In addition, dilation allows the model to operate with fewer parameters, improving computational efficiency without sacrificing detection capability. By stacking multiple dilated recurrent layers with varying dilation rates, the CD-RRNN achieves multi-resolution temporal learning, making it highly effective for time-sensitive authentication tasks in IoV networks. As a result, the proposed CD-RRNN outperforms conventional RNN, LSTM, and GRU models in both learning",
+      "label": "ai_generated",
+      "page_num": 13,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "stability and malicious activity recognition. The mathematical formulation of the dilated skip connection is presented in Eq. (4.7).",
+      "label": "ai_generated",
+      "page_num": 14,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ ​ ​ ​ ​ (4.7) 𝑏𝑗 𝑑 ( ) = 𝑎𝑏𝑗 𝑑 ( ), 𝑏𝑗−𝑥 𝑗( ) 𝑑 ( ) ( )",
+      "label": "human",
+      "page_num": 14,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "In this formulation, the input to the d-th dilated layer is denoted by , while 𝑏𝑗 𝑑 ( ) 𝑥𝑗 represents the dilation or skip interval between recurrent connections. The symbol 𝑎 refers to a recurrent cell operation and its corresponding output. By introducing dilated connections, the recurrent network efficiently captures long-range temporal dependencies and significantly alleviates the vanishing gradient problem, as demonstrated in dilated recurrent architectures by Chang et al. (2017). Despite these advantages, a standalone dilated RRNN may suffer from redundant feature propagation and increased error rates when handling large-scale vehicular data streams. To address these limitations, a cascading mechanism is incorporated, resulting in the proposed Cascaded Dilated Residual Recurrent Neural Network (CD-RRNN). In this approach, the original input data are processed sequentially through multiple cascaded stages, allowing the network to progressively refine learned representations. Cascading effectively suppresses redundant information and enhances discrimination capability by re-evaluating the extracted features across three successive stages, thereby reducing cumulative prediction errors. The final output of the proposed CD-RRNN yields authenticated vehicular data with enhanced reliability and robustness. By integrating hierarchical dilation, the model effectively captures long-term temporal dependencies while alleviating gradient degradation during training. The cascading mechanism further refines feature representations by minimizing redundant information, which contributes to a reduction in false-negative rates. In addition, the inclusion of residual connections accelerates convergence and improves learning stability. Together, these characteristics enable the CD-RRNN to accurately identify malicious behaviors such as impersonation attacks and false data injection in highly dynamic IoV environments.",
+      "label": "ai_generated",
+      "page_num": 14,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "4.3.5 Addressing IoV Security and Privacy Challenges",
+      "label": "human",
+      "page_num": 15,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The proposed authentication protocol is designed to effectively address the key challenges inherent in Internet of Vehicles (IoV) environments, such as high mobility, rapidly changing network topologies, and stringent privacy requirements. The decentralized nature of blockchain eliminates dependence on static centralized servers, thereby avoiding single points of failure and improving resilience under dynamic vehicular conditions. Timestamped and hash-linked blocks ensure the integrity and consistency of vehicular data across distributed nodes, even during frequent topology changes. To handle sequential and time-dependent vehicular data, the proposed CD-RRNN processes traffic patterns using dilated skip connections, enabling robust detection of malicious behavior despite continuous node movement. This architecture enhances adaptability to real-time network variations while maintaining detection accuracy. Furthermore, privacy and traceability are jointly preserved through conditional privacy mechanisms. Transactions are stored in an anonymized manner on the blockchain, while smart contracts allow authorized entities to trace malicious vehicles only when suspicious behavior is detected. The Optimized Key El-Gamal Encryption (OKEE), supported by MMRFO-based key generation, dynamically adapts encryption strength to network conditions, reducing latency and improving scalability without compromising confidentiality.",
+      "label": "ai_generated",
+      "page_num": 15,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "4.3.6 Modified Heuristic Algorithm-Based Cryptographic Technique for Privacy Preservation MMRFO for Optimal Key Generation- The Modified Manta Ray Foraging",
+      "label": "human",
+      "page_num": 15,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Optimization (MMRFO) algorithm is employed to generate optimal cryptographic keys for privacy preservation in the proposed system. This optimization strategy aims to reduce computational overhead and memory consumption while enhancing encryption efficiency. The MMRFO is derived from the conventional Manta Ray Foraging Optimization (MRFO), a bio-inspired metaheuristic based on the natural foraging behaviors of manta rays, namely chain foraging, cyclone foraging, and somersault foraging, as introduced by Weiguo Zhao et al. (2020). MRFO has",
+      "label": "ai_generated",
+      "page_num": 15,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "demonstrated effectiveness in solving complex engineering optimization problems by balancing exploration and exploitation. However, the traditional MRFO relies on randomly generated control parameters within a fixed range of [0,1] across all foraging phases. Such random selection may introduce dimensional instability and increase optimization complexity, particularly in high-dimensional cryptographic key spaces. To overcome these limitations, the proposed MMRFO replaces the purely random parameter selection with a fitness-driven adaptive control variable. This newly introduced fitness-based random factor, denoted as , is computed using the fitness values of candidate solutions. By 𝑏 guiding the search process based on solution quality, dimensionality issues are significantly reduced, convergence speed is improved, and more stable optimal keys are generated. The mathematical formulation of the adaptive parameter is presented 𝑏 in Eq. (4.8).",
+      "label": "ai_generated",
+      "page_num": 16,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ ​ ​ ​ ​ (4.8) 𝑏= 𝑐𝑓𝑓 𝑚𝑓𝑓+𝑤𝑓𝑓 ( )",
+      "label": "human",
+      "page_num": 16,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "In this formulation, the average fitness value across the population is represented as , while the poorest fitness obtained among all candidate solutions is denoted as 𝑚𝑓𝑓 wff. The fitness of the currently evaluated solution is indicated by . Unlike the 𝑐𝑓𝑓 traditional approach, the proposed fitness-adaptive random variable is consistently updated across all foraging phases, enabling the optimization process to be guided by solution quality rather than purely random selection. This adaptive strategy improves stability and accelerates convergence during key generation. The conventional Manta Ray Foraging Optimization (MRFO), originally proposed by Weiguo Zhao et al. (2020), simulates the natural feeding behavior of manta rays in ocean environments. Among its core strategies, chain foraging represents the collective movement of manta rays toward regions with higher plankton density.",
+      "label": "ai_generated",
+      "page_num": 16,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "In this mechanism, each manta ray follows the individual with the highest food concentration discovered so far, assuming that areas with denser plankton offer better feeding opportunities. Since the true global optimum is unknown, MRFO treats the",
+      "label": "human",
+      "page_num": 16,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "best solution identified at any iteration as the current plankton-rich target and guides the population accordingly. The mathematical representation of the chain foraging behavior is expressed through Eq. (4.9). ​ ​ (4.9) 𝑦𝑗 𝑒𝑢+1 = 𝑦𝑗 𝑒𝑢+ 𝑏· 𝑦𝑏𝑒𝑠𝑡 𝑒𝑢 −𝑦𝑗 𝑒𝑢 ( ) + β · 𝑦𝑗−1 𝑒𝑢−𝑦𝑗 𝑒𝑢 ( ), 𝑗= 2,..., 𝑀 For the first manta ray in the chain, the update equation is defined as Eq. (4.10): ​ ​ ​ ​ ​ (4.10) 𝑦1 𝑒𝑢+1 = 𝑦1 𝑒𝑢+ 𝑏· 𝑦𝑏𝑒𝑠𝑡 𝑒𝑢 −𝑦1 𝑒𝑢 ( ) where the control parameter where the control parameter in Eq.(4.11): β ​ ​ ​ ​ ​ (4.11) β = 2. 𝑏. 𝑙𝑛𝑏 ( ) Cyclone and Somersault Foraging in the Proposed MMRFO- In the optimization process, the variable represents the position of the manta ray in the 𝑦𝑗 𝑒𝑢 𝑗 𝑡ℎ 𝑒 𝑡ℎ dimension at iteration , while denotes the best solution identified so far, 𝑢 𝑦𝑏𝑒𝑠𝑡 𝑒𝑢 corresponding to the region with the highest plankton concentration. In the original Manta Ray Foraging Optimization (MRFO) algorithm proposed by Zhao et al. (2020), random numbers uniformly distributed within denotes the best solution 0, 1 [ ] identified so far, corresponding to the region with the highest plankton concentration. In the original Manta Ray Foraging Optimization (MRFO) algorithm proposed by Zhao et al. (2020), random numbers uniformly distributed within , computed directly 𝑏 from fitness values.",
+      "label": "human",
+      "page_num": 17,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "This modification simplifies the search process, improves stability, and accelerates convergence by aligning randomness with solution quality. Cyclone Foraging Phase- Cyclone foraging models the spiral movement of manta rays toward a detected food source. In this phase, individuals follow a spiral-shaped trajectory, allowing effective exploitation of promising regions.",
+      "label": "ai_generated",
+      "page_num": 17,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Instead of modeling explicit 2D spiral coordinates, the movement is generalized to an -dimensional space 𝑛 using a compact formulation: ​ ​ (4.12) 𝑦𝑗 𝑒,𝑢+1 = 𝑦𝑏𝑒𝑠𝑡 𝑒,𝑢+ 𝑏. 𝑦𝑗−1 𝑒,𝑢−𝑦𝑗 𝑒,𝑢 ( ) + β · 𝑦𝑏𝑒𝑠𝑡 𝑒,𝑢−𝑦𝑗 𝑒,𝑢 ( ), 𝑗= 1,..., 𝑀",
+      "label": "human",
+      "page_num": 17,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "where the adaptive control parameter is defined as in Eq.(4.13): β",
+      "label": "ai_generated",
+      "page_num": 17,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ ​ ​ ​ (4.13)",
+      "label": "human",
+      "page_num": 18,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "𝑒 𝑏1 1−𝑢 𝑈 ( ) · 𝑠𝑖𝑛2π𝑏1 ( )",
+      "label": "human",
+      "page_num": 18,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Here, is the maximum number of iterations, and is a fitness-adjusted random 𝑏1",
+      "label": "ai_generated",
+      "page_num": 18,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "coefficient.",
+      "label": "human",
+      "page_num": 18,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "This formulation preserves the spiral exploitation behavior while reducing computational complexity.",
+      "label": "ai_generated",
+      "page_num": 18,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "To further enhance global exploration, manta rays occasionally shift toward randomly generated reference positions within the search space: ​ ​ ​ ​ ​ (4.14) 𝑦𝑟 𝑒= ℎ 𝑒+ 𝑏· 𝑘 𝑒−ℎ 𝑒 ( ) ​ ​ (4.15) 𝑦𝑗 𝑒,𝑢+1 = 𝑦𝑟 𝑒+ 𝑏· 𝑦𝑗−1 𝑒,𝑢−𝑦𝑗 𝑒,𝑢 ( ) + β · 𝑦𝑟 𝑒−𝑦𝑗 𝑒,𝑢 ( )",
+      "label": "human",
+      "page_num": 18,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Where and represent the lower and upper bounds of the search space, ℎ 𝑒 𝑘 𝑒 respectively. This mechanism strengthens exploration while avoiding premature convergence. Somersault Foraging Phase- Somersault foraging enables manta rays to reposition themselves around the best-known solution, acting as a pivot point. This behavior improves local refinement and avoids stagnation near suboptimal solutions.",
+      "label": "ai_generated",
+      "page_num": 18,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The simplified update rule is expressed as in Eq.(4.16): ​ ​ ​ (4.16) 𝑦𝑗 𝑒,𝑢+1 = 𝑦𝑗 𝑒,𝑢+ 𝑇· 𝑏2 · 𝑦𝑏𝑒𝑠𝑡 𝑒,𝑢−𝑏3 · 𝑦𝑗 𝑒,𝑢 ( ), 𝑗= 1,..., 𝑀",
+      "label": "human",
+      "page_num": 18,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Where controls the somersault range, and are fitness-guided coefficients.",
+      "label": "ai_generated",
+      "page_num": 18,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "𝑇 𝑏2, 𝑏3 formulation ensures controlled oscillation around the optimal region, improving solution precision. By replacing uniform random factors with fitness-aware adaptive parameters, the proposed MMRFO significantly enhances convergence speed, stability, and scalability compared to the original MRFO framework introduced by Weiguo Zhao et al. (2020).",
+      "label": "ai_generated",
+      "page_num": 18,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The detailed pseudo-code of the proposed MMRFO is presented in Algorithm 1, while the procedural flow is summarized through a flowchart.",
+      "label": "human",
+      "page_num": 18,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Algorithm 1: Recommended MMRFO Population size, highest iteration, and all manta ray initialization Estimate the fitness function of all individuals For 𝑢= 1 𝑡𝑜 𝑈 For 𝑗= 1 𝑡𝑜 𝑀 Generate a new random variable by Eq. (8) 𝑏 if 𝑟𝑑< 0. 5 if 𝑢 𝑈< 𝑟𝑑 Position updating of cyclone foraging strategy using Eq. (14) and Eq. (15) else Position updating of cyclone foraging strategy using Eq. (12) and Eq. (13) End if else Position updating of chain foraging process using Eq. (9). End if Position updating of somersault process employing Eq. (16). End for End for Return optimal outcomes",
+      "label": "human",
+      "page_num": 19,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ Figure 4.3: Flowchart of designed MMRFO for producing the optimal key ElGamal Encryption Scheme- ElGamal encryption, originally introduced by Taher ElGamal (1985), is a well-known asymmetric cryptographic technique derived from the Diffie–Hellman key exchange principle. It relies on the computational hardness of the discrete logarithm problem and supports both secure encryption and digital signature generation. Unlike deterministic public-key cryptosystems, ElGamal",
+      "label": "human",
+      "page_num": 20,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "produces a different ciphertext for the same plaintext each time, which significantly strengthens resistance against replay and pattern-analysis attacks. The ElGamal cryptosystem operates through three fundamental stages: key generation, encryption, and decryption. Key Generation​ In the key generation phase, the communicating party performs the following steps: 1.​ Select a large prime number , which defines the finite cyclic group. 𝑞 2.​ Choose a generator of the multiplicative group modulo . ℎ 𝑞 3.​ Randomly select a private key such that . 𝑦 1 < 𝑦< 𝑞−1 4.​ Compute the public key component as: ​ ​ ​ ​ ​ ​ (4.17) 𝑧= ℎ 𝑦𝑚𝑜𝑑 𝑞",
+      "label": "human",
+      "page_num": 21,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Here, the tuple forms the public key, while is maintained as the private key 𝑞, ℎ, 𝑧 ( ) 𝑦 and never disclosed. Encryption- To encrypt a secret message , the sender first obtains the receiver’s 𝑛 public key . A fresh random integer is then generated for each encryption 𝑞, ℎ, 𝑧 ( ) 𝑙 instance, ensuring semantic security.",
+      "label": "ai_generated",
+      "page_num": 21,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The ciphertext is produced as a pair: ​ ​ ​ ​ ​ ​ (4.18) 𝑑1 = ℎ 𝑙𝑚𝑜𝑑𝑞 ​ ​ ​ ​ ​ (4.19) 𝑑2 = 𝑛· 𝑧 𝑙𝑚𝑜𝑑𝑞 The resulting ciphertext",
+      "label": "human",
+      "page_num": 21,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "is transmitted to the receiver. The inclusion of the",
+      "label": "ai_generated",
+      "page_num": 21,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "𝑑1, 𝑑2 ( )",
+      "label": "human",
+      "page_num": 21,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "random value guarantees that identical plaintext messages yield different ciphertexts, 𝑙 enhancing confidentiality in dynamic IoV communication environments. This encryption mechanism is particularly suitable for privacy-preserving IoV applications due to its robustness against passive and active cryptographic attacks, especially when combined with optimized key selection strategies as proposed in this work.",
+      "label": "ai_generated",
+      "page_num": 21,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Deployed OKEE for Data Privacy Preservation- To ensure strong privacy protection for vehicular data, this work introduces an Optimized Key ElGamal Encryption (OKEE) mechanism. In conventional ElGamal encryption, cryptographic keys are generated using random parameters, which ensures security but may lead to increased computational overhead and inefficient memory usage. To overcome these limitations, the proposed OKEE framework integrates an intelligent optimization strategy to generate cryptographic keys that are both secure and resource-efficient. ElGamal encryption, originally proposed by ElGamal (1985), is widely adopted in secure communication systems due to its resistance to discrete logarithm attacks. However, its performance and security are highly dependent on the quality of the generated keys. In this research, the Modified Manta Ray Foraging Optimization (MMRFO) algorithm is employed to optimally generate encryption keys. By leveraging fitness-driven search behavior, MMRFO selects keys that minimize system complexity while enhancing resistance against emerging cryptographic attacks. The optimized key generation process aims to reduce memory consumption and computational time, making the encryption process suitable for real-time IoV environments. The generated optimal key also strengthens protection against sophisticated adversaries by increasing the unpredictability of cryptographic parameters. Additionally, optimized key selection simplifies key management and improves scalability across large vehicular networks. The objective of the optimal key generation process is mathematically defined as in",
+      "label": "ai_generated",
+      "page_num": 22,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Eq.(4.20): ​ ​ ​ ​ (4.20) 𝑜𝑏= 𝑎𝑟𝑔 𝑚𝑖𝑛𝑜𝑘 𝑠 { } 𝑚𝑠+ 𝑡𝑚 [ ] Where:",
+      "label": "human",
+      "page_num": 22,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "●​ represents the optimized cryptographic key in binary form, 𝑜𝑘 𝑠 { } ●​ denotes the memory size required for encryption and decryption, 𝑚𝑠 ●​ refers to the total execution time of the cryptographic process. 𝑡𝑚",
+      "label": "ai_generated",
+      "page_num": 22,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Using the optimized key generated by MMRFO, the vehicular data stored on the 𝐼𝑣 blockchain is encrypted using the ElGamal algorithm. The same optimized key is utilized during decryption, ensuring secure access while preserving data confidentiality. This integrated OKEE framework significantly enhances privacy preservation in IoV networks while maintaining low latency and reduced resource usage.",
+      "label": "ai_generated",
+      "page_num": 23,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ Figure 4.4: Workflow of Optimized Key El-Gamal Encryption for Privacy Preservation in Blockchain-Based IoV Using MMRFO",
+      "label": "human",
+      "page_num": 23,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Exemplary Illustration of the Proposed Scheme- The Internet of Vehicles (IoV) significantly improves transportation efficiency and road safety by enabling seamless communication among vehicles, infrastructure, and surrounding entities. Through Vehicle-to-Everything (V2X) interactions, IoV supports advanced intelligent transportation applications, where authentication plays a critical role in verifying the legitimacy and reliability of exchanged vehicular data. Authentication serves as the",
+      "label": "ai_generated",
+      "page_num": 23,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "first line of defense against malicious activities, ensuring that only authorized vehicles and infrastructure nodes participate in network communications. Despite its importance, existing authentication solutions predominantly depend on centralized architectures, which introduce serious security and privacy vulnerabilities. Such approaches often suffer from issues including vehicle trajectory leakage, excessive reliance on roadside units (RSUs) and cloud servers, high computational complexity, and single-point-of-failure risks. These limitations significantly weaken the resilience of IoV systems in highly dynamic and large-scale vehicular environments. Blockchain technology offers a promising alternative by providing a decentralized and tamper-resistant framework for authentication. By integrating smart contracts, cryptographic primitives, and consensus mechanisms, blockchain establishes a trusted environment without requiring centralized control. However, the decentralized nature of blockchain also introduces challenges related to increased storage requirements, communication overhead, and computational cost. Moreover, the inherent transparency of blockchain-based IoV systems can expose sensitive vehicular information if privacy mechanisms are not carefully designed. To overcome these challenges, this work proposes an efficient blockchain-enabled authentication scheme that balances security, privacy, and system performance. The proposed approach minimizes the shortcomings of traditional authentication mechanisms while preserving data confidentiality and trust among participating entities. The overall workflow of the proposed scheme is illustrated in Fig. 4.5, demonstrating how secure authentication and privacy preservation are achieved within the IoV environment.",
+      "label": "ai_generated",
+      "page_num": 24,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ Figure 4.5: Architecture of the Proposed Blockchain-Enabled Authentication and Privacy Preservation Scheme for IoV",
+      "label": "human",
+      "page_num": 25,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "In this work, a secure and efficient blockchain-enabled authentication and privacy preservation framework is developed for Internet of Vehicles (IoV) environments. Initially, relevant vehicular data are extracted from a benchmark dataset and provided to the proposed Cascaded and Dilated Residual Recurrent Neural Network (CD-RRNN) to identify malicious activities. By integrating residual learning with dilation and cascading mechanisms, the CD-RRNN effectively captures temporal dependencies and improves threat detection accuracy. The verified and authenticated data are then stored across distributed blockchain blocks to ensure integrity and tamper resistance. Subsequently, privacy protection is achieved through an Optimized Key El-Gamal Encryption (OKEE) scheme, where cryptographic keys are optimally generated using the Modified Manta Ray Foraging Optimization (MMRFO) algorithm. This optimization strategy significantly reduces computational overhead and memory consumption while strengthening security. Finally, the performance of the proposed framework is extensively evaluated and compared with existing conventional methods to demonstrate its superior effectiveness in secure IoV communications.",
+      "label": "ai_generated",
+      "page_num": 25,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "4.4 Results and Discussion 4.4.1 Experimental Setup",
+      "label": "human",
+      "page_num": 26,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The proposed blockchain-based authentication and privacy-preserving framework for Internet of Vehicles (IoV) was implemented using the Python programming environment to evaluate its effectiveness under realistic conditions. The experimental configuration for the Modified Manta Ray Foraging Optimization (MMRFO) algorithm consisted of a population size of 10, a chromosome length of 16, and a maximum of 50 iterations to ensure stable convergence and reliable optimization outcomes. To assess malicious attack detection performance, several well-known learning models were employed for comparison, including the Deep Neural Network proposed by Kang and Kang (2016), Support Vector Machine introduced by Hoang et al. (2021), Long Short-Term Memory network presented by Ashraf et al. (2020), and the classical Recurrent Neural Network described by Yufeng Wang et al. (2019). For optimization validation, traditional metaheuristic algorithms such as the Tunicate Swarm Algorithm developed by Kaur et al. (2020), the Golden Eagle Optimizer proposed by Mohammadi-Balani et al. (2021), Harris Hawks Optimization introduced by Heidari et al. (2019), and the original Manta Ray Foraging Optimization by Weiguo Zhao et al. (2020) were considered. In addition, the cryptographic performance of the proposed Optimized Key El-Gamal Encryption (OKEE) was evaluated against standard encryption techniques, including Data Encryption Standard described by Guo et al. (2020), Advanced Encryption Standard reviewed by Hidayat and Mahardiko (2024), Elliptic Curve Cryptography discussed by El-Zawawy et al. (2022), and the classical El-Gamal encryption implemented by Imran et al. (2020). The experimental implementation was carried out using Python 3.9 on a system equipped with an Intel Core i7-9700K processor operating at 3.6 GHz, 32 GB RAM, and an NVIDIA RTX 2080 Ti GPU. Blockchain operations were simulated using Hyperledger Fabric version 2.5, while the CD-RRNN model was developed using",
+      "label": "ai_generated",
+      "page_num": 26,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "TensorFlow 2.8 and Keras. Cryptographic functions were implemented using the PyCryptodome library. All experiments were conducted on Ubuntu 20.04 LTS to ensure system stability and optimized computational performance.",
+      "label": "ai_generated",
+      "page_num": 27,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "4.4.2 Performance Measures",
+      "label": "human",
+      "page_num": 27,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "To comprehensively evaluate the effectiveness of the proposed authentication and privacy-preserving framework, multiple performance metrics were considered. These measures were selected to analyze classification accuracy, security strength, computational efficiency, and encryption effectiveness of the proposed system. Accuracy: It is derived in Eq. (4.21).",
+      "label": "ai_generated",
+      "page_num": 27,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​​ ​ ​ (4.21)",
+      "label": "human",
+      "page_num": 27,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "𝐴𝑟= 𝑧𝑧+𝑥𝑥 𝑧𝑧+𝑥𝑥+𝑒𝑒+𝑟𝑟 Sensitivity: It is formulated in Eq. (4.22).",
+      "label": "ai_generated",
+      "page_num": 27,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ ​ ​ (4.22)",
+      "label": "human",
+      "page_num": 27,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "𝑆𝑒𝑛= 𝑧𝑧 𝑧𝑧+𝑥𝑥 Specificity: It is expressed in Eq. (4.23).",
+      "label": "ai_generated",
+      "page_num": 27,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ ​ ​ ​ (4.23)",
+      "label": "human",
+      "page_num": 27,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "𝑆𝑝= 𝑟𝑟 𝑟𝑟+𝑒𝑒 ( ) Precision: It is shown in Eq. (4.24).",
+      "label": "ai_generated",
+      "page_num": 27,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ ​ ​ ​ (4.24)",
+      "label": "human",
+      "page_num": 27,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "𝑃𝑟= 𝑧𝑧 𝑧𝑧+𝑒𝑒 FPR: It is given in Eq. (4.25).",
+      "label": "ai_generated",
+      "page_num": 27,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ ​ ​ ​ (4.25)",
+      "label": "human",
+      "page_num": 27,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "𝐹𝑃𝑅= 𝑒𝑒 𝑒𝑒+𝑧𝑧 FNR: It is estimated in Eq. (4.26).",
+      "label": "ai_generated",
+      "page_num": 27,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ ​ ​ ​ (4.26)",
+      "label": "human",
+      "page_num": 27,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "𝐹𝑁𝑅= 𝑟𝑟 𝑧𝑧+𝑟𝑟 False Omission Rate (FOR): It is measured in Eq. (4.27).",
+      "label": "ai_generated",
+      "page_num": 27,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ ​ ​ ​ (4.27) 𝐹𝑂𝑅= 1 − 𝑥𝑥 𝑥𝑥+𝑟𝑟 ( ) Prevalence Threshold (PT): It is calculated in Eq. (4.28). ​ ​ ​ ​ (4.28)",
+      "label": "human",
+      "page_num": 27,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "𝑃𝑇= 𝑧𝑧×𝑒𝑒−𝑒𝑒 𝑧𝑧−𝑒𝑒 FM: It is formulated in Eq. (4.29).",
+      "label": "ai_generated",
+      "page_num": 27,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ ​ ​ ​ ​ (4.29)",
+      "label": "human",
+      "page_num": 27,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "𝐹𝑀= 𝑃𝑟×𝑧𝑧 Prevalence Threshold (PT): It is shown in Eq. (4.30).",
+      "label": "ai_generated",
+      "page_num": 27,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ ​ ​ ​ (4.30)",
+      "label": "human",
+      "page_num": 27,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "𝑃𝑇= 𝑣𝑣×𝑞𝑞−𝑞𝑞 𝑣𝑣−𝑞𝑞 Threat Score (TS): It is validated in Eq. (4.31).",
+      "label": "ai_generated",
+      "page_num": 27,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ ​ ​ ​ (4.31) 𝑇𝑆= 𝑧𝑧 𝑧𝑧+𝑒𝑒 ( )",
+      "label": "human",
+      "page_num": 27,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The parameters and represent the values corresponding to true negatives and false 𝑥𝑥 𝑟𝑟 negatives, respectively. Similarly, the parameters and ee denote the true positive and false 𝑧𝑧 positive outcomes used in performance evaluation.",
+      "label": "ai_generated",
+      "page_num": 28,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "4.4.3 ROC Analysis of the Proposed Attack Detection Method",
+      "label": "human",
+      "page_num": 28,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Figure 4.6 presents the Receiver Operating Characteristic (ROC) analysis of the proposed malicious attack detection framework in comparison with existing detection techniques. This evaluation highlights the capability of the proposed Cascaded and Dilated Residual Recurrent Neural Network (CD-RRNN) to accurately distinguish malicious and legitimate vehicular activities. The ROC curve demonstrates that the proposed model achieves a higher true positive rate while maintaining a lower false positive rate, indicating improved detection reliability and reduced misclassification errors. When the false positive rate is fixed at 0.5, the CD-RRNN-based detection approach shows noticeable performance improvements compared to conventional methods. Specifically, it outperforms Deep Neural Networks (Goodfellow et al., 2016) by 6.25%, Support Vector Machines (Cortes and Vapnik, 1995) by 5%, Long Short-Term Memory networks (Hochreiter and Schmidhuber, 1997) by 3.75%, and standard Recurrent Neural Networks (Elman, 1990) by 2.5%. These results confirm that the proposed CD-RRNN model offers superior attack detection capability and robustness in dynamic IoV environments compared to traditional learning-based mechanisms.",
+      "label": "ai_generated",
+      "page_num": 28,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "​ Figure 4.6: ROC Performance Analysis of the Proposed CD-RRNN-Based Malicious Attack Detection Model",
+      "label": "human",
+      "page_num": 28,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "4.4.4 Performance Evaluation of the Proposed Attack Detection Process",
+      "label": "human",
+      "page_num": 29,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Figure 4.7 presents the ROC-based performance comparison of the proposed CD-RRNN malicious attack detection framework against conventional detection models. This evaluation demonstrates the effectiveness of the CD-RRNN in accurately distinguishing malicious activities from legitimate vehicular data. The ROC analysis highlights the model’s ability to reduce detection errors while maintaining a high true positive rate. When the false positive rate is fixed at 0.5, the proposed CD-RRNN achieves performance improvements of 6.25% over Deep Neural Networks (DNN), 5% over Support Vector Machines (SVM), 3.75% over Long Short-Term Memory (LSTM), and 2.5% over standard Recurrent Neural Networks (RNN). These gains are primarily attributed to the dilated skip connections and residual learning structure of CD-RRNN, which effectively mitigate gradient degradation and enhance long-term dependency learning. Overall, the results confirm that the proposed CD-RRNN framework consistently outperforms traditional attack detection mechanisms in dynamic IoV environments.",
+      "label": "ai_generated",
+      "page_num": 29,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "(c) (d) (e) (f) (g) (h) (i) (j)",
+      "label": "human",
+      "page_num": 30,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Figure 4.7: Performance evaluation of the proposed CD-RRNN-based malicious attack detection framework over conventional attack detection techniques in terms of (a) Accuracy, (b) BM, (c) FM, (d) FNR, (e) FOR, (f) MK, (g) PLHR, (h) Precision, (i) PT, (j) Specificity, and (k) TS 4.4.5 Encryption and Decryption Time Analysis of the Proposed Authentication and Privacy Preservation Framework for IoV The effectiveness of the proposed authentication and privacy preservation framework is evaluated by analyzing its encryption and decryption time performance in comparison with multiple classical classifiers, as illustrated in Fig. 4.8. A set of standard performance metrics is considered to comprehensively assess computational efficiency and detection capability. The results demonstrate that the proposed CD-RRNN–based attack detection model consistently outperforms conventional techniques across all evaluated measures. Furthermore, different activation functions are applied to examine their impact on model performance and computational behavior. Among them, the softmax activation function yields the best results, indicating its suitability for multi-class attack detection in IoV environments. As shown in Fig. 4.8(a), when using the softmax function, the proposed CD-RRNN achieves significantly higher accuracy than traditional methods, surpassing Deep Neural Networks by 13.26%, Support Vector Machines by 11.22%, Long Short-Term Memory networks by 8.16%, and standard Recurrent Neural Networks by 3.06%. The peak accuracy of 94.34% highlights the model’s capability to effectively eliminate",
+      "label": "ai_generated",
+      "page_num": 31,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "redundant information through cascading operations, leading to faster convergence and reduced encryption–decryption latency compared to existing approaches.",
+      "label": "ai_generated",
+      "page_num": 32,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Figure 4.8: Encryption time analysis of implemented blockchain-based authentication and privacy preservation model for IoV systems over (a) Conventional algorithms, and (b) Conventional cryptography techniques 4.4.6 Encryption Time Performance Analysis of the Proposed MMRFO-OKEE Scheme The encryption efficiency of the proposed MMRFO-OKEE scheme is evaluated by comparing it with both heuristic optimization–based cryptographic approaches and conventional encryption algorithms. As illustrated in Fig. 4.9(a), the proposed MMRFO-OKEE consistently requires significantly less encryption time than TSA-OKEE, GEO-OKEE, HHO-OKEE, and MRFO-OKEE across varying block sizes. This improvement is attributed to the fitness-driven key optimization strategy of MMRFO, which accelerates key generation and reduces computational complexity. Furthermore, Fig. 4.9(b) presents a comparison with traditional cryptographic schemes, including DES, AES, ECC, and standard El-Gamal encryption. The results indicate that MMRFO-OKEE maintains superior encryption speed, particularly as the block size increases, demonstrating its suitability for large-scale and real-time IoV data protection scenarios.",
+      "label": "ai_generated",
+      "page_num": 32,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Figure 4.9: Decryption time analysis of implemented blockchain-based authentication and privacy preservation model for IoV systems over (a) Conventional algorithms, and (b) Conventional cryptography techniques",
+      "label": "ai_generated",
+      "page_num": 33,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "4.4.7 Key Sensitivity Analysis of the Proposed Authentication and Privacy Preservation Framework",
+      "label": "human",
+      "page_num": 33,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Key sensitivity analysis is conducted to assess the robustness of the proposed authentication and privacy preservation framework against small variations in encryption keys. This analysis evaluates how minor changes in the cryptographic key influence the encryption and decryption outputs, thereby reflecting the security strength of the scheme. The proposed MMRFO-OKEE method is compared with traditional cryptographic algorithms to validate its resilience. As shown in Fig. 4.10(b), in the fifth evaluation case, the key sensitivity of the proposed approach is reduced by 14.2% compared to DES, 17.7% compared to AES, 14.2% compared to ECC, and 11.4% compared to conventional El-Gamal Encryption. These results indicate that the proposed framework exhibits low key sensitivity, enhancing resistance against brute-force and key-guessing attacks, and thereby improving overall security robustness for IoV-based applications.",
+      "label": "ai_generated",
+      "page_num": 33,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Figure 4.10: Key sensitivity analysis of implemented blockchain-based authentication and privacy preservation model for IoV systems over “ (a) Conventional algorithms, and (b) Conventional cryptography techniques",
+      "label": "ai_generated",
+      "page_num": 34,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "4.4.8 Memory Consumption Analysis of the Proposed Authentication and Privacy Preservation Framework for IoV",
+      "label": "human",
+      "page_num": 34,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The memory efficiency of the proposed authentication and privacy preservation framework is evaluated by comparing its memory consumption with that of several existing optimization-based and cryptographic approaches. Memory usage refers to the total amount of system memory required to execute the complete authentication, encryption, and decryption processes. Lower memory consumption is particularly important in Internet of Vehicles (IoV) environments, where on-board units and roadside infrastructure often operate under resource constraints. As illustrated in Fig. 4.11(a), when the block size is set to 25, the proposed MMRFO-OKEE scheme demonstrates significantly reduced memory usage compared to conventional methods. Specifically, it consumes 19.04% less memory than TSA-OKEE, 9.52% less than GEO-OKEE, 14.28% less than HHO-OKEE, and 20% less than MRFO-OKEE. These results confirm that the proposed framework achieves superior memory efficiency, making it well suited for large-scale and real-time IoV authentication and privacy preservation applications.",
+      "label": "ai_generated",
+      "page_num": 34,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Figure 4.11: Memory size analysis of implemented blockchain-based authentication and privacy preservation model for IoV systems over (a) Conventional algorithms, and (b) Conventional cryptography techniques",
+      "label": "ai_generated",
+      "page_num": 34,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "4.4.9 Computing Time Analysis of the Proposed Authentication and Privacy Preservation Framework for IoV",
+      "label": "human",
+      "page_num": 35,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Figure 12(a) presents the evaluation of computational time for the proposed MMRFO-OKEE–based authentication and privacy preservation framework in comparison with conventional cryptographic schemes. Computational time refers to the total duration required to complete authentication, encryption, and decryption operations within the IoV environment. Lower computation time is essential for ensuring real-time responsiveness and reliable communication in highly dynamic vehicular networks. As illustrated in Fig. 12(b), when the block size is fixed at 20, the proposed MMRFO-OKEE approach demonstrates a substantial reduction in processing time compared to traditional cryptographic methods. Specifically, the computation time is reduced by 54.83% when compared with DES, 45.16% relative to AES, 22.58% against ECC, and 12.9% compared to conventional El-Gamal encryption (Imran et al., 2020). This improvement is primarily attributed to the fitness-guided key optimization of MMRFO and the lightweight encryption operations of OKEE, which collectively minimize redundant computations. These results confirm that the proposed framework is well suited for real-time IoV applications, where rapid authentication and secure data transmission are critical under strict latency constraints.",
+      "label": "ai_generated",
+      "page_num": 35,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Figure 12: Total computation time of implemented blockchain-based authentication and privacy preservation model for IoV systems over (a) Conventional algorithms, and (b) Conventional cryptography techniques",
+      "label": "ai_generated",
+      "page_num": 35,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Overall Performance Evaluation of the Proposed Attack Detection Mechanism",
+      "label": "ai_generated",
+      "page_num": 35,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The comprehensive performance of the proposed CD-RRNN–based malicious attack detection model is assessed against multiple traditional classifiers, and the comparative results are summarized in Table 2. This evaluation demonstrates that the proposed model consistently outperforms conventional learning-based detection approaches in identifying sophisticated and stealthy attacks within IoV environments. By accurately distinguishing malicious behavior from legitimate vehicular communications, the proposed framework significantly strengthens authentication reliability and safeguards sensitive vehicular data from unauthorized access. When the sigmoid activation function is employed, the CD-RRNN model exhibits notable improvements in detection sensitivity compared to existing techniques. Specifically, sensitivity is increased by 7.95% over Deep Neural Networks (DNN), 5.42% compared to Support Vector Machines (SVM), 7.62% relative to Long Short-Term Memory (LSTM) networks, and 2.82% over standard Recurrent Neural Networks (RNN), as reported in recent studies on vehicular intrusion detection (Kang and Kang, 2016; Ashraf et al., 2020). These gains can be attributed to the cascaded architecture and dilated residual connections, which enable the model to capture both long-term dependencies and subtle temporal attack patterns more effectively. Furthermore, Table 4.1 also provides a comparative overview of representative blockchain-based authentication mechanisms reported in the literature, outlining their core functionalities and inherent limitations. In contrast, the proposed CD-RRNN-integrated framework offers a balanced solution that combines high attack detection accuracy, reduced false negatives, and improved robustness, making it well suited for secure and privacy-aware IoV deployments.",
+      "label": "ai_generated",
+      "page_num": 36,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Table 4.1: Comparative analysis of proposed system with traditional models Terms DNN [31] SVM [32] LSTM [33] RNN [27] CD-RRNN Accuracy 86.8 89.16 87.04 91.74 94.34 Sensitivity 86.82016673 89.20206431 87.13775308 91.66335848 94.3231441 Specificity 86.77952439 89.11729141 86.97497 91.8178154 94.35711407 Precision 86.9582505 89.27294398 87.13775308 91.91878981 94.43561208 FPR 13.22047561 10.88270859 13.0592503 8.182184603 5.642885933 FNR 13.17983327 10.79793569 12.86224692 8.336641524 5.676855895 FOR 13.36016097 10.95449054 13.0592503 8.440514469 5.7568438 PT 0.195111666 0.174642947 0.193564606 0.14938492 0.12229579 FM 86.88918118 89.23749711 87.13775308 91.79098529 94.37936134 PLHR 6.567098587 8.196678576 6.672492759 11.20279765 16.71540861 TS 76.81770285 80.56651129 77.20717552 84.82733284 89.35690109",
+      "label": "human",
+      "page_num": 36,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "4.5 Summary​ This chapter presented a",
+      "label": "human",
+      "page_num": 37,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "systematic blockchain-based authentication and privacy-preserving protocol for Internet of Vehicles networks, integrating CD-RRNN for intelligent attack detection with OKEE supported by MMRFO for optimized cryptographic key generation. The proposed framework effectively addresses critical IoV challenges such as malicious intrusion, data leakage, and high computational overhead in dynamic vehicular environments. By combining deep learning, optimized heuristic algorithms, and El-Gamal–based encryption within a blockchain infrastructure, the system ensures secure, reliable, and scalable authentication. Extensive experimental analysis validated the superiority of the proposed approach in terms of detection accuracy, encryption efficiency, memory usage, and computational time. The results confirm that the proposed model significantly enhances both security and privacy preservation in IoV systems. These findings provide a strong foundation for advancing toward more lightweight, adaptive, and next-generation secure vehicular communication frameworks.",
+      "label": "ai_generated",
+      "page_num": 37,
+      "source": "direct_pdf"
+    }
+  ],
+  "stats": {
+    "ai_generated_segments": 67,
+    "ai_paraphrased_segments": 0,
+    "human_segments": 53,
+    "ocr_pages": 0,
+    "total_chars_ai": 49486,
+    "total_chars_paraphrased": 0,
+    "total_chars_human": 7171
+  },
+  "errors": []
+}

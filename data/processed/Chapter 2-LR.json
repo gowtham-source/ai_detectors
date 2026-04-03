@@ -1,0 +1,266 @@
+{
+  "file_name": "Chapter 2-LR.pdf",
+  "file_path": "c:\\Users\\gowth\\Downloads\\ai_plag_detector\\data\\raw_data\\raw_data\\Chapter 2-LR.pdf",
+  "submission_date": "2025-12-20",
+  "priority": "LOW",
+  "total_pages": 19,
+  "ai_percentage_reported": 99,
+  "segments": [
+    {
+      "text": "CHAPTER 2 LITERATURE REVIEW 2.1 Introduction",
+      "label": "human",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The Internet of Vehicles (IoV) represents a critical component of modern intelligent transportation systems, enabling vehicles to exchange information with surrounding entities to improve safety, efficiency, and driving intelligence. Through continuous communication among vehicles, roadside units, cloud services, and edge platforms, IoV supports applications such as collision avoidance, traffic optimization, and autonomous decision-making. However, the open and highly dynamic nature of vehicular communication significantly increases exposure to security threats and privacy risks. Authentication plays a vital role in ensuring that only legitimate vehicles and infrastructure entities participate in IoV communication. Without strong authentication mechanisms, malicious nodes can inject false messages, impersonate trusted vehicles, or disrupt network operations, potentially leading to severe safety consequences. Conventional authentication schemes, which rely heavily on centralized authorities and static trust models, are often inadequate in large-scale and rapidly changing vehicular environments due to high latency, limited scalability, and vulnerability to single-point failures. To overcome these challenges, decentralized security frameworks based on blockchain technology have been widely investigated. Blockchain enables distributed trust establishment, immutable record keeping, and secure verification of transactions without requiring a central authority. Nevertheless, blockchain-based IoV systems introduce new challenges, including computational overhead, storage complexity, and privacy exposure when sensitive data is recorded on transparent ledgers. These limitations necessitate the integration of privacy-preserving mechanisms and efficient authentication designs. In recent years, intelligent learning techniques such as machine learning and deep learning have been adopted to enhance IoV security by identifying malicious behaviors through data-driven analysis. These models can adapt to evolving attack patterns and improve detection accuracy in dynamic environments.",
+      "label": "ai_generated",
+      "page_num": 3,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Additionally, optimized cryptographic techniques have been explored to protect vehicular data while minimizing computational cost, making them suitable for real-time IoV applications. This chapter critically reviews existing research on IoV authentication, blockchain-enabled security frameworks, privacy-preserving mechanisms, intelligent attack detection models, and optimized cryptographic solutions. The reviewed studies are analyzed to highlight their contributions and limitations, ultimately identifying open research challenges that motivate the proposed solutions presented in subsequent chapters.",
+      "label": "ai_generated",
+      "page_num": 4,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "2.2 Blockchain and Intelligent Learning-Based Security Frameworks for IoV​ 2.2.1 Blockchain-Based Authentication Mechanisms",
+      "label": "human",
+      "page_num": 4,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Xiaoliang Wang et al. (2019) proposed one of the early decentralized authentication mechanisms for IoV using blockchain consensus. Their work addressed the problem of malicious and selfish vehicle behavior caused by the open and self-organized nature of vehicular networks.",
+      "label": "ai_generated",
+      "page_num": 4,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "By replacing centralized trust authorities with blockchain consensus, the proposed mechanism enhanced resistance to impersonation and message manipulation attacks. Simulation results demonstrated improved trust establishment; however, the framework did not explicitly address privacy preservation or computational overhead, limiting its suitability for large-scale deployments. Chen Mao et al. (2021) designed an IoV authentication platform based on Hyperledger Fabric, leveraging blockchain’s modular architecture to replace traditional certificate authority-based authentication. Their scheme integrated cryptographic identity verification with blockchain endorsement, ensuring tamper-proof authentication records. While the approach improved trust and data integrity, it relied on permissioned blockchain infrastructure, which may limit scalability in highly dynamic vehicular environments.",
+      "label": "ai_paraphrased",
+      "page_num": 4,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "H. Chai et al. (2022) introduced CyberChain, a CyberTwin-empowered blockchain framework for IoV authentication. Unlike conventional approaches, CyberChain decouples blockchain consensus from",
+      "label": "ai_generated",
+      "page_num": 4,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "the physical vehicular network by executing consensus operations in cyberspace. A privacy-preserving parallel Pedersen commitment mechanism and a diffused PBFT consensus algorithm were proposed to reduce latency and storage overhead. Simulation results showed significant performance improvements, though the framework mainly focused on authentication efficiency rather than intelligent attack detection.",
+      "label": "ai_generated",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "2.2.2 Privacy-Preserving Authentication and Conditional Traceability",
+      "label": "human",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Privacy preservation is a critical concern in IoV systems, as vehicular messages often contain sensitive identity and location information. Xia Feng et al. (2022) addressed this issue by proposing PBAG, a blockchain-based authentication protocol with global-updated commitments. Instead of querying the blockchain during every authentication, vehicles use pre-updated commitments, significantly reducing verification time. The scheme supports anonymity, unlinkability, and conditional traceability, but depends on frequent global updates, which may introduce synchronization challenges. C. Lin et al. (2021) presented a blockchain-based conditional privacy-preserving authentication (BCPPA) protocol using Ethereum. The scheme simplified certificate management by integrating blockchain with key derivation techniques and supported batch verification to reduce authentication delay. Despite improved efficiency, the reliance on public blockchain platforms introduces transaction cost concerns. Pravin Mundhe et al. (2022) proposed a hybrid blockchain-based conditional privacy-preserving authentication scheme to reduce certificate revocation list (CRL) overhead. By storing pseudo-identities and encrypted real identities on the blockchain, the scheme enabled efficient revocation while maintaining anonymity. Experimental evaluation demonstrated reduced computation cost, though blockchain storage growth remained a challenge. Kirti A. Yadav and Vijayakumar (2022) designed a lightweight privacy-preserving signature-based authentication protocol using elliptic curve cryptography. Their approach reduced trusted authority burden by involving roadside",
+      "label": "ai_generated",
+      "page_num": 5,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "units in authentication assistance. While computationally efficient, the scheme focused primarily on signature authentication without intelligent attack detection. 2.2.3 Blockchain Integrated with Machine Learning and Deep Learning",
+      "label": "ai_generated",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Kumar et al. (2022) proposed P2SF-IoV, a privacy-preserving secured framework integrating blockchain with deep learning-based intrusion detection. Blockchain ensured secure data transmission, while a deep learning module detected attacks using IoT-Botnet and ToN-IoT datasets. The framework achieved higher detection accuracy than existing solutions but incurred additional learning overhead. Shujuan Wang et al. (2022) introduced a blockchain-based trust management system where vehicles’ credibility was evaluated using a deep learning verification model. A Proof-of-Trust consensus algorithm incentivized honest behavior while penalizing malicious vehicles. The framework effectively detected false information dissemination, though training complexity increased with network scale. Gunasekaran Manogaran et al. (2023) proposed a token-based authorization and authentication scheme combining blockchain with random forest learning. Frequent token updates were minimized to reduce overhead, improving communication efficiency. However, classical machine learning models may struggle with highly dynamic attack patterns. Ali et al. (2021) provided a comprehensive review of machine learning and deep reinforcement learning techniques for secure IoV communication, emphasizing edge and fog-based authentication mechanisms and privacy-aware offloading strategies.",
+      "label": "ai_generated",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "2.2.4 Federated Learning and Blockchain for IoV Security Y.",
+      "label": "human",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Lu et al. (2020) proposed an asynchronous federated learning architecture integrated with a hybrid blockchain framework to address privacy and communication efficiency issues in IoV data sharing. Their approach combines a permissioned blockchain with a local Directed Acyclic Graph (DAG) to securely store and verify learning model updates. To handle intermittent vehicular connectivity, deep reinforcement learning was employed for intelligent node selection during training.",
+      "label": "ai_generated",
+      "page_num": 6,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The framework improved learning accuracy and convergence speed while reducing communication overhead, making it suitable for dynamic IoV environments. M. Fan et al. (2022) introduced a decentralized anonymous federated learning authentication scheme named DAFL to overcome the limitations of centralized authentication in federated learning systems. The scheme utilizes DAG-based blockchain and accumulator-based storage to enable lightweight identity authentication with batch verification. Pseudonym-based communication ensures anonymity while allowing identity traceability in case of malicious behavior. Experimental results demonstrated reduced authentication overhead and improved convergence performance compared to traditional federated learning approaches.",
+      "label": "ai_generated",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Wang et al. (2022) proposed BPFL, a blockchain-based privacy-preserving federated learning framework designed to protect both client-side and server-side data in IoV. The framework integrates homomorphic encryption with an improved Multi-Krum filtering mechanism to securely aggregate encrypted local models. A reputation-based incentive mechanism was also introduced to encourage honest participation from vehicles. Although the scheme enhanced privacy and verifiability, the use of encryption increased computational complexity. B. Ghimire and Rawat (2022) presented a comprehensive analysis of blockchain-enabled federated learning as a secure and verifiable collaborative learning solution for IoV networks. Their study highlighted how blockchain can address federated learning vulnerabilities such as model poisoning and reverse engineering attacks. By enabling auditable and tamper-resistant model updates, blockchain improves trust among participating vehicles. The work emphasized the need for lightweight blockchain integration to ensure practical deployment in resource-constrained vehicular environments.",
+      "label": "ai_generated",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "2.2.5 Cryptographic Enhancements and Key Management",
+      "label": "human",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Mahmoud A. Shawky et al. (2023) proposed a blockchain-assisted secret key reconciliation scheme to reduce the computational overhead of public-key authentication in vehicular networks. Their approach uses public-key cryptography only for initial authentication, followed by symmetric key-based authentication for",
+      "label": "ai_generated",
+      "page_num": 7,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "subsequent communications. Blockchain smart contracts were employed to securely publish reconciliation information. Performance analysis showed significant reductions in authentication delay and packet loss. D. S. Gupta et al. (2022) designed a quantum-resistant certificateless authentication protocol for IoV using lattice-based cryptography combined with blockchain-assisted batch verification. The scheme eliminates the reliance on traditional certificate authorities while resisting quantum attacks. Blockchain ensures trust and traceability during batch authentication. Formal security analysis demonstrated resistance to replay, impersonation, and forgery attacks with reduced computation and storage overhead. Eddine et al. (2021) introduced EASBF, an efficient blockchain-based authentication scheme for fog computing-enabled IoV systems. The scheme employs elliptic curve cryptography and one-way hash functions to provide confidentiality, anonymity, and perfect forward secrecy. Blockchain is used to manage certificates and consensus securely. Security verification using AVISPA and performance evaluation confirmed the scheme’s robustness and efficiency. A. K. Sutrala et al. (2020) proposed a conditional privacy-preserving batch authentication protocol based on elliptic curve cryptography. The scheme allows vehicles and roadside units to authenticate multiple messages simultaneously, significantly reducing verification time. Formal and informal security analysis proved resistance against common vehicular attacks. The protocol demonstrated lower communication and computational overhead compared to existing methods.",
+      "label": "ai_generated",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "2.2.6 Optimization and Intelligent Model Enhancement",
+      "label": "human",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Changting Zhong et al. (2022) proposed the Beluga Whale Optimization (BWO) algorithm, inspired by the natural foraging behaviors of beluga whales. The algorithm incorporates adaptive exploration, exploitation, and whale-fall strategies to balance global and local search. Extensive benchmark testing showed superior convergence speed and scalability compared to existing metaheuristic algorithms. These properties make BWO suitable for optimizing learning parameters and cryptographic key selection.",
+      "label": "ai_generated",
+      "page_num": 8,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Weiguo Zhao et al. (2020) introduced the Manta Ray Foraging Optimization (MRFO) algorithm, which mimics the chain, cyclone, and somersault foraging behaviors of manta rays. The algorithm demonstrated strong performance across benchmark functions and real-world engineering problems. Its ability to efficiently balance exploration and exploitation makes MRFO effective for optimizing complex IoV security models, particularly in cryptographic and deep learning applications.",
+      "label": "ai_generated",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "2.2.7 Intrusion Detection and Deep Learning Models",
+      "label": "human",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Yufeng Wang et al. (2019) proposed a residual recurrent neural network (R2N2) model for detecting false data injection attacks in smart grids. The model combines linear prediction with nonlinear residual learning to accurately identify malicious data patterns. An adaptive threshold mechanism was employed to improve detection accuracy. The approach demonstrated superior performance compared to conventional prediction-based detection techniques. Nujud Al-Aql AlShammari (2024) introduced a hybrid intrusion detection model combining Recurrent Neural Networks (RNN) and Long Short-Term Memory (LSTM) networks for vehicle CAN systems. The hybrid model effectively detected DoS, fuzzy, and impersonation attacks by learning temporal dependencies in vehicular data. Experimental results showed high detection accuracy, indicating the suitability of deep learning models for securing in-vehicle communication networks. Abin Oommen Philip and Saravanaguru (2023) proposed a blockchain-based framework for traffic incident detection and evidence management in IoV. The framework integrates cooperative event correlation with LSTM and Bayesian models to detect and resolve conflicting traffic reports. Verified events are securely stored on the blockchain to ensure immutability and accountability. The results demonstrated improved reliability and efficiency in incident management.",
+      "label": "ai_generated",
+      "page_num": 9,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "2.2.8 Trust, Reputation, and Incentive-Based Approaches",
+      "label": "human",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Bowei Zhang et al. (2023) proposed a reputation-based incentive mechanism using deep reinforcement learning to suppress selfish behavior in vehicular networks. Blockchain was employed to securely record vehicle behaviors, ensuring tamper-proof reputation management. The DRL-based model dynamically learned optimal strategies to discourage attacks. Simulation results showed improved cooperation and reduced attack motivation. Lai et al. (2021) developed a trust-based privacy-preserving friend matching scheme for social IoV environments. The scheme uses Bloom filters to securely match vehicle interests while protecting sensitive attribute information. Trust evaluation mechanisms were employed to eliminate malicious vehicles. Performance evaluation showed efficient privacy protection and scalability.",
+      "label": "ai_generated",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Mei et al. (2022) proposed a blockchain-enabled privacy-preserving authentication scheme for transportation of cyber-physical systems using pairing-free ring signatures. The scheme supports batch authentication and unconditional anonymity while simplifying key management. Blockchain ensures reliable authentication without relying on centralized authorities. Security proofs and simulation results confirmed feasibility and efficiency. Gupta et al. (2022) introduced blockchain-based game-theoretic and lightweight branched blockchain authentication frameworks for IoV. Their approaches addressed physical cloning attacks, scalability issues, and computational overhead by combining PUFs, dynamic consensus, and lightweight blockchain design. Comparative analysis demonstrated improved security and reduced transaction costs. Wu et al. (2023) proposed a blockchain and mobile edge computing-based time-sensitive authentication mechanism for IoV. The scheme offloads authentication tasks to edge nodes while using blockchain for secure identity verification. Performance evaluation showed reduced authentication delay and lower computation overhead, making the approach suitable for large-scale IoV deployments.",
+      "label": "ai_generated",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "2.3 Inference From The Literature Review Table 2.1 Comparative Literature Review of Recent IoV Security Works",
+      "label": "human",
+      "page_num": 10,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "S.N o Author and Year Methodology Used Limitations 1 Chai et al., 2022 Used blockchain with CyberTwin concept to provide secure and privacy-preserving vehicle authentication. System design is complex and difficult to deploy in real IoV environments. 2 Xie et al., 2023 Proposed a blockchain-based handover authentication scheme with privacy protection and key agreement. Handover process increases system complexity during high vehicle mobility. 3 Feng et al., 2022 Designed a blockchain authentication scheme using global commitment to reduce verification delay. Requires frequent updates of global commitment information. 4 Lin et al., 2021 Developed an Ethereum-based blockchain authentication scheme with batch verification support. Public blockchain may cause higher delay and transaction cost. 5 Shen et al., 2022 Introduced blockchain-assisted authentication for edge-based IoV systems to reduce cloud load. Depends heavily on trusted edge nodes for authentication. 6 R. Kumar et al., 2022 Combined blockchain and deep learning to detect intrusions and secure IoV communication. Deep learning model may require high training time and large datasets.",
+      "label": "human",
+      "page_num": 11,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "7 Shujuan Wang et al., 2022 Proposed blockchain-based trust management using deep learning to identify malicious vehicles. Trust evaluation accuracy depends on data quality and training process. 8 Manogaran et al., 2023 Used blockchain with token-based authorization and machine learning for authentication. Machine learning model may not detect highly advanced attacks effectively. 9 N. Wang et al., 2022 Proposed blockchain-based federated learning to preserve data privacy in IoV. Encryption increases computation overhead and communication delay. 10 Gupta et al., 2022 Designed a blockchain-based authentication scheme resistant to quantum attacks. Cryptographic operations are computationally heavy for vehicles. 2.4 Research gap",
+      "label": "human",
+      "page_num": 12,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Although numerous studies have explored security and privacy solutions for Internet of Vehicles (IoV) networks, existing approaches still face several unresolved limitations. Blockchain-based authentication methods successfully eliminate centralized control and improve data integrity; however, many of these solutions introduce excessive computation, communication delay, and storage overhead, which restrict their applicability in fast-moving vehicular environments. Similarly, machine learning and deep learning techniques have been applied to detect malicious behavior in IoV networks, but most models are developed without considering rapid topology changes and real-time processing requirements. As a result, their performance may degrade under highly dynamic traffic conditions. In addition, current research lacks an effective integration of optimized learning models and efficient cryptographic mechanisms within a single IoV security framework. Many encryption-based solutions rely on static key generation methods,",
+      "label": "ai_generated",
+      "page_num": 12,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "leading to increased encryption time and reduced scalability. Likewise, intelligent detection models are often used without parameter optimization, resulting in unnecessary computational cost and suboptimal detection accuracy. There is also limited work that simultaneously ensures secure authentication, privacy preservation, attack detection accuracy, and low system overhead. These shortcomings indicate a clear research gap and justify the need for a lightweight, blockchain-enabled IoV authentication framework that combines optimized deep learning techniques with efficient cryptographic key management.",
+      "label": "ai_generated",
+      "page_num": 13,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "2.5 Summary​",
+      "label": "human",
+      "page_num": 13,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "This chapter reviewed existing research on security and privacy in Internet of Vehicles (IoV) networks. Blockchain-based authentication approaches were discussed for their role in decentralization and data integrity. The use of machine learning and deep learning techniques for malicious attack detection was examined. Various cryptographic methods for privacy preservation were also reviewed. Optimization techniques were highlighted for improving efficiency and performance. Several limitations, including high overhead and lack of integration, were identified. These gaps indicate the need for a unified and optimized IoV security framework.",
+      "label": "ai_generated",
+      "page_num": 13,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "The next chapter introduces the first proposed work based on a machine learning–driven blockchain authentication framework. 2.6 References H. Chai, S. Leng, J. He, K. Zhang, and B. Cheng, \"CyberChain: Cybertwin Empowered Blockchain for Lightweight and Privacy-Preserving Authentication in Internet of Vehicles,\" IEEE Transactions on Vehicular Technology, vol. 71, no. 5, pp. 4620-4631, May 2022. ​ Qureshi, K.N., Shahzad, L., Abdelmaboud, A., Elfadil Eisa, T.A., Alamri, B., Javed, I.T., Al-Dhaqm, A. and Crespi, N., \"A blockchain-based efficient, secure and anonymous conditional privacy-preserving and authentication scheme for the internet of vehicles\", Applied Sciences, vol.12, no.476, 2022. ​",
+      "label": "human",
+      "page_num": 13,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Kaltakis, K., Polyzi, P., Drosatos, G. and Rantos, K., \"Privacy-preserving solutions in blockchain-enabled internet of vehicles\", Applied Sciences, vol.11, no.9792, 2021. ​ Xie, X., Wu, B. and Hou, B., \"BEPHAP: A blockchain-based efficient privacy-preserving handover authentication protocol with key agreement for internet of vehicles\", Journal of Systems Architecture, vol.138, no.102869, 2023. Wang, N., Yang, W., Wang, X., Wu, L., Guan, Z., Du, X. and Guizani, M., \"A blockchain-based privacy-preserving federated learning scheme for Internet of Vehicles\", Digital Communications and Networks, 2022. ​ C. Lin, D. He, X. Huang, N. Kumar, and K. -K. R. Choo, \"BCPPA: A Blockchain-Based Conditional Privacy-Preserving Authentication Protocol for Vehicular Ad Hoc Networks,\" IEEE Transactions on Intelligent Transportation Systems, vol. 22, no. 12, pp. 7408-7420, Dec. 2021. ​ D. S. Gupta, A. Karati, W. Saad and D. B. da Costa, \"Quantum-Defended Blockchain-Assisted Data Authentication Protocol for Internet of Vehicles,\" IEEE Transactions on Vehicular Technology, vol. 71, no. 3, pp. 3255-3266, March 2022. ​ B. Ghimire and D. B. Rawat, \"Secure, Privacy-Preserving, and Verifiable Federating Learning Using Blockchain for Internet of Vehicles,\" IEEE Consumer Electronics Magazine, vol. 11, no. 6, pp. 67-74, 1 Nov. 2022. Zhang, J. and Wu, M., \"Blockchain-based authentication with optional privacy preservation for Internet of vehicles\", Mathematical Problems in Engineering, pp.1-13, 2021. ​ M. N. Aman, U. Javaid and B. Sikdar, \"A Privacy-Preserving and Scalable Authentication Protocol for the Internet of Vehicles,\" IEEE Internet of Things Journal, vol. 8, no. 2, pp. 1123-1139, 15 Jan.15, 2021. ​ A. K. Sutrala, P. Bagga, A. K. Das, N. Kumar, J. J. P. C. Rodrigues, and P. Lorenz, \"On the Design of Conditional Privacy-Preserving Batch Verification-Based Authentication Scheme",
+      "label": "human",
+      "page_num": 14,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "for Internet of Vehicles Deployment,\" IEEE Transactions on Vehicular Technology, vol. 69, no. 5, pp. 5535-5548, May 2020. ​ Kebande, V.R., Awaysheh, F.M., Ikuesan, R.A., Alawadi, S.A. and Alshehri, M.D., \"A blockchain-based multi-factor authentication model for a cloud-enabled internet of vehicles\", Sensors, vol.21, no.6018, 2021. ​ Eddine, M.S., Ferrag, M.A., Friha, O. and Maglaras, L., \"EASBF: An efficient authentication scheme over blockchain for fog computing-enabled internet of vehicles\", Journal of Information Security and Applications, vol.59, no.102802, 2021. Xu, Z., Liang, W., Li, K.C., Xu, J. and Jin, H., \"A blockchain-based roadside unit-assisted authentication and key agreement protocol for internet of vehicles\", Journal of Parallel and Distributed Computing, vol.149, pp.29-39, 2021. ​ M. Shen, H. Lu, F. Wang, H. Liu, and L. Zhu, \"Secure and Efficient Blockchain-Assisted Authentication for Edge-Integrated Internet-of-Vehicles,\" IEEE Transactions on Vehicular Technology, vol. 71, no. 11, pp. 12250-12263, Nov. 2022. ​ C. Xu, H. Wu, H. Liu, W. Gu, Y. Li, and D. Cao, \"Blockchain-Oriented Privacy Protection of Sensitive Data in the Internet of Vehicles,\" IEEE Transactions on Intelligent Vehicles, vol. 8, no. 2, pp. 1057-1067, Feb. 2023. ​ S. Tu, H. Yu, A. Badshah, M. Waqas, Z. Halim and I. Ahmad, \"Secure Internet of Vehicles (IoV) With Decentralized Consensus Blockchain Mechanism,\" IEEE Transactions on Vehicular Technology, vol. 72, no. 9, pp. 11227-11236, Sept. 2023. ​ D. Chattaraj, B. Bera, A. K. Das, S. Saha, P. Lorenz and Y. Park, \"Block-CLAP: Blockchain-Assisted Certificateless Key Agreement Protocol for Internet of Vehicles in Smart Transportation,\" IEEE Transactions on Vehicular Technology, vol. 70, no. 8, pp. 8092-8107, Aug. 2021. ​",
+      "label": "human",
+      "page_num": 15,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Lai, C., Du, Y., Guo, Q. and Zheng, D., \"A trust-based privacy-preserving friend matching scheme in social Internet of Vehicles\", Peer-to-Peer Networking and Applications, vol.14, pp.2011-2025, 2021. ​ Q. Mei, H. Xiong, Y. -C. Chen and C. -M. Chen, \"Blockchain-Enabled Privacy-Preserving Authentication Mechanism for Transportation CPS With Cloud-Edge Computing,\" IEEE Transactions on Engineering Management. ​ R. Kumar, P. Kumar, R. Tripathi, G. P. Gupta, and N. Kumar, \"P2SF-IoV: A Privacy-Preservation-Based Secured Framework for Internet of Vehicles,\" IEEE Transactions on Intelligent Transportation Systems, vol. 23, no. 11, pp. 22571-22582, Nov. 2022. ​ Gupta, M., Kumar, R., Shekhar, S., Sharma, B., Patel, R.B., Jain, S., Dhaou, I.B. and Iwendi, C., \"Game theory-based authentication framework to secure internet of vehicles with blockchain\", Sensors, vol.22, no.5119, 2022. ​ Badshah, A., Waqas, M., Muhammad, F., Abbas, G., Abbas, Z.H., Chaudhry, S.A. and Chen, S., \"AAKE-BIVT: Anonymous authenticated key exchange scheme for blockchain-enabled internet of vehicles in smart transportation\", IEEE Transactions on Intelligent Transportation Systems, vol.24, pp.1739-1755, 2022. Gupta, M., Patel, R.B., Jain, S., Garg, H. and Sharma, B., \"Lightweight branched blockchain security framework for Internet of Vehicles\", Transactions on Emerging Telecommunications Technologies, vol.34, no.e4520, 2023. Wu, A., Guo, Y. and Guo, Y., \"A decentralized lightweight blockchain-based authentication mechanism for Internet of Vehicles\", Peer-to-Peer Networking and Applications, vol.16, pp.1340-1353, 2023. ​ Weiguo Zhao, Zhenxing Zhang, and Liying Wang, \"Manta ray foraging optimization: An effective bio-inspired optimizer for engineering applications, \"Engineering Applications of Artificial Intelligence, Vol. 87, No. 103300, January 2020. ​",
+      "label": "human",
+      "page_num": 16,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Nujud Al-Aql Abdulaziz AlShammari, \"Hybrid RNN-LSTM Networks for Enhanced Intrusion Detection in Vehicle CAN Systems\", Journal of Electrical Systems, 20-6s, pp. 3019-3031 (CCCI), 2024. ​ Yufeng Wang, Qun Jin, Wanjiao Shi, Jianhua Ma, \"An accurate false data detection in smart grid based on residual recurrent neural network and adaptive threshold\", IEEE, 2019. Changting Zhong, Gang Li, and Zeng Meng, \"Beluga whale optimization: A novel nature-inspired metaheuristic algorithm,\" Knowledge-Based Systems, vol.251, pp.109215, 2022. Shujuan Wang, Yingnan Hu, and Guanqiu Qi, \"Blockchain and deep learning based trust management for Internet of Vehicles,\" Simulation Modelling Practice and Theory, Vol. 120, pp.102627, November 2022. R. Kumar, P. Kumar, R. Tripathi, G. P. Gupta, N. Kumar, and M. M. Hassan, \"A Privacy-Preserving-Based Secure Framework Using Blockchain-Enabled Deep-Learning in Cooperative Intelligent Transport System,\" IEEE Transactions on Intelligent Transportation Systems, vol. 23, no. 9, pp. 16492-16503, Sept. 2022. M. Fan, Z. Zhang, Z. Li, G. Sun, H. Yu and M. Guizani, \"Blockchain-Based Decentralized and Lightweight Anonymous Authentication for Federated Learning,\" IEEE Transactions on Vehicular Technology, 2022. Y. Lu, X. Huang, K. Zhang, S. Maharjan and Y. Zhang, \"Blockchain Empowered Asynchronous Federated Learning for Secure Data Sharing in Internet of Vehicles,\" IEEE Transactions on Vehicular Technology, vol. 69, no. 4, pp. 4298-4311, April 2020. Xia Feng, Kaiping Cui, and Liangmin Wang, \"PBAG: A Privacy-Preserving Blockchain-based Authentication Protocol with Global-updated Commitment in IoV,\" Cryptography and Security, 2022.",
+      "label": "human",
+      "page_num": 17,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "K. N. Qureshi, G. Jeon, M. M. Hassan, M. R. Hassan, and K. Kaur, \"Blockchain-Based Privacy-Preserving Authentication Model Intelligent Transportation Systems,\" IEEE Transactions on Intelligent Transportation Systems, 2022. Gunasekaran Manogaran, Bharat S. Rawal, Vijayalakshmi Saravanan, Priyan M K, Qin Xin, and P. Shakeel, \"Token-Based Authorization and Authentication for Secure Internet of Vehicles Communication,\" ACM Transactions on Internet Technology, Vol. 22, No. 4, 2023. Poongodi M., Sami Bourouis, Ahmed Najat Ahmed, Vijayaragavan M., Venkatesan K.G.S., Wajdi Alhakami, and Mounir Hamdi, \"A Novel Secured Multi-Access Edge Computing based VANET with Neuro fuzzy systems based Blockchain Framework,\" Computer Communications, Vol.192, Pp.48-56, 1 August 2022. Bowei Zhang, Xiaoliang Wang, Ru Xie, Chuncao Li, Huazheng Zhang, and Frank Jiang, \"A reputation mechanism based Deep Reinforcement Learning and blockchain to suppress selfish node attack motivation in Vehicular Ad-Hoc Network,\" Future Generation Computer Systems, Vol. 139, pp.17-28, February 2023. Abin Oommen Philip and RA.K. Saravanaguru, \"Multisource traffic incident reporting and evidence management in the Internet of Vehicles using machine learning and blockchain,\" Engineering Applications of Artificial Intelligence, Vol.117, Part B, pp.105630, January 2023. Bhawna Chaudhary & Karan Singh, \"A Blockchain enabled location-privacy preserving scheme for vehicular ad-hoc networks,\" Peer-to-Peer Networking and Applications, vol. 14, pp.3198–3212, 2021. Pravin Mundhe, Pooja Phad, R. Yuvaraj, Shekhar Verma & S. Venkatesan, \"Blockchain-based conditional privacy-preserving authentication scheme in VANETs,\" Multimedia Tools and Applications, 2022. Kirti A. Yadav & P. Vijayakumar, \"LPPSA: an efficient Lightweight Privacy-Preserving Signature-based Authentication protocol for a vehicular ad hoc network,\" Annals of Telecommunications, vol. 77, pp.473–489, 2022.",
+      "label": "human",
+      "page_num": 18,
+      "source": "direct_pdf"
+    },
+    {
+      "text": "Ali, Elmustafa Sayed, Mohammad Kamrul Hasan, Rosilah Hassan, Rashid A. Saeed, Mona Bakri Hassan, Shayla Islam, Nazmus Shaker Nafi, and Savitri Bevinakoppa, \"Machine learning technologies for secure vehicular communication in internet of vehicles: recent advances and applications,\" Security and Communication Networks, pp. 8868355, no. 1, 2021. Xiaoliang Wang, Pengjie Zeng, Nick Patterson, Frank Jiang1, And Robin Doss, \"An Improved Authentication Scheme for Internet of Vehicles Based on Blockchain Technology,\" IEEE Access, Vol. 7, 2019. Palak Bagga, Anil Kumar Sutrala, Ashok Kumar Das, Pandi Vijayakumar, \"Blockchain-based batch authentication protocol for Internet of Vehicles,\" Journal of Systems Architecture, 2020. Mahmoud A. Shawky, Muhammad Usman, David Flynn, Muhammad Ali Imran, Qammer H. Abbasi, Shuja Ansari, and Ahmad Taha, \"Blockchain-based secret key extraction for efficient and secure authentication in VANETs,\" Journal of Information Security and Applications, vol.74, pp.103476, 2023. Chen Mao, Kaiyu Xie, Lei Gao, Mingjiang Wan, and Shuxian Liu, \"Design of Internet of Vehicles Authentication Scheme based on Blockchain,\" Journal of Physics: Conference Series, vol.1738, pp.012097, 2021.",
+      "label": "human",
+      "page_num": 19,
+      "source": "direct_pdf"
+    }
+  ],
+  "stats": {
+    "ai_generated_segments": 21,
+    "ai_paraphrased_segments": 1,
+    "human_segments": 19,
+    "ocr_pages": 0,
+    "total_chars_ai": 17768,
+    "total_chars_paraphrased": 893,
+    "total_chars_human": 13528
+  },
+  "errors": []
+}

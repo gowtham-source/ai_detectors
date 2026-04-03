@@ -1,0 +1,28 @@
+[project]
+name = "ai-plag-detector"
+version = "0.1.0"
+description = "Add your description here"
+requires-python = ">=3.11"
+dependencies = [
+    "accelerate>=1.13.0",
+    "numpy>=2.4.4",
+    "pdfplumber>=0.11.9",
+    "pillow>=12.2.0",
+    "protobuf>=7.34.1",
+    "pymupdf>=1.27.2.2",
+    "requests>=2.33.1",
+    "scikit-learn>=1.8.0",
+    "sentencepiece>=0.2.1",
+    "tiktoken>=0.12.0",
+    "tqdm>=4.67.3",
+    "transformers>=5.5.0",
+    "torch>=2.3.0",
+]
+
+[[tool.uv.index]]
+name = "pytorch-cu124"
+url = "https://download.pytorch.org/whl/cu124"
+explicit = true
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu124" }
