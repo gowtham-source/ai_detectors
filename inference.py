@@ -572,77 +572,183 @@ def _search_and_highlight(page: fitz.Page, sentence: str, color: tuple, added_re
     return highlighted
 
 
+def _draw_turnitin_footer(page: fitz.Page, page_label: str, total_pages: int, page_no: int):
+    """Draw Turnitin-style footer: logo area left, page info center, submission ID right."""
+    W, H = 595, 842
+    footer_y = H - 28
+
+    # Dark footer bar
+    page.draw_rect(fitz.Rect(0, H - 40, W, H), color=None, fill=(0.18, 0.18, 0.2))
+
+    # "turnitin" logo text (blue-ish)
+    page.insert_text(
+        fitz.Point(20, footer_y), "turnitin",
+        fontsize=9, fontname="hebo", color=(0.32, 0.78, 0.85)
+    )
+
+    # Page info center
+    center_text = f"Page {page_no} of {total_pages}  -  {page_label}"
+    page.insert_text(
+        fitz.Point(200, footer_y), center_text,
+        fontsize=8, fontname="helv", color=(0.8, 0.8, 0.8)
+    )
+
+    # Right side label
+    page.insert_text(
+        fitz.Point(430, footer_y), "AI Writing Detection",
+        fontsize=8, fontname="helv", color=(0.8, 0.8, 0.8)
+    )
+
+
 def _create_cover_page(doc: fitz.Document, pdf_name: str, score: dict):
-    """Insert a cover page at the start with AI detection summary."""
-    page = doc.new_page(pno=0, width=595, height=842)  # A4
+    """
+    Insert two pages at the start:
+      Page 1 - Cover Page  (Turnitin style: white, doc details)
+      Page 2 - AI Writing Overview  (% detected + detection groups)
+    """
+    W, H = 595, 842
+    total_pages = len(doc) + 2  # +2 for the two pages we're adding
+    GRAY    = (0.45, 0.45, 0.45)
+    DGRAY   = (0.2,  0.2,  0.2)
+    LGRAY   = (0.85, 0.85, 0.85)
+    CYAN    = (0.32, 0.78, 0.85)
+    PURPLE  = (0.71, 0.55, 0.98)
+    BLACK   = (0.0,  0.0,  0.0)
+    WHITE   = (1.0,  1.0,  1.0)
+    DIVIDER = (0.88, 0.88, 0.88)
 
-    # Header bar
-    header_rect = fitz.Rect(0, 0, 595, 90)
-    page.draw_rect(header_rect, color=None, fill=(0.102, 0.212, 0.365))
-    page.insert_text(
-        fitz.Point(40, 45), "AI Content Detection Report",
-        fontsize=22, fontname="helv", color=(1, 1, 1)
-    )
-    page.insert_text(
-        fitz.Point(40, 70), pdf_name,
-        fontsize=11, fontname="helv", color=(0.8, 0.85, 0.9)
-    )
+    # ── Page 1: Cover Page ────────────────────────────────────────────────────
+    p1 = doc.new_page(pno=0, width=W, height=H)
 
-    # Overall score
-    y_start = 130
-    cx, cy = 297, y_start + 80
+    # "A I" initials box (top-left, bold large text like Turnitin's "A B")
+    stem_initials = "".join(w[0].upper() for w in pdf_name.replace("-", " ").replace("_", " ").split()[:2])
+    p1.insert_text(fitz.Point(36, 55), stem_initials, fontsize=28, fontname="hebo", color=BLACK)
+
+    # Document name below initials (smaller, gray)
+    # Truncate if too long
+    display_name = pdf_name if len(pdf_name) <= 55 else pdf_name[:52] + "..."
+    p1.insert_text(fitz.Point(36, 80), display_name, fontsize=11, fontname="helv", color=DGRAY)
+
+    # Quick Submit row icons (simulated as small squares + text)
+    y_sub = 105
+    for label in ["Quick Submit", "Quick Submit"]:
+        p1.draw_rect(fitz.Rect(36, y_sub - 9, 46, y_sub + 1), color=LGRAY, fill=LGRAY)
+        p1.insert_text(fitz.Point(52, y_sub), label, fontsize=9, fontname="helv", color=GRAY)
+        y_sub += 18
+    # Author row
+    p1.draw_rect(fitz.Rect(36, y_sub - 9, 46, y_sub + 1), color=LGRAY, fill=LGRAY)
+    p1.insert_text(fitz.Point(52, y_sub), "AI Detection Report", fontsize=9, fontname="helv", color=GRAY)
+
+    # Horizontal divider
+    p1.draw_line(fitz.Point(36, 158), fitz.Point(W - 36, 158), color=DIVIDER, width=0.8)
+
+    # "Document Details" heading
+    p1.insert_text(fitz.Point(36, 182), "Document Details", fontsize=13, fontname="hebo", color=BLACK)
+
+    # Metadata table (left column: labels, right column: values)
+    import datetime as _dt
+    now_str = _dt.datetime.now().strftime("%b %d, %Y, %I:%M %p")
+    total_words = score["total_sentences"] * 18  # rough estimate
+    total_chars = score["total_sentences"] * 95
+
+    meta_rows = [
+        ("Submission ID",   f"oid::{abs(hash(pdf_name)) % 9999999999:010d}"),
+        ("Submission Date", now_str),
+        ("Download Date",   now_str),
+        ("File Name",       display_name),
+        ("File Size",       "—"),
+    ]
+
+    y_meta = 210
+    for key, val in meta_rows:
+        p1.insert_text(fitz.Point(36, y_meta), key, fontsize=9, fontname="helv", color=GRAY)
+        p1.insert_text(fitz.Point(36, y_meta + 14), val, fontsize=10, fontname="helv", color=DGRAY)
+        y_meta += 42
+
+    # Right-side stats box (pages / words / chars)
+    stats_x, stats_y = 340, 210
+    stats = [
+        (f"{len(doc)} Pages",),
+        (f"{total_words:,} Words",),
+        (f"{total_chars:,} Characters",),
+    ]
+    box_h = 34
+    for (stat_text,) in stats:
+        box_rect = fitz.Rect(stats_x, stats_y, stats_x + 140, stats_y + box_h)
+        p1.draw_rect(box_rect, color=DIVIDER, fill=WHITE, width=0.8)
+        p1.insert_text(fitz.Point(stats_x + 10, stats_y + 22), stat_text,
+                       fontsize=10, fontname="helv", color=DGRAY)
+        stats_y += box_h + 6
+
+    _draw_turnitin_footer(p1, "Cover Page", total_pages, 1)
+
+    # ── Page 2: AI Writing Overview ───────────────────────────────────────────
+    p2 = doc.new_page(pno=1, width=W, height=H)
+
     overall = score["overall_ai_percent"]
+    ai_gen_pct  = score["ai_generated_percent"]
+    ai_gen_cnt  = score["ai_generated_sentences"]
+    ai_para_pct = score["ai_paraphrased_percent"]
+    ai_para_cnt = score["ai_paraphrased_sentences"]
 
-    page.draw_circle(fitz.Point(cx, cy), 60, color=(0.88, 0.9, 0.94), fill=(0.96, 0.97, 0.98), width=3)
-    score_text = f"{overall}%"
-    page.insert_text(
-        fitz.Point(cx - 30, cy + 10), score_text,
-        fontsize=28, fontname="hebo", color=(0.102, 0.212, 0.365)
+    # Big headline
+    headline = f"{overall}% detected as AI"
+    p2.insert_text(fitz.Point(36, 80), headline, fontsize=26, fontname="hebo", color=BLACK)
+
+    # Subtitle
+    subtitle = ("The percentage indicates the combined amount of likely AI-generated text as\n"
+                "well as likely AI-generated text that was also likely AI-paraphrased.")
+    p2.insert_textbox(
+        fitz.Rect(36, 90, 310, 145), subtitle,
+        fontsize=9, fontname="helv", color=GRAY
     )
-    page.insert_text(
-        fitz.Point(cx - 40, cy + 30), "AI Content",
-        fontsize=10, fontname="helv", color=(0.44, 0.5, 0.6)
+
+    # Caution box (right side, cyan border)
+    caution_rect = fitz.Rect(320, 60, W - 36, 145)
+    p2.draw_rect(caution_rect, color=CYAN, fill=(0.92, 0.98, 1.0), width=1.0)
+    p2.insert_textbox(
+        fitz.Rect(328, 70, W - 44, 140),
+        "Caution: Review required.\n\nIt is essential to understand the limitations of AI detection "
+        "before making decisions about a student's work.",
+        fontsize=8, fontname="helv", color=(0.1, 0.3, 0.4)
     )
 
-    # Breakdown section
-    y = y_start + 190
-    items = [
-        ("AI Generated",   score["ai_generated_percent"],   score["ai_generated_sentences"],   (0.32, 0.78, 0.85)),
-        ("AI Paraphrased", score["ai_paraphrased_percent"], score["ai_paraphrased_sentences"], (0.71, 0.55, 0.98)),
-        ("Human Written",  score["human_percent"],          score["human_sentences"],          (0.78, 0.82, 0.86)),
-    ]
+    # Divider
+    p2.draw_line(fitz.Point(36, 165), fitz.Point(W - 36, 165), color=DIVIDER, width=0.8)
 
-    for label, pct, count, color in items:
-        page.draw_circle(fitz.Point(60, y + 6), 6, color=None, fill=color)
-        page.insert_text(fitz.Point(80, y + 11), label, fontsize=12, fontname="helv", color=(0.18, 0.22, 0.28))
-        page.insert_text(fitz.Point(280, y + 11), f"{pct}%", fontsize=14, fontname="hebo", color=(0.18, 0.22, 0.28))
-        page.insert_text(fitz.Point(340, y + 11), f"({count} sentences)", fontsize=10, fontname="helv", color=(0.63, 0.68, 0.74))
-        y += 35
+    # "Detection Groups" heading
+    p2.insert_text(fitz.Point(36, 195), "Detection Groups", fontsize=13, fontname="hebo", color=BLACK)
 
-    # Legend
-    y += 30
-    page.insert_text(fitz.Point(40, y), "Color Legend:", fontsize=12, fontname="hebo", color=(0.18, 0.22, 0.28))
-    y += 25
+    # Group 1 — AI-generated only
+    g_y = 225
+    # Cyan circle icon
+    p2.draw_circle(fitz.Point(52, g_y + 6), 10, color=None, fill=CYAN)
+    p2.insert_text(fitz.Point(48, g_y + 10), "AI", fontsize=6, fontname="hebo", color=WHITE)
 
-    legend_items = [
-        ("Cyan highlight",   "AI-Generated content",   (0.83, 0.96, 0.98)),
-        ("Purple highlight", "AI-Paraphrased content", (0.93, 0.88, 1.0)),
-        ("No highlight",     "Human-written content",  None),
-    ]
-    for tag, desc, fill in legend_items:
-        if fill:
-            swatch_rect = fitz.Rect(50, y - 10, 70, y + 4)
-            page.draw_rect(swatch_rect, color=(0.8, 0.8, 0.8), fill=fill)
-        page.insert_text(fitz.Point(80, y), f"{tag}: {desc}", fontsize=10, fontname="helv", color=(0.3, 0.35, 0.4))
-        y += 22
-
-    # Footer
-    y += 30
-    page.insert_text(
-        fitz.Point(40, y),
-        f"Total sentences analyzed: {score['total_sentences']}  |  Threshold: {INFER_THRESHOLD}  |  Model: RoBERTa-base",
-        fontsize=9, fontname="helv", color=(0.63, 0.68, 0.74)
+    count_label = f"{ai_gen_cnt}  AI-generated only  {ai_gen_pct}%"
+    p2.insert_text(fitz.Point(70, g_y + 11), count_label, fontsize=11, fontname="hebo", color=DGRAY)
+    g_y += 24
+    p2.insert_textbox(
+        fitz.Rect(70, g_y, 480, g_y + 30),
+        "Likely AI-generated text from a large-language model.",
+        fontsize=9, fontname="helv", color=GRAY
     )
+
+    # Group 2 — AI-paraphrased
+    g_y += 48
+    p2.draw_circle(fitz.Point(52, g_y + 6), 10, color=None, fill=PURPLE)
+    p2.insert_text(fitz.Point(46, g_y + 10), "AP", fontsize=6, fontname="hebo", color=WHITE)
+
+    count_label2 = f"{ai_para_cnt}  AI-generated text that was AI-paraphrased  {ai_para_pct}%"
+    p2.insert_text(fitz.Point(70, g_y + 11), count_label2, fontsize=11, fontname="hebo", color=DGRAY)
+    g_y += 24
+    p2.insert_textbox(
+        fitz.Rect(70, g_y, 480, g_y + 40),
+        "Likely AI-generated text that was likely revised using an AI-paraphrase tool or word spinner.",
+        fontsize=9, fontname="helv", color=GRAY
+    )
+
+    _draw_turnitin_footer(p2, "AI Writing Overview", total_pages, 2)
 
 
 def generate_pdf_report(
