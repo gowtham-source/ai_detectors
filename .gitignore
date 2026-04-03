@@ -8,3 +8,9 @@ wheels/
 
 # Virtual environments
 .venv
+
+# Model weights (too large for GitHub)
+models/
+deberta_ai_detector/
+*.safetensors
+*.bin
