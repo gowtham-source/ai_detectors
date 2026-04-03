@@ -64,8 +64,9 @@ LABEL2ID = {"human": 0, "ai_generated": 1, "ai_paraphrased": 2}
 ID2LABEL = {v: k for k, v in LABEL2ID.items()}
 NUM_LABELS = 3
 
-MAX_LENGTH        = 512
-BATCH_SIZE        = 16       # RTX 4050 has 6GB VRAM — 16 fits comfortably
+MAX_LENGTH        = 256      # p50=165 tokens, p95 fits in 256; cuts memory ~4x vs 512
+BATCH_SIZE        = 4        # small batch to fit T4/4050 VRAM
+GRAD_ACCUM_STEPS  = 4        # effective batch = 4*4 = 16
 EPOCHS            = 5
 LR                = 2e-5
 WARMUP_RATIO      = 0.1
@@ -200,16 +201,18 @@ def train_epoch(model, loader, optimizer, scheduler, loss_fn, device, use_amp=Fa
     total_loss = 0.0
     nan_count  = 0
     valid_steps = 0
-    for batch in tqdm(loader, desc="  Train", leave=False):
+    optimizer.zero_grad()
+
+    for step, batch in enumerate(tqdm(loader, desc="  Train", leave=False)):
         input_ids      = batch["input_ids"].to(device)
         attention_mask = batch["attention_mask"].to(device)
         labels         = batch["label"].to(device)
         sample_weights = batch["sample_weight"].to(device)
 
-        optimizer.zero_grad()
         with torch.amp.autocast(device_type="cuda", dtype=torch.bfloat16, enabled=use_amp):
             outputs = model(input_ids=input_ids, attention_mask=attention_mask)
             loss = loss_fn(outputs.logits.float(), labels, sample_weights)
+            loss = loss / GRAD_ACCUM_STEPS  # scale for accumulation
 
         # NaN guard — skip this batch instead of poisoning the whole model
         if torch.isnan(loss) or torch.isinf(loss):
@@ -217,14 +220,18 @@ def train_epoch(model, loader, optimizer, scheduler, loss_fn, device, use_amp=Fa
             continue
 
         loss.backward()
-        nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
-        optimizer.step()
-        scheduler.step()
-        total_loss += loss.item()
+        total_loss += loss.item() * GRAD_ACCUM_STEPS  # un-scale for logging
         valid_steps += 1
 
+        # Step optimizer every GRAD_ACCUM_STEPS or at end of epoch
+        if (step + 1) % GRAD_ACCUM_STEPS == 0 or (step + 1) == len(loader):
+            nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
+            optimizer.step()
+            scheduler.step()
+            optimizer.zero_grad()
+
     if nan_count > 0:
-        log.warning(f"  ⚠ {nan_count} NaN/Inf batches skipped")
+        log.warning(f"  \u26a0 {nan_count} NaN/Inf batches skipped")
 
     return total_loss / max(valid_steps, 1)
 
@@ -360,7 +367,7 @@ def main():
         model.parameters(), lr=LR, weight_decay=WEIGHT_DECAY
     )
 
-    total_steps   = len(train_loader) * EPOCHS
+    total_steps   = (len(train_loader) // GRAD_ACCUM_STEPS) * EPOCHS
     warmup_steps  = int(total_steps * WARMUP_RATIO)
     scheduler = get_linear_schedule_with_warmup(
         optimizer, num_warmup_steps=warmup_steps, num_training_steps=total_steps
