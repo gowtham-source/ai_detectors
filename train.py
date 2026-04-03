@@ -65,7 +65,7 @@ ID2LABEL = {v: k for k, v in LABEL2ID.items()}
 NUM_LABELS = 3
 
 MAX_LENGTH        = 512
-BATCH_SIZE        = 8        # reduce to 4 if OOM
+BATCH_SIZE        = 16       # RTX 4050 has 6GB VRAM — 16 fits comfortably
 EPOCHS            = 5
 LR                = 2e-5
 WARMUP_RATIO      = 0.1
@@ -74,6 +74,7 @@ HIGH_PRIORITY_W   = 2.0      # weight multiplier for HIGH-priority samples
 LABEL_SMOOTHING   = 0.1      # applied only to human class
 SEED              = 42
 INFER_THRESHOLD   = 0.65     # min confidence to predict non-human
+USE_BF16          = True     # bf16 autocast — RTX 4050 Ada supports bf16 natively, no GradScaler needed
 
 # Class weights (inverse frequency, normalized)
 # human=64.8%, ai_gen=34.8%, ai_para=0.4%
@@ -204,7 +205,7 @@ def compute_metrics(all_labels, all_preds, all_probs=None):
 
 # ─── Training loop ────────────────────────────────────────────────────────────
 
-def train_epoch(model, loader, optimizer, scheduler, loss_fn, device):
+def train_epoch(model, loader, optimizer, scheduler, loss_fn, device, use_amp=False):
     model.train()
     total_loss = 0.0
     for batch in tqdm(loader, desc="  Train", leave=False):
@@ -214,10 +215,11 @@ def train_epoch(model, loader, optimizer, scheduler, loss_fn, device):
         sample_weights = batch["sample_weight"].to(device)
 
         optimizer.zero_grad()
-        outputs = model(input_ids=input_ids, attention_mask=attention_mask)
-        loss = loss_fn(outputs.logits, labels, sample_weights)
-        loss.backward()
+        with torch.amp.autocast(device_type="cuda", dtype=torch.bfloat16, enabled=use_amp):
+            outputs = model(input_ids=input_ids, attention_mask=attention_mask)
+            loss = loss_fn(outputs.logits.float(), labels, sample_weights)
 
+        loss.backward()
         nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
         optimizer.step()
         scheduler.step()
@@ -227,7 +229,7 @@ def train_epoch(model, loader, optimizer, scheduler, loss_fn, device):
 
 
 @torch.no_grad()
-def eval_epoch(model, loader, loss_fn, device, threshold: float = INFER_THRESHOLD):
+def eval_epoch(model, loader, loss_fn, device, threshold: float = INFER_THRESHOLD, use_amp=False):
     model.eval()
     total_loss  = 0.0
     all_labels  = []
@@ -240,11 +242,12 @@ def eval_epoch(model, loader, loss_fn, device, threshold: float = INFER_THRESHOL
         labels         = batch["label"].to(device)
         sample_weights = batch["sample_weight"].to(device)
 
-        outputs = model(input_ids=input_ids, attention_mask=attention_mask)
-        loss = loss_fn(outputs.logits, labels, sample_weights)
+        with torch.amp.autocast(device_type="cuda", dtype=torch.bfloat16, enabled=use_amp):
+            outputs = model(input_ids=input_ids, attention_mask=attention_mask)
+        loss = loss_fn(outputs.logits.float(), labels, sample_weights)
         total_loss += loss.item()
 
-        probs = torch.softmax(outputs.logits, dim=-1).cpu().numpy()  # (B, 3)
+        probs = torch.softmax(outputs.logits.float(), dim=-1).cpu().numpy()  # (B, 3)
 
         # Threshold logic: predict non-human only if max non-human prob >= threshold
         for prob_row, true_label in zip(probs, labels.cpu().numpy()):
@@ -272,6 +275,8 @@ def main():
     log.info(f"Device: {device}")
     if device.type == "cuda":
         log.info(f"GPU: {torch.cuda.get_device_name(0)}")
+        log.info(f"VRAM: {torch.cuda.get_device_properties(0).total_memory / 1024**3:.1f} GB")
+        torch.backends.cudnn.benchmark = True  # optimize conv ops for fixed input size
 
     MODEL_OUT_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -335,9 +340,10 @@ def main():
         replacement=True,
     )
 
-    train_loader = DataLoader(train_ds, batch_size=BATCH_SIZE, sampler=sampler)
-    val_loader   = DataLoader(val_ds,   batch_size=BATCH_SIZE, shuffle=False)
-    test_loader  = DataLoader(test_ds,  batch_size=BATCH_SIZE, shuffle=False)
+    pin = device.type == "cuda"
+    train_loader = DataLoader(train_ds, batch_size=BATCH_SIZE, sampler=sampler,  pin_memory=pin, num_workers=0)
+    val_loader   = DataLoader(val_ds,   batch_size=BATCH_SIZE, shuffle=False,    pin_memory=pin, num_workers=0)
+    test_loader  = DataLoader(test_ds,  batch_size=BATCH_SIZE, shuffle=False,    pin_memory=pin, num_workers=0)
 
     # ── Loss, Optimizer, Scheduler ────────────────────────────────────────────
     loss_fn = WeightedLabelSmoothingLoss(
@@ -345,6 +351,10 @@ def main():
         smoothing=LABEL_SMOOTHING,
         num_classes=NUM_LABELS,
     ).to(device)
+
+    # bf16 autocast — no GradScaler needed (bf16 doesn't suffer from underflow like fp16)
+    use_amp = USE_BF16 and device.type == "cuda"
+    scaler = None  # not needed for bf16
 
     optimizer = torch.optim.AdamW(
         model.parameters(), lr=LR, weight_decay=WEIGHT_DECAY
@@ -371,8 +381,8 @@ def main():
         log.info(f"\n{'='*55}")
         log.info(f"Epoch {epoch}/{EPOCHS}")
 
-        train_loss = train_epoch(model, train_loader, optimizer, scheduler, loss_fn, device)
-        val_loss, val_labels, val_preds, val_probs = eval_epoch(model, val_loader, loss_fn, device)
+        train_loss = train_epoch(model, train_loader, optimizer, scheduler, loss_fn, device, use_amp)
+        val_loss, val_labels, val_preds, val_probs = eval_epoch(model, val_loader, loss_fn, device, use_amp=use_amp)
 
         report, cm, fpr = compute_metrics(val_labels, val_preds)
         _, _, f1s, _ = precision_recall_fscore_support(
@@ -413,7 +423,7 @@ def main():
     log.info("FINAL TEST EVALUATION (best checkpoint)")
     best_model = AutoModelForSequenceClassification.from_pretrained(MODEL_OUT_DIR)
     best_model.to(device)
-    _, test_labels, test_preds, test_probs = eval_epoch(best_model, test_loader, loss_fn, device)
+    _, test_labels, test_preds, test_probs = eval_epoch(best_model, test_loader, loss_fn, device, use_amp=use_amp)
     test_report, test_cm, test_fpr = compute_metrics(test_labels, test_preds, test_probs)
 
     log.info(f"\nClassification Report:\n{test_report}")
