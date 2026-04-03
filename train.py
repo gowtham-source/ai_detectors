@@ -75,7 +75,7 @@ HIGH_PRIORITY_W   = 1.5      # weight multiplier for HIGH-priority samples
 LABEL_SMOOTHING   = 0.05     # gentle smoothing to avoid overconfidence
 SEED              = 42
 INFER_THRESHOLD   = 0.65     # min confidence to predict non-human
-USE_BF16          = True     # bf16 autocast — RTX 4050 Ada supports bf16 natively, no GradScaler needed
+USE_AMP           = False    # DeBERTa-v3 has known bf16/fp16 overflow in disentangled attention — use fp32
 PATIENCE          = 3        # early stopping patience (epochs without improvement)
 
 # Mild class weights — WeightedRandomSampler already balances sampling,
@@ -359,9 +359,9 @@ def main():
         smoothing=LABEL_SMOOTHING,
     ).to(device)
 
-    # bf16 autocast — no GradScaler needed (bf16 doesn't suffer from underflow like fp16)
-    use_amp = USE_BF16 and device.type == "cuda"
-    scaler = None  # not needed for bf16
+    # DeBERTa-v3 is numerically unstable with mixed precision (bf16/fp16)
+    # batch=4 + seq=256 in fp32 uses ~3GB — fits easily in T4/4050
+    use_amp = USE_AMP and device.type == "cuda"
 
     optimizer = torch.optim.AdamW(
         model.parameters(), lr=LR, weight_decay=WEIGHT_DECAY
