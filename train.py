@@ -70,15 +70,16 @@ EPOCHS            = 5
 LR                = 2e-5
 WARMUP_RATIO      = 0.1
 WEIGHT_DECAY      = 0.01
-HIGH_PRIORITY_W   = 2.0      # weight multiplier for HIGH-priority samples
-LABEL_SMOOTHING   = 0.1      # applied only to human class
+HIGH_PRIORITY_W   = 1.5      # weight multiplier for HIGH-priority samples
+LABEL_SMOOTHING   = 0.05     # gentle smoothing to avoid overconfidence
 SEED              = 42
 INFER_THRESHOLD   = 0.65     # min confidence to predict non-human
 USE_BF16          = True     # bf16 autocast — RTX 4050 Ada supports bf16 natively, no GradScaler needed
+PATIENCE          = 3        # early stopping patience (epochs without improvement)
 
-# Class weights (inverse frequency, normalized)
-# human=64.8%, ai_gen=34.8%, ai_para=0.4%
-CLASS_WEIGHTS = [1.0, 1.86, 162.0]  # 64.8/64.8, 64.8/34.8, 64.8/0.4
+# Mild class weights — WeightedRandomSampler already balances sampling,
+# so these only need a gentle nudge (NOT inverse frequency!).
+CLASS_WEIGHTS = [1.0, 1.2, 3.0]  # human, ai_gen, ai_para
 
 # ─── Reproducibility ─────────────────────────────────────────────────────────
 
@@ -134,36 +135,25 @@ def load_records(path: Path) -> list:
 
 # ─── Loss with label smoothing + sample weights ───────────────────────────────
 
-class WeightedLabelSmoothingLoss(nn.Module):
+class PriorityWeightedCELoss(nn.Module):
     """
-    Cross-entropy loss with:
-      - per-class weights (handle imbalance)
-      - label smoothing (reduce human over-confidence → lower FPR)
-      - per-sample weights (HIGH priority = more trusted labels)
+    Numerically stable CE loss using PyTorch's built-in CrossEntropyLoss.
+    Adds per-sample priority weighting on top.
     """
-    def __init__(self, class_weights: list, smoothing: float = 0.1, num_classes: int = 3):
+    def __init__(self, class_weights: list, smoothing: float = 0.05):
         super().__init__()
-        self.smoothing    = smoothing
-        self.num_classes  = num_classes
         self.register_buffer("class_weights", torch.tensor(class_weights, dtype=torch.float))
+        self.smoothing = smoothing
 
     def forward(self, logits: torch.Tensor, targets: torch.Tensor,
                 sample_weights: Optional[torch.Tensor] = None) -> torch.Tensor:
-        log_probs = torch.log_softmax(logits, dim=-1)
-
-        # Smooth targets: (1-eps)*one_hot + eps/K
-        with torch.no_grad():
-            smooth_targets = torch.full_like(log_probs, self.smoothing / self.num_classes)
-            smooth_targets.scatter_(1, targets.unsqueeze(1), 1.0 - self.smoothing + self.smoothing / self.num_classes)
-
-        # Per-class weight for each sample
-        cw = self.class_weights[targets]  # (B,)
-
-        # NLL loss per sample
-        loss_per_sample = -(smooth_targets * log_probs).sum(dim=-1)  # (B,)
-
-        # Apply class weight
-        loss_per_sample = loss_per_sample * cw
+        # Use built-in CE with label smoothing — numerically stable (log-sum-exp)
+        loss_per_sample = nn.functional.cross_entropy(
+            logits, targets,
+            weight=self.class_weights,
+            label_smoothing=self.smoothing,
+            reduction="none",
+        )  # (B,)
 
         # Apply sample priority weight
         if sample_weights is not None:
@@ -208,6 +198,8 @@ def compute_metrics(all_labels, all_preds, all_probs=None):
 def train_epoch(model, loader, optimizer, scheduler, loss_fn, device, use_amp=False):
     model.train()
     total_loss = 0.0
+    nan_count  = 0
+    valid_steps = 0
     for batch in tqdm(loader, desc="  Train", leave=False):
         input_ids      = batch["input_ids"].to(device)
         attention_mask = batch["attention_mask"].to(device)
@@ -219,13 +211,22 @@ def train_epoch(model, loader, optimizer, scheduler, loss_fn, device, use_amp=Fa
             outputs = model(input_ids=input_ids, attention_mask=attention_mask)
             loss = loss_fn(outputs.logits.float(), labels, sample_weights)
 
+        # NaN guard — skip this batch instead of poisoning the whole model
+        if torch.isnan(loss) or torch.isinf(loss):
+            nan_count += 1
+            continue
+
         loss.backward()
         nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
         optimizer.step()
         scheduler.step()
         total_loss += loss.item()
+        valid_steps += 1
 
-    return total_loss / len(loader)
+    if nan_count > 0:
+        log.warning(f"  ⚠ {nan_count} NaN/Inf batches skipped")
+
+    return total_loss / max(valid_steps, 1)
 
 
 @torch.no_grad()
@@ -346,10 +347,9 @@ def main():
     test_loader  = DataLoader(test_ds,  batch_size=BATCH_SIZE, shuffle=False,    pin_memory=pin, num_workers=0)
 
     # ── Loss, Optimizer, Scheduler ────────────────────────────────────────────
-    loss_fn = WeightedLabelSmoothingLoss(
+    loss_fn = PriorityWeightedCELoss(
         class_weights=CLASS_WEIGHTS,
         smoothing=LABEL_SMOOTHING,
-        num_classes=NUM_LABELS,
     ).to(device)
 
     # bf16 autocast — no GradScaler needed (bf16 doesn't suffer from underflow like fp16)
@@ -373,8 +373,10 @@ def main():
     log.info(f"  HIGH priority weight : {HIGH_PRIORITY_W}x")
     log.info(f"  Class weights        : {CLASS_WEIGHTS}")
 
-    best_val_f1  = 0.0
-    best_val_fpr = 1.0
+    best_score      = -float("inf")
+    best_val_f1     = 0.0
+    best_val_fpr    = 1.0
+    patience_ctr    = 0
     history = []
 
     for epoch in range(1, EPOCHS + 1):
@@ -411,12 +413,20 @@ def main():
         human_fpr = fpr.get("human", 1.0)
         score = macro_f1 - human_fpr  # maximize F1 while penalizing human FPR
 
-        if score > best_val_f1 - best_val_fpr:
+        if score > best_score:
+            best_score   = score
             best_val_f1  = macro_f1
             best_val_fpr = human_fpr
+            patience_ctr = 0
             model.save_pretrained(MODEL_OUT_DIR)
             tokenizer.save_pretrained(MODEL_OUT_DIR)
             log.info(f"  ✓ Best model saved (macro_F1={macro_f1:.4f}, human_FPR={human_fpr:.4f})")
+        else:
+            patience_ctr += 1
+            log.info(f"  No improvement ({patience_ctr}/{PATIENCE})")
+            if patience_ctr >= PATIENCE:
+                log.info(f"  Early stopping triggered after {epoch} epochs")
+                break
 
     # ── Final test evaluation ─────────────────────────────────────────────────
     log.info(f"\n{'='*55}")
