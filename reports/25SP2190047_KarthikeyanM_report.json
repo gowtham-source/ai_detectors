@@ -1,0 +1,2060 @@
+{
+  "file": "25SP2190047_KarthikeyanM.pdf",
+  "score": {
+    "overall_ai_percent": 81.9,
+    "ai_generated_percent": 81.4,
+    "ai_paraphrased_percent": 0.5,
+    "human_percent": 18.1,
+    "total_sentences": 197,
+    "ai_generated_sentences": 152,
+    "ai_paraphrased_sentences": 1,
+    "human_sentences": 44
+  },
+  "pages": [
+    {
+      "page_num": 1,
+      "sentences": [
+        {
+          "text": "Automated Pneumonia Detection from Chest X-Ray Images Using Fine-Tuned Deep Transfer Learning Models Karthikeyan M1, Ragash S1, and S Abirami2 1 Department of Computer Science, Hindustan Institute of Technology and Science, India karthikeyanm5002@gmail.com, Ragash202@gmail.com 2 Assistant Professor, Department of Computer Science, Hindustan Institute of Technology and Science, India abiramisubburam1990@gmail.com Abstract.",
+          "label": "human",
+          "confidence": 0.949,
+          "probabilities": {
+            "human": 0.949,
+            "ai_generated": 0.0155,
+            "ai_paraphrased": 0.0354
+          }
+        },
+        {
+          "text": "Early and accurate detection of pneumonia from chest radio- graphs is critical for timely treatment but remains challenging due to sub- tle radiographic signs and inter-observer variability.",
+          "label": "ai_generated",
+          "confidence": 0.9494,
+          "probabilities": {
+            "human": 0.0215,
+            "ai_generated": 0.9494,
+            "ai_paraphrased": 0.0291
+          }
+        },
+        {
+          "text": "This work presents an end-to-end deep transfer learning framework for binary classification of chest X-ray images (Normal vs.",
+          "label": "ai_generated",
+          "confidence": 0.9581,
+          "probabilities": {
+            "human": 0.0157,
+            "ai_generated": 0.9581,
+            "ai_paraphrased": 0.0262
+          }
+        },
+        {
+          "text": "Pneumonia) that combines domain- adaptive fine-tuning with imbalance-aware optimization.",
+          "label": "ai_generated",
+          "confidence": 0.888,
+          "probabilities": {
+            "human": 0.0831,
+            "ai_generated": 0.888,
+            "ai_paraphrased": 0.0289
+          }
+        },
+        {
+          "text": "Two state-of- the-art pretrained backbones (EfficientNet and ResNet50) are adapted with a task-specific classification head comprising global average pooling, batch normalization, LeakyReLU-activated dense layers, dropout, and L2 weight decay.",
+          "label": "ai_generated",
+          "confidence": 0.9535,
+          "probabilities": {
+            "human": 0.0178,
+            "ai_generated": 0.9535,
+            "ai_paraphrased": 0.0287
+          }
+        },
+        {
+          "text": "To address dataset skew and emphasize difficult examples during training, we employ class weighting together with focal loss and select the operating threshold by maximizing F1-score to balance sensi- tivity and precision.",
+          "label": "ai_generated",
+          "confidence": 0.9544,
+          "probabilities": {
+            "human": 0.0151,
+            "ai_generated": 0.9544,
+            "ai_paraphrased": 0.0305
+          }
+        },
+        {
+          "text": "Data preprocessing includes intensity normalization and extensive augmentation (rotation, translation, zoom, and bright- ness variation) to improve robustness across acquisition conditions.",
+          "label": "ai_generated",
+          "confidence": 0.9538,
+          "probabilities": {
+            "human": 0.017,
+            "ai_generated": 0.9538,
+            "ai_paraphrased": 0.0291
+          }
+        },
+        {
+          "text": "On our experimental dataset, the fine-tuned ResNet50 achieves 93% overall accuracy and superior recall for pneumonia cases, outperforming Effi- cientNet which attains 89% accuracy.",
+          "label": "ai_generated",
+          "confidence": 0.9604,
+          "probabilities": {
+            "human": 0.0106,
+            "ai_generated": 0.9604,
+            "ai_paraphrased": 0.029
+          }
+        },
+        {
+          "text": "Receiver operating characteristic analysis and confusion-matrix inspection confirm improved clinical sen- sitivity while maintaining acceptable specificity.",
+          "label": "ai_generated",
+          "confidence": 0.9446,
+          "probabilities": {
+            "human": 0.0252,
+            "ai_generated": 0.9446,
+            "ai_paraphrased": 0.0302
+          }
+        },
+        {
+          "text": "The proposed system demonstrates strong potential as a computer-aided diagnostic aid to as- sist radiologists in screening workflows and reducing missed pneumonia diagnoses.",
+          "label": "ai_generated",
+          "confidence": 0.9569,
+          "probabilities": {
+            "human": 0.0145,
+            "ai_generated": 0.9569,
+            "ai_paraphrased": 0.0286
+          }
+        },
+        {
+          "text": "Keywords: Chest X-ray · Pneumonia Detection · Transfer Learning · ResNet50 · EfficientNet · Focal Loss 1 Introduction Pneumonia remains a leading cause of illness and death worldwide, dispropor- tionately affecting children, older adults, and immunocompromised patients.",
+          "label": "human",
+          "confidence": 0.9434,
+          "probabilities": {
+            "human": 0.9434,
+            "ai_generated": 0.0249,
+            "ai_paraphrased": 0.0317
+          }
+        }
+      ]
+    },
+    {
+      "page_num": 2,
+      "sentences": [
+        {
+          "text": "2 Karthikeyan M et al.",
+          "label": "human",
+          "confidence": 0.9469,
+          "probabilities": {
+            "human": 0.9469,
+            "ai_generated": 0.0135,
+            "ai_paraphrased": 0.0395
+          }
+        },
+        {
+          "text": "Chest radiography is the most commonly used imaging modality for initial pneu- monia screening because it is inexpensive, fast, and widely available.",
+          "label": "ai_generated",
+          "confidence": 0.9568,
+          "probabilities": {
+            "human": 0.0157,
+            "ai_generated": 0.9568,
+            "ai_paraphrased": 0.0275
+          }
+        },
+        {
+          "text": "Despite these advantages, accurate interpretation of chest X-rays is challenging: radio- graphic signs of pneumonia can be subtle, overlap with other thoracic conditions, and vary with patient positioning and image acquisition parameters.",
+          "label": "ai_generated",
+          "confidence": 0.9574,
+          "probabilities": {
+            "human": 0.0112,
+            "ai_generated": 0.9574,
+            "ai_paraphrased": 0.0314
+          }
+        },
+        {
+          "text": "In busy clin- ical settings, these challenges are compounded by inter-observer variability and workload pressures, which can lead to delayed or missed diagnoses.",
+          "label": "ai_generated",
+          "confidence": 0.9427,
+          "probabilities": {
+            "human": 0.0281,
+            "ai_generated": 0.9427,
+            "ai_paraphrased": 0.0292
+          }
+        },
+        {
+          "text": "Recent advances in deep learning — especially convolutional neural networks (CNNs) — have transformed medical image analysis by enabling automated extraction of hierarchical features directly from raw pixels.",
+          "label": "ai_generated",
+          "confidence": 0.9592,
+          "probabilities": {
+            "human": 0.0077,
+            "ai_generated": 0.9592,
+            "ai_paraphrased": 0.0331
+          }
+        },
+        {
+          "text": "Transfer learning, which leverages models pretrained on large-scale image datasets, has proven particularly valuable in medical imaging tasks where labeled data are limited [1].",
+          "label": "ai_generated",
+          "confidence": 0.9613,
+          "probabilities": {
+            "human": 0.0121,
+            "ai_generated": 0.9613,
+            "ai_paraphrased": 0.0267
+          }
+        },
+        {
+          "text": "Prior approaches have often used pretrained CNNs as fixed feature extractors followed by classical machine learning classifiers; while effective at demonstrating the value of deep features, these hybrid pipelines lack task-specific adaptation and do not fully exploit end-to-end representation learning.",
+          "label": "ai_generated",
+          "confidence": 0.9596,
+          "probabilities": {
+            "human": 0.0085,
+            "ai_generated": 0.9596,
+            "ai_paraphrased": 0.0319
+          }
+        },
+        {
+          "text": "Motivated by these limitations, we develop an end-to-end transfer learning framework for binary classification of chest radiographs into Normal and Pneu- monia classes.",
+          "label": "ai_generated",
+          "confidence": 0.9564,
+          "probabilities": {
+            "human": 0.0136,
+            "ai_generated": 0.9564,
+            "ai_paraphrased": 0.0299
+          }
+        },
+        {
+          "text": "We evaluate two modern backbones — EfficientNet and ResNet50 — each adapted with a task-specific classification head comprising global aver- age pooling, batch normalization, LeakyReLU-activated dense layers, dropout, and L2 weight decay.",
+          "label": "ai_generated",
+          "confidence": 0.9541,
+          "probabilities": {
+            "human": 0.0195,
+            "ai_generated": 0.9541,
+            "ai_paraphrased": 0.0264
+          }
+        },
+        {
+          "text": "To address dataset skew and emphasize difficult examples during training, we employ class weighting together with focal loss and perform operating-point selection by maximizing the F1-score, thereby balancing sensi- tivity and precision.",
+          "label": "ai_generated",
+          "confidence": 0.9572,
+          "probabilities": {
+            "human": 0.0141,
+            "ai_generated": 0.9572,
+            "ai_paraphrased": 0.0287
+          }
+        },
+        {
+          "text": "Extensive augmentation and preprocessing are applied to improve robustness to varying acquisition conditions.",
+          "label": "ai_generated",
+          "confidence": 0.9536,
+          "probabilities": {
+            "human": 0.0146,
+            "ai_generated": 0.9536,
+            "ai_paraphrased": 0.0317
+          }
+        },
+        {
+          "text": "Experimental results show that the fine-tuned ResNet50 model achieves su- perior diagnostic performance (93% accuracy) compared with EfficientNet (89% accuracy), with a notable improvement in recall for pneumonia cases — an out- come of particular clinical relevance.",
+          "label": "ai_generated",
+          "confidence": 0.9502,
+          "probabilities": {
+            "human": 0.0205,
+            "ai_generated": 0.9502,
+            "ai_paraphrased": 0.0293
+          }
+        },
+        {
+          "text": "The proposed framework not only advances automated screening performance but also aligns model optimization with the clinical priority of minimizing missed disease. 2 Related Work Recent studies on automated pneumonia detection have applied a variety of deep learning techniques.",
+          "label": "human",
+          "confidence": 0.8016,
+          "probabilities": {
+            "human": 0.8016,
+            "ai_generated": 0.1377,
+            "ai_paraphrased": 0.0607
+          }
+        },
+        {
+          "text": "Sharma et al. [1] provided a comprehensive review of deep learning approaches for pneumonia detection, highlighting the benefits of CNN- based transfer learning and augmentation.",
+          "label": "ai_paraphrased",
+          "confidence": 0.9869,
+          "probabilities": {
+            "human": 0.0023,
+            "ai_generated": 0.0107,
+            "ai_paraphrased": 0.9869
+          }
+        },
+        {
+          "text": "Mannan and Shekar [2] proposed a pipeline integrating lung segmentation with classification models, improving performance by focusing on relevant regions.",
+          "label": "ai_generated",
+          "confidence": 0.9505,
+          "probabilities": {
+            "human": 0.0065,
+            "ai_generated": 0.9505,
+            "ai_paraphrased": 0.043
+          }
+        },
+        {
+          "text": "Tanni et al. [3] performed a com- prehensive evaluation of convolutional architectures for pneumonia classification.",
+          "label": "ai_generated",
+          "confidence": 0.942,
+          "probabilities": {
+            "human": 0.023,
+            "ai_generated": 0.942,
+            "ai_paraphrased": 0.035
+          }
+        },
+        {
+          "text": "Vemuri et al. [4] demonstrated that deep transfer learning on chest X-rays yields high accuracy for pneumonia.",
+          "label": "ai_generated",
+          "confidence": 0.9568,
+          "probabilities": {
+            "human": 0.0087,
+            "ai_generated": 0.9568,
+            "ai_paraphrased": 0.0346
+          }
+        },
+        {
+          "text": "Mittal et al. [5] explored capsule networks with dynamic routing for chest X-ray analysis.",
+          "label": "ai_generated",
+          "confidence": 0.9551,
+          "probabilities": {
+            "human": 0.0083,
+            "ai_generated": 0.9551,
+            "ai_paraphrased": 0.0366
+          }
+        },
+        {
+          "text": "Vyas and Mehta [6] introduced a “pneu-",
+          "label": "human",
+          "confidence": 0.5107,
+          "probabilities": {
+            "human": 0.5107,
+            "ai_generated": 0.4437,
+            "ai_paraphrased": 0.0456
+          }
+        }
+      ]
+    },
+    {
+      "page_num": 3,
+      "sentences": [
+        {
+          "text": "Pneumonia Detection using Deep Learning 3 monia signature” framework to enhance detection reliability.",
+          "label": "ai_generated",
+          "confidence": 0.9061,
+          "probabilities": {
+            "human": 0.0612,
+            "ai_generated": 0.9061,
+            "ai_paraphrased": 0.0327
+          }
+        },
+        {
+          "text": "Hebert and Zhang [7] fine-tuned a ResNet-50 model with focal loss for imbalanced pneumonia data.",
+          "label": "ai_generated",
+          "confidence": 0.9569,
+          "probabilities": {
+            "human": 0.0119,
+            "ai_generated": 0.9569,
+            "ai_paraphrased": 0.0312
+          }
+        },
+        {
+          "text": "Kumari et al. [8] surveyed various deep learning techniques, and Madan et al. [9] proposed an explainable slot-attention CNN.",
+          "label": "ai_generated",
+          "confidence": 0.9347,
+          "probabilities": {
+            "human": 0.0103,
+            "ai_generated": 0.9347,
+            "ai_paraphrased": 0.055
+          }
+        },
+        {
+          "text": "Yasmin et al. [10], Bao et al. [11], and Lasker et al. [12] developed transformer-based architectures for pneumonia diagnosis.",
+          "label": "ai_generated",
+          "confidence": 0.7005,
+          "probabilities": {
+            "human": 0.0066,
+            "ai_generated": 0.7005,
+            "ai_paraphrased": 0.2929
+          }
+        },
+        {
+          "text": "These works consistently achieve very high accuracies (often above 90%) by leveraging attention mechanisms, specialized loss functions, and ensem- ble strategies to handle class imbalance.",
+          "label": "ai_generated",
+          "confidence": 0.9582,
+          "probabilities": {
+            "human": 0.0123,
+            "ai_generated": 0.9582,
+            "ai_paraphrased": 0.0295
+          }
+        },
+        {
+          "text": "Our approach builds on these advances by combining end-to-end fine-tuning with focal loss and threshold optimization to directly target clinical screening performance. 3 Materials and Methods 3.1 Dataset Description Data Source.",
+          "label": "human",
+          "confidence": 0.9468,
+          "probabilities": {
+            "human": 0.9468,
+            "ai_generated": 0.0168,
+            "ai_paraphrased": 0.0364
+          }
+        },
+        {
+          "text": "This study utilizes a publicly available chest radiograph dataset annotated for binary classification into Normal and Pneumonia categories.",
+          "label": "ai_generated",
+          "confidence": 0.9639,
+          "probabilities": {
+            "human": 0.0084,
+            "ai_generated": 0.9639,
+            "ai_paraphrased": 0.0278
+          }
+        },
+        {
+          "text": "The images are sourced from diverse clinical settings and imaging devices, introducing natural variability in acquisition conditions such as patient positioning, image resolution, and exposure levels. Class Distribution.",
+          "label": "ai_generated",
+          "confidence": 0.9661,
+          "probabilities": {
+            "human": 0.0098,
+            "ai_generated": 0.9661,
+            "ai_paraphrased": 0.0241
+          }
+        },
+        {
+          "text": "The dataset exhibits a significant class imbalance, with pneumonia cases appearing approximately 2.5 times more frequently than nor- mal cases.",
+          "label": "ai_generated",
+          "confidence": 0.9622,
+          "probabilities": {
+            "human": 0.0088,
+            "ai_generated": 0.9622,
+            "ai_paraphrased": 0.029
+          }
+        },
+        {
+          "text": "To address this imbalance during training, we apply class weighting in the loss function and adopt an imbalance-aware optimization strategy to ensure equitable learning across both classes. Data Splitting.",
+          "label": "ai_generated",
+          "confidence": 0.9643,
+          "probabilities": {
+            "human": 0.0087,
+            "ai_generated": 0.9643,
+            "ai_paraphrased": 0.027
+          }
+        },
+        {
+          "text": "A strict patient-level split is employed to prevent data leakage and maintain the integrity of the evaluation.",
+          "label": "ai_generated",
+          "confidence": 0.9556,
+          "probabilities": {
+            "human": 0.0112,
+            "ai_generated": 0.9556,
+            "ai_paraphrased": 0.0332
+          }
+        },
+        {
+          "text": "The dataset is partitioned into 70% for training, 15% for validation, and 15% for testing, with stratification to preserve the class distribution in each subset.",
+          "label": "ai_generated",
+          "confidence": 0.965,
+          "probabilities": {
+            "human": 0.0082,
+            "ai_generated": 0.965,
+            "ai_paraphrased": 0.0268
+          }
+        },
+        {
+          "text": "This ensures that images from the same individual do not appear in more than one data split, promoting a fair and unbiased assessment of model performance. 3.2 Image Preprocessing To ensure consistent input quality and improve convergence behavior across deep learning models, all chest X-ray images undergo a standardized preprocessing pipeline tailored for medical imaging applications. Image Resizing.",
+          "label": "ai_generated",
+          "confidence": 0.7866,
+          "probabilities": {
+            "human": 0.1637,
+            "ai_generated": 0.7866,
+            "ai_paraphrased": 0.0497
+          }
+        },
+        {
+          "text": "Each radiograph is resized to a fixed spatial dimension of 224 × 224 × 3 pixels.",
+          "label": "ai_generated",
+          "confidence": 0.9602,
+          "probabilities": {
+            "human": 0.0125,
+            "ai_generated": 0.9602,
+            "ai_paraphrased": 0.0273
+          }
+        },
+        {
+          "text": "This resizing aligns with the input requirements of the pretrained CNN architectures (EfficientNet and ResNet50) while preserving key anatomical features necessary for pneumonia detection.",
+          "label": "ai_generated",
+          "confidence": 0.9586,
+          "probabilities": {
+            "human": 0.0079,
+            "ai_generated": 0.9586,
+            "ai_paraphrased": 0.0335
+          }
+        },
+        {
+          "text": "The three-channel format ensures compatibility with models pretrained on RGB datasets such as ImageNet.",
+          "label": "ai_generated",
+          "confidence": 0.9562,
+          "probabilities": {
+            "human": 0.0087,
+            "ai_generated": 0.9562,
+            "ai_paraphrased": 0.035
+          }
+        },
+        {
+          "text": "Pixel Normalization.",
+          "label": "human",
+          "confidence": 0.9492,
+          "probabilities": {
+            "human": 0.9492,
+            "ai_generated": 0.02,
+            "ai_paraphrased": 0.0308
+          }
+        },
+        {
+          "text": "Raw pixel intensities are first scaled to the normal- ized [0, 1] range.",
+          "label": "ai_generated",
+          "confidence": 0.9395,
+          "probabilities": {
+            "human": 0.0323,
+            "ai_generated": 0.9395,
+            "ai_paraphrased": 0.0282
+          }
+        },
+        {
+          "text": "Following this, we apply per-channel standardization using",
+          "label": "ai_generated",
+          "confidence": 0.9564,
+          "probabilities": {
+            "human": 0.0146,
+            "ai_generated": 0.9564,
+            "ai_paraphrased": 0.029
+          }
+        }
+      ]
+    },
+    {
+      "page_num": 4,
+      "sentences": [
+        {
+          "text": "4 Karthikeyan M et al. the training set’s empirical mean (µ) and standard deviation (σ), resulting in zero-centered and unit-variance inputs.",
+          "label": "ai_generated",
+          "confidence": 0.8178,
+          "probabilities": {
+            "human": 0.1432,
+            "ai_generated": 0.8178,
+            "ai_paraphrased": 0.039
+          }
+        },
+        {
+          "text": "Formally, the normalized pixel xnorm is computed as: xnorm = x −µ σ .",
+          "label": "ai_generated",
+          "confidence": 0.9575,
+          "probabilities": {
+            "human": 0.0182,
+            "ai_generated": 0.9575,
+            "ai_paraphrased": 0.0243
+          }
+        },
+        {
+          "text": "This normalization process improves numerical stability, accelerates gradient- based optimization, and promotes better generalization by homogenizing dy- namic ranges across images.",
+          "label": "ai_generated",
+          "confidence": 0.9567,
+          "probabilities": {
+            "human": 0.0163,
+            "ai_generated": 0.9567,
+            "ai_paraphrased": 0.0271
+          }
+        },
+        {
+          "text": "Contrast and Intensity Standardization.",
+          "label": "human",
+          "confidence": 0.9483,
+          "probabilities": {
+            "human": 0.9483,
+            "ai_generated": 0.0203,
+            "ai_paraphrased": 0.0314
+          }
+        },
+        {
+          "text": "Given the heterogeneous na- ture of X-ray acquisition across hospitals and devices, contrast levels can vary significantly due to exposure artifacts or imaging settings.",
+          "label": "ai_generated",
+          "confidence": 0.9588,
+          "probabilities": {
+            "human": 0.0152,
+            "ai_generated": 0.9588,
+            "ai_paraphrased": 0.026
+          }
+        },
+        {
+          "text": "To mitigate this, we perform percentile-based intensity clipping—typically at the 1st and 99th per- centiles—followed by min-max rescaling to span the full dynamic range.",
+          "label": "ai_generated",
+          "confidence": 0.9648,
+          "probabilities": {
+            "human": 0.0105,
+            "ai_generated": 0.9648,
+            "ai_paraphrased": 0.0247
+          }
+        },
+        {
+          "text": "Option- ally, gamma correction is applied to standardize luminance.",
+          "label": "ai_generated",
+          "confidence": 0.9382,
+          "probabilities": {
+            "human": 0.0311,
+            "ai_generated": 0.9382,
+            "ai_paraphrased": 0.0307
+          }
+        },
+        {
+          "text": "These steps suppress non-diagnostic brightness variations and enhance the model’s focus on meaning- ful radiological cues such as opacities, consolidations, or lung texture patterns.",
+          "label": "ai_generated",
+          "confidence": 0.9576,
+          "probabilities": {
+            "human": 0.0127,
+            "ai_generated": 0.9576,
+            "ai_paraphrased": 0.0297
+          }
+        },
+        {
+          "text": "Together, these preprocessing stages ensure that the input fed to the model is both statistically normalized and visually consistent, which is crucial for reliable and reproducible performance across varying sources of radiographic data. 3.3 Data Augmentation Strategy To enhance model robustness and prevent overfitting, we employ an on-the-fly data augmentation pipeline during training.",
+          "label": "ai_generated",
+          "confidence": 0.9369,
+          "probabilities": {
+            "human": 0.0322,
+            "ai_generated": 0.9369,
+            "ai_paraphrased": 0.0309
+          }
+        },
+        {
+          "text": "This strategy artificially increases data diversity by introducing controlled variability into each mini-batch, enabling the network to learn invariant features and generalize better to unseen data.",
+          "label": "ai_generated",
+          "confidence": 0.9574,
+          "probabilities": {
+            "human": 0.0097,
+            "ai_generated": 0.9574,
+            "ai_paraphrased": 0.0329
+          }
+        },
+        {
+          "text": "The following augmentation techniques are applied probabilistically to each image in a batch: – Geometric Transformations: Random spatial modifications are used to simulate variability in patient positioning and radiographic acquisition.",
+          "label": "ai_generated",
+          "confidence": 0.9572,
+          "probabilities": {
+            "human": 0.0132,
+            "ai_generated": 0.9572,
+            "ai_paraphrased": 0.0296
+          }
+        },
+        {
+          "text": "These include: • Rotations up to ±20◦ • Translations up to 10% of the image width or height • Random zoom within a ±20% range • Horizontal flips, applied selectively based on clinical acceptability – Photometric Transformations: Intensity-based augmentations simulate differences in radiograph exposure and contrast: • Random brightness and contrast adjustments • Minor gamma corrections to emulate exposure variation These augmentations are designed to preserve pathological semantics while improving the model’s ability to generalize across variations in real-world clinical settings.",
+          "label": "ai_generated",
+          "confidence": 0.9489,
+          "probabilities": {
+            "human": 0.0259,
+            "ai_generated": 0.9489,
+            "ai_paraphrased": 0.0252
+          }
+        },
+        {
+          "text": "By introducing both geometric and photometric diversity, the network is encouraged to focus on disease-relevant features rather than spurious image characteristics.",
+          "label": "ai_generated",
+          "confidence": 0.9618,
+          "probabilities": {
+            "human": 0.0104,
+            "ai_generated": 0.9618,
+            "ai_paraphrased": 0.0278
+          }
+        }
+      ]
+    },
+    {
+      "page_num": 5,
+      "sentences": [
+        {
+          "text": "Pneumonia Detection using Deep Learning 5 3.4 Transfer Learning Framework To efficiently adapt powerful deep neural networks to the specialized task of pneumonia detection, we adopt a transfer learning approach.",
+          "label": "ai_generated",
+          "confidence": 0.9345,
+          "probabilities": {
+            "human": 0.0347,
+            "ai_generated": 0.9345,
+            "ai_paraphrased": 0.0308
+          }
+        },
+        {
+          "text": "This technique en- ables faster convergence and improved performance by leveraging prior knowl- edge encoded in large-scale pretrained models.",
+          "label": "ai_generated",
+          "confidence": 0.9443,
+          "probabilities": {
+            "human": 0.0235,
+            "ai_generated": 0.9443,
+            "ai_paraphrased": 0.0322
+          }
+        },
+        {
+          "text": "Model Initialization.",
+          "label": "human",
+          "confidence": 0.9516,
+          "probabilities": {
+            "human": 0.9516,
+            "ai_generated": 0.0185,
+            "ai_paraphrased": 0.0299
+          }
+        },
+        {
+          "text": "Both EfficientNet and ResNet50 architectures are initialized with weights pretrained on the ImageNet dataset.",
+          "label": "ai_generated",
+          "confidence": 0.9539,
+          "probabilities": {
+            "human": 0.0159,
+            "ai_generated": 0.9539,
+            "ai_paraphrased": 0.0302
+          }
+        },
+        {
+          "text": "This initialization capitalizes on their ability to extract fundamental low-level visual features such as edges, textures, and patterns—many of which are also useful for interpreting medical radiographs.",
+          "label": "ai_generated",
+          "confidence": 0.9551,
+          "probabilities": {
+            "human": 0.0086,
+            "ai_generated": 0.9551,
+            "ai_paraphrased": 0.0363
+          }
+        },
+        {
+          "text": "By reusing these representations, we significantly reduce the need for extensive labeled medical data and improve generalization from the outset.",
+          "label": "ai_generated",
+          "confidence": 0.9576,
+          "probabilities": {
+            "human": 0.0107,
+            "ai_generated": 0.9576,
+            "ai_paraphrased": 0.0318
+          }
+        },
+        {
+          "text": "Layer Freezing and Fine-Tuning.",
+          "label": "human",
+          "confidence": 0.5205,
+          "probabilities": {
+            "human": 0.5205,
+            "ai_generated": 0.441,
+            "ai_paraphrased": 0.0385
+          }
+        },
+        {
+          "text": "During early training phases, the ini- tial layers of each backbone are frozen to preserve generic visual representations and avoid overfitting to small-scale domain-specific data.",
+          "label": "ai_generated",
+          "confidence": 0.9503,
+          "probabilities": {
+            "human": 0.0189,
+            "ai_generated": 0.9503,
+            "ai_paraphrased": 0.0307
+          }
+        },
+        {
+          "text": "Gradually, deeper lay- ers are unfrozen in a controlled manner to enable task-specific learning.",
+          "label": "ai_generated",
+          "confidence": 0.9395,
+          "probabilities": {
+            "human": 0.0279,
+            "ai_generated": 0.9395,
+            "ai_paraphrased": 0.0326
+          }
+        },
+        {
+          "text": "In the case of ResNet50, the first convolutional block is kept static, while subsequent residual blocks are fine-tuned.",
+          "label": "ai_generated",
+          "confidence": 0.9567,
+          "probabilities": {
+            "human": 0.0147,
+            "ai_generated": 0.9567,
+            "ai_paraphrased": 0.0286
+          }
+        },
+        {
+          "text": "This hierarchical tuning strategy ensures that the network can adapt its high-level filters to capture domain-specific features such as lung opacities, patchy infiltrates, and consolidations—hallmarks of pneumonia on chest X-rays.",
+          "label": "ai_generated",
+          "confidence": 0.9605,
+          "probabilities": {
+            "human": 0.0102,
+            "ai_generated": 0.9605,
+            "ai_paraphrased": 0.0293
+          }
+        },
+        {
+          "text": "Optimization and Stability Controls.",
+          "label": "human",
+          "confidence": 0.8932,
+          "probabilities": {
+            "human": 0.8932,
+            "ai_generated": 0.0663,
+            "ai_paraphrased": 0.0405
+          }
+        },
+        {
+          "text": "Model training is performed using the Adam optimizer, known for its adaptive gradient estimation and convergence efficiency.",
+          "label": "ai_generated",
+          "confidence": 0.9628,
+          "probabilities": {
+            "human": 0.0089,
+            "ai_generated": 0.9628,
+            "ai_paraphrased": 0.0283
+          }
+        },
+        {
+          "text": "We set a conservative base learning rate of 1×10−5 to facilitate stable updates during fine-tuning.",
+          "label": "ai_generated",
+          "confidence": 0.9567,
+          "probabilities": {
+            "human": 0.0112,
+            "ai_generated": 0.9567,
+            "ai_paraphrased": 0.0321
+          }
+        },
+        {
+          "text": "To enhance robustness, the AMSGrad variant of Adam is employed, which maintains long-term memory of past gradients to avoid oscillations.",
+          "label": "ai_generated",
+          "confidence": 0.9527,
+          "probabilities": {
+            "human": 0.0132,
+            "ai_generated": 0.9527,
+            "ai_paraphrased": 0.0341
+          }
+        },
+        {
+          "text": "Additionally, gradient clipping is applied with a maximum norm of 1.0 to prevent exploding gradients, particularly during early epochs when model weights undergo significant adjustments.",
+          "label": "ai_generated",
+          "confidence": 0.9584,
+          "probabilities": {
+            "human": 0.0113,
+            "ai_generated": 0.9584,
+            "ai_paraphrased": 0.0303
+          }
+        },
+        {
+          "text": "This structured transfer learning strategy enables the models to retain their general-purpose visual intelligence while gradually specializing in pneumonia detection—achieving a balance between performance, convergence speed, and resistance to overfitting. z Figure 1 provides an overview of the proposed end-to-end pipeline, combining data preprocessing, pretrained CNN backbones (EfficientNet or ResNet50), task- specific classification heads, imbalance-aware loss optimization, and decision- level threshold tuning. 3.5 Network Architecture We evaluated two models, each with a custom classification head.",
+          "label": "human",
+          "confidence": 0.888,
+          "probabilities": {
+            "human": 0.888,
+            "ai_generated": 0.0616,
+            "ai_paraphrased": 0.0504
+          }
+        },
+        {
+          "text": "EfficientNet-based Model EfficientNet, particularly the B0 variant, is uti- lized as our lightweight yet powerful baseline model.",
+          "label": "ai_generated",
+          "confidence": 0.8941,
+          "probabilities": {
+            "human": 0.0756,
+            "ai_generated": 0.8941,
+            "ai_paraphrased": 0.0303
+          }
+        },
+        {
+          "text": "Known for its compound",
+          "label": "ai_generated",
+          "confidence": 0.9425,
+          "probabilities": {
+            "human": 0.0277,
+            "ai_generated": 0.9425,
+            "ai_paraphrased": 0.0298
+          }
+        }
+      ]
+    },
+    {
+      "page_num": 6,
+      "sentences": [
+        {
+          "text": "6 Karthikeyan M et al. Fig. 1.",
+          "label": "human",
+          "confidence": 0.9456,
+          "probabilities": {
+            "human": 0.9456,
+            "ai_generated": 0.014,
+            "ai_paraphrased": 0.0404
+          }
+        },
+        {
+          "text": "Proposed architecture pipeline for pneumonia classification using deep transfer learning.",
+          "label": "ai_generated",
+          "confidence": 0.9585,
+          "probabilities": {
+            "human": 0.0145,
+            "ai_generated": 0.9585,
+            "ai_paraphrased": 0.027
+          }
+        }
+      ]
+    },
+    {
+      "page_num": 7,
+      "sentences": [
+        {
+          "text": "Pneumonia Detection using Deep Learning 7 scaling strategy that uniformly balances network depth, width, and resolution, EfficientNet provides an efficient trade-off between model size and performance, making it well-suited for medical image analysis tasks with limited computa- tional resources.",
+          "label": "ai_generated",
+          "confidence": 0.9537,
+          "probabilities": {
+            "human": 0.0173,
+            "ai_generated": 0.9537,
+            "ai_paraphrased": 0.0289
+          }
+        },
+        {
+          "text": "The model architecture begins with the pretrained EfficientNet backbone, which has been initialized using ImageNet weights.",
+          "label": "ai_generated",
+          "confidence": 0.9511,
+          "probabilities": {
+            "human": 0.0162,
+            "ai_generated": 0.9511,
+            "ai_paraphrased": 0.0327
+          }
+        },
+        {
+          "text": "This backbone is responsible for extracting rich feature representations from the chest X-ray images through a series of convolutional layers.",
+          "label": "ai_generated",
+          "confidence": 0.9591,
+          "probabilities": {
+            "human": 0.0123,
+            "ai_generated": 0.9591,
+            "ai_paraphrased": 0.0286
+          }
+        },
+        {
+          "text": "Following the feature extraction stage, we employ a custom classification head designed to map the abstracted features to the probability of pneumonia presence.",
+          "label": "ai_generated",
+          "confidence": 0.9577,
+          "probabilities": {
+            "human": 0.0093,
+            "ai_generated": 0.9577,
+            "ai_paraphrased": 0.033
+          }
+        },
+        {
+          "text": "Specifically, we apply a global average pooling operation to condense the spatial dimensions into a single vector, preserving the most salient informa- tion from each feature map.",
+          "label": "ai_generated",
+          "confidence": 0.9581,
+          "probabilities": {
+            "human": 0.0122,
+            "ai_generated": 0.9581,
+            "ai_paraphrased": 0.0297
+          }
+        },
+        {
+          "text": "This vector is then passed through the following layers in sequence: – Batch Normalization: Standardizes activations and accelerates training convergence by mitigating internal covariate shift. – Dense Layer (512 units): Adds non-linearity and increases learning ca- pacity. – LeakyReLU Activation: Introduces non-linearity with a small negative slope to prevent neuron deactivation and maintain gradient flow. – Dropout (rate = 0.2): Acts as a regularization technique to prevent over- fitting by randomly deactivating 20% of neurons during training. – Output Layer – Dense(1, Sigmoid): Produces a probability score be- tween 0 and 1, indicating the likelihood of the input image showing signs of pneumonia.",
+          "label": "ai_generated",
+          "confidence": 0.8774,
+          "probabilities": {
+            "human": 0.0878,
+            "ai_generated": 0.8774,
+            "ai_paraphrased": 0.0348
+          }
+        },
+        {
+          "text": "This streamlined architecture allows the model to be both compact and ef- fective, striking a balance between computational efficiency and diagnostic ac- curacy.",
+          "label": "ai_generated",
+          "confidence": 0.9412,
+          "probabilities": {
+            "human": 0.0235,
+            "ai_generated": 0.9412,
+            "ai_paraphrased": 0.0353
+          }
+        },
+        {
+          "text": "The final output is interpreted as the confidence score for binary classi- fication—normal or pneumonia.",
+          "label": "ai_generated",
+          "confidence": 0.9587,
+          "probabilities": {
+            "human": 0.0147,
+            "ai_generated": 0.9587,
+            "ai_paraphrased": 0.0267
+          }
+        },
+        {
+          "text": "Fine-tuned ResNet50 Model ResNet50 serves as the primary backbone for our deep transfer learning framework due to its strong representational capacity and well-established performance in medical imaging tasks.",
+          "label": "ai_generated",
+          "confidence": 0.9591,
+          "probabilities": {
+            "human": 0.0117,
+            "ai_generated": 0.9591,
+            "ai_paraphrased": 0.0292
+          }
+        },
+        {
+          "text": "Its hallmark fea- ture—residual connections—facilitates the training of deep architectures by al- leviating vanishing gradient issues and promoting better gradient flow across layers.",
+          "label": "ai_generated",
+          "confidence": 0.9337,
+          "probabilities": {
+            "human": 0.0342,
+            "ai_generated": 0.9337,
+            "ai_paraphrased": 0.0321
+          }
+        },
+        {
+          "text": "The ResNet50 model is initialized with ImageNet-pretrained weights to lever- age transferable low-level features such as edges and textures.",
+          "label": "ai_generated",
+          "confidence": 0.9382,
+          "probabilities": {
+            "human": 0.0304,
+            "ai_generated": 0.9382,
+            "ai_paraphrased": 0.0314
+          }
+        },
+        {
+          "text": "We then fine-tune the network on the pneumonia classification task to adapt the mid- and high- level representations to the specific domain of chest radiography.",
+          "label": "ai_generated",
+          "confidence": 0.9585,
+          "probabilities": {
+            "human": 0.0119,
+            "ai_generated": 0.9585,
+            "ai_paraphrased": 0.0297
+          }
+        },
+        {
+          "text": "Key architectural and training modifications include: – Residual Learning: Each residual block computes an additive transfor- mation of the input, y = f(x) + x, allowing the model to preserve learned",
+          "label": "ai_generated",
+          "confidence": 0.9189,
+          "probabilities": {
+            "human": 0.0489,
+            "ai_generated": 0.9189,
+            "ai_paraphrased": 0.0321
+          }
+        }
+      ]
+    },
+    {
+      "page_num": 8,
+      "sentences": [
+        {
+          "text": "8 Karthikeyan M et al. features across layers.",
+          "label": "human",
+          "confidence": 0.5324,
+          "probabilities": {
+            "human": 0.5324,
+            "ai_generated": 0.4071,
+            "ai_paraphrased": 0.0605
+          }
+        },
+        {
+          "text": "This design helps in training deeper networks without degradation in performance. – Global Average Pooling: After feature extraction, a global average pool- ing layer condenses the spatial feature maps into a compact descriptor vector, reducing dimensionality while retaining semantic information. – Classification Head: To enhance the model’s discriminative capability, the pooled feature vector is passed through a stack of fully connected layers with regularization.",
+          "label": "ai_generated",
+          "confidence": 0.9562,
+          "probabilities": {
+            "human": 0.0132,
+            "ai_generated": 0.9562,
+            "ai_paraphrased": 0.0306
+          }
+        },
+        {
+          "text": "The classification head is composed as follows: • Dense(2048) →BatchNorm →LeakyReLU →Dropout(0.20) • Dense(1024) →BatchNorm →LeakyReLU →Dropout(0.30) • Dense(512) →BatchNorm →LeakyReLU →Dropout(0.20) • Output Layer: Dense(1, Sigmoid) L2 regularization (weight decay) is applied to each dense layer to control model complexity and reduce overfitting.",
+          "label": "ai_generated",
+          "confidence": 0.6271,
+          "probabilities": {
+            "human": 0.333,
+            "ai_generated": 0.6271,
+            "ai_paraphrased": 0.0398
+          }
+        },
+        {
+          "text": "The final output neuron, activated by a sigmoid function, estimates the probability of pneumonia presence in the input X-ray image. – Activation and Normalization: Batch normalization is used throughout the classification head to stabilize and accelerate training by maintaining a consistent activation distribution: ˆx = x −µ √ σ2 + ϵ .",
+          "label": "ai_generated",
+          "confidence": 0.9572,
+          "probabilities": {
+            "human": 0.0154,
+            "ai_generated": 0.9572,
+            "ai_paraphrased": 0.0274
+          }
+        },
+        {
+          "text": "To avoid the “dying ReLU” problem, we adopt the LeakyReLU activation function, defined as f(x) = max(0.01x, x), which permits a small gradient flow even when the unit is not active.",
+          "label": "ai_generated",
+          "confidence": 0.9618,
+          "probabilities": {
+            "human": 0.0118,
+            "ai_generated": 0.9618,
+            "ai_paraphrased": 0.0264
+          }
+        },
+        {
+          "text": "This architecture enables robust end-to-end learning, tailored for medical diagnostic imaging.",
+          "label": "ai_generated",
+          "confidence": 0.9497,
+          "probabilities": {
+            "human": 0.0077,
+            "ai_generated": 0.9497,
+            "ai_paraphrased": 0.0426
+          }
+        },
+        {
+          "text": "The depth of ResNet50, combined with task-specific fine- tuning and architectural regularization, provides improved capacity to model subtle visual cues associated with pneumonia. 3.6 Imbalance-Aware Learning Strategy In clinical datasets like ours, the distribution of classes is often skewed, with pneumonia cases significantly outnumbering normal samples.",
+          "label": "ai_generated",
+          "confidence": 0.9183,
+          "probabilities": {
+            "human": 0.0507,
+            "ai_generated": 0.9183,
+            "ai_paraphrased": 0.0309
+          }
+        },
+        {
+          "text": "To address this issue and improve the model’s sensitivity to underrepresented cases, we incor- porate an imbalance-aware optimization strategy comprising three components: class weighting, focal loss, and label smoothing. – Class Weights: To mitigate bias toward the majority class, we scale the loss contribution of each sample inversely proportional to its class frequency.",
+          "label": "ai_generated",
+          "confidence": 0.9476,
+          "probabilities": {
+            "human": 0.0217,
+            "ai_generated": 0.9476,
+            "ai_paraphrased": 0.0306
+          }
+        },
+        {
+          "text": "Specifically, pneumonia samples—which are more prevalent—are assigned higher weights to ensure their representation is emphasized during training.",
+          "label": "ai_generated",
+          "confidence": 0.9601,
+          "probabilities": {
+            "human": 0.011,
+            "ai_generated": 0.9601,
+            "ai_paraphrased": 0.0289
+          }
+        },
+        {
+          "text": "In our dataset, a weight ratio of approximately 3:1 (Pneumonia:Normal) was found to yield optimal results.",
+          "label": "ai_generated",
+          "confidence": 0.963,
+          "probabilities": {
+            "human": 0.011,
+            "ai_generated": 0.963,
+            "ai_paraphrased": 0.026
+          }
+        }
+      ]
+    },
+    {
+      "page_num": 9,
+      "sentences": [
+        {
+          "text": "Pneumonia Detection using Deep Learning 9 – Focal Loss: Traditional binary cross-entropy loss treats all samples equally, which can lead to overfitting on easy examples while ignoring difficult cases.",
+          "label": "ai_generated",
+          "confidence": 0.9557,
+          "probabilities": {
+            "human": 0.0164,
+            "ai_generated": 0.9557,
+            "ai_paraphrased": 0.0279
+          }
+        },
+        {
+          "text": "To overcome this, we employ the binary focal loss function [7], which dynam- ically down-weights well-classified samples and focuses the model’s attention on harder examples: FL(pt) = −α(1 −pt)γ log(pt), where pt denotes the predicted probability of the true class label.",
+          "label": "ai_generated",
+          "confidence": 0.9499,
+          "probabilities": {
+            "human": 0.0241,
+            "ai_generated": 0.9499,
+            "ai_paraphrased": 0.026
+          }
+        },
+        {
+          "text": "The fo- cusing parameter γ controls the rate at which easy examples are down- weighted, while α balances the class contributions.",
+          "label": "ai_generated",
+          "confidence": 0.9412,
+          "probabilities": {
+            "human": 0.0274,
+            "ai_generated": 0.9412,
+            "ai_paraphrased": 0.0314
+          }
+        },
+        {
+          "text": "In our implementation, we set γ = 3.0 and α = 0.25 to achieve a strong emphasis on misclassified pneumonia cases. – Label Smoothing: To reduce model overconfidence and enhance calibra- tion, we introduce slight label uncertainty during training.",
+          "label": "ai_generated",
+          "confidence": 0.943,
+          "probabilities": {
+            "human": 0.0289,
+            "ai_generated": 0.943,
+            "ai_paraphrased": 0.0281
+          }
+        },
+        {
+          "text": "A small label smoothing factor (e.g., 0.1) prevents the model from assigning overly confi- dent predictions, encouraging more generalizable decision boundaries.",
+          "label": "ai_generated",
+          "confidence": 0.9509,
+          "probabilities": {
+            "human": 0.0146,
+            "ai_generated": 0.9509,
+            "ai_paraphrased": 0.0345
+          }
+        },
+        {
+          "text": "Together, these techniques create a robust learning framework that not only mitigates class imbalance but also improves detection of borderline and difficult- to-classify pneumonia instances. 3.7 Model Training Protocol The model training process adheres to widely accepted best practices for robust and stable fine-tuning of deep neural networks: – Mini-batch Training: Training is performed using a mini-batch size of 32, balancing memory efficiency and gradient estimation stability. – Early Stopping and Epoch Control: The models are trained for a max- imum of 60 epochs, with early stopping employed to prevent overfitting.",
+          "label": "ai_generated",
+          "confidence": 0.9374,
+          "probabilities": {
+            "human": 0.0343,
+            "ai_generated": 0.9374,
+            "ai_paraphrased": 0.0282
+          }
+        },
+        {
+          "text": "Training halts if the validation F1-score does not improve for 10 consecutive epochs, and the best-performing weights are restored. – Learning Rate Scheduling: A ReduceLROnPlateau scheduler dynami- cally lowers the learning rate by a factor of 0.5 when the validation F1-score plateaus, using a patience threshold of 5 epochs.",
+          "label": "human",
+          "confidence": 0.5255,
+          "probabilities": {
+            "human": 0.5255,
+            "ai_generated": 0.4285,
+            "ai_paraphrased": 0.046
+          }
+        },
+        {
+          "text": "This facilitates smoother convergence and avoids suboptimal local minima. – Checkpointing and Reproducibility: Model checkpoints are saved based on peak validation F1-score.",
+          "label": "ai_generated",
+          "confidence": 0.9565,
+          "probabilities": {
+            "human": 0.0141,
+            "ai_generated": 0.9565,
+            "ai_paraphrased": 0.0294
+          }
+        },
+        {
+          "text": "To ensure experimental reproducibility, ran- dom seeds and software environment details (including library versions) are recorded. – Regularization Techniques: Dropout layers, L2 weight decay, and gradi- ent clipping (maximum norm = 1.0) are incorporated to prevent overfitting and stabilize the training process during aggressive fine-tuning.",
+          "label": "ai_generated",
+          "confidence": 0.9406,
+          "probabilities": {
+            "human": 0.0265,
+            "ai_generated": 0.9406,
+            "ai_paraphrased": 0.0329
+          }
+        }
+      ]
+    },
+    {
+      "page_num": 10,
+      "sentences": [
+        {
+          "text": "10 Karthikeyan M et al. 3.8 Performance Evaluation To ensure that the model’s effectiveness aligns with clinical expectations, we adopt a comprehensive evaluation strategy encompassing threshold-independent and threshold-dependent metrics, emphasizing both accuracy and diagnostic sen- sitivity. – Confusion Matrix Metrics: We begin by computing the fundamental quantities—true positives (TP), false positives (FP), true negatives (TN), and false negatives (FN).",
+          "label": "ai_generated",
+          "confidence": 0.74,
+          "probabilities": {
+            "human": 0.214,
+            "ai_generated": 0.74,
+            "ai_paraphrased": 0.0461
+          }
+        },
+        {
+          "text": "From these, we derive clinically relevant metrics: • Precision (Positive Predictive Value): Precision = TP TP+FP • Recall (Sensitivity): Recall = TP TP+FN • Specificity: Specificity = TN TN+FP • F1-Score: Harmonic mean of precision and recall, offering a balanced measure in imbalanced datasets. – Threshold Optimization: Instead of adopting the default classification threshold of 0.5, we conduct a systematic threshold sweep across the range [0.1, 0.9].",
+          "label": "ai_generated",
+          "confidence": 0.9583,
+          "probabilities": {
+            "human": 0.0163,
+            "ai_generated": 0.9583,
+            "ai_paraphrased": 0.0254
+          }
+        },
+        {
+          "text": "The threshold yielding the highest F1-score on the validation set is selected.",
+          "label": "ai_generated",
+          "confidence": 0.9589,
+          "probabilities": {
+            "human": 0.0115,
+            "ai_generated": 0.9589,
+            "ai_paraphrased": 0.0296
+          }
+        },
+        {
+          "text": "This adaptive strategy ensures an optimal trade-off between sensi- tivity and precision, which is critical for minimizing false negatives in clinical screening scenarios. Fig. 2.",
+          "label": "ai_generated",
+          "confidence": 0.9581,
+          "probabilities": {
+            "human": 0.014,
+            "ai_generated": 0.9581,
+            "ai_paraphrased": 0.0279
+          }
+        },
+        {
+          "text": "Threshold sweep showing F1-score variation across thresholds from 0.1 to 0.9.",
+          "label": "ai_generated",
+          "confidence": 0.9589,
+          "probabilities": {
+            "human": 0.0135,
+            "ai_generated": 0.9589,
+            "ai_paraphrased": 0.0276
+          }
+        },
+        {
+          "text": "Figure 2 illustrates how systematic threshold tuning allows for performance gains by maximizing the F1-score, supporting more clinically relevant model decisions.",
+          "label": "ai_generated",
+          "confidence": 0.9532,
+          "probabilities": {
+            "human": 0.0063,
+            "ai_generated": 0.9532,
+            "ai_paraphrased": 0.0405
+          }
+        }
+      ]
+    },
+    {
+      "page_num": 11,
+      "sentences": [
+        {
+          "text": "Pneumonia Detection using Deep Learning 11 – ROC and AUC Analysis: Receiver Operating Characteristic (ROC) curves are generated to assess the model’s discriminative ability across all thresh- olds.",
+          "label": "ai_generated",
+          "confidence": 0.9506,
+          "probabilities": {
+            "human": 0.021,
+            "ai_generated": 0.9506,
+            "ai_paraphrased": 0.0284
+          }
+        },
+        {
+          "text": "The Area Under the Curve (AUC) provides a single scalar value summa- rizing the model’s performance irrespective of any particular decision point.",
+          "label": "ai_generated",
+          "confidence": 0.9532,
+          "probabilities": {
+            "human": 0.0197,
+            "ai_generated": 0.9532,
+            "ai_paraphrased": 0.0271
+          }
+        },
+        {
+          "text": "Higher AUC values indicate superior class separability. – Statistical Reporting: Final performance metrics are computed on the held-out test set to ensure unbiased assessment.",
+          "label": "ai_generated",
+          "confidence": 0.9603,
+          "probabilities": {
+            "human": 0.0107,
+            "ai_generated": 0.9603,
+            "ai_paraphrased": 0.029
+          }
+        },
+        {
+          "text": "Where applicable, 95% con- fidence intervals are reported using bootstrap resampling techniques to ac- count for sampling variability and increase the statistical robustness of the evaluation. 4 Experimental Results All results below are on the held-out test set. 4.1 EfficientNet Model Performance The EfficientNet-based model achieved a test accuracy of 87% after fine-tuning with class weighting and focal loss.",
+          "label": "human",
+          "confidence": 0.9462,
+          "probabilities": {
+            "human": 0.9462,
+            "ai_generated": 0.0155,
+            "ai_paraphrased": 0.0383
+          }
+        },
+        {
+          "text": "Its sensitivity to pneumonia was somewhat limited, often missing mild cases (higher false negatives).",
+          "label": "ai_generated",
+          "confidence": 0.9537,
+          "probabilities": {
+            "human": 0.0201,
+            "ai_generated": 0.9537,
+            "ai_paraphrased": 0.0261
+          }
+        },
+        {
+          "text": "However, Efficient- Net maintained strong specificity and generalization, benefiting from its efficient architecture. 4.2 ResNet50 Model Performance The ResNet50-based model delivered superior performance across all major eval- uation metrics.",
+          "label": "ai_generated",
+          "confidence": 0.7977,
+          "probabilities": {
+            "human": 0.158,
+            "ai_generated": 0.7977,
+            "ai_paraphrased": 0.0443
+          }
+        },
+        {
+          "text": "With deeper residual learning, selective fine-tuning, and the same augmentation and loss framework, the model achieved a test accuracy of 94%.",
+          "label": "ai_generated",
+          "confidence": 0.9553,
+          "probabilities": {
+            "human": 0.0156,
+            "ai_generated": 0.9553,
+            "ai_paraphrased": 0.0291
+          }
+        },
+        {
+          "text": "More importantly, it demonstrated marked improvement in recall, correctly iden- tifying the majority of pneumonia-positive cases, even under variable imaging conditions.",
+          "label": "ai_generated",
+          "confidence": 0.9622,
+          "probabilities": {
+            "human": 0.0132,
+            "ai_generated": 0.9622,
+            "ai_paraphrased": 0.0246
+          }
+        },
+        {
+          "text": "This gain is attributable to ResNet50’s deeper architecture and resid- ual connections, which enable better feature reuse and stronger discrimination of subtle pathological cues.",
+          "label": "ai_generated",
+          "confidence": 0.947,
+          "probabilities": {
+            "human": 0.0187,
+            "ai_generated": 0.947,
+            "ai_paraphrased": 0.0343
+          }
+        },
+        {
+          "text": "Combined with adaptive thresholding based on F1- score, the model also minimized false positives, preserving clinical reliability. 4.3 Comparative Analysis The proposed end-to-end ResNet50 pipeline demonstrates marked improvements over earlier hybrid CNN-plus-traditional classifier frameworks.",
+          "label": "ai_generated",
+          "confidence": 0.9502,
+          "probabilities": {
+            "human": 0.0171,
+            "ai_generated": 0.9502,
+            "ai_paraphrased": 0.0327
+          }
+        },
+        {
+          "text": "Prior approaches, such as those leveraging pretrained CNNs solely for feature extraction followed by classifiers like SVMs or random forests [5], showed moderate performance but lacked domain-specific optimization.",
+          "label": "ai_generated",
+          "confidence": 0.9617,
+          "probabilities": {
+            "human": 0.009,
+            "ai_generated": 0.9617,
+            "ai_paraphrased": 0.0293
+          }
+        },
+        {
+          "text": "In contrast, our model benefits from full fine-tuning of the convolutional backbone, enabling it to capture subtle radiographic patterns associated with",
+          "label": "ai_generated",
+          "confidence": 0.9601,
+          "probabilities": {
+            "human": 0.0116,
+            "ai_generated": 0.9601,
+            "ai_paraphrased": 0.0283
+          }
+        }
+      ]
+    },
+    {
+      "page_num": 12,
+      "sentences": [
+        {
+          "text": "12 Karthikeyan M et al. pneumonia.",
+          "label": "human",
+          "confidence": 0.9416,
+          "probabilities": {
+            "human": 0.9416,
+            "ai_generated": 0.0184,
+            "ai_paraphrased": 0.0401
+          }
+        },
+        {
+          "text": "The integration of focal loss enhances model focus on harder-to- classify pneumonia cases, while adaptive threshold selection maximizes sensitiv- ity without sacrificing precision.",
+          "label": "ai_generated",
+          "confidence": 0.9526,
+          "probabilities": {
+            "human": 0.0185,
+            "ai_generated": 0.9526,
+            "ai_paraphrased": 0.0288
+          }
+        },
+        {
+          "text": "These enhancements directly address limita- tions observed in earlier pipelines, resulting in improved robustness and clinical applicability. Table 1.",
+          "label": "ai_generated",
+          "confidence": 0.9571,
+          "probabilities": {
+            "human": 0.0137,
+            "ai_generated": 0.9571,
+            "ai_paraphrased": 0.0292
+          }
+        },
+        {
+          "text": "Comparison with Varshni et al. (2019) Aspect Varshni et al.",
+          "label": "human",
+          "confidence": 0.5458,
+          "probabilities": {
+            "human": 0.5458,
+            "ai_generated": 0.4159,
+            "ai_paraphrased": 0.0383
+          }
+        },
+        {
+          "text": "Proposed (ResNet50) Architecture DenseNet + SVM Fine-tuned ResNet50 Feature Learning Static (fixed CNN) End-to-end learned Classifier Traditional (SVM/RF) Dense layers + Sig- moid Loss Cross-entropy Focal loss + class weights Imbalance Strategy None Weighted loss + smoothing Thresholding Fixed (0.5) Adaptive (F1- optimized) Accuracy Moderate High (94%) Pneumonia Sensitivity Lower Improved 4.4 Error Analysis An in-depth examination of the confusion matrices highlights critical distinctions between the two models.",
+          "label": "human",
+          "confidence": 0.946,
+          "probabilities": {
+            "human": 0.946,
+            "ai_generated": 0.0156,
+            "ai_paraphrased": 0.0384
+          }
+        },
+        {
+          "text": "The EfficientNet-based classifier exhibited a compara- tively higher false-negative rate, which may be attributed to its relatively shallow feature hierarchy and limited capacity to capture subtle radiographic cues.",
+          "label": "ai_generated",
+          "confidence": 0.952,
+          "probabilities": {
+            "human": 0.0186,
+            "ai_generated": 0.952,
+            "ai_paraphrased": 0.0294
+          }
+        },
+        {
+          "text": "Con- sequently, some mild or ambiguous pneumonia cases were incorrectly classified as normal.",
+          "label": "ai_generated",
+          "confidence": 0.9304,
+          "probabilities": {
+            "human": 0.0395,
+            "ai_generated": 0.9304,
+            "ai_paraphrased": 0.0301
+          }
+        },
+        {
+          "text": "In contrast, the fine-tuned ResNet50 model significantly reduced false neg- atives by effectively detecting subtle lung opacities and consolidations that are clinically indicative of pneumonia.",
+          "label": "ai_generated",
+          "confidence": 0.9554,
+          "probabilities": {
+            "human": 0.0155,
+            "ai_generated": 0.9554,
+            "ai_paraphrased": 0.0291
+          }
+        },
+        {
+          "text": "This improved sensitivity is crucial for early disease detection and aligns with clinical priorities.",
+          "label": "ai_generated",
+          "confidence": 0.9568,
+          "probabilities": {
+            "human": 0.0101,
+            "ai_generated": 0.9568,
+            "ai_paraphrased": 0.0332
+          }
+        },
+        {
+          "text": "Both models demonstrated strong specificity, with high true-negative rates across the board.",
+          "label": "ai_generated",
+          "confidence": 0.9572,
+          "probabilities": {
+            "human": 0.0078,
+            "ai_generated": 0.9572,
+            "ai_paraphrased": 0.035
+          }
+        },
+        {
+          "text": "However, occasional false positives were observed, typically in borderline cases with benign abnormalities such as minor fibrotic scarring or imaging artifacts.",
+          "label": "ai_generated",
+          "confidence": 0.9613,
+          "probabilities": {
+            "human": 0.0103,
+            "ai_generated": 0.9613,
+            "ai_paraphrased": 0.0283
+          }
+        },
+        {
+          "text": "These errors are considered clinically acceptable given the model’s emphasis on minimizing missed pneumonia cases.",
+          "label": "ai_generated",
+          "confidence": 0.9619,
+          "probabilities": {
+            "human": 0.0095,
+            "ai_generated": 0.9619,
+            "ai_paraphrased": 0.0286
+          }
+        }
+      ]
+    },
+    {
+      "page_num": 13,
+      "sentences": [
+        {
+          "text": "Pneumonia Detection using Deep Learning 13 Overall, the superior recall and balanced performance of the ResNet50 model emphasize its suitability for deployment in triage workflows, where early and reliable identification of pneumonia is critical. 4.5 ROC and AUC Figure 3 shows the ROC curves for both models.",
+          "label": "ai_generated",
+          "confidence": 0.8552,
+          "probabilities": {
+            "human": 0.1058,
+            "ai_generated": 0.8552,
+            "ai_paraphrased": 0.039
+          }
+        },
+        {
+          "text": "The AUC for ResNet50 exceeds 0.96, indicating excellent separability, whereas EfficientNet’s AUC is around 0.91.",
+          "label": "ai_generated",
+          "confidence": 0.9565,
+          "probabilities": {
+            "human": 0.0116,
+            "ai_generated": 0.9565,
+            "ai_paraphrased": 0.0319
+          }
+        },
+        {
+          "text": "ResNet50’s curve rises steeply at low false-positive rates, reflecting high sensi- tivity.",
+          "label": "ai_generated",
+          "confidence": 0.9189,
+          "probabilities": {
+            "human": 0.0503,
+            "ai_generated": 0.9189,
+            "ai_paraphrased": 0.0308
+          }
+        },
+        {
+          "text": "These results confirm that the fine-tuned ResNet50 offers better discrim- ination and confidence calibration, reducing the risk of missed diagnoses. Fig. 3.",
+          "label": "ai_generated",
+          "confidence": 0.9467,
+          "probabilities": {
+            "human": 0.014,
+            "ai_generated": 0.9467,
+            "ai_paraphrased": 0.0393
+          }
+        },
+        {
+          "text": "ROC curves for the EfficientNet and ResNet50 models on the test set. 5 Discussion Our results highlight several insights: – End-to-end fine-tuning: By fine-tuning pretrained weights on domain- specific medical images, the network adapts to detect pneumonia-related manifestations such as pulmonary opacities and consolidations.",
+          "label": "human",
+          "confidence": 0.7002,
+          "probabilities": {
+            "human": 0.7002,
+            "ai_generated": 0.2434,
+            "ai_paraphrased": 0.0565
+          }
+        },
+        {
+          "text": "Unlike static feature extractors, this task-adaptive optimization enables the model to cap- ture subtle, high-resolution cues critical for accurate diagnosis.",
+          "label": "ai_generated",
+          "confidence": 0.9489,
+          "probabilities": {
+            "human": 0.0213,
+            "ai_generated": 0.9489,
+            "ai_paraphrased": 0.0298
+          }
+        },
+        {
+          "text": "This strategy is a key contributor to the superior performance observed with the fine-tuned ResNet50 model. – Residual connections.",
+          "label": "ai_generated",
+          "confidence": 0.9575,
+          "probabilities": {
+            "human": 0.0148,
+            "ai_generated": 0.9575,
+            "ai_paraphrased": 0.0277
+          }
+        },
+        {
+          "text": "ResNet50’s skip connections facilitated training of a deeper network, preserving both low- and high-level features. This is crucial",
+          "label": "ai_generated",
+          "confidence": 0.9538,
+          "probabilities": {
+            "human": 0.0136,
+            "ai_generated": 0.9538,
+            "ai_paraphrased": 0.0326
+          }
+        }
+      ]
+    },
+    {
+      "page_num": 14,
+      "sentences": [
+        {
+          "text": "14 Karthikeyan M et al. in chest X-rays, where subtle abnormalities coexist with normal anatomy.",
+          "label": "human",
+          "confidence": 0.8374,
+          "probabilities": {
+            "human": 0.8374,
+            "ai_generated": 0.1215,
+            "ai_paraphrased": 0.0411
+          }
+        },
+        {
+          "text": "The improved gradient flow and feature reuse in ResNet50 contributed to its higher sensitivity and accuracy. – Focal loss.",
+          "label": "ai_generated",
+          "confidence": 0.9593,
+          "probabilities": {
+            "human": 0.012,
+            "ai_generated": 0.9593,
+            "ai_paraphrased": 0.0287
+          }
+        },
+        {
+          "text": "Focal loss effectively handled class imbalance by focusing train- ing on underrepresented pneumonia cases.",
+          "label": "ai_generated",
+          "confidence": 0.9266,
+          "probabilities": {
+            "human": 0.0422,
+            "ai_generated": 0.9266,
+            "ai_paraphrased": 0.0312
+          }
+        },
+        {
+          "text": "It reduced the impact of many easy negatives and emphasized difficult positives, leading to fewer false neg- atives without oversampling.",
+          "label": "ai_generated",
+          "confidence": 0.9339,
+          "probabilities": {
+            "human": 0.0338,
+            "ai_generated": 0.9339,
+            "ai_paraphrased": 0.0323
+          }
+        },
+        {
+          "text": "This explains the ResNet50’s enhanced recall. – Clinical significance of recall.",
+          "label": "ai_generated",
+          "confidence": 0.9561,
+          "probabilities": {
+            "human": 0.0139,
+            "ai_generated": 0.9561,
+            "ai_paraphrased": 0.03
+          }
+        },
+        {
+          "text": "In screening, missing a pneumonia case can have serious consequences.",
+          "label": "ai_generated",
+          "confidence": 0.9595,
+          "probabilities": {
+            "human": 0.012,
+            "ai_generated": 0.9595,
+            "ai_paraphrased": 0.0285
+          }
+        },
+        {
+          "text": "Our ResNet50 model prioritized recall through loss design and adaptive thresholding, achieving a favorable trade-off for triage settings.",
+          "label": "ai_generated",
+          "confidence": 0.931,
+          "probabilities": {
+            "human": 0.0074,
+            "ai_generated": 0.931,
+            "ai_paraphrased": 0.0616
+          }
+        },
+        {
+          "text": "Even at the cost of slight precision reduction, the model can flag high-risk cases for review, improving workflow efficiency and patient outcomes. – Comparison to literature.",
+          "label": "ai_generated",
+          "confidence": 0.9581,
+          "probabilities": {
+            "human": 0.0119,
+            "ai_generated": 0.9581,
+            "ai_paraphrased": 0.03
+          }
+        },
+        {
+          "text": "These findings align with recent work: special- ized CNNs with imbalance-aware training often reach > 95% accuracy [7], whereas simple feature-extraction pipelines lag behind [5].",
+          "label": "ai_generated",
+          "confidence": 0.9502,
+          "probabilities": {
+            "human": 0.0234,
+            "ai_generated": 0.9502,
+            "ai_paraphrased": 0.0264
+          }
+        },
+        {
+          "text": "Our framework confirms that combining fine-tuning, focal loss, and threshold optimization effectively addresses clinical screening needs. – Limitations: This study is based on a single publicly available dataset, which may limit the generalizability of the results across diverse clinical set- tings.",
+          "label": "ai_generated",
+          "confidence": 0.9519,
+          "probabilities": {
+            "human": 0.018,
+            "ai_generated": 0.9519,
+            "ai_paraphrased": 0.0301
+          }
+        },
+        {
+          "text": "Variations in imaging protocols, patient demographics, and scanner hardware across institutions could impact model performance.",
+          "label": "ai_generated",
+          "confidence": 0.9631,
+          "probabilities": {
+            "human": 0.0083,
+            "ai_generated": 0.9631,
+            "ai_paraphrased": 0.0287
+          }
+        },
+        {
+          "text": "Future work should focus on multi-center external validation to ensure broader applica- bility.",
+          "label": "ai_generated",
+          "confidence": 0.948,
+          "probabilities": {
+            "human": 0.0209,
+            "ai_generated": 0.948,
+            "ai_paraphrased": 0.0311
+          }
+        },
+        {
+          "text": "Additionally, integrating explainability techniques such as attention or saliency maps could enhance interpretability and clinician trust in the model’s predictions. 6 Conclusion This study introduces an end-to-end deep learning framework for automated pneumonia detection from chest radiographs, integrating transfer learning, rig- orous data augmentation, and strategies to mitigate class imbalance.",
+          "label": "ai_generated",
+          "confidence": 0.9353,
+          "probabilities": {
+            "human": 0.0315,
+            "ai_generated": 0.9353,
+            "ai_paraphrased": 0.0332
+          }
+        },
+        {
+          "text": "Through a comparative analysis of EfficientNet and ResNet50 architectures, we demon- strated that fine-tuning ResNet50 yields significant performance gains—achieving a test accuracy of 94% compared to 87% with EfficientNet—alongside improved clinical sensitivity.",
+          "label": "ai_generated",
+          "confidence": 0.9584,
+          "probabilities": {
+            "human": 0.0131,
+            "ai_generated": 0.9584,
+            "ai_paraphrased": 0.0284
+          }
+        },
+        {
+          "text": "The superior performance of ResNet50 underscores the importance of deeper residual networks, focal loss to emphasize challenging examples, and dynamic thresholding for optimized decision boundaries.",
+          "label": "ai_generated",
+          "confidence": 0.9552,
+          "probabilities": {
+            "human": 0.0092,
+            "ai_generated": 0.9552,
+            "ai_paraphrased": 0.0355
+          }
+        },
+        {
+          "text": "These enhancements collectively contribute to more accurate and reliable pneumonia detection, particularly min- imizing false negatives—an essential factor in clinical triage and diagnosis.",
+          "label": "ai_generated",
+          "confidence": 0.9565,
+          "probabilities": {
+            "human": 0.0144,
+            "ai_generated": 0.9565,
+            "ai_paraphrased": 0.0291
+          }
+        },
+        {
+          "text": "Our findings suggest that the proposed framework is well-suited for deploy- ment in real-world diagnostic workflows, offering a scalable solution to aid ra- diologists in high-throughput environments.",
+          "label": "ai_generated",
+          "confidence": 0.9499,
+          "probabilities": {
+            "human": 0.017,
+            "ai_generated": 0.9499,
+            "ai_paraphrased": 0.0331
+          }
+        },
+        {
+          "text": "Future directions include extending the framework to support multi-label classification across various thoracic condi- tions, incorporating explainability mechanisms (e.g., attention maps or saliency",
+          "label": "ai_generated",
+          "confidence": 0.9511,
+          "probabilities": {
+            "human": 0.026,
+            "ai_generated": 0.9511,
+            "ai_paraphrased": 0.0229
+          }
+        }
+      ]
+    },
+    {
+      "page_num": 15,
+      "sentences": [
+        {
+          "text": "Pneumonia Detection using Deep Learning 15 visualization), and validating the approach across multi-institutional and het- erogeneous datasets. References 1. S. Sharma and K.",
+          "label": "human",
+          "confidence": 0.9398,
+          "probabilities": {
+            "human": 0.9398,
+            "ai_generated": 0.0301,
+            "ai_paraphrased": 0.0301
+          }
+        },
+        {
+          "text": "Guleria, “A systematic literature review on deep learning ap- proaches for pneumonia detection using chest X-ray images,” Multimedia Tools Appl., vol. 83, pp. 24101–24151, 2024. 2. S. Mannan and B. H.",
+          "label": "human",
+          "confidence": 0.9453,
+          "probabilities": {
+            "human": 0.9453,
+            "ai_generated": 0.0178,
+            "ai_paraphrased": 0.0369
+          }
+        },
+        {
+          "text": "Shekar, “Improving Pneumonia Diagnosis with Integrated Segmentation and Classification Models,” in ICRAI 2024, Lecture Notes in Net- works and Systems, vol. 1504, C.",
+          "label": "human",
+          "confidence": 0.9229,
+          "probabilities": {
+            "human": 0.9229,
+            "ai_generated": 0.0414,
+            "ai_paraphrased": 0.0357
+          }
+        },
+        {
+          "text": "Hewage et al., Eds., Springer, Singapore, 2025. 3. N. Tanni, M. Elappila, T. George, and N.",
+          "label": "human",
+          "confidence": 0.9179,
+          "probabilities": {
+            "human": 0.9179,
+            "ai_generated": 0.0335,
+            "ai_paraphrased": 0.0486
+          }
+        },
+        {
+          "text": "Premjith, “Enhancing Pneumonia Di- agnosis with Convolutional Neural Networks: A Comprehensive Evaluation,” in AITA 2024, Lecture Notes in Networks and Systems, vol. 5589, H.",
+          "label": "human",
+          "confidence": 0.9245,
+          "probabilities": {
+            "human": 0.9245,
+            "ai_generated": 0.0391,
+            "ai_paraphrased": 0.0364
+          }
+        },
+        {
+          "text": "Sharma et al., Eds., Springer, Singapore, 2025. 4. S. S.",
+          "label": "human",
+          "confidence": 0.9381,
+          "probabilities": {
+            "human": 0.9381,
+            "ai_generated": 0.0203,
+            "ai_paraphrased": 0.0417
+          }
+        },
+        {
+          "text": "Vemuri et al., “Pneumonia Detection from X-Ray Images Using Deep Transfer Learning,” in CoCoLe 2024, Commun. in Comput. and Inf.",
+          "label": "ai_generated",
+          "confidence": 0.9159,
+          "probabilities": {
+            "human": 0.0531,
+            "ai_generated": 0.9159,
+            "ai_paraphrased": 0.031
+          }
+        },
+        {
+          "text": "Science, vol. 2317, S. K.",
+          "label": "human",
+          "confidence": 0.7584,
+          "probabilities": {
+            "human": 0.7584,
+            "ai_generated": 0.1308,
+            "ai_paraphrased": 0.1108
+          }
+        },
+        {
+          "text": "Panda et al., Eds., Springer, Cham, 2025. 5. A.",
+          "label": "human",
+          "confidence": 0.9302,
+          "probabilities": {
+            "human": 0.9302,
+            "ai_generated": 0.0292,
+            "ai_paraphrased": 0.0405
+          }
+        },
+        {
+          "text": "Mittal et al., “Detecting pneumonia using convolutions and dynamic capsule routing for chest X-ray images,” Sensors, vol. 20, no. 4, p. 1068, 2020. 6. M. Vyas and A. A.",
+          "label": "human",
+          "confidence": 0.6944,
+          "probabilities": {
+            "human": 0.6944,
+            "ai_generated": 0.2552,
+            "ai_paraphrased": 0.0504
+          }
+        },
+        {
+          "text": "Mehta, “Extracting the Pneumonia Signature: A Deep Learning Framework for Definitive Diagnosis,” in ASCIS 2024, Commun. in Comput. and Inf.",
+          "label": "ai_generated",
+          "confidence": 0.946,
+          "probabilities": {
+            "human": 0.0292,
+            "ai_generated": 0.946,
+            "ai_paraphrased": 0.0248
+          }
+        },
+        {
+          "text": "Science, vol. 2426, S.",
+          "label": "human",
+          "confidence": 0.841,
+          "probabilities": {
+            "human": 0.841,
+            "ai_generated": 0.0819,
+            "ai_paraphrased": 0.0771
+          }
+        },
+        {
+          "text": "Rajagopal et al., Eds., Springer, Cham, 2025. 7. S. Hebert and Y.",
+          "label": "human",
+          "confidence": 0.9222,
+          "probabilities": {
+            "human": 0.9222,
+            "ai_generated": 0.0354,
+            "ai_paraphrased": 0.0424
+          }
+        },
+        {
+          "text": "Zhang, “Pneumonia Detection in Chest X-Ray Images with Deep Learning,” in IJCRS 2025, Lecture Notes in Computer Science, vol. 15710, Q.",
+          "label": "human",
+          "confidence": 0.6016,
+          "probabilities": {
+            "human": 0.6016,
+            "ai_generated": 0.3436,
+            "ai_paraphrased": 0.0548
+          }
+        },
+        {
+          "text": "Zhang et al., Eds., Springer, Cham, 2025. 8. K. Kumari, S. K. Sahana, and D.",
+          "label": "human",
+          "confidence": 0.9195,
+          "probabilities": {
+            "human": 0.9195,
+            "ai_generated": 0.0371,
+            "ai_paraphrased": 0.0434
+          }
+        },
+        {
+          "text": "Mustafi, “Deep Learning Techniques for Pneu- monia Detection on Chest X-Ray Images,” in ANTIC 2024, Commun. in Comput. and Inf.",
+          "label": "human",
+          "confidence": 0.8407,
+          "probabilities": {
+            "human": 0.8407,
+            "ai_generated": 0.1158,
+            "ai_paraphrased": 0.0435
+          }
+        },
+        {
+          "text": "Science, vol. 2335, A.",
+          "label": "human",
+          "confidence": 0.9255,
+          "probabilities": {
+            "human": 0.9255,
+            "ai_generated": 0.0277,
+            "ai_paraphrased": 0.0468
+          }
+        },
+        {
+          "text": "Verma et al., Eds., Springer, Cham, 2025. 9. S. Madan, S. Chaudhury, and T. K.",
+          "label": "human",
+          "confidence": 0.9214,
+          "probabilities": {
+            "human": 0.9214,
+            "ai_generated": 0.0347,
+            "ai_paraphrased": 0.0438
+          }
+        },
+        {
+          "text": "Gandhi, “Pneumonia Classification in Chest X- Ray Images Using Explainable Slot-Attention Mechanism,” in ICPR 2024, Lecture Notes in Computer and Information Science, vol. 15305, A.",
+          "label": "human",
+          "confidence": 0.9261,
+          "probabilities": {
+            "human": 0.9261,
+            "ai_generated": 0.0375,
+            "ai_paraphrased": 0.0364
+          }
+        },
+        {
+          "text": "Antonacopoulos et al., Eds., Springer, Cham, 2025. 10. T.",
+          "label": "human",
+          "confidence": 0.9398,
+          "probabilities": {
+            "human": 0.9398,
+            "ai_generated": 0.0229,
+            "ai_paraphrased": 0.0373
+          }
+        },
+        {
+          "text": "Yasmin et al., “Pneumonia Detection from Chest X-Ray Images Based on Deep Learning,” in ICDSAIA 2025, Commun. in Comput. and Inf.",
+          "label": "ai_generated",
+          "confidence": 0.8879,
+          "probabilities": {
+            "human": 0.0809,
+            "ai_generated": 0.8879,
+            "ai_paraphrased": 0.0312
+          }
+        },
+        {
+          "text": "Science, vol. 2682, S.",
+          "label": "human",
+          "confidence": 0.8686,
+          "probabilities": {
+            "human": 0.8686,
+            "ai_generated": 0.0673,
+            "ai_paraphrased": 0.0642
+          }
+        },
+        {
+          "text": "Palaiahnakote et al., Eds., Springer, Cham, 2025. 11. Y.",
+          "label": "human",
+          "confidence": 0.9174,
+          "probabilities": {
+            "human": 0.9174,
+            "ai_generated": 0.0417,
+            "ai_paraphrased": 0.0409
+          }
+        },
+        {
+          "text": "Bao et al., “TEN: A transformer-based efficient network for pneumonia diagnosis with chest X-rays,” Pattern Anal. and Applic., vol. 29, no. 1, p. 53, 2026. 12. A.",
+          "label": "human",
+          "confidence": 0.8595,
+          "probabilities": {
+            "human": 0.8595,
+            "ai_generated": 0.0917,
+            "ai_paraphrased": 0.0488
+          }
+        },
+        {
+          "text": "Lasker et al., “PulmoNetX: A Hybrid Vision Transformer Approach for Multi- scale Spatial Feature Reduction in Pneumonia Classification,” in ICPR 2024, Lec- ture Notes in Computer and Information Science, vol. 15302, A.",
+          "label": "human",
+          "confidence": 0.9421,
+          "probabilities": {
+            "human": 0.9421,
+            "ai_generated": 0.0248,
+            "ai_paraphrased": 0.0331
+          }
+        },
+        {
+          "text": "Antonacopoulos et al., Eds., Springer, Cham, 2025.",
+          "label": "human",
+          "confidence": 0.5587,
+          "probabilities": {
+            "human": 0.5587,
+            "ai_generated": 0.3603,
+            "ai_paraphrased": 0.081
+          }
+        }
+      ]
+    }
+  ]
+}
