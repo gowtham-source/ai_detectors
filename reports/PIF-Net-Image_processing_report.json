@@ -1,0 +1,3345 @@
+{
+  "file": "PIF-Net-Image_processing.pdf",
+  "score": {
+    "overall_ai_percent": 63.9,
+    "ai_generated_percent": 63.5,
+    "ai_paraphrased_percent": 0.5,
+    "human_percent": 36.1,
+    "total_sentences": 321,
+    "ai_generated_sentences": 225,
+    "ai_paraphrased_sentences": 2,
+    "human_sentences": 94
+  },
+  "pages": [
+    {
+      "page_num": 1,
+      "sentences": [
+        {
+          "text": "Pixel Interaction Field Network for Causal Inter-Pixel Dynamics in High-Fidelity Image Reconstruction Abstract-Conventional image processing and deep learning frameworks predominantly treat pixels as independent entities or model their relationships through symmetric spatial filters and attention mechanisms, thereby neglecting the underlying causal interactions that govern real-world image formation.",
+          "label": "human",
+          "confidence": 0.944,
+          "probabilities": {
+            "human": 0.944,
+            "ai_generated": 0.0212,
+            "ai_paraphrased": 0.0348
+          }
+        },
+        {
+          "text": "Such limitations hinder the accurate reconstruction of fine-grained structures, particularly in scenarios involving noise, diffusion, and complex texture variations.",
+          "label": "ai_generated",
+          "confidence": 0.9561,
+          "probabilities": {
+            "human": 0.01,
+            "ai_generated": 0.9561,
+            "ai_paraphrased": 0.0339
+          }
+        },
+        {
+          "text": "To address this fundamental gap, this paper proposes a novel architecture termed Pixel Interaction Field Network (PIF-Net), which introduces explicit modeling of directional inter-pixel causal influences as a core learning paradigm.",
+          "label": "ai_generated",
+          "confidence": 0.9579,
+          "probabilities": {
+            "human": 0.0097,
+            "ai_generated": 0.9579,
+            "ai_paraphrased": 0.0325
+          }
+        },
+        {
+          "text": "Unlike traditional convolutional or attention-based approaches, PIF-Net represents each pixel as a dynamic state influenced by its spatial neighbors through a learnable interaction field.",
+          "label": "ai_generated",
+          "confidence": 0.9615,
+          "probabilities": {
+            "human": 0.0086,
+            "ai_generated": 0.9615,
+            "ai_paraphrased": 0.03
+          }
+        },
+        {
+          "text": "This field captures asymmetric and data-dependent influence weights, enabling the network to model how pixel intensities emerge from localized interactions.",
+          "label": "ai_generated",
+          "confidence": 0.9384,
+          "probabilities": {
+            "human": 0.0064,
+            "ai_generated": 0.9384,
+            "ai_paraphrased": 0.0552
+          }
+        },
+        {
+          "text": "An iterative pixel stabilization mechanism refines pixel states until convergence, ensuring structural consistency, while a causal consistency constraint enforces fidelity between reconstructed and observed pixel distributions.",
+          "label": "ai_generated",
+          "confidence": 0.9578,
+          "probabilities": {
+            "human": 0.0093,
+            "ai_generated": 0.9578,
+            "ai_paraphrased": 0.0328
+          }
+        },
+        {
+          "text": "Additionally, an Interaction Memory Map facilitates the reuse of learned interaction patterns across varying image contexts.",
+          "label": "ai_generated",
+          "confidence": 0.9478,
+          "probabilities": {
+            "human": 0.0065,
+            "ai_generated": 0.9478,
+            "ai_paraphrased": 0.0457
+          }
+        },
+        {
+          "text": "Experimental evaluations conducted on the BSD300 Dataset demonstrate that PIF-Net achieves a 44.3% improvement in fine-detail reconstruction, a 36.7% enhancement in edge preservation accuracy, and a 31.5% reduction in noise artifacts, while improving segmentation boundary precision by 26.2% compared to state-of-the-art methods.",
+          "label": "ai_generated",
+          "confidence": 0.9573,
+          "probabilities": {
+            "human": 0.0124,
+            "ai_generated": 0.9573,
+            "ai_paraphrased": 0.0303
+          }
+        },
+        {
+          "text": "The proposed framework establishes a new direction in image processing by shifting from correlation-based spatial modeling to causal inter-pixel interaction learning, enabling more accurate and physically consistent image representations.",
+          "label": "ai_generated",
+          "confidence": 0.9518,
+          "probabilities": {
+            "human": 0.0065,
+            "ai_generated": 0.9518,
+            "ai_paraphrased": 0.0417
+          }
+        },
+        {
+          "text": "Keywords-Image Processing, Pixel Interaction Modeling, Causal Learning, Inter-Pixel Dynamics, Image Reconstruction, Edge Preservation, Noise Reduction, Deep Learning, Representation Learning, Computer Vision. 1.Introduction​ Image processing is a core component of modern computer vision systems, where the accurate reconstruction of fine structures [1][2], edges, and textures is essential for reliable interpretation of visual data.",
+          "label": "human",
+          "confidence": 0.9438,
+          "probabilities": {
+            "human": 0.9438,
+            "ai_generated": 0.0182,
+            "ai_paraphrased": 0.038
+          }
+        },
+        {
+          "text": "Deep learning models, particularly convolutional neural networks (CNNs) [3][4], have achieved notable success in tasks such as denoising, super-resolution, and segmentation by learning hierarchical spatial features.",
+          "label": "ai_generated",
+          "confidence": 0.9615,
+          "probabilities": {
+            "human": 0.0086,
+            "ai_generated": 0.9615,
+            "ai_paraphrased": 0.0299
+          }
+        },
+        {
+          "text": "Despite these advancements [5], most existing approaches rely on fixed local",
+          "label": "ai_generated",
+          "confidence": 0.9567,
+          "probabilities": {
+            "human": 0.0168,
+            "ai_generated": 0.9567,
+            "ai_paraphrased": 0.0264
+          }
+        }
+      ]
+    },
+    {
+      "page_num": 2,
+      "sentences": [
+        {
+          "text": "operations and symmetric filtering mechanisms, which restrict their ability to capture complex spatial interactions [6][7].",
+          "label": "ai_generated",
+          "confidence": 0.9525,
+          "probabilities": {
+            "human": 0.0228,
+            "ai_generated": 0.9525,
+            "ai_paraphrased": 0.0247
+          }
+        },
+        {
+          "text": "This limitation becomes more evident in scenarios involving noise, diffusion, and intricate texture patterns, where preserving structural fidelity remains challenging [8].",
+          "label": "ai_generated",
+          "confidence": 0.9542,
+          "probabilities": {
+            "human": 0.0132,
+            "ai_generated": 0.9542,
+            "ai_paraphrased": 0.0326
+          }
+        },
+        {
+          "text": "A fundamental issue in current image modeling frameworks is the lack of explicit representation of inter-pixel dependencies as directional processes.",
+          "label": "ai_generated",
+          "confidence": 0.9585,
+          "probabilities": {
+            "human": 0.0119,
+            "ai_generated": 0.9585,
+            "ai_paraphrased": 0.0296
+          }
+        },
+        {
+          "text": "Conventional methods typically treat pixel relationships as independent or symmetrically correlated [9][10], without considering how pixel intensities are influenced by neighboring regions in a context-dependent and asymmetric manner [11].",
+          "label": "ai_generated",
+          "confidence": 0.9599,
+          "probabilities": {
+            "human": 0.0117,
+            "ai_generated": 0.9599,
+            "ai_paraphrased": 0.0284
+          }
+        },
+        {
+          "text": "This leads to an incomplete representation of the underlying image formation process, resulting in blurred edges, loss of fine details, and reduced reconstruction accuracy.",
+          "label": "ai_generated",
+          "confidence": 0.9594,
+          "probabilities": {
+            "human": 0.01,
+            "ai_generated": 0.9594,
+            "ai_paraphrased": 0.0306
+          }
+        },
+        {
+          "text": "The absence of such structured interaction modeling limits the capability of existing networks to maintain consistency across spatial regions [12][13].",
+          "label": "ai_generated",
+          "confidence": 0.9614,
+          "probabilities": {
+            "human": 0.0118,
+            "ai_generated": 0.9614,
+            "ai_paraphrased": 0.0268
+          }
+        },
+        {
+          "text": "To overcome these limitations, this work proposes the Pixel Interaction Field Network (PIF-Net), a framework that models inter-pixel dynamics through learnable directional interaction fields.",
+          "label": "ai_generated",
+          "confidence": 0.915,
+          "probabilities": {
+            "human": 0.0063,
+            "ai_generated": 0.915,
+            "ai_paraphrased": 0.0788
+          }
+        },
+        {
+          "text": "In this approach [14][15], each pixel is represented as a dynamic state influenced by its surrounding pixels via adaptive interaction weights, enabling the capture of localized and asymmetric dependencies [16][17].",
+          "label": "ai_generated",
+          "confidence": 0.9586,
+          "probabilities": {
+            "human": 0.0132,
+            "ai_generated": 0.9586,
+            "ai_paraphrased": 0.0282
+          }
+        },
+        {
+          "text": "The model further incorporates an iterative pixel stabilization mechanism, where pixel states are progressively refined until convergence, ensuring structural coherence across the image.",
+          "label": "ai_generated",
+          "confidence": 0.9534,
+          "probabilities": {
+            "human": 0.0074,
+            "ai_generated": 0.9534,
+            "ai_paraphrased": 0.0393
+          }
+        },
+        {
+          "text": "This formulation enables the network to better represent how pixel values emerge from local interactions, leading to improved preservation of edges and fine textures [18][19].",
+          "label": "ai_generated",
+          "confidence": 0.9562,
+          "probabilities": {
+            "human": 0.0144,
+            "ai_generated": 0.9562,
+            "ai_paraphrased": 0.0295
+          }
+        },
+        {
+          "text": "The contributions of this work are threefold.",
+          "label": "ai_generated",
+          "confidence": 0.9495,
+          "probabilities": {
+            "human": 0.016,
+            "ai_generated": 0.9495,
+            "ai_paraphrased": 0.0345
+          }
+        },
+        {
+          "text": "First, a Pixel Interaction Field Network (PIF-Net) is introduced to explicitly model directional inter-pixel relationships through a learnable interaction field, moving beyond conventional symmetric filtering schemes [20].",
+          "label": "ai_generated",
+          "confidence": 0.959,
+          "probabilities": {
+            "human": 0.0136,
+            "ai_generated": 0.959,
+            "ai_paraphrased": 0.0273
+          }
+        },
+        {
+          "text": "Second, an iterative stabilization mechanism is developed to refine pixel representations and ensure convergence towards structurally consistent outputs.",
+          "label": "ai_generated",
+          "confidence": 0.9561,
+          "probabilities": {
+            "human": 0.011,
+            "ai_generated": 0.9561,
+            "ai_paraphrased": 0.0329
+          }
+        },
+        {
+          "text": "Third, the effectiveness of the proposed framework is validated through extensive experiments on the BSD300 Dataset, demonstrating notable improvements in reconstruction quality, edge preservation, and noise reduction compared to existing approaches. 2.Related Works​ Zhao et al. (2023) developed a memristive-based image reconstruction framework that integrates computing-in-memory principles to accelerate Fourier-based reconstruction processes.",
+          "label": "ai_generated",
+          "confidence": 0.6652,
+          "probabilities": {
+            "human": 0.2725,
+            "ai_generated": 0.6652,
+            "ai_paraphrased": 0.0623
+          }
+        },
+        {
+          "text": "Their approach focuses on improving computational efficiency while maintaining high reconstruction fidelity in medical imaging applications. By",
+          "label": "ai_generated",
+          "confidence": 0.9626,
+          "probabilities": {
+            "human": 0.0104,
+            "ai_generated": 0.9626,
+            "ai_paraphrased": 0.027
+          }
+        }
+      ]
+    },
+    {
+      "page_num": 3,
+      "sentences": [
+        {
+          "text": "introducing optimized mapping and matrix transfer strategies, the method enhances precision during signal transformation.",
+          "label": "ai_generated",
+          "confidence": 0.9522,
+          "probabilities": {
+            "human": 0.0127,
+            "ai_generated": 0.9522,
+            "ai_paraphrased": 0.0351
+          }
+        },
+        {
+          "text": "Experimental results demonstrate significant improvements in both energy efficiency and reconstruction speed compared to conventional GPU-based systems [1].",
+          "label": "ai_generated",
+          "confidence": 0.962,
+          "probabilities": {
+            "human": 0.0131,
+            "ai_generated": 0.962,
+            "ai_paraphrased": 0.0248
+          }
+        },
+        {
+          "text": "Pisuchpen et al. (2026) analyzed the progression of deep learning-based reconstruction techniques in computed tomography imaging.",
+          "label": "ai_generated",
+          "confidence": 0.9061,
+          "probabilities": {
+            "human": 0.0056,
+            "ai_generated": 0.9061,
+            "ai_paraphrased": 0.0883
+          }
+        },
+        {
+          "text": "Their study highlights the advantages of convolutional neural network-based approaches in improving image clarity and reducing radiation exposure.",
+          "label": "ai_generated",
+          "confidence": 0.9608,
+          "probabilities": {
+            "human": 0.0078,
+            "ai_generated": 0.9608,
+            "ai_paraphrased": 0.0314
+          }
+        },
+        {
+          "text": "They further discuss the role of advanced reconstruction systems in enhancing diagnostic confidence across various anatomical regions.",
+          "label": "ai_generated",
+          "confidence": 0.9561,
+          "probabilities": {
+            "human": 0.0076,
+            "ai_generated": 0.9561,
+            "ai_paraphrased": 0.0363
+          }
+        },
+        {
+          "text": "However, challenges related to standardization and clinical validation remain key concerns in practical deployment [2].",
+          "label": "ai_generated",
+          "confidence": 0.9572,
+          "probabilities": {
+            "human": 0.016,
+            "ai_generated": 0.9572,
+            "ai_paraphrased": 0.0268
+          }
+        },
+        {
+          "text": "Bizhani et al. (2022) investigated the application of convolutional neural networks for enhancing geological imaging data.",
+          "label": "ai_generated",
+          "confidence": 0.9418,
+          "probabilities": {
+            "human": 0.0066,
+            "ai_generated": 0.9418,
+            "ai_paraphrased": 0.0516
+          }
+        },
+        {
+          "text": "Their work demonstrates that CNN-based models can simultaneously perform denoising, deblurring, and super-resolution without requiring prior knowledge of noise characteristics.",
+          "label": "ai_generated",
+          "confidence": 0.958,
+          "probabilities": {
+            "human": 0.0124,
+            "ai_generated": 0.958,
+            "ai_paraphrased": 0.0296
+          }
+        },
+        {
+          "text": "By integrating multiple networks in a unified framework, the method improves reconstruction quality across different imaging modalities.",
+          "label": "ai_generated",
+          "confidence": 0.9608,
+          "probabilities": {
+            "human": 0.008,
+            "ai_generated": 0.9608,
+            "ai_paraphrased": 0.0311
+          }
+        },
+        {
+          "text": "The results confirm the effectiveness of deep learning in extracting structural information from complex scientific images [3].",
+          "label": "ai_generated",
+          "confidence": 0.9574,
+          "probabilities": {
+            "human": 0.0099,
+            "ai_generated": 0.9574,
+            "ai_paraphrased": 0.0327
+          }
+        },
+        {
+          "text": "Wang et al. (2023) proposed an advanced reconstruction algorithm for structured illumination microscopy to reduce artifacts and improve image clarity.",
+          "label": "ai_generated",
+          "confidence": 0.9508,
+          "probabilities": {
+            "human": 0.0082,
+            "ai_generated": 0.9508,
+            "ai_paraphrased": 0.041
+          }
+        },
+        {
+          "text": "The method integrates spatial and frequency domain optimization to suppress reconstruction errors.",
+          "label": "ai_generated",
+          "confidence": 0.9553,
+          "probabilities": {
+            "human": 0.011,
+            "ai_generated": 0.9553,
+            "ai_paraphrased": 0.0337
+          }
+        },
+        {
+          "text": "It also enhances processing speed, making the approach suitable for real-time biological imaging applications.",
+          "label": "ai_generated",
+          "confidence": 0.9589,
+          "probabilities": {
+            "human": 0.01,
+            "ai_generated": 0.9589,
+            "ai_paraphrased": 0.0311
+          }
+        },
+        {
+          "text": "The results indicate improved reconstruction fidelity with reduced artifact interference [4].",
+          "label": "ai_generated",
+          "confidence": 0.9557,
+          "probabilities": {
+            "human": 0.0117,
+            "ai_generated": 0.9557,
+            "ai_paraphrased": 0.0326
+          }
+        },
+        {
+          "text": "Gaziv et al. (2022) introduced a self-supervised framework for reconstructing images from brain activity signals.",
+          "label": "ai_paraphrased",
+          "confidence": 0.8758,
+          "probabilities": {
+            "human": 0.0041,
+            "ai_generated": 0.1201,
+            "ai_paraphrased": 0.8758
+          }
+        },
+        {
+          "text": "Their method leverages cycle consistency between dual networks to learn representations from unpaired data.",
+          "label": "ai_generated",
+          "confidence": 0.9632,
+          "probabilities": {
+            "human": 0.0086,
+            "ai_generated": 0.9632,
+            "ai_paraphrased": 0.0282
+          }
+        },
+        {
+          "text": "This approach enables large-scale reconstruction and semantic interpretation without requiring labeled datasets.",
+          "label": "ai_generated",
+          "confidence": 0.9578,
+          "probabilities": {
+            "human": 0.0098,
+            "ai_generated": 0.9578,
+            "ai_paraphrased": 0.0324
+          }
+        },
+        {
+          "text": "The model demonstrates strong generalization capability across unseen image categories [5].",
+          "label": "ai_generated",
+          "confidence": 0.9614,
+          "probabilities": {
+            "human": 0.0151,
+            "ai_generated": 0.9614,
+            "ai_paraphrased": 0.0235
+          }
+        },
+        {
+          "text": "Pain et al. (2022) provided a comprehensive review of deep learning techniques applied to positron emission tomography image reconstruction.",
+          "label": "ai_generated",
+          "confidence": 0.8511,
+          "probabilities": {
+            "human": 0.0061,
+            "ai_generated": 0.8511,
+            "ai_paraphrased": 0.1429
+          }
+        },
+        {
+          "text": "Their analysis emphasizes the ability of neural networks to enhance low-dose imaging while preserving spatial resolution.",
+          "label": "ai_generated",
+          "confidence": 0.9554,
+          "probabilities": {
+            "human": 0.0077,
+            "ai_generated": 0.9554,
+            "ai_paraphrased": 0.0369
+          }
+        },
+        {
+          "text": "The study also discusses different integration strategies, including reconstruction-level and post-processing approaches.",
+          "label": "ai_generated",
+          "confidence": 0.9596,
+          "probabilities": {
+            "human": 0.0092,
+            "ai_generated": 0.9596,
+            "ai_paraphrased": 0.0312
+          }
+        },
+        {
+          "text": "Limitations related to interpretability and clinical integration are identified as future research challenges [6].",
+          "label": "ai_generated",
+          "confidence": 0.9533,
+          "probabilities": {
+            "human": 0.0223,
+            "ai_generated": 0.9533,
+            "ai_paraphrased": 0.0244
+          }
+        },
+        {
+          "text": "Cao and Shen (2024) proposed a diffusion-based reconstruction framework for image harmonization tasks.",
+          "label": "ai_generated",
+          "confidence": 0.9443,
+          "probabilities": {
+            "human": 0.0089,
+            "ai_generated": 0.9443,
+            "ai_paraphrased": 0.0468
+          }
+        },
+        {
+          "text": "Their approach utilizes a student–teacher architecture to model latent representations and improve visual consistency.",
+          "label": "ai_generated",
+          "confidence": 0.9422,
+          "probabilities": {
+            "human": 0.0064,
+            "ai_generated": 0.9422,
+            "ai_paraphrased": 0.0513
+          }
+        },
+        {
+          "text": "By incorporating diffusion processes, the method enhances photorealism and structural alignment between image regions.",
+          "label": "ai_generated",
+          "confidence": 0.9601,
+          "probabilities": {
+            "human": 0.0095,
+            "ai_generated": 0.9601,
+            "ai_paraphrased": 0.0304
+          }
+        },
+        {
+          "text": "Experimental evaluation shows improved reconstruction quality compared to existing harmonization techniques [7]. Huang et al.",
+          "label": "ai_generated",
+          "confidence": 0.9545,
+          "probabilities": {
+            "human": 0.0101,
+            "ai_generated": 0.9545,
+            "ai_paraphrased": 0.0354
+          }
+        }
+      ]
+    },
+    {
+      "page_num": 4,
+      "sentences": [
+        {
+          "text": "(2022) examined the generalization capability of deep cascade convolutional networks in MRI reconstruction.",
+          "label": "ai_generated",
+          "confidence": 0.9611,
+          "probabilities": {
+            "human": 0.0085,
+            "ai_generated": 0.9611,
+            "ai_paraphrased": 0.0305
+          }
+        },
+        {
+          "text": "Their study evaluates the impact of variations in sampling patterns, anatomical structures, and noise levels on reconstruction performance.",
+          "label": "ai_generated",
+          "confidence": 0.9277,
+          "probabilities": {
+            "human": 0.0062,
+            "ai_generated": 0.9277,
+            "ai_paraphrased": 0.0661
+          }
+        },
+        {
+          "text": "The findings reveal that model performance is highly sensitive to deviations between training and testing conditions.",
+          "label": "ai_generated",
+          "confidence": 0.9628,
+          "probabilities": {
+            "human": 0.0092,
+            "ai_generated": 0.9628,
+            "ai_paraphrased": 0.0279
+          }
+        },
+        {
+          "text": "This highlights the need for more robust and adaptive reconstruction frameworks [8].",
+          "label": "ai_generated",
+          "confidence": 0.9593,
+          "probabilities": {
+            "human": 0.0147,
+            "ai_generated": 0.9593,
+            "ai_paraphrased": 0.026
+          }
+        },
+        {
+          "text": "Du et al. (2023) proposed a multi-scale residual network with mixed convolution operations for infrared image reconstruction.",
+          "label": "ai_generated",
+          "confidence": 0.9552,
+          "probabilities": {
+            "human": 0.0104,
+            "ai_generated": 0.9552,
+            "ai_paraphrased": 0.0344
+          }
+        },
+        {
+          "text": "Their model improves feature extraction by expanding the receptive field while maintaining computational efficiency.",
+          "label": "ai_generated",
+          "confidence": 0.9578,
+          "probabilities": {
+            "human": 0.0091,
+            "ai_generated": 0.9578,
+            "ai_paraphrased": 0.0331
+          }
+        },
+        {
+          "text": "The recursive fusion of features enhances texture recovery and edge clarity.",
+          "label": "ai_generated",
+          "confidence": 0.9547,
+          "probabilities": {
+            "human": 0.0108,
+            "ai_generated": 0.9547,
+            "ai_paraphrased": 0.0345
+          }
+        },
+        {
+          "text": "Experimental results demonstrate improved noise suppression and reconstruction accuracy across multiple datasets [9].",
+          "label": "ai_generated",
+          "confidence": 0.9609,
+          "probabilities": {
+            "human": 0.0116,
+            "ai_generated": 0.9609,
+            "ai_paraphrased": 0.0275
+          }
+        },
+        {
+          "text": "Shen et al. (2022) introduced a hybrid Transformer-based architecture for compressed sensing image reconstruction.",
+          "label": "ai_generated",
+          "confidence": 0.8958,
+          "probabilities": {
+            "human": 0.0075,
+            "ai_generated": 0.8958,
+            "ai_paraphrased": 0.0967
+          }
+        },
+        {
+          "text": "Their method combines global dependency modeling with local feature extraction to improve reconstruction performance.",
+          "label": "ai_generated",
+          "confidence": 0.9607,
+          "probabilities": {
+            "human": 0.0065,
+            "ai_generated": 0.9607,
+            "ai_paraphrased": 0.0328
+          }
+        },
+        {
+          "text": "The integration of iterative optimization strategies enhances convergence and stability.",
+          "label": "ai_generated",
+          "confidence": 0.9592,
+          "probabilities": {
+            "human": 0.0096,
+            "ai_generated": 0.9592,
+            "ai_paraphrased": 0.0312
+          }
+        },
+        {
+          "text": "The proposed approach achieves superior results in both reconstruction quality and robustness to noise [10].",
+          "label": "ai_generated",
+          "confidence": 0.9562,
+          "probabilities": {
+            "human": 0.0177,
+            "ai_generated": 0.9562,
+            "ai_paraphrased": 0.0261
+          }
+        },
+        {
+          "text": "Liu et al. (2023) developed an iterative reconstruction algorithm for neutron computed tomography under sparse data conditions.",
+          "label": "ai_generated",
+          "confidence": 0.9519,
+          "probabilities": {
+            "human": 0.0082,
+            "ai_generated": 0.9519,
+            "ai_paraphrased": 0.0399
+          }
+        },
+        {
+          "text": "Their approach integrates algebraic reconstruction techniques with total variation optimization to improve image quality.",
+          "label": "ai_generated",
+          "confidence": 0.9612,
+          "probabilities": {
+            "human": 0.0102,
+            "ai_generated": 0.9612,
+            "ai_paraphrased": 0.0286
+          }
+        },
+        {
+          "text": "The method effectively reduces noise and suppresses reconstruction artifacts.",
+          "label": "ai_generated",
+          "confidence": 0.9507,
+          "probabilities": {
+            "human": 0.0117,
+            "ai_generated": 0.9507,
+            "ai_paraphrased": 0.0376
+          }
+        },
+        {
+          "text": "Comparative analysis shows improved performance in preserving structural details compared to traditional methods [11].",
+          "label": "ai_generated",
+          "confidence": 0.9577,
+          "probabilities": {
+            "human": 0.0156,
+            "ai_generated": 0.9577,
+            "ai_paraphrased": 0.0267
+          }
+        },
+        {
+          "text": "Noda et al. (2023) investigated deep learning reconstruction techniques for pancreatic CT imaging.",
+          "label": "ai_generated",
+          "confidence": 0.5109,
+          "probabilities": {
+            "human": 0.0058,
+            "ai_generated": 0.5109,
+            "ai_paraphrased": 0.4832
+          }
+        },
+        {
+          "text": "Their study compares different imaging configurations and evaluates their impact on image quality and lesion visibility.",
+          "label": "ai_generated",
+          "confidence": 0.9605,
+          "probabilities": {
+            "human": 0.0103,
+            "ai_generated": 0.9605,
+            "ai_paraphrased": 0.0292
+          }
+        },
+        {
+          "text": "The results indicate improved signal-to-noise ratio and contrast in reconstructed images.",
+          "label": "ai_generated",
+          "confidence": 0.9597,
+          "probabilities": {
+            "human": 0.0106,
+            "ai_generated": 0.9597,
+            "ai_paraphrased": 0.0297
+          }
+        },
+        {
+          "text": "This leads to enhanced detection of pathological structures in clinical applications [12].",
+          "label": "ai_generated",
+          "confidence": 0.9558,
+          "probabilities": {
+            "human": 0.0193,
+            "ai_generated": 0.9558,
+            "ai_paraphrased": 0.0249
+          }
+        },
+        {
+          "text": "Ren et al. (2023) evaluated deep learning-based reconstruction for low-dose CT imaging.",
+          "label": "ai_generated",
+          "confidence": 0.6004,
+          "probabilities": {
+            "human": 0.0064,
+            "ai_generated": 0.6004,
+            "ai_paraphrased": 0.3933
+          }
+        },
+        {
+          "text": "Their work demonstrates that reconstruction models can significantly reduce radiation exposure while maintaining image quality.",
+          "label": "ai_generated",
+          "confidence": 0.9598,
+          "probabilities": {
+            "human": 0.0095,
+            "ai_generated": 0.9598,
+            "ai_paraphrased": 0.0308
+          }
+        },
+        {
+          "text": "The study also shows improved diagnostic confidence when using deep learning reconstruction methods.",
+          "label": "ai_generated",
+          "confidence": 0.957,
+          "probabilities": {
+            "human": 0.01,
+            "ai_generated": 0.957,
+            "ai_paraphrased": 0.033
+          }
+        },
+        {
+          "text": "These findings support the feasibility of low-dose imaging in clinical environments [13].",
+          "label": "ai_generated",
+          "confidence": 0.9557,
+          "probabilities": {
+            "human": 0.0163,
+            "ai_generated": 0.9557,
+            "ai_paraphrased": 0.0279
+          }
+        },
+        {
+          "text": "Nau et al. (2024) explored the application of hybrid quantum annealing for tomographic image reconstruction.",
+          "label": "ai_generated",
+          "confidence": 0.9512,
+          "probabilities": {
+            "human": 0.0075,
+            "ai_generated": 0.9512,
+            "ai_paraphrased": 0.0413
+          }
+        },
+        {
+          "text": "Their approach incorporates regularization techniques to improve reconstruction quality.",
+          "label": "ai_generated",
+          "confidence": 0.9576,
+          "probabilities": {
+            "human": 0.0109,
+            "ai_generated": 0.9576,
+            "ai_paraphrased": 0.0315
+          }
+        },
+        {
+          "text": "Although the method shows potential, it still falls short compared to conventional reconstruction approaches.",
+          "label": "ai_generated",
+          "confidence": 0.9577,
+          "probabilities": {
+            "human": 0.0097,
+            "ai_generated": 0.9577,
+            "ai_paraphrased": 0.0326
+          }
+        },
+        {
+          "text": "The study highlights the limitations of emerging quantum-based reconstruction techniques [14].",
+          "label": "ai_generated",
+          "confidence": 0.959,
+          "probabilities": {
+            "human": 0.0098,
+            "ai_generated": 0.959,
+            "ai_paraphrased": 0.0312
+          }
+        },
+        {
+          "text": "Diwakar et al. (2022) proposed a denoising framework for low-dose CT images using non-local filtering and thresholding techniques.",
+          "label": "ai_generated",
+          "confidence": 0.9555,
+          "probabilities": {
+            "human": 0.0069,
+            "ai_generated": 0.9555,
+            "ai_paraphrased": 0.0376
+          }
+        },
+        {
+          "text": "Their method focuses on preserving structural details while reducing noise artifacts. The",
+          "label": "ai_generated",
+          "confidence": 0.9559,
+          "probabilities": {
+            "human": 0.0118,
+            "ai_generated": 0.9559,
+            "ai_paraphrased": 0.0323
+          }
+        }
+      ]
+    },
+    {
+      "page_num": 5,
+      "sentences": [
+        {
+          "text": "approach improves image clarity without increasing radiation exposure.",
+          "label": "ai_generated",
+          "confidence": 0.9591,
+          "probabilities": {
+            "human": 0.0161,
+            "ai_generated": 0.9591,
+            "ai_paraphrased": 0.0247
+          }
+        },
+        {
+          "text": "Experimental results demonstrate better performance compared to existing denoising methods [15].",
+          "label": "ai_generated",
+          "confidence": 0.9575,
+          "probabilities": {
+            "human": 0.018,
+            "ai_generated": 0.9575,
+            "ai_paraphrased": 0.0245
+          }
+        },
+        {
+          "text": "Mahdaoui et al. (2022) introduced a compressed sensing reconstruction method combining total variation and non-local constraints.",
+          "label": "ai_generated",
+          "confidence": 0.8891,
+          "probabilities": {
+            "human": 0.0065,
+            "ai_generated": 0.8891,
+            "ai_paraphrased": 0.1045
+          }
+        },
+        {
+          "text": "Their approach improves edge preservation and texture retention during reconstruction.",
+          "label": "ai_generated",
+          "confidence": 0.9484,
+          "probabilities": {
+            "human": 0.0079,
+            "ai_generated": 0.9484,
+            "ai_paraphrased": 0.0437
+          }
+        },
+        {
+          "text": "The optimization strategy enhances computational efficiency and stability.",
+          "label": "ai_generated",
+          "confidence": 0.9614,
+          "probabilities": {
+            "human": 0.0095,
+            "ai_generated": 0.9614,
+            "ai_paraphrased": 0.0291
+          }
+        },
+        {
+          "text": "Results show significant improvements in both visual quality and quantitative metrics [16].",
+          "label": "ai_generated",
+          "confidence": 0.9616,
+          "probabilities": {
+            "human": 0.015,
+            "ai_generated": 0.9616,
+            "ai_paraphrased": 0.0234
+          }
+        },
+        {
+          "text": "Vimala et al. (2023) developed a hybrid deep learning model for ultrasound image denoising.",
+          "label": "ai_generated",
+          "confidence": 0.9483,
+          "probabilities": {
+            "human": 0.0077,
+            "ai_generated": 0.9483,
+            "ai_paraphrased": 0.044
+          }
+        },
+        {
+          "text": "Their method incorporates edge-sensitive mechanisms to preserve structural information during noise removal.",
+          "label": "ai_generated",
+          "confidence": 0.957,
+          "probabilities": {
+            "human": 0.0098,
+            "ai_generated": 0.957,
+            "ai_paraphrased": 0.0332
+          }
+        },
+        {
+          "text": "The approach significantly improves signal-to-noise ratio and image clarity.",
+          "label": "ai_generated",
+          "confidence": 0.962,
+          "probabilities": {
+            "human": 0.0103,
+            "ai_generated": 0.962,
+            "ai_paraphrased": 0.0277
+          }
+        },
+        {
+          "text": "Experimental validation confirms enhanced performance in medical imaging applications [17].",
+          "label": "ai_generated",
+          "confidence": 0.957,
+          "probabilities": {
+            "human": 0.0162,
+            "ai_generated": 0.957,
+            "ai_paraphrased": 0.0268
+          }
+        },
+        {
+          "text": "Ehtisham et al. (2024) proposed a deep learning-based framework for detecting structural defects in wooden materials.",
+          "label": "ai_generated",
+          "confidence": 0.7446,
+          "probabilities": {
+            "human": 0.006,
+            "ai_generated": 0.7446,
+            "ai_paraphrased": 0.2494
+          }
+        },
+        {
+          "text": "Their model combines convolutional neural networks with image processing techniques for accurate defect characterization.",
+          "label": "ai_generated",
+          "confidence": 0.9611,
+          "probabilities": {
+            "human": 0.008,
+            "ai_generated": 0.9611,
+            "ai_paraphrased": 0.0309
+          }
+        },
+        {
+          "text": "The system achieves high classification accuracy and precise measurement of defect parameters.",
+          "label": "ai_generated",
+          "confidence": 0.9572,
+          "probabilities": {
+            "human": 0.0116,
+            "ai_generated": 0.9572,
+            "ai_paraphrased": 0.0312
+          }
+        },
+        {
+          "text": "This work demonstrates the broader applicability of image reconstruction and analysis techniques beyond traditional domains [18].",
+          "label": "ai_paraphrased",
+          "confidence": 0.9375,
+          "probabilities": {
+            "human": 0.0058,
+            "ai_generated": 0.0567,
+            "ai_paraphrased": 0.9375
+          }
+        },
+        {
+          "text": "Table 1 presents a comparative analysis of existing image reconstruction approaches, highlighting their methodologies, datasets, and key limitations.",
+          "label": "ai_generated",
+          "confidence": 0.9188,
+          "probabilities": {
+            "human": 0.005,
+            "ai_generated": 0.9188,
+            "ai_paraphrased": 0.0762
+          }
+        },
+        {
+          "text": "Table 1: Comparative Analysis of Existing Image Reconstruction Methods Ref Author & Year Methodology / Technique Dataset Limitations [1] Zhao et al., 2023 Memristive computing-in-memory reconstruction (DFT-based) MRI, CT datasets Requires specialized hardware, limited scalability [2] Pisuchpen et al., 2026 Deep learning-based CT reconstruction (CNN models) Clinical CT datasets Lack of standardization, clinical validation issues [3] Bizhani et al., 2022 CNN-based denoising, deblurring, super-resolution SEM, CT rock images Domain-specific, limited generalization [4] Wang et al., 2023 Space-frequency reconstruction with artifact reduction Microscopy datasets High computational complexity",
+          "label": "human",
+          "confidence": 0.9509,
+          "probabilities": {
+            "human": 0.9509,
+            "ai_generated": 0.0135,
+            "ai_paraphrased": 0.0357
+          }
+        }
+      ]
+    },
+    {
+      "page_num": 6,
+      "sentences": [
+        {
+          "text": "[5] Gaziv et al., 2022 Self-supervised cycle-consistent reconstruction fMRI datasets Requires complex training, limited interpretability [6] Pain et al., 2022 Deep learning for PET reconstruction & enhancement PET imaging datasets Clinical deployment challenges [7] Cao & Shen, 2024 Diffusion-based reconstruction (Diff-STAR) iHarmony4, RealHM High training cost, slow inference [8] Huang et al., 2022 Deep cascade CNN (DC-CNN) for MRI reconstruction MRI datasets Sensitive to noise and sampling variations [9] Du et al., 2023 Multi-scale residual CNN with mixed convolution Infrared datasets Limited global dependency modeling [10] Shen et al., 2022 Transformer + CNN hybrid (TransCS) Benchmark datasets High computational overhead [11] Liu et al., 2023 OS-SART with total variation optimization Neutron CT datasets Iterative methods are time-consuming [12] Noda et al., 2023 Deep learning reconstruction (DLIR) in CT Clinical CT datasets Limited adaptability across imaging settings [13] Ren et al., 2023 Low-dose CT reconstruction using DLR Clinical datasets Requires large training data [14] Nau et al., 2024 Hybrid quantum annealing reconstruction Simulated phantom data Inferior performance vs classical methods [15] Diwakar et al., 2022 NLM + shearlet-based denoising COVID CT datasets Limited generalization capability",
+          "label": "human",
+          "confidence": 0.9483,
+          "probabilities": {
+            "human": 0.9483,
+            "ai_generated": 0.0149,
+            "ai_paraphrased": 0.0369
+          }
+        }
+      ]
+    },
+    {
+      "page_num": 7,
+      "sentences": [
+        {
+          "text": "[16] Mahdaoui et al., 2022 Compressed sensing + TV + non-local constraints Benchmark datasets Optimization complexity [17] Vimala et al., 2023 Hybrid deep learning denoising (LPRNN) Ultrasound datasets Task-specific, limited scalability [18] Ehtisham et al., 2024 CNN-based defect detection + image processing Wood defect dataset Not focused on reconstruction tasks From the analysis, it is evident that most existing methods focus on correlation-based feature learning and lack explicit modeling of directional inter-pixel interactions, which limits their ability to preserve fine structures and causal dependencies.",
+          "label": "human",
+          "confidence": 0.9317,
+          "probabilities": {
+            "human": 0.9317,
+            "ai_generated": 0.0305,
+            "ai_paraphrased": 0.0378
+          }
+        },
+        {
+          "text": "This motivates the proposed Pixel Interaction Field Network (PIF-Net). 2.1 Research Gap​ Despite significant advancements in image reconstruction using convolutional neural networks, transformers, diffusion models, and iterative optimization techniques, existing approaches predominantly rely on correlation-based feature learning and symmetric spatial modeling.",
+          "label": "human",
+          "confidence": 0.6597,
+          "probabilities": {
+            "human": 0.6597,
+            "ai_generated": 0.2767,
+            "ai_paraphrased": 0.0637
+          }
+        },
+        {
+          "text": "These methods lack an explicit representation of directional inter-pixel dependencies, which are essential for capturing how pixel intensities evolve through localized interactions in real-world imaging processes.",
+          "label": "ai_generated",
+          "confidence": 0.9243,
+          "probabilities": {
+            "human": 0.0058,
+            "ai_generated": 0.9243,
+            "ai_paraphrased": 0.0699
+          }
+        },
+        {
+          "text": "Furthermore, many models struggle to maintain structural consistency under noise, diffusion, and domain variability, often leading to blurred edges and loss of fine-grained details.",
+          "label": "ai_generated",
+          "confidence": 0.9592,
+          "probabilities": {
+            "human": 0.0108,
+            "ai_generated": 0.9592,
+            "ai_paraphrased": 0.03
+          }
+        },
+        {
+          "text": "Additionally, current frameworks either depend on large-scale data, complex architectures, or task-specific designs, limiting their generalizability and interpretability.",
+          "label": "ai_generated",
+          "confidence": 0.9603,
+          "probabilities": {
+            "human": 0.0087,
+            "ai_generated": 0.9603,
+            "ai_paraphrased": 0.031
+          }
+        },
+        {
+          "text": "Therefore, there remains a critical need for a unified framework that can model asymmetric, data-dependent pixel interactions while ensuring stable and consistent reconstruction, which motivates the development of the proposed Pixel Interaction Field Network (PIF-Net). 3.Methodology​ The proposed Pixel Interaction Field Network (PIF-Net) is designed as a dynamic reconstruction framework that models image formation through structured inter-pixel interactions.",
+          "label": "ai_generated",
+          "confidence": 0.7545,
+          "probabilities": {
+            "human": 0.1831,
+            "ai_generated": 0.7545,
+            "ai_paraphrased": 0.0624
+          }
+        },
+        {
+          "text": "Given an input image, each pixel is first represented as an initial state within a spatial grid, which is then processed through a learnable interaction field that captures directional and data-dependent influences from neighboring pixels.",
+          "label": "ai_generated",
+          "confidence": 0.9598,
+          "probabilities": {
+            "human": 0.0102,
+            "ai_generated": 0.9598,
+            "ai_paraphrased": 0.03
+          }
+        },
+        {
+          "text": "These interactions are propagated through an iterative update mechanism, where pixel states are progressively refined based on local contextual dependencies until a stable configuration is reached.",
+          "label": "ai_generated",
+          "confidence": 0.9537,
+          "probabilities": {
+            "human": 0.0112,
+            "ai_generated": 0.9537,
+            "ai_paraphrased": 0.0351
+          }
+        },
+        {
+          "text": "This iterative stabilization ensures that the reconstructed",
+          "label": "ai_generated",
+          "confidence": 0.9496,
+          "probabilities": {
+            "human": 0.0204,
+            "ai_generated": 0.9496,
+            "ai_paraphrased": 0.03
+          }
+        }
+      ]
+    },
+    {
+      "page_num": 8,
+      "sentences": [
+        {
+          "text": "image preserves structural continuity and fine details while reducing noise and inconsistencies.",
+          "label": "ai_generated",
+          "confidence": 0.954,
+          "probabilities": {
+            "human": 0.0151,
+            "ai_generated": 0.954,
+            "ai_paraphrased": 0.0309
+          }
+        },
+        {
+          "text": "The final output is obtained after convergence, representing an enhanced image with improved edge definition and texture fidelity compared to conventional reconstruction approaches. 3.1 Pixel Interaction Field​ The Pixel Interaction Field forms the core component of the proposed PIF-Net, where each pixel is modeled as a dynamic state that evolves through localized interactions with its spatial neighbors.",
+          "label": "ai_generated",
+          "confidence": 0.897,
+          "probabilities": {
+            "human": 0.0634,
+            "ai_generated": 0.897,
+            "ai_paraphrased": 0.0396
+          }
+        },
+        {
+          "text": "Unlike conventional convolutional operations that apply fixed and symmetric kernels, the proposed formulation treats pixel intensities as state variables influenced by surrounding pixels through learnable and directional interaction weights.",
+          "label": "ai_generated",
+          "confidence": 0.9599,
+          "probabilities": {
+            "human": 0.0106,
+            "ai_generated": 0.9599,
+            "ai_paraphrased": 0.0295
+          }
+        },
+        {
+          "text": "Let denote the state of the pixel at iteration , and 𝑥𝑖 𝑡 𝑖 𝑡ℎ 𝑡 𝑁𝑖( ) represent its local neighborhood.",
+          "label": "ai_generated",
+          "confidence": 0.9522,
+          "probabilities": {
+            "human": 0.0222,
+            "ai_generated": 0.9522,
+            "ai_paraphrased": 0.0255
+          }
+        },
+        {
+          "text": "The evolution of the pixel state is defined as in Eq.1: ​ ​ ​ ​ (1) 𝑥𝑖 𝑡+1 = 𝑥𝑖 𝑡+ Σ𝑗ϵ𝑁𝑖( )𝑤𝑖𝑗𝑥𝑗 𝑡−𝑥𝑖 𝑡 ( ) This formulation captures how pixel values are updated based on relative differences with neighboring pixels, enabling the model to adaptively refine local structures.",
+          "label": "human",
+          "confidence": 0.941,
+          "probabilities": {
+            "human": 0.941,
+            "ai_generated": 0.0162,
+            "ai_paraphrased": 0.0427
+          }
+        },
+        {
+          "text": "The interaction term emphasizes contrast-driven updates, which are essential for 𝑥𝑗 𝑡−𝑥𝑖 𝑡 ( ) preserving edges and fine details.",
+          "label": "ai_generated",
+          "confidence": 0.956,
+          "probabilities": {
+            "human": 0.0172,
+            "ai_generated": 0.956,
+            "ai_paraphrased": 0.0268
+          }
+        },
+        {
+          "text": "Such a dynamic update mechanism differs fundamentally from static filtering approaches used in CNN-based reconstruction methods [3], where interactions are predefined and do not explicitly evolve over iterations.",
+          "label": "ai_generated",
+          "confidence": 0.9573,
+          "probabilities": {
+            "human": 0.0071,
+            "ai_generated": 0.9573,
+            "ai_paraphrased": 0.0356
+          }
+        },
+        {
+          "text": "A key characteristic of the interaction field is that the weights are directional and 𝑤𝑖𝑗 data-dependent, allowing asymmetric influence between neighboring pixels.",
+          "label": "ai_generated",
+          "confidence": 0.9579,
+          "probabilities": {
+            "human": 0.012,
+            "ai_generated": 0.9579,
+            "ai_paraphrased": 0.0301
+          }
+        },
+        {
+          "text": "This means that the influence of pixel on pixel is not necessarily equal to the influence 𝑗 𝑖 of on i.e., .",
+          "label": "ai_generated",
+          "confidence": 0.9576,
+          "probabilities": {
+            "human": 0.0171,
+            "ai_generated": 0.9576,
+            "ai_paraphrased": 0.0253
+          }
+        },
+        {
+          "text": "This asymmetry enables the model to capture causal 𝑖 𝑗 𝑤𝑖𝑗≠𝑤𝑗𝑖 relationships, where pixel intensities are influenced by spatial context in a non-uniform manner.",
+          "label": "ai_generated",
+          "confidence": 0.9566,
+          "probabilities": {
+            "human": 0.0168,
+            "ai_generated": 0.9566,
+            "ai_paraphrased": 0.0266
+          }
+        },
+        {
+          "text": "The interaction weights are learned through a parameterized function , defined as in Eq.2: 𝑓θ ​ ​ ​ ​ ​ (2) 𝑤𝑖𝑗= 𝑓θ 𝑥𝑖 𝑡, 𝑥𝑗 𝑡, 𝑑𝑖𝑗 ( ) Where represents the spatial offset between pixels and .",
+          "label": "human",
+          "confidence": 0.9433,
+          "probabilities": {
+            "human": 0.9433,
+            "ai_generated": 0.0151,
+            "ai_paraphrased": 0.0416
+          }
+        },
+        {
+          "text": "This formulation allows 𝑑𝑖𝑗 𝑖 𝑗 the model to encode both intensity differences and spatial configurations, leading to more expressive interaction patterns.",
+          "label": "ai_generated",
+          "confidence": 0.9558,
+          "probabilities": {
+            "human": 0.0159,
+            "ai_generated": 0.9558,
+            "ai_paraphrased": 0.0283
+          }
+        },
+        {
+          "text": "In contrast to transformer-based methods that model global dependencies [10], the proposed approach focuses on structured local interactions while maintaining directional sensitivity, thereby improving stability and interpretability.",
+          "label": "ai_generated",
+          "confidence": 0.9335,
+          "probabilities": {
+            "human": 0.0057,
+            "ai_generated": 0.9335,
+            "ai_paraphrased": 0.0608
+          }
+        }
+      ]
+    },
+    {
+      "page_num": 9,
+      "sentences": [
+        {
+          "text": "To ensure numerical stability and prevent divergence during iterative updates, the interaction weights are constrained using a normalization scheme: ,​ ​ ​ ​ ​ (3) Σ𝑗ϵ𝑁𝑖( )𝑤𝑖𝑗= 1 𝑤𝑖𝑗≥0 This constraint ensures that the update process behaves as a controlled diffusion mechanism, where pixel values converge towards a stable equilibrium.",
+          "label": "human",
+          "confidence": 0.9375,
+          "probabilities": {
+            "human": 0.9375,
+            "ai_generated": 0.0199,
+            "ai_paraphrased": 0.0426
+          }
+        },
+        {
+          "text": "Additionally, the iterative nature of the interaction field allows the model to progressively refine image structures, similar to iterative reconstruction techniques [11], but with learned and adaptive interaction dynamics.",
+          "label": "ai_generated",
+          "confidence": 0.9599,
+          "probabilities": {
+            "human": 0.0088,
+            "ai_generated": 0.9599,
+            "ai_paraphrased": 0.0313
+          }
+        },
+        {
+          "text": "By integrating directional weighting, contrast-driven updates, and stability constraints, the Pixel Interaction Field enables PIF-Net to effectively preserve edges, suppress noise, and maintain structural consistency across complex image regions, addressing key limitations observed in existing reconstruction frameworks.",
+          "label": "ai_generated",
+          "confidence": 0.9561,
+          "probabilities": {
+            "human": 0.0073,
+            "ai_generated": 0.9561,
+            "ai_paraphrased": 0.0366
+          }
+        },
+        {
+          "text": "Figure 2: Directional Inter-Pixel Interaction Modeling using Pixel Interaction Field in the Proposed PIF-Net Framework The figure illustrates the core concept of the proposed PIF-Net, where a central pixel is influenced by its neighboring pixels through directional interaction weights.",
+          "label": "ai_generated",
+          "confidence": 0.9542,
+          "probabilities": {
+            "human": 0.0181,
+            "ai_generated": 0.9542,
+            "ai_paraphrased": 0.0277
+          }
+        },
+        {
+          "text": "Each neighboring pixel contributes differently, highlighting the asymmetric and data-dependent nature of inter-pixel relationships.",
+          "label": "ai_generated",
+          "confidence": 0.9488,
+          "probabilities": {
+            "human": 0.0065,
+            "ai_generated": 0.9488,
+            "ai_paraphrased": 0.0447
+          }
+        },
+        {
+          "text": "The interaction field governs how local pixel information propagates, enabling refinement of structural details and edge",
+          "label": "ai_generated",
+          "confidence": 0.954,
+          "probabilities": {
+            "human": 0.0129,
+            "ai_generated": 0.954,
+            "ai_paraphrased": 0.0332
+          }
+        }
+      ]
+    },
+    {
+      "page_num": 10,
+      "sentences": [
+        {
+          "text": "This directional interaction mechanism forms the foundation of the proposed model, leading to improved reconstruction accuracy and reduced noise artifacts. 3.2 Iterative Stabilization​ The iterative stabilization mechanism in PIF-Net is designed to progressively refine pixel states through repeated interaction updates until a stable and structurally consistent representation is achieved.",
+          "label": "ai_generated",
+          "confidence": 0.9232,
+          "probabilities": {
+            "human": 0.0418,
+            "ai_generated": 0.9232,
+            "ai_paraphrased": 0.035
+          }
+        },
+        {
+          "text": "Starting from an initial state derived from the 𝑥𝑖 0 input image, the Pixel Interaction Field is applied iteratively such that pixel values evolve according to local contextual influences.",
+          "label": "ai_generated",
+          "confidence": 0.9571,
+          "probabilities": {
+            "human": 0.0125,
+            "ai_generated": 0.9571,
+            "ai_paraphrased": 0.0304
+          }
+        },
+        {
+          "text": "At each iteration , the update rule 𝑡 follows: ​ ​ ​ ​ (4) 𝑥𝑖 𝑡+1 = 𝑥𝑖 𝑡+ Σ𝑗ϵ𝑁𝑖( )𝑤𝑖𝑗 𝑡𝑥𝑗 𝑡−𝑥𝑖 𝑡 ( ) where the interaction weights are dynamically computed at each iteration.",
+          "label": "human",
+          "confidence": 0.9456,
+          "probabilities": {
+            "human": 0.9456,
+            "ai_generated": 0.0143,
+            "ai_paraphrased": 0.0401
+          }
+        },
+        {
+          "text": "This 𝑤𝑖𝑗 𝑡 recursive refinement allows the model to gradually suppress noise while enhancing structural continuity.",
+          "label": "ai_generated",
+          "confidence": 0.9565,
+          "probabilities": {
+            "human": 0.0167,
+            "ai_generated": 0.9565,
+            "ai_paraphrased": 0.0267
+          }
+        },
+        {
+          "text": "Unlike single-pass reconstruction models, the iterative formulation enables progressive correction of inconsistencies, similar in spirit to classical iterative reconstruction techniques [11], but extended here with learnable and adaptive interaction dynamics.",
+          "label": "ai_generated",
+          "confidence": 0.9584,
+          "probabilities": {
+            "human": 0.0103,
+            "ai_generated": 0.9584,
+            "ai_paraphrased": 0.0313
+          }
+        },
+        {
+          "text": "This process ensures that local errors are minimized over successive updates, leading to improved edge sharpness and texture preservation.",
+          "label": "ai_generated",
+          "confidence": 0.9567,
+          "probabilities": {
+            "human": 0.0119,
+            "ai_generated": 0.9567,
+            "ai_paraphrased": 0.0314
+          }
+        },
+        {
+          "text": "To ensure convergence of the iterative process, a stopping criterion is defined based on the change in pixel states between successive iterations.",
+          "label": "ai_generated",
+          "confidence": 0.9565,
+          "probabilities": {
+            "human": 0.0119,
+            "ai_generated": 0.9565,
+            "ai_paraphrased": 0.0316
+          }
+        },
+        {
+          "text": "Specifically, convergence is achieved when the update magnitude falls below a predefined threshold : ϵ ​ ​ ​ ​ ​ (5) 𝑥 𝑡+1 −𝑥 𝑡 | | | |2 < ϵ Alternatively, a maximum number of iterations can be imposed on bound 𝑇 computational complexity.",
+          "label": "human",
+          "confidence": 0.9456,
+          "probabilities": {
+            "human": 0.9456,
+            "ai_generated": 0.0164,
+            "ai_paraphrased": 0.0379
+          }
+        },
+        {
+          "text": "This convergence condition ensures that the pixel states reach a stable equilibrium, preventing oscillatory behavior or over-smoothing.",
+          "label": "ai_generated",
+          "confidence": 0.9565,
+          "probabilities": {
+            "human": 0.0112,
+            "ai_generated": 0.9565,
+            "ai_paraphrased": 0.0323
+          }
+        },
+        {
+          "text": "The stabilization process can be interpreted as a learned diffusion system, where pixel values propagate information across the image while preserving important discontinuities such as edges.",
+          "label": "ai_generated",
+          "confidence": 0.9605,
+          "probabilities": {
+            "human": 0.0097,
+            "ai_generated": 0.9605,
+            "ai_paraphrased": 0.0298
+          }
+        },
+        {
+          "text": "Compared to deep cascade CNN approaches [8], which rely on fixed-depth architectures, the proposed iterative mechanism provides adaptive refinement depth based on the complexity of the input image.",
+          "label": "ai_generated",
+          "confidence": 0.9542,
+          "probabilities": {
+            "human": 0.0075,
+            "ai_generated": 0.9542,
+            "ai_paraphrased": 0.0383
+          }
+        },
+        {
+          "text": "Furthermore, to enhance stability and prevent excessive updates, a relaxation parameter is introduced to control the update rate: αϵ(0, 1] ​​ ​ ​ (6) 𝑥𝑖 𝑡+1 = 𝑥𝑖 𝑡+ αΣ𝑗ϵ𝑁𝑖( )𝑤𝑖𝑗 𝑡𝑥𝑗 𝑡−𝑥𝑖 𝑡 ( )",
+          "label": "human",
+          "confidence": 0.9426,
+          "probabilities": {
+            "human": 0.9426,
+            "ai_generated": 0.016,
+            "ai_paraphrased": 0.0414
+          }
+        }
+      ]
+    },
+    {
+      "page_num": 11,
+      "sentences": [
+        {
+          "text": "This formulation balances convergence speed and reconstruction accuracy by regulating how strongly neighboring pixels influence the current state.",
+          "label": "ai_generated",
+          "confidence": 0.9577,
+          "probabilities": {
+            "human": 0.0104,
+            "ai_generated": 0.9577,
+            "ai_paraphrased": 0.032
+          }
+        },
+        {
+          "text": "The iterative stabilization process thus acts as a dynamic equilibrium solver, where pixel intensities evolve toward a consistent configuration that aligns with local structural patterns.",
+          "label": "ai_generated",
+          "confidence": 0.9588,
+          "probabilities": {
+            "human": 0.0095,
+            "ai_generated": 0.9588,
+            "ai_paraphrased": 0.0316
+          }
+        },
+        {
+          "text": "In contrast to transformer-based reconstruction methods that emphasize global dependencies [10], this localized iterative refinement ensures that fine-grained details are preserved while maintaining robustness to noise and artifacts.",
+          "label": "ai_generated",
+          "confidence": 0.9573,
+          "probabilities": {
+            "human": 0.0094,
+            "ai_generated": 0.9573,
+            "ai_paraphrased": 0.0332
+          }
+        },
+        {
+          "text": "As a result, the proposed stabilization mechanism plays a crucial role in achieving high-fidelity image reconstruction with improved edge preservation and reduced distortion. 3.3 Causal Consistency Loss​ To ensure that the reconstructed image not only matches the ground truth but also adheres to the underlying inter-pixel interaction dynamics, a causal consistency loss is introduced in PIF-Net.",
+          "label": "human",
+          "confidence": 0.6076,
+          "probabilities": {
+            "human": 0.6076,
+            "ai_generated": 0.3248,
+            "ai_paraphrased": 0.0676
+          }
+        },
+        {
+          "text": "The overall objective function is defined as in Eq.7: ​ ​ ​ ​ (7) 𝐿= 𝐿𝑟𝑒𝑐𝑜𝑛+ λ𝐿𝑐𝑎𝑢𝑠𝑎𝑙 Where enforces pixel-wise reconstruction fidelity and ensures that the 𝐿𝑟𝑒𝑐𝑜𝑛 𝐿𝑐𝑎𝑢𝑠𝑎𝑙 learned interactions are consistent with the directional dependencies modeled by the Pixel Interaction Field.",
+          "label": "human",
+          "confidence": 0.9418,
+          "probabilities": {
+            "human": 0.9418,
+            "ai_generated": 0.0156,
+            "ai_paraphrased": 0.0426
+          }
+        },
+        {
+          "text": "The weighting parameter controls the trade-off between λ reconstruction accuracy and causal structural alignment.",
+          "label": "ai_generated",
+          "confidence": 0.9606,
+          "probabilities": {
+            "human": 0.0114,
+            "ai_generated": 0.9606,
+            "ai_paraphrased": 0.028
+          }
+        },
+        {
+          "text": "Unlike conventional loss formulations that focus solely on minimizing pixel differences, this composite loss explicitly integrates interaction-driven constraints, enabling the model to learn not only what the image should look like but also how pixel values are formed through local dependencies.",
+          "label": "ai_generated",
+          "confidence": 0.9614,
+          "probabilities": {
+            "human": 0.0084,
+            "ai_generated": 0.9614,
+            "ai_paraphrased": 0.0303
+          }
+        },
+        {
+          "text": "The reconstruction loss measures the discrepancy between the reconstructed 𝐿𝑟𝑒𝑐𝑜𝑛 image and the ground truth image .",
+          "label": "ai_generated",
+          "confidence": 0.9547,
+          "probabilities": {
+            "human": 0.0164,
+            "ai_generated": 0.9547,
+            "ai_paraphrased": 0.0289
+          }
+        },
+        {
+          "text": "It is defined using a combination of pixel-wise 𝑥 𝑥 and structural similarity terms to capture both intensity accuracy and perceptual quality: ​ ​ ​ (8) 𝐿𝑟𝑒𝑐𝑜𝑛= 𝑥−𝑥 | | | |1 + β 1 −𝑆𝑆𝐼𝑀𝑥, 𝑥 ( ) ( ) Where denotes the L1 norm and SSIM represents the structural similarity index. ·| | | |1 The inclusion of SSIM helps preserve edges and structural patterns, which are often degraded in traditional reconstruction methods [3].",
+          "label": "human",
+          "confidence": 0.9431,
+          "probabilities": {
+            "human": 0.9431,
+            "ai_generated": 0.0163,
+            "ai_paraphrased": 0.0406
+          }
+        },
+        {
+          "text": "This formulation ensures that the model maintains both global consistency and local detail fidelity, addressing limitations observed in deep learning reconstruction frameworks that rely solely on pixel-wise losses [6].",
+          "label": "ai_generated",
+          "confidence": 0.9515,
+          "probabilities": {
+            "human": 0.0081,
+            "ai_generated": 0.9515,
+            "ai_paraphrased": 0.0404
+          }
+        },
+        {
+          "text": "The parameter balances the contribution of perceptual β similarity relative to intensity-based reconstruction.",
+          "label": "ai_generated",
+          "confidence": 0.9629,
+          "probabilities": {
+            "human": 0.0095,
+            "ai_generated": 0.9629,
+            "ai_paraphrased": 0.0276
+          }
+        }
+      ]
+    },
+    {
+      "page_num": 12,
+      "sentences": [
+        {
+          "text": "The causal loss is designed to enforce consistency between the learned 𝐿𝑐𝑎𝑢𝑠𝑎𝑙 interaction field and the resulting pixel updates.",
+          "label": "ai_generated",
+          "confidence": 0.956,
+          "probabilities": {
+            "human": 0.0164,
+            "ai_generated": 0.956,
+            "ai_paraphrased": 0.0276
+          }
+        },
+        {
+          "text": "Specifically, it penalizes deviations between the predicted pixel state updates and those derived from the interaction dynamics: ​ ​ ​ (9) 𝐿𝑐𝑎𝑢𝑠𝑎𝑙= Σ1 𝑥𝑖 𝑡+1 −𝑥𝑖 𝑡+ Σ𝑗ϵ𝑁𝑖( )𝑤𝑖𝑗 𝑡𝑥𝑖 𝑡−𝑥𝑖 𝑡 ( ) ( ) ||| ||| ||| |||2 2 This term ensures that the reconstructed image evolution aligns with the directional influence encoded by the interaction weights.",
+          "label": "human",
+          "confidence": 0.9446,
+          "probabilities": {
+            "human": 0.9446,
+            "ai_generated": 0.0142,
+            "ai_paraphrased": 0.0412
+          }
+        },
+        {
+          "text": "By enforcing this constraint, the model avoids inconsistent updates that could distort structural relationships between pixels.",
+          "label": "ai_generated",
+          "confidence": 0.9572,
+          "probabilities": {
+            "human": 0.0109,
+            "ai_generated": 0.9572,
+            "ai_paraphrased": 0.032
+          }
+        },
+        {
+          "text": "Unlike transformer-based approaches that model dependencies implicitly [10], this formulation explicitly regularizes the interaction process, leading to more interpretable and physically consistent reconstructions.",
+          "label": "ai_generated",
+          "confidence": 0.9574,
+          "probabilities": {
+            "human": 0.0109,
+            "ai_generated": 0.9574,
+            "ai_paraphrased": 0.0317
+          }
+        },
+        {
+          "text": "Additionally, this loss helps stabilize training by guiding the network toward solutions that respect both data fidelity and interaction coherence, ultimately improving edge preservation and reducing noise artifacts across complex image regions. 3.4 Interaction Memory Map​ To enhance the adaptability of PIF-Net across diverse image structures, an Interaction Memory Map (IMM) is introduced to store and reuse learned inter-pixel interaction patterns.",
+          "label": "ai_generated",
+          "confidence": 0.9058,
+          "probabilities": {
+            "human": 0.0516,
+            "ai_generated": 0.9058,
+            "ai_paraphrased": 0.0427
+          }
+        },
+        {
+          "text": "While the Pixel Interaction Field dynamically computes directional weights during each iteration, many local interaction configurations—such as edges, textures, and repetitive patterns—occur frequently across images.",
+          "label": "ai_generated",
+          "confidence": 0.9498,
+          "probabilities": {
+            "human": 0.0071,
+            "ai_generated": 0.9498,
+            "ai_paraphrased": 0.0431
+          }
+        },
+        {
+          "text": "The IMM captures these recurring interaction structures as a compact representation, enabling the model to retrieve and reuse previously learned interaction dynamics instead of relearning them from scratch.",
+          "label": "ai_generated",
+          "confidence": 0.9355,
+          "probabilities": {
+            "human": 0.0063,
+            "ai_generated": 0.9355,
+            "ai_paraphrased": 0.0581
+          }
+        },
+        {
+          "text": "Formally, the memory map is defined as a set of learned prototypes: 𝐾 ​ ​ ​ ​ (10) 𝑀= 𝑚𝑘ϵ𝑅 𝑑|𝑘= 1, 2,..., 𝐾 { } where each memory vector encodes a characteristic interaction pattern in a latent 𝑚𝑘 feature space of dimension .",
+          "label": "human",
+          "confidence": 0.9407,
+          "probabilities": {
+            "human": 0.9407,
+            "ai_generated": 0.0168,
+            "ai_paraphrased": 0.0425
+          }
+        },
+        {
+          "text": "This mechanism is conceptually aligned with 𝑑 representation reuse strategies in deep learning systems [5], but here it is specifically tailored to capture directional inter-pixel dependencies, which are not explicitly modeled in conventional reconstruction frameworks.",
+          "label": "ai_generated",
+          "confidence": 0.9592,
+          "probabilities": {
+            "human": 0.0075,
+            "ai_generated": 0.9592,
+            "ai_paraphrased": 0.0333
+          }
+        },
+        {
+          "text": "During the interaction computation, the current local pixel configuration is projected into a query representation , which is used to retrieve relevant interaction patterns 𝑞𝑖 from the memory map.",
+          "label": "ai_generated",
+          "confidence": 0.9577,
+          "probabilities": {
+            "human": 0.0115,
+            "ai_generated": 0.9577,
+            "ai_paraphrased": 0.0308
+          }
+        },
+        {
+          "text": "The retrieval is performed using a similarity-based attention mechanism: and ​ ​ ​ (11) α𝑖𝑘= 𝑒𝑥𝑝𝑞𝑖 ⊤𝑚𝑘 ( ) Σ𝑘 '𝑒𝑥𝑝𝑞𝑖 ⊤𝑚𝑘 ' ( ) 𝑚𝑖= 𝑘=1 𝐾 ∑α𝑖𝑘𝑚𝑘",
+          "label": "human",
+          "confidence": 0.9461,
+          "probabilities": {
+            "human": 0.9461,
+            "ai_generated": 0.0141,
+            "ai_paraphrased": 0.0398
+          }
+        }
+      ]
+    },
+    {
+      "page_num": 13,
+      "sentences": [
+        {
+          "text": "In Eq.11, denotes the attention weight between the query and memory entry α𝑖𝑘 𝑚𝑘 and represents the aggregated memory-informed interaction feature.",
+          "label": "ai_generated",
+          "confidence": 0.9614,
+          "probabilities": {
+            "human": 0.0093,
+            "ai_generated": 0.9614,
+            "ai_paraphrased": 0.0293
+          }
+        },
+        {
+          "text": "This retrieved 𝑚𝑖 representation is then integrated into the computation of interaction weights: ​ ​ ​ ​ (12) 𝑤𝑖𝑗= 𝑓θ 𝑥𝑖 𝑡, 𝑥𝑗 𝑡, 𝑑𝑖𝑗, 𝑚𝑖 ( ) By incorporating memory-guided context, the model can adapt its interaction field based on previously observed structural patterns, improving its ability to generalize across varying textures and image conditions.",
+          "label": "human",
+          "confidence": 0.9356,
+          "probabilities": {
+            "human": 0.9356,
+            "ai_generated": 0.0199,
+            "ai_paraphrased": 0.0444
+          }
+        },
+        {
+          "text": "Compared to purely data-driven approaches such as CNN-based reconstruction [3], this mechanism provides an additional level of structural prior that enhances robustness.",
+          "label": "ai_generated",
+          "confidence": 0.9556,
+          "probabilities": {
+            "human": 0.0066,
+            "ai_generated": 0.9556,
+            "ai_paraphrased": 0.0378
+          }
+        },
+        {
+          "text": "Furthermore, the memory map is updated during training to ensure that it captures diverse and representative interaction patterns.",
+          "label": "ai_generated",
+          "confidence": 0.9576,
+          "probabilities": {
+            "human": 0.009,
+            "ai_generated": 0.9576,
+            "ai_paraphrased": 0.0334
+          }
+        },
+        {
+          "text": "A memory update rule is defined as in Eq.13: ​ ​ ​ (13) 𝑚𝑘←1 −η ( )𝑚𝑘+ η · 𝑞𝑖 Where is the memory update rate, allowing gradual adaptation of stored patterns. η This continuous refinement enables the memory to evolve with the training data distribution, similar to adaptive representation learning strategies [10], but with a focus on interaction-level dynamics rather than feature embeddings.",
+          "label": "human",
+          "confidence": 0.9295,
+          "probabilities": {
+            "human": 0.9295,
+            "ai_generated": 0.0232,
+            "ai_paraphrased": 0.0474
+          }
+        },
+        {
+          "text": "By integrating the Interaction Memory Map, PIF-Net effectively balances local dynamic computation and global pattern reuse, leading to improved generalization, faster convergence, and enhanced reconstruction quality, particularly in complex regions with repetitive or ambiguous structures. 3.5 Dynamic Inter-Pixel Interaction Modeling​ The proposed PIF-Net is formulated as a dynamic system operating over a pixel state space, where each pixel evolves through interaction-driven updates until convergence.",
+          "label": "human",
+          "confidence": 0.5652,
+          "probabilities": {
+            "human": 0.364,
+            "ai_generated": 0.5652,
+            "ai_paraphrased": 0.0708
+          }
+        },
+        {
+          "text": "Let the input image be represented as a discrete grid , where each pixel 𝑋ϵ𝑅 𝐻×𝑊 𝑥𝑖ϵ𝑅 corresponds to a state in the spatial domain.",
+          "label": "ai_generated",
+          "confidence": 0.9506,
+          "probabilities": {
+            "human": 0.0244,
+            "ai_generated": 0.9506,
+            "ai_paraphrased": 0.0251
+          }
+        },
+        {
+          "text": "The complete image can be interpreted as a state vector: ​ ​ ​ ​ ​ ​ (14) 𝑥 𝑡= 𝑥1 𝑡, 𝑥2 𝑡,..., 𝑥𝑁 𝑡 ⎡⎢⎣ ⎤⎥⎦ 𝑇 In Eq.14, and denotes the iteration index.",
+          "label": "human",
+          "confidence": 0.9409,
+          "probabilities": {
+            "human": 0.9409,
+            "ai_generated": 0.015,
+            "ai_paraphrased": 0.0442
+          }
+        },
+        {
+          "text": "The evolution of pixel states 𝑁= 𝐻× 𝑊 𝑡 is governed by local interactions encoded through an interaction matrix , 𝑊 𝑡ϵ𝑅 𝑁×𝑁 where each element represents the directional influence of pixel on pixel .",
+          "label": "ai_generated",
+          "confidence": 0.9558,
+          "probabilities": {
+            "human": 0.0188,
+            "ai_generated": 0.9558,
+            "ai_paraphrased": 0.0254
+          }
+        },
+        {
+          "text": "The 𝑤𝑖𝑗 𝑡 𝑗 𝑖 update rule can be expressed in matrix form as in Eq.15: ​ ​ ​ ​ (15) 𝑥 𝑡+1 = 𝑥 𝑡+ 𝑊 𝑡𝑥 𝑡−𝐷𝑥 𝑡 ( )",
+          "label": "human",
+          "confidence": 0.9451,
+          "probabilities": {
+            "human": 0.9451,
+            "ai_generated": 0.0141,
+            "ai_paraphrased": 0.0408
+          }
+        }
+      ]
+    },
+    {
+      "page_num": 14,
+      "sentences": [
+        {
+          "text": "Where is a diagonal matrix ensuring normalization of interactions.",
+          "label": "ai_generated",
+          "confidence": 0.9591,
+          "probabilities": {
+            "human": 0.0121,
+            "ai_generated": 0.9591,
+            "ai_paraphrased": 0.0288
+          }
+        },
+        {
+          "text": "This formulation 𝐷 enables structured propagation of local information while preserving spatial dependencies, extending beyond traditional convolutional operations [3].",
+          "label": "ai_generated",
+          "confidence": 0.9596,
+          "probabilities": {
+            "human": 0.0121,
+            "ai_generated": 0.9596,
+            "ai_paraphrased": 0.0283
+          }
+        },
+        {
+          "text": "To ensure stability, the system is designed to converge to a fixed point where pixel updates become negligible.",
+          "label": "ai_generated",
+          "confidence": 0.9556,
+          "probabilities": {
+            "human": 0.0112,
+            "ai_generated": 0.9556,
+            "ai_paraphrased": 0.0332
+          }
+        },
+        {
+          "text": "The convergence condition is defined as in Eq.16: ​ ​ ​ ​ ​ ​ (16) 𝑥 𝑡+1 −𝑥 𝑡 | | | |2 < ϵ Where is a small threshold.",
+          "label": "human",
+          "confidence": 0.9433,
+          "probabilities": {
+            "human": 0.9433,
+            "ai_generated": 0.0141,
+            "ai_paraphrased": 0.0426
+          }
+        },
+        {
+          "text": "Additionally, the interaction matrix is constrained such ϵ that: ,​ ​ ​ ​ ​ (17) Σ𝑗ϵ𝑁𝑖( ) = 𝑤𝑖𝑗= 1 𝑤𝑖𝑗≥0 ensuring bounded updates and preventing divergence.",
+          "label": "human",
+          "confidence": 0.944,
+          "probabilities": {
+            "human": 0.944,
+            "ai_generated": 0.0164,
+            "ai_paraphrased": 0.0397
+          }
+        },
+        {
+          "text": "This guarantees that the iterative process behaves as a stable diffusion-like system, similar to classical iterative reconstruction frameworks [11], but enhanced with learnable directional interactions.",
+          "label": "ai_generated",
+          "confidence": 0.9557,
+          "probabilities": {
+            "human": 0.0108,
+            "ai_generated": 0.9557,
+            "ai_paraphrased": 0.0335
+          }
+        },
+        {
+          "text": "The combination of dynamic state evolution, structured interaction modeling, and convergence constraints enables PIF-Net to achieve consistent and high-fidelity reconstruction.",
+          "label": "ai_generated",
+          "confidence": 0.962,
+          "probabilities": {
+            "human": 0.0091,
+            "ai_generated": 0.962,
+            "ai_paraphrased": 0.0289
+          }
+        },
+        {
+          "text": "Algorithm for Iterative Pixel Interaction Field-Based Reconstruction Framework for Causal Inter-Pixel Dynamics (PIF-Net) Input:​ Input image 𝑋→ Maximum iterations 𝑇→ Convergence threshold ϵ → Update rate α → Learnable parameters θ → Initialize pixel states: ​ ​ ​ ​ 𝑥 0 ←𝑥 For to : 𝑡= 0 𝑇 ​ For each pixel in the image: 𝑖 ​ ​ Identify neighborhood 𝑁𝑖( ) ​ ​ Compute interaction weights: 𝑤𝑖𝑗= 𝑓θ 𝑥𝑖 𝑡, 𝑥𝑗 𝑡, 𝑑𝑖𝑗 ( ) ​ ​ Normalize weights: 𝑤𝑖𝑗← 𝑤𝑖𝑗 Σ𝑗𝑤𝑖𝑗 ​ ​ Compute interaction update:",
+          "label": "human",
+          "confidence": 0.9446,
+          "probabilities": {
+            "human": 0.9446,
+            "ai_generated": 0.0129,
+            "ai_paraphrased": 0.0425
+          }
+        }
+      ]
+    },
+    {
+      "page_num": 15,
+      "sentences": [
+        {
+          "text": "​ ∆𝑥𝑖←Σ𝑗𝑤𝑖𝑗𝑥𝑖 𝑡−𝑥𝑖 𝑡 ( ) ​ ​ Update pixel state: 𝑥𝑖 𝑡+1 ←𝑥𝑖 𝑡+ α · ∆𝑥𝑖 End for Check convergence: 𝑥 𝑡+1 −𝑥 𝑡 | | | |2 < ϵ If satisfied, terminate iteration End for Return reconstructed image: 𝑋 * ←𝑥 𝑡+1 Output:​ Reconstructed image 𝑋 * → The proposed algorithm describes an iterative reconstruction process in which each pixel is treated as a dynamic state and updated through localized interactions with its neighboring pixels.",
+          "label": "human",
+          "confidence": 0.9494,
+          "probabilities": {
+            "human": 0.9494,
+            "ai_generated": 0.0129,
+            "ai_paraphrased": 0.0376
+          }
+        },
+        {
+          "text": "At every iteration, directional interaction weights are computed using a learnable function, normalized, and used to estimate the influence of surrounding pixels on the current pixel state.",
+          "label": "ai_generated",
+          "confidence": 0.9587,
+          "probabilities": {
+            "human": 0.0097,
+            "ai_generated": 0.9587,
+            "ai_paraphrased": 0.0315
+          }
+        },
+        {
+          "text": "The pixel values are then refined using a controlled update rule, ensuring gradual enhancement of structural details while suppressing noise.",
+          "label": "ai_generated",
+          "confidence": 0.9547,
+          "probabilities": {
+            "human": 0.0109,
+            "ai_generated": 0.9547,
+            "ai_paraphrased": 0.0344
+          }
+        },
+        {
+          "text": "The process continues until a convergence condition is satisfied, resulting in a stable and high-fidelity reconstructed image.",
+          "label": "ai_generated",
+          "confidence": 0.9589,
+          "probabilities": {
+            "human": 0.0111,
+            "ai_generated": 0.9589,
+            "ai_paraphrased": 0.0299
+          }
+        }
+      ]
+    },
+    {
+      "page_num": 16,
+      "sentences": [
+        {
+          "text": "​ Figure 3: Flowchart of the Proposed Pixel Interaction Field Network (PIF-Net) Reconstruction Process Figure 3 illustrates the iterative reconstruction process of the proposed PIF-Net, starting from the input image and initializing pixel states.",
+          "label": "human",
+          "confidence": 0.9484,
+          "probabilities": {
+            "human": 0.9484,
+            "ai_generated": 0.0152,
+            "ai_paraphrased": 0.0364
+          }
+        },
+        {
+          "text": "Each pixel is updated based on interactions with its neighboring pixels, and the process is repeated through successive iterations.",
+          "label": "ai_generated",
+          "confidence": 0.9547,
+          "probabilities": {
+            "human": 0.0116,
+            "ai_generated": 0.9547,
+            "ai_paraphrased": 0.0337
+          }
+        },
+        {
+          "text": "The algorithm terminates when convergence is achieved, producing a refined and structurally consistent reconstructed image. 4.Experimental Setup​ 4.1 Dataset The proposed Pixel Interaction Field Network (PIF-Net) is evaluated using the BSD300 Dataset, which consists of 300 natural images with corresponding human-annotated boundary maps.",
+          "label": "human",
+          "confidence": 0.9253,
+          "probabilities": {
+            "human": 0.9253,
+            "ai_generated": 0.0314,
+            "ai_paraphrased": 0.0434
+          }
+        },
+        {
+          "text": "The dataset includes a wide range of real-world",
+          "label": "ai_generated",
+          "confidence": 0.9598,
+          "probabilities": {
+            "human": 0.012,
+            "ai_generated": 0.9598,
+            "ai_paraphrased": 0.0283
+          }
+        }
+      ]
+    },
+    {
+      "page_num": 17,
+      "sentences": [
+        {
+          "text": "scenes characterized by diverse textures, object structures, and varying illumination conditions, making it suitable for evaluating reconstruction and edge-aware performance.",
+          "label": "ai_generated",
+          "confidence": 0.9574,
+          "probabilities": {
+            "human": 0.0096,
+            "ai_generated": 0.9574,
+            "ai_paraphrased": 0.0329
+          }
+        },
+        {
+          "text": "For experimental consistency, the dataset is divided into 200 images for training and 100 images for testing.",
+          "label": "ai_generated",
+          "confidence": 0.9627,
+          "probabilities": {
+            "human": 0.01,
+            "ai_generated": 0.9627,
+            "ai_paraphrased": 0.0273
+          }
+        },
+        {
+          "text": "During training, images are preprocessed and normalized, and data augmentation techniques such as flipping and rotation are applied to improve model robustness.",
+          "label": "ai_generated",
+          "confidence": 0.9583,
+          "probabilities": {
+            "human": 0.0108,
+            "ai_generated": 0.9583,
+            "ai_paraphrased": 0.0309
+          }
+        },
+        {
+          "text": "The network is trained using the Adam optimizer with a learning rate of 0.001 for 100 epochs, and convergence is monitored based on reconstruction loss.",
+          "label": "ai_generated",
+          "confidence": 0.9585,
+          "probabilities": {
+            "human": 0.0101,
+            "ai_generated": 0.9585,
+            "ai_paraphrased": 0.0314
+          }
+        },
+        {
+          "text": "Performance is quantitatively evaluated using Peak Signal-to-Noise Ratio (PSNR), Structural Similarity Index (SSIM), and boundary-based metrics to assess both reconstruction fidelity and edge preservation capability.",
+          "label": "ai_generated",
+          "confidence": 0.964,
+          "probabilities": {
+            "human": 0.0085,
+            "ai_generated": 0.964,
+            "ai_paraphrased": 0.0274
+          }
+        },
+        {
+          "text": "The BSD300 dataset is selected due to its strong representation of natural image statistics and the availability of high-quality ground truth boundary annotations.",
+          "label": "ai_generated",
+          "confidence": 0.9617,
+          "probabilities": {
+            "human": 0.0095,
+            "ai_generated": 0.9617,
+            "ai_paraphrased": 0.0289
+          }
+        },
+        {
+          "text": "Unlike synthetic or domain-specific datasets, BSD300 provides complex structural variations that are essential for validating the effectiveness of inter-pixel interaction modeling.",
+          "label": "ai_generated",
+          "confidence": 0.9617,
+          "probabilities": {
+            "human": 0.0069,
+            "ai_generated": 0.9617,
+            "ai_paraphrased": 0.0314
+          }
+        },
+        {
+          "text": "The presence of annotated boundaries enables precise evaluation of edge preservation, which is a critical aspect of the proposed PIF-Net framework.",
+          "label": "ai_generated",
+          "confidence": 0.9516,
+          "probabilities": {
+            "human": 0.0066,
+            "ai_generated": 0.9516,
+            "ai_paraphrased": 0.0418
+          }
+        },
+        {
+          "text": "Furthermore, the dataset has been widely adopted in image reconstruction and segmentation research, ensuring fair comparison with existing methods.",
+          "label": "ai_generated",
+          "confidence": 0.9585,
+          "probabilities": {
+            "human": 0.0094,
+            "ai_generated": 0.9585,
+            "ai_paraphrased": 0.0321
+          }
+        },
+        {
+          "text": "This makes BSD300 an appropriate and reliable benchmark for assessing the capability of the proposed model in capturing fine details, maintaining structural consistency, and reducing noise artifacts in reconstructed images. 4.2 Data Preprocessing​ Prior to training, all images from the BSD300 Dataset are standardized to ensure consistency in scale, intensity distribution, and spatial resolution.",
+          "label": "human",
+          "confidence": 0.9317,
+          "probabilities": {
+            "human": 0.9317,
+            "ai_generated": 0.0229,
+            "ai_paraphrased": 0.0454
+          }
+        },
+        {
+          "text": "Each input image is first resized to a fixed dimension and normalized to a bounded intensity 𝑋ϵ𝑅 𝐻×𝑊 range to stabilize training.",
+          "label": "ai_generated",
+          "confidence": 0.9524,
+          "probabilities": {
+            "human": 0.0227,
+            "ai_generated": 0.9524,
+            "ai_paraphrased": 0.0249
+          }
+        },
+        {
+          "text": "The normalization process is defined as in Eq.18: ​ ​ ​ ​ ​ (18) 𝑋𝑛𝑜𝑟𝑚= 𝑋−µ σ Where and denote the mean and standard deviation of pixel intensities computed µ σ over the training set.",
+          "label": "human",
+          "confidence": 0.9398,
+          "probabilities": {
+            "human": 0.9398,
+            "ai_generated": 0.0163,
+            "ai_paraphrased": 0.0439
+          }
+        },
+        {
+          "text": "This transformation ensures that the input distribution is centered and scaled, improving convergence during optimization.",
+          "label": "ai_generated",
+          "confidence": 0.9614,
+          "probabilities": {
+            "human": 0.0095,
+            "ai_generated": 0.9614,
+            "ai_paraphrased": 0.0291
+          }
+        },
+        {
+          "text": "In addition, image patches are extracted to facilitate efficient training and to enable the model to learn localized inter-pixel interactions.",
+          "label": "ai_generated",
+          "confidence": 0.9559,
+          "probabilities": {
+            "human": 0.0115,
+            "ai_generated": 0.9559,
+            "ai_paraphrased": 0.0326
+          }
+        },
+        {
+          "text": "Let denote the patch extracted from the image: 𝑃𝑘 𝑘 𝑡ℎ ​ ​ ​ ​ (19) 𝑃𝑘= 𝑋𝑛𝑜𝑟𝑚𝑖: 𝑖+ 𝑝, 𝑗: 𝑗+ 𝑝 ( )",
+          "label": "human",
+          "confidence": 0.9466,
+          "probabilities": {
+            "human": 0.9466,
+            "ai_generated": 0.0134,
+            "ai_paraphrased": 0.04
+          }
+        }
+      ]
+    },
+    {
+      "page_num": 18,
+      "sentences": [
+        {
+          "text": "In Eq.19, is the patch size.",
+          "label": "ai_generated",
+          "confidence": 0.9516,
+          "probabilities": {
+            "human": 0.0115,
+            "ai_generated": 0.9516,
+            "ai_paraphrased": 0.037
+          }
+        },
+        {
+          "text": "Patch-based processing allows the network to focus on 𝑝 fine-grained local structures, which is essential for accurately modeling pixel interactions and preserving edge information.",
+          "label": "ai_generated",
+          "confidence": 0.9595,
+          "probabilities": {
+            "human": 0.0102,
+            "ai_generated": 0.9595,
+            "ai_paraphrased": 0.0303
+          }
+        },
+        {
+          "text": "To further enhance generalization and robustness, data augmentation techniques are applied to the extracted patches.",
+          "label": "ai_generated",
+          "confidence": 0.9529,
+          "probabilities": {
+            "human": 0.0118,
+            "ai_generated": 0.9529,
+            "ai_paraphrased": 0.0352
+          }
+        },
+        {
+          "text": "These include geometric transformations such as horizontal flipping, vertical flipping, and rotation, which can be represented as transformation operators : τ ​ ​ ​ ​ ​ ​ (20) 𝑃𝑘= τ 𝑃𝑘 ( ) Additionally, controlled noise perturbations are introduced to simulate real-world degradation and improve the model’s denoising capability: ,​ ​ ​ ​ ​ (21) 𝑃𝑘= 𝑃𝑘+ η η ∼𝑁0, σ𝑛 2 ( ) Where represents additive Gaussian noise with variance .",
+          "label": "human",
+          "confidence": 0.9427,
+          "probabilities": {
+            "human": 0.9427,
+            "ai_generated": 0.0154,
+            "ai_paraphrased": 0.0419
+          }
+        },
+        {
+          "text": "This step ensures that η σ𝑛 2 the model learns to recover clean pixel states from noisy observations.",
+          "label": "ai_generated",
+          "confidence": 0.9536,
+          "probabilities": {
+            "human": 0.0152,
+            "ai_generated": 0.9536,
+            "ai_paraphrased": 0.0312
+          }
+        },
+        {
+          "text": "By combining normalization, patch extraction, and augmentation, the preprocessing pipeline prepares the data in a form that aligns with the iterative interaction-based learning mechanism of PIF-Net, ultimately improving reconstruction accuracy and structural consistency. 4.3 Experimental Setup​ The proposed PIF-Net is trained for 100 epochs using the Adam optimizer with an initial learning rate of 0.001, which is gradually reduced using a step decay schedule to ensure stable convergence.",
+          "label": "human",
+          "confidence": 0.6117,
+          "probabilities": {
+            "human": 0.6117,
+            "ai_generated": 0.3054,
+            "ai_paraphrased": 0.083
+          }
+        },
+        {
+          "text": "A batch size of 16 is employed to balance computational efficiency and memory constraints, and the model parameters are initialized using standard Xavier initialization to facilitate effective training.",
+          "label": "ai_generated",
+          "confidence": 0.9565,
+          "probabilities": {
+            "human": 0.0108,
+            "ai_generated": 0.9565,
+            "ai_paraphrased": 0.0328
+          }
+        },
+        {
+          "text": "All experiments are implemented in Python using the PyTorch deep learning framework, enabling flexible model design and efficient GPU acceleration.",
+          "label": "ai_generated",
+          "confidence": 0.9606,
+          "probabilities": {
+            "human": 0.0074,
+            "ai_generated": 0.9606,
+            "ai_paraphrased": 0.032
+          }
+        },
+        {
+          "text": "The training is conducted on a system equipped with an NVIDIA GPU (such as RTX 3060/3080), 16 GB RAM, and an Intel i7 processor, ensuring sufficient computational resources for iterative pixel interaction modeling and large-scale image processing. 5.Results and Discussion",
+          "label": "human",
+          "confidence": 0.5521,
+          "probabilities": {
+            "human": 0.3783,
+            "ai_generated": 0.5521,
+            "ai_paraphrased": 0.0696
+          }
+        }
+      ]
+    },
+    {
+      "page_num": 19,
+      "sentences": [
+        {
+          "text": "Table 2: Comparison of Image Reconstruction Performance Across Different Methods Method Model Type PSNR (dB) SSI M Edge Accuracy (%) Convolutional Neural Network (CNN) Deep Learning 28.6 0.84 2 78.3 Multi-scale Residual CNN Deep Learning 29.8 0.86 1 81.5 Deep Cascade CNN (DC-CNN) Deep Learning 30.1 0.86 8 82.4 Transformer-based Reconstruction Transformer 30.5 0.87 4 83.2 CNN + Transformer Hybrid Model Hybrid 31.0 0.88 2 84.7 Diffusion-based Reconstruction Model Generative Model 31.3 0.88 9 85.5 Compressed Sensing + TV Model Optimization-base d 29.2 0.85 6 80.4 Iterative Reconstruction (OS-SART-TV) Iterative Method 28.9 0.84 8 79.6 Deep Learning Reconstruction (DLR) Deep Learning 30.8 0.87 9 83.9 Proposed PIF-Net Causal Interaction Model 34.1 0.92 1 91.6 This table 2 presents a comparative evaluation of the proposed PIF-Net against various existing reconstruction techniques using PSNR, SSIM, and edge accuracy metrics.",
+          "label": "human",
+          "confidence": 0.9489,
+          "probabilities": {
+            "human": 0.9489,
+            "ai_generated": 0.0143,
+            "ai_paraphrased": 0.0368
+          }
+        },
+        {
+          "text": "Conventional methods achieve PSNR values in the range of 28.6–31.3 dB, SSIM between 0.842–0.889, and edge accuracy up to 85.5%.",
+          "label": "ai_generated",
+          "confidence": 0.9563,
+          "probabilities": {
+            "human": 0.0185,
+            "ai_generated": 0.9563,
+            "ai_paraphrased": 0.0251
+          }
+        },
+        {
+          "text": "In contrast, the proposed PIF-Net attains a PSNR of 34.1 dB, SSIM of 0.921, and edge accuracy of 91.6%, demonstrating significant improvement in reconstruction fidelity and structural preservation.",
+          "label": "ai_generated",
+          "confidence": 0.9613,
+          "probabilities": {
+            "human": 0.0094,
+            "ai_generated": 0.9613,
+            "ai_paraphrased": 0.0293
+          }
+        },
+        {
+          "text": "These results confirm the effectiveness of the proposed causal inter-pixel interaction modeling in enhancing image quality beyond existing approaches.",
+          "label": "ai_generated",
+          "confidence": 0.9627,
+          "probabilities": {
+            "human": 0.0084,
+            "ai_generated": 0.9627,
+            "ai_paraphrased": 0.0288
+          }
+        }
+      ]
+    },
+    {
+      "page_num": 20,
+      "sentences": [
+        {
+          "text": "​ Figure 5: PSNR Comparison of Proposed PIF-Net with Existing Reconstruction Methods Figure 5 compares the PSNR performance of the proposed PIF-Net with various existing reconstruction methods.",
+          "label": "human",
+          "confidence": 0.9484,
+          "probabilities": {
+            "human": 0.9484,
+            "ai_generated": 0.0146,
+            "ai_paraphrased": 0.037
+          }
+        },
+        {
+          "text": "It is observed that PIF-Net achieves the highest PSNR value of 34.1 dB, significantly outperforming other techniques.",
+          "label": "ai_generated",
+          "confidence": 0.9607,
+          "probabilities": {
+            "human": 0.0075,
+            "ai_generated": 0.9607,
+            "ai_paraphrased": 0.0318
+          }
+        },
+        {
+          "text": "Conventional methods show PSNR values below 31.5 dB, indicating lower reconstruction fidelity.",
+          "label": "ai_generated",
+          "confidence": 0.954,
+          "probabilities": {
+            "human": 0.0086,
+            "ai_generated": 0.954,
+            "ai_paraphrased": 0.0373
+          }
+        },
+        {
+          "text": "The results highlight the effectiveness of causal inter-pixel interaction modeling in improving image quality. ​ Figure 6: Convergence Analysis of the Proposed Pixel Interaction Field Network (PIF-Net) Compared with Advanced Image Reconstruction Methods",
+          "label": "human",
+          "confidence": 0.9474,
+          "probabilities": {
+            "human": 0.9474,
+            "ai_generated": 0.0167,
+            "ai_paraphrased": 0.0359
+          }
+        }
+      ]
+    },
+    {
+      "page_num": 21,
+      "sentences": [
+        {
+          "text": "The figure 6 illustrates the convergence behavior of the proposed PIF-Net compared to existing reconstruction methods across training epochs.",
+          "label": "ai_generated",
+          "confidence": 0.9641,
+          "probabilities": {
+            "human": 0.0075,
+            "ai_generated": 0.9641,
+            "ai_paraphrased": 0.0284
+          }
+        },
+        {
+          "text": "It is observed that PIF-Net converges more rapidly and achieves the lowest reconstruction loss of approximately 0.03, while other methods stabilize at higher loss values ranging between 0.05 and 0.13.",
+          "label": "ai_generated",
+          "confidence": 0.9571,
+          "probabilities": {
+            "human": 0.0124,
+            "ai_generated": 0.9571,
+            "ai_paraphrased": 0.0305
+          }
+        },
+        {
+          "text": "Conventional models such as CNN and iterative methods exhibit slower convergence and higher residual errors, indicating less efficient optimization.",
+          "label": "ai_generated",
+          "confidence": 0.9596,
+          "probabilities": {
+            "human": 0.0074,
+            "ai_generated": 0.9596,
+            "ai_paraphrased": 0.033
+          }
+        },
+        {
+          "text": "These results demonstrate that the proposed causal interaction and iterative stabilization mechanism enables faster convergence and more accurate reconstruction performance.",
+          "label": "ai_generated",
+          "confidence": 0.957,
+          "probabilities": {
+            "human": 0.011,
+            "ai_generated": 0.957,
+            "ai_paraphrased": 0.032
+          }
+        },
+        {
+          "text": "References [1] Zhao, H., Liu, Z., Tang, J., Gao, B., Qin, Q., Li, J., ... & Wu, H. (2023).",
+          "label": "human",
+          "confidence": 0.952,
+          "probabilities": {
+            "human": 0.952,
+            "ai_generated": 0.0147,
+            "ai_paraphrased": 0.0334
+          }
+        },
+        {
+          "text": "Energy-efficient high-fidelity image reconstruction with memristor arrays for medical diagnosis.",
+          "label": "ai_generated",
+          "confidence": 0.9581,
+          "probabilities": {
+            "human": 0.0164,
+            "ai_generated": 0.9581,
+            "ai_paraphrased": 0.0255
+          }
+        },
+        {
+          "text": "Nature Communications, 14(1), 2276.​ [2] Pisuchpen, N., Srinivas Rao, S., Noda, Y., Kongboonvijit, S., Rezaei, A., & Kambadakone, A. (2026).",
+          "label": "human",
+          "confidence": 0.9504,
+          "probabilities": {
+            "human": 0.9504,
+            "ai_generated": 0.0137,
+            "ai_paraphrased": 0.036
+          }
+        },
+        {
+          "text": "Artificial intelligence (AI) and CT in abdominal imaging: image reconstruction and beyond.",
+          "label": "ai_generated",
+          "confidence": 0.9602,
+          "probabilities": {
+            "human": 0.0121,
+            "ai_generated": 0.9602,
+            "ai_paraphrased": 0.0277
+          }
+        },
+        {
+          "text": "Abdominal Radiology, 51(1), 424-445.​ [3] Bizhani, M., Ardakani, O.",
+          "label": "human",
+          "confidence": 0.9468,
+          "probabilities": {
+            "human": 0.9468,
+            "ai_generated": 0.0146,
+            "ai_paraphrased": 0.0387
+          }
+        },
+        {
+          "text": "H., & Little, E. (2022).",
+          "label": "human",
+          "confidence": 0.9322,
+          "probabilities": {
+            "human": 0.9322,
+            "ai_generated": 0.0194,
+            "ai_paraphrased": 0.0484
+          }
+        },
+        {
+          "text": "Reconstructing high fidelity digital rock images using deep convolutional neural networks.",
+          "label": "ai_generated",
+          "confidence": 0.9579,
+          "probabilities": {
+            "human": 0.012,
+            "ai_generated": 0.9579,
+            "ai_paraphrased": 0.0301
+          }
+        },
+        {
+          "text": "Scientific reports, 12(1), 4264.​ [4] Wang, Z., Zhao, T., Cai, Y., Zhang, J., Hao, H., Liang, Y., ... & Lei, M. (2023).",
+          "label": "human",
+          "confidence": 0.9508,
+          "probabilities": {
+            "human": 0.9508,
+            "ai_generated": 0.0136,
+            "ai_paraphrased": 0.0357
+          }
+        },
+        {
+          "text": "Rapid, artifact-reduced, image reconstruction for super-resolution structured illumination microscopy.",
+          "label": "ai_generated",
+          "confidence": 0.9513,
+          "probabilities": {
+            "human": 0.021,
+            "ai_generated": 0.9513,
+            "ai_paraphrased": 0.0277
+          }
+        },
+        {
+          "text": "The Innovation, 4(3).​ [5] Gaziv, G., Beliy, R., Granot, N., Hoogi, A., Strappini, F., Golan, T., & Irani, M. (2022).",
+          "label": "human",
+          "confidence": 0.9506,
+          "probabilities": {
+            "human": 0.9506,
+            "ai_generated": 0.013,
+            "ai_paraphrased": 0.0364
+          }
+        },
+        {
+          "text": "Self-supervised natural image reconstruction and large-scale semantic classification from brain activity.",
+          "label": "ai_generated",
+          "confidence": 0.9569,
+          "probabilities": {
+            "human": 0.0143,
+            "ai_generated": 0.9569,
+            "ai_paraphrased": 0.0288
+          }
+        },
+        {
+          "text": "NeuroImage, 254, 119121.​ [6] Pain, C. D., Egan, G.",
+          "label": "human",
+          "confidence": 0.9476,
+          "probabilities": {
+            "human": 0.9476,
+            "ai_generated": 0.0142,
+            "ai_paraphrased": 0.0381
+          }
+        },
+        {
+          "text": "F., & Chen, Z. (2022).",
+          "label": "human",
+          "confidence": 0.9327,
+          "probabilities": {
+            "human": 0.9327,
+            "ai_generated": 0.023,
+            "ai_paraphrased": 0.0443
+          }
+        },
+        {
+          "text": "Deep learning-based image reconstruction and post-processing methods in positron emission tomography for low-dose imaging and resolution enhancement.",
+          "label": "ai_generated",
+          "confidence": 0.9562,
+          "probabilities": {
+            "human": 0.0163,
+            "ai_generated": 0.9562,
+            "ai_paraphrased": 0.0274
+          }
+        },
+        {
+          "text": "European Journal of Nuclear Medicine and Molecular Imaging, 49(9), 3098-3118.​ [7] Cao, A., & Shen, G. (2024).",
+          "label": "human",
+          "confidence": 0.9491,
+          "probabilities": {
+            "human": 0.9491,
+            "ai_generated": 0.0151,
+            "ai_paraphrased": 0.0359
+          }
+        },
+        {
+          "text": "Diff-STAR: Exploring student-teacher adaptive reconstruction through diffusion-based generation for image harmonization.",
+          "label": "ai_generated",
+          "confidence": 0.9296,
+          "probabilities": {
+            "human": 0.0402,
+            "ai_generated": 0.9296,
+            "ai_paraphrased": 0.0303
+          }
+        },
+        {
+          "text": "Image and Vision Computing, 151, 105254. [8] Huang, J., Wang, S., Zhou, G., Hu, W., & Yu, G. (2022).",
+          "label": "human",
+          "confidence": 0.9278,
+          "probabilities": {
+            "human": 0.9278,
+            "ai_generated": 0.0331,
+            "ai_paraphrased": 0.0392
+          }
+        },
+        {
+          "text": "Evaluation on the generalization of a learned convolutional neural network for MRI reconstruction.",
+          "label": "ai_generated",
+          "confidence": 0.9479,
+          "probabilities": {
+            "human": 0.0243,
+            "ai_generated": 0.9479,
+            "ai_paraphrased": 0.0278
+          }
+        },
+        {
+          "text": "Magnetic resonance imaging, 87, 38-46.​ [9] Du, Y. B., Sun, H.",
+          "label": "human",
+          "confidence": 0.9447,
+          "probabilities": {
+            "human": 0.9447,
+            "ai_generated": 0.0156,
+            "ai_paraphrased": 0.0397
+          }
+        },
+        {
+          "text": "M., Zhang, B., Cui, Z., & Jia, R. S. (2023).",
+          "label": "human",
+          "confidence": 0.9251,
+          "probabilities": {
+            "human": 0.9251,
+            "ai_generated": 0.0316,
+            "ai_paraphrased": 0.0433
+          }
+        },
+        {
+          "text": "A multi-scale mixed convolutional network for infrared image super-resolution reconstruction.",
+          "label": "ai_generated",
+          "confidence": 0.9509,
+          "probabilities": {
+            "human": 0.0223,
+            "ai_generated": 0.9509,
+            "ai_paraphrased": 0.0269
+          }
+        },
+        {
+          "text": "Multimedia Tools and Applications, 82(27), 41895-41911.​ [10] Shen, M., Gan, H., Ning, C., Hua, Y., & Zhang, T. (2022).",
+          "label": "human",
+          "confidence": 0.9489,
+          "probabilities": {
+            "human": 0.9489,
+            "ai_generated": 0.0149,
+            "ai_paraphrased": 0.0362
+          }
+        },
+        {
+          "text": "TransCS: A transformer-based hybrid architecture for image compressed sensing. IEEE",
+          "label": "ai_generated",
+          "confidence": 0.8789,
+          "probabilities": {
+            "human": 0.0855,
+            "ai_generated": 0.8789,
+            "ai_paraphrased": 0.0357
+          }
+        }
+      ]
+    },
+    {
+      "page_num": 22,
+      "sentences": [
+        {
+          "text": "Transactions on Image Processing, 31, 6991-7005.​ [11] Liu, Y., Zhu, T.",
+          "label": "human",
+          "confidence": 0.9503,
+          "probabilities": {
+            "human": 0.9503,
+            "ai_generated": 0.0136,
+            "ai_paraphrased": 0.0362
+          }
+        },
+        {
+          "text": "F., Luo, Z., & Ouyang, X. P. (2023).",
+          "label": "human",
+          "confidence": 0.9107,
+          "probabilities": {
+            "human": 0.9107,
+            "ai_generated": 0.0356,
+            "ai_paraphrased": 0.0538
+          }
+        },
+        {
+          "text": "First-order primal–dual algorithm for sparse-view neutron computed tomography-based three-dimensional image reconstruction.",
+          "label": "ai_generated",
+          "confidence": 0.9538,
+          "probabilities": {
+            "human": 0.0184,
+            "ai_generated": 0.9538,
+            "ai_paraphrased": 0.0278
+          }
+        },
+        {
+          "text": "Nuclear Science and Techniques, 34(8), 118.​ [12] Noda, Y., Takai, Y., Asano, M., Yamada, N., Seko, T., Kawai, N., ... & Matsuo, M. (2023).",
+          "label": "human",
+          "confidence": 0.9508,
+          "probabilities": {
+            "human": 0.9508,
+            "ai_generated": 0.0141,
+            "ai_paraphrased": 0.0351
+          }
+        },
+        {
+          "text": "Comparison of image quality and pancreatic ductal adenocarcinoma conspicuity between the low-kVp and dual-energy CT reconstructed with deep-learning image reconstruction algorithm.",
+          "label": "ai_generated",
+          "confidence": 0.9598,
+          "probabilities": {
+            "human": 0.0124,
+            "ai_generated": 0.9598,
+            "ai_paraphrased": 0.0278
+          }
+        },
+        {
+          "text": "European Journal of Radiology, 159, 110685.​ [13] Ren, J., Zhao, J., Wang, Y., Xu, M., Liu, X. Y., Jin, Z. Y., ... & Xue, H. D. (2023).",
+          "label": "human",
+          "confidence": 0.9499,
+          "probabilities": {
+            "human": 0.9499,
+            "ai_generated": 0.0146,
+            "ai_paraphrased": 0.0355
+          }
+        },
+        {
+          "text": "Value of deep-learning image reconstruction at submillisievert CT for evaluation of the female pelvis.",
+          "label": "ai_generated",
+          "confidence": 0.9556,
+          "probabilities": {
+            "human": 0.0153,
+            "ai_generated": 0.9556,
+            "ai_paraphrased": 0.029
+          }
+        },
+        {
+          "text": "Clinical Radiology, 78(11), e881-e888.​ [14] Nau, M. A., Vĳa, A. H., Reymann, M.",
+          "label": "human",
+          "confidence": 0.9481,
+          "probabilities": {
+            "human": 0.9481,
+            "ai_generated": 0.0164,
+            "ai_paraphrased": 0.0355
+          }
+        },
+        {
+          "text": "P., Gohn, W., & Maier, A.",
+          "label": "human",
+          "confidence": 0.9024,
+          "probabilities": {
+            "human": 0.9024,
+            "ai_generated": 0.0462,
+            "ai_paraphrased": 0.0514
+          }
+        },
+        {
+          "text": "K. (2024, February).",
+          "label": "human",
+          "confidence": 0.9224,
+          "probabilities": {
+            "human": 0.9224,
+            "ai_generated": 0.0275,
+            "ai_paraphrased": 0.0501
+          }
+        },
+        {
+          "text": "Improving hybrid quantum annealing tomographic image reconstruction with regularization strategies.",
+          "label": "ai_generated",
+          "confidence": 0.955,
+          "probabilities": {
+            "human": 0.0219,
+            "ai_generated": 0.955,
+            "ai_paraphrased": 0.0231
+          }
+        },
+        {
+          "text": "In BVM Workshop (pp. 3-8).",
+          "label": "human",
+          "confidence": 0.5156,
+          "probabilities": {
+            "human": 0.4395,
+            "ai_generated": 0.5156,
+            "ai_paraphrased": 0.045
+          }
+        },
+        {
+          "text": "Wiesbaden: Springer Fachmedien Wiesbaden.​ [15] Diwakar, M., Singh, P., Swarup, C., Bajal, E., Jindal, M., Ravi, V., ... & Singh, T. (2022).",
+          "label": "human",
+          "confidence": 0.9499,
+          "probabilities": {
+            "human": 0.9499,
+            "ai_generated": 0.0154,
+            "ai_paraphrased": 0.0346
+          }
+        },
+        {
+          "text": "Noise suppression and edge preservation for low-dose COVID-19 CT images using NLM and method noise thresholding in shearlet domain.",
+          "label": "ai_generated",
+          "confidence": 0.9547,
+          "probabilities": {
+            "human": 0.0161,
+            "ai_generated": 0.9547,
+            "ai_paraphrased": 0.0292
+          }
+        },
+        {
+          "text": "Diagnostics, 12(11), 2766.​ [16] Mahdaoui, A.",
+          "label": "human",
+          "confidence": 0.9471,
+          "probabilities": {
+            "human": 0.9471,
+            "ai_generated": 0.015,
+            "ai_paraphrased": 0.0379
+          }
+        },
+        {
+          "text": "E., Ouahabi, A., & Moulay, M. S. (2022).",
+          "label": "human",
+          "confidence": 0.9062,
+          "probabilities": {
+            "human": 0.9062,
+            "ai_generated": 0.0399,
+            "ai_paraphrased": 0.0538
+          }
+        },
+        {
+          "text": "Image denoising using a compressive sensing approach based on regularization constraints.",
+          "label": "ai_generated",
+          "confidence": 0.9522,
+          "probabilities": {
+            "human": 0.0193,
+            "ai_generated": 0.9522,
+            "ai_paraphrased": 0.0285
+          }
+        },
+        {
+          "text": "Sensors, 22(6), 2199.​ [17] Vimala, B.",
+          "label": "human",
+          "confidence": 0.949,
+          "probabilities": {
+            "human": 0.949,
+            "ai_generated": 0.0138,
+            "ai_paraphrased": 0.0372
+          }
+        },
+        {
+          "text": "B., Srinivasan, S., Mathivanan, S.",
+          "label": "human",
+          "confidence": 0.9418,
+          "probabilities": {
+            "human": 0.9418,
+            "ai_generated": 0.02,
+            "ai_paraphrased": 0.0382
+          }
+        },
+        {
+          "text": "K., Muthukumaran, V., Babu, J.",
+          "label": "human",
+          "confidence": 0.8246,
+          "probabilities": {
+            "human": 0.8246,
+            "ai_generated": 0.0844,
+            "ai_paraphrased": 0.091
+          }
+        },
+        {
+          "text": "C., Herencsar, N., & Vilcekova, L. (2023).",
+          "label": "human",
+          "confidence": 0.9169,
+          "probabilities": {
+            "human": 0.9169,
+            "ai_generated": 0.0342,
+            "ai_paraphrased": 0.0489
+          }
+        },
+        {
+          "text": "Image noise removal in ultrasound breast images based on hybrid deep learning technique.",
+          "label": "ai_generated",
+          "confidence": 0.9546,
+          "probabilities": {
+            "human": 0.0137,
+            "ai_generated": 0.9546,
+            "ai_paraphrased": 0.0317
+          }
+        },
+        {
+          "text": "Sensors, 23(3), 1167.​ [18] Ehtisham, R., Qayyum, W., Camp, C.",
+          "label": "human",
+          "confidence": 0.9494,
+          "probabilities": {
+            "human": 0.9494,
+            "ai_generated": 0.0138,
+            "ai_paraphrased": 0.0368
+          }
+        },
+        {
+          "text": "V., Plevris, V., Mir, J., Khan, Q. U.",
+          "label": "human",
+          "confidence": 0.951,
+          "probabilities": {
+            "human": 0.951,
+            "ai_generated": 0.0141,
+            "ai_paraphrased": 0.0349
+          }
+        },
+        {
+          "text": "Z., & Ahmad, A. (2024).",
+          "label": "human",
+          "confidence": 0.9425,
+          "probabilities": {
+            "human": 0.9425,
+            "ai_generated": 0.0163,
+            "ai_paraphrased": 0.0413
+          }
+        },
+        {
+          "text": "Computing the characteristics of defects in wooden structures using image processing and CNN.",
+          "label": "ai_generated",
+          "confidence": 0.9582,
+          "probabilities": {
+            "human": 0.0111,
+            "ai_generated": 0.9582,
+            "ai_paraphrased": 0.0307
+          }
+        },
+        {
+          "text": "Automation in Construction, 158, 105211.​ [19] Diwakar, M., Singh, P., & Garg, D. (2024).",
+          "label": "human",
+          "confidence": 0.9493,
+          "probabilities": {
+            "human": 0.9493,
+            "ai_generated": 0.0144,
+            "ai_paraphrased": 0.0364
+          }
+        },
+        {
+          "text": "Edge-guided filtering based CT image denoising using fractional order total variation.",
+          "label": "ai_generated",
+          "confidence": 0.9548,
+          "probabilities": {
+            "human": 0.0174,
+            "ai_generated": 0.9548,
+            "ai_paraphrased": 0.0278
+          }
+        },
+        {
+          "text": "Biomedical Signal Processing and Control, 92, 106072. [20] Ahmed, M.",
+          "label": "human",
+          "confidence": 0.9412,
+          "probabilities": {
+            "human": 0.9412,
+            "ai_generated": 0.0219,
+            "ai_paraphrased": 0.0369
+          }
+        },
+        {
+          "text": "T., Monjur, O., Khaliduzzaman, A., & Kamruzzaman, M. (2025).",
+          "label": "human",
+          "confidence": 0.9205,
+          "probabilities": {
+            "human": 0.9205,
+            "ai_generated": 0.0304,
+            "ai_paraphrased": 0.0491
+          }
+        },
+        {
+          "text": "A comprehensive review of deep learning-based hyperspectral image reconstruction for agri-food quality appraisal.",
+          "label": "ai_generated",
+          "confidence": 0.9553,
+          "probabilities": {
+            "human": 0.0141,
+            "ai_generated": 0.9553,
+            "ai_paraphrased": 0.0307
+          }
+        },
+        {
+          "text": "Artificial Intelligence Review, 58(4), 96.​ [21] Shen, L., Pauly, J., & Xing, L. (2022).",
+          "label": "human",
+          "confidence": 0.9489,
+          "probabilities": {
+            "human": 0.9489,
+            "ai_generated": 0.0137,
+            "ai_paraphrased": 0.0374
+          }
+        },
+        {
+          "text": "NeRP: implicit neural representation learning with prior embedding for sparsely sampled image reconstruction.",
+          "label": "ai_generated",
+          "confidence": 0.9593,
+          "probabilities": {
+            "human": 0.0143,
+            "ai_generated": 0.9593,
+            "ai_paraphrased": 0.0264
+          }
+        },
+        {
+          "text": "IEEE transactions on neural networks and learning systems, 35(1), 770-782.​ [22] Cai, Y., Lin, J., Hu, X., Wang, H., Yuan, X., Zhang, Y., ... & Van Gool, L. (2022, October).",
+          "label": "human",
+          "confidence": 0.9504,
+          "probabilities": {
+            "human": 0.9504,
+            "ai_generated": 0.0144,
+            "ai_paraphrased": 0.0352
+          }
+        },
+        {
+          "text": "Coarse-to-fine sparse transformer for hyperspectral image reconstruction. In",
+          "label": "ai_generated",
+          "confidence": 0.8807,
+          "probabilities": {
+            "human": 0.0932,
+            "ai_generated": 0.8807,
+            "ai_paraphrased": 0.0261
+          }
+        }
+      ]
+    },
+    {
+      "page_num": 23,
+      "sentences": [
+        {
+          "text": "European conference on computer vision (pp. 686-704).",
+          "label": "ai_generated",
+          "confidence": 0.9474,
+          "probabilities": {
+            "human": 0.0258,
+            "ai_generated": 0.9474,
+            "ai_paraphrased": 0.0267
+          }
+        },
+        {
+          "text": "Cham: Springer Nature Switzerland.​ [23] Qiu, D., Cheng, Y., & Wang, X. (2023).",
+          "label": "human",
+          "confidence": 0.9494,
+          "probabilities": {
+            "human": 0.9494,
+            "ai_generated": 0.0141,
+            "ai_paraphrased": 0.0366
+          }
+        },
+        {
+          "text": "Medical image super-resolution reconstruction algorithms based on deep learning: A survey.",
+          "label": "ai_generated",
+          "confidence": 0.9486,
+          "probabilities": {
+            "human": 0.0239,
+            "ai_generated": 0.9486,
+            "ai_paraphrased": 0.0275
+          }
+        },
+        {
+          "text": "Computer Methods and Programs in Biomedicine, 238, 107590.​ [24] Maken, P., & Gupta, A. (2023). 2D-to-3D: a review for computational 3D image reconstruction from X-ray images.",
+          "label": "human",
+          "confidence": 0.9488,
+          "probabilities": {
+            "human": 0.9488,
+            "ai_generated": 0.016,
+            "ai_paraphrased": 0.0352
+          }
+        },
+        {
+          "text": "Archives of Computational Methods in Engineering, 30(1), 85-114.​ [25] Alnaggar, O. A. M. F., Jagadale, B. N., Saif, M. A. N., Ghaleb, O. A., Ahmed, A. A., Aqlan, H. A. A., & Al-Ariki, H. D. E. (2024).",
+          "label": "human",
+          "confidence": 0.9507,
+          "probabilities": {
+            "human": 0.9507,
+            "ai_generated": 0.0135,
+            "ai_paraphrased": 0.0357
+          }
+        },
+        {
+          "text": "Efficient artificial intelligence approaches for medical image processing in healthcare: comprehensive review, taxonomy, and analysis.",
+          "label": "ai_generated",
+          "confidence": 0.953,
+          "probabilities": {
+            "human": 0.0151,
+            "ai_generated": 0.953,
+            "ai_paraphrased": 0.0319
+          }
+        },
+        {
+          "text": "Artificial Intelligence Review, 57(8), 221.​ [26] Archana, R., & Jeevaraj, P. E. (2024).",
+          "label": "human",
+          "confidence": 0.9481,
+          "probabilities": {
+            "human": 0.9481,
+            "ai_generated": 0.0146,
+            "ai_paraphrased": 0.0372
+          }
+        },
+        {
+          "text": "Deep learning models for digital image processing: a review.",
+          "label": "ai_generated",
+          "confidence": 0.9286,
+          "probabilities": {
+            "human": 0.0424,
+            "ai_generated": 0.9286,
+            "ai_paraphrased": 0.029
+          }
+        },
+        {
+          "text": "Artificial intelligence review, 57(1), 11.​ [27] Abuya, T. K., Rimiru, R. M., & Okeyo, G. O. (2023).",
+          "label": "human",
+          "confidence": 0.9495,
+          "probabilities": {
+            "human": 0.9495,
+            "ai_generated": 0.0145,
+            "ai_paraphrased": 0.036
+          }
+        },
+        {
+          "text": "An image denoising technique using wavelet-anisotropic gaussian filter-based denoising convolutional neural network for CT images.",
+          "label": "ai_generated",
+          "confidence": 0.9536,
+          "probabilities": {
+            "human": 0.0183,
+            "ai_generated": 0.9536,
+            "ai_paraphrased": 0.0281
+          }
+        },
+        {
+          "text": "Applied sciences, 13(21), 12069.​ [28] Chen, Z., Pawar, K., Ekanayake, M., Pain, C., Zhong, S., & Egan, G. F. (2023).",
+          "label": "human",
+          "confidence": 0.9502,
+          "probabilities": {
+            "human": 0.9502,
+            "ai_generated": 0.0148,
+            "ai_paraphrased": 0.035
+          }
+        },
+        {
+          "text": "Deep learning for image enhancement and correction in magnetic resonance imaging—state-of-the-art and challenges.",
+          "label": "ai_generated",
+          "confidence": 0.9597,
+          "probabilities": {
+            "human": 0.012,
+            "ai_generated": 0.9597,
+            "ai_paraphrased": 0.0283
+          }
+        },
+        {
+          "text": "Journal of Digital Imaging, 36(1), 204-230.​ [29] Singh, P., Diwakar, M., Gupta, R., Kumar, S., Chakraborty, A., Bajal, E., ... & Paul, R. (2022).",
+          "label": "human",
+          "confidence": 0.9504,
+          "probabilities": {
+            "human": 0.9504,
+            "ai_generated": 0.0145,
+            "ai_paraphrased": 0.0351
+          }
+        },
+        {
+          "text": "A method noise-based convolutional neural network technique for CT image denoising.",
+          "label": "ai_generated",
+          "confidence": 0.9328,
+          "probabilities": {
+            "human": 0.0377,
+            "ai_generated": 0.9328,
+            "ai_paraphrased": 0.0294
+          }
+        },
+        {
+          "text": "Electronics, 11(21), 3535.​ [30] Mahajan, H. B., & Junnarkar, A. A. (2023).",
+          "label": "human",
+          "confidence": 0.9485,
+          "probabilities": {
+            "human": 0.9485,
+            "ai_generated": 0.0141,
+            "ai_paraphrased": 0.0373
+          }
+        },
+        {
+          "text": "Smart healthcare system using integrated and lightweight ECC with private blockchain for multimedia medical data processing.",
+          "label": "ai_generated",
+          "confidence": 0.954,
+          "probabilities": {
+            "human": 0.0131,
+            "ai_generated": 0.954,
+            "ai_paraphrased": 0.0329
+          }
+        },
+        {
+          "text": "Multimedia Tools and Applications, 82(28), 44335-44358.​ [31] Nagayama, Y., Emoto, T., Kato, Y., Kidoh, M., Oda, S., Sakabe, D., ... & Hirai, T. (2023).",
+          "label": "human",
+          "confidence": 0.9506,
+          "probabilities": {
+            "human": 0.9506,
+            "ai_generated": 0.0148,
+            "ai_paraphrased": 0.0347
+          }
+        },
+        {
+          "text": "Improving image quality with super-resolution deep-learning-based reconstruction in coronary CT angiography.",
+          "label": "ai_generated",
+          "confidence": 0.958,
+          "probabilities": {
+            "human": 0.0156,
+            "ai_generated": 0.958,
+            "ai_paraphrased": 0.0265
+          }
+        },
+        {
+          "text": "European Radiology, 33(12), 8488-8500. [32] Xu, G., Yue, Q., & Liu, X. (2023).",
+          "label": "human",
+          "confidence": 0.8665,
+          "probabilities": {
+            "human": 0.8665,
+            "ai_generated": 0.0835,
+            "ai_paraphrased": 0.05
+          }
+        },
+        {
+          "text": "Real-time monitoring of concrete crack based on deep learning algorithms and image processing techniques.",
+          "label": "ai_generated",
+          "confidence": 0.9614,
+          "probabilities": {
+            "human": 0.0106,
+            "ai_generated": 0.9614,
+            "ai_paraphrased": 0.028
+          }
+        },
+        {
+          "text": "Advanced engineering informatics, 58, 102214.​ [33] Wang, W., Chen, Z., & Yuan, X. (2022).",
+          "label": "human",
+          "confidence": 0.9498,
+          "probabilities": {
+            "human": 0.9498,
+            "ai_generated": 0.0146,
+            "ai_paraphrased": 0.0356
+          }
+        },
+        {
+          "text": "Simple low-light image enhancement based on Weber–Fechner law in logarithmic space.",
+          "label": "ai_generated",
+          "confidence": 0.9499,
+          "probabilities": {
+            "human": 0.022,
+            "ai_generated": 0.9499,
+            "ai_paraphrased": 0.0282
+          }
+        },
+        {
+          "text": "Signal Processing: Image Communication, 106, 116742. [34] Ma, Q., Wang, Y., & Zeng, T. (2022).",
+          "label": "human",
+          "confidence": 0.8495,
+          "probabilities": {
+            "human": 0.8495,
+            "ai_generated": 0.1102,
+            "ai_paraphrased": 0.0404
+          }
+        },
+        {
+          "text": "Retinex-based variational framework for low-light image enhancement and denoising.",
+          "label": "ai_generated",
+          "confidence": 0.9548,
+          "probabilities": {
+            "human": 0.0204,
+            "ai_generated": 0.9548,
+            "ai_paraphrased": 0.0248
+          }
+        },
+        {
+          "text": "IEEE transactions on multimedia, 25, 5580-5588.​ [35] Tang, B., Chen, L., Sun, W., & Lin, Z. K. (2023).",
+          "label": "human",
+          "confidence": 0.9491,
+          "probabilities": {
+            "human": 0.9491,
+            "ai_generated": 0.0152,
+            "ai_paraphrased": 0.0357
+          }
+        },
+        {
+          "text": "Review of surface defect",
+          "label": "ai_generated",
+          "confidence": 0.9247,
+          "probabilities": {
+            "human": 0.0466,
+            "ai_generated": 0.9247,
+            "ai_paraphrased": 0.0287
+          }
+        }
+      ]
+    },
+    {
+      "page_num": 24,
+      "sentences": [
+        {
+          "text": "detection of steel products based on machine vision.",
+          "label": "ai_generated",
+          "confidence": 0.9611,
+          "probabilities": {
+            "human": 0.0143,
+            "ai_generated": 0.9611,
+            "ai_paraphrased": 0.0245
+          }
+        },
+        {
+          "text": "IET image processing, 17(2), 303-322. [36] Sadia, R.",
+          "label": "human",
+          "confidence": 0.942,
+          "probabilities": {
+            "human": 0.942,
+            "ai_generated": 0.0214,
+            "ai_paraphrased": 0.0366
+          }
+        },
+        {
+          "text": "T., Chen, J., & Zhang, J. (2024).",
+          "label": "human",
+          "confidence": 0.9152,
+          "probabilities": {
+            "human": 0.9152,
+            "ai_generated": 0.0274,
+            "ai_paraphrased": 0.0574
+          }
+        },
+        {
+          "text": "CT image denoising methods for image quality improvement and radiation dose reduction.",
+          "label": "ai_generated",
+          "confidence": 0.9431,
+          "probabilities": {
+            "human": 0.0315,
+            "ai_generated": 0.9431,
+            "ai_paraphrased": 0.0254
+          }
+        },
+        {
+          "text": "Journal of applied clinical medical physics, 25(2), e14270.​ [37] Zhou, Y., Tang, Y., Zou, X., Wu, M., Tang, W., Meng, F., ... & Kang, H. (2022).",
+          "label": "human",
+          "confidence": 0.9507,
+          "probabilities": {
+            "human": 0.9507,
+            "ai_generated": 0.014,
+            "ai_paraphrased": 0.0354
+          }
+        },
+        {
+          "text": "Adaptive active positioning of Camellia oleifera fruit picking points: Classical image processing and YOLOv7 fusion algorithm.",
+          "label": "ai_generated",
+          "confidence": 0.9561,
+          "probabilities": {
+            "human": 0.0157,
+            "ai_generated": 0.9561,
+            "ai_paraphrased": 0.0283
+          }
+        },
+        {
+          "text": "Applied Sciences, 12(24), 12959.​ [38] Ali, M., Ali, M., Hussain, M., & Koundal, D. (2025).",
+          "label": "human",
+          "confidence": 0.9489,
+          "probabilities": {
+            "human": 0.9489,
+            "ai_generated": 0.015,
+            "ai_paraphrased": 0.0361
+          }
+        },
+        {
+          "text": "Generative adversarial networks (GANs) for medical image processing: recent advancements.",
+          "label": "ai_generated",
+          "confidence": 0.9557,
+          "probabilities": {
+            "human": 0.0175,
+            "ai_generated": 0.9557,
+            "ai_paraphrased": 0.0268
+          }
+        },
+        {
+          "text": "Archives of Computational Methods in Engineering, 32(2), 1185-1198.​ [39] Kaur, A., & Dong, G. (2023).",
+          "label": "human",
+          "confidence": 0.949,
+          "probabilities": {
+            "human": 0.949,
+            "ai_generated": 0.0141,
+            "ai_paraphrased": 0.0368
+          }
+        },
+        {
+          "text": "A complete review on image denoising techniques for medical images.",
+          "label": "ai_generated",
+          "confidence": 0.9562,
+          "probabilities": {
+            "human": 0.0179,
+            "ai_generated": 0.9562,
+            "ai_paraphrased": 0.026
+          }
+        },
+        {
+          "text": "Neural Processing Letters, 55(6), 7807-7850.​ [40] Mei, S., Liu, M., Kudreyko, A., Cattani, P., Baikov, D., & Villecco, F. (2022).",
+          "label": "human",
+          "confidence": 0.9491,
+          "probabilities": {
+            "human": 0.9491,
+            "ai_generated": 0.0144,
+            "ai_paraphrased": 0.0365
+          }
+        },
+        {
+          "text": "Bendlet transform based adaptive denoising method for microsection images.",
+          "label": "ai_generated",
+          "confidence": 0.9514,
+          "probabilities": {
+            "human": 0.022,
+            "ai_generated": 0.9514,
+            "ai_paraphrased": 0.0266
+          }
+        },
+        {
+          "text": "Entropy, 24(7), 869.",
+          "label": "human",
+          "confidence": 0.9068,
+          "probabilities": {
+            "human": 0.9068,
+            "ai_generated": 0.052,
+            "ai_paraphrased": 0.0412
+          }
+        }
+      ]
+    }
+  ]
+}

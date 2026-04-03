@@ -53,6 +53,12 @@ COLORS = {
     "human":          {"bg": "transparent", "border": "transparent", "tag_bg": "#e0e0e0", "tag_text": "#555"},
 }
 
+# Colors for PDF highlight annotations (RGB 0-1 float)
+PDF_COLORS = {
+    "ai_generated":   (0.32, 0.78, 0.85),   # Cyan  #51c6da
+    "ai_paraphrased": (0.71, 0.55, 0.98),   # Purple #b68bfb
+}
+
 # ─── PDF Text Extraction ────────────────────────────────────────────────────
 
 def extract_pages_text(pdf_path: str) -> list[dict]:
@@ -500,7 +506,195 @@ def save_json_report(pdf_name: str, pages_results: list[dict], score: dict, outp
     log.info(f"JSON report saved: {output_path}")
 
 
-# ─── Main ────────────────────────────────────────────────────────────────────
+# ─── PDF Report (Turnitin-style highlights on original PDF) ─────────────────
+
+def _overlap_ratio(r1: fitz.Rect, r2: fitz.Rect) -> float:
+    """Compute overlap ratio between two rects."""
+    if r1.is_empty or r2.is_empty:
+        return 0.0
+    ix = max(0, min(r1.x1, r2.x1) - max(r1.x0, r2.x0))
+    iy = max(0, min(r1.y1, r2.y1) - max(r1.y0, r2.y0))
+    intersection = ix * iy
+    area1 = (r1.x1 - r1.x0) * (r1.y1 - r1.y0)
+    if area1 == 0:
+        return 0.0
+    return intersection / area1
+
+
+def _search_and_highlight(page: fitz.Page, sentence: str, color: tuple, added_rects: list):
+    """
+    Search for a sentence on a PDF page and add highlight annotations.
+    Uses full-sentence search first, then falls back to word chunks.
+    Returns number of quads highlighted.
+    """
+    highlighted = 0
+
+    # Try full sentence search first
+    quads = page.search_for(sentence, quads=True)
+    if quads:
+        for q in quads:
+            rect = q.rect
+            if any(rect.intersects(r) and _overlap_ratio(rect, r) > 0.8 for r in added_rects):
+                continue
+            annot = page.add_highlight_annot(q)
+            annot.set_colors(stroke=color)
+            annot.set_opacity(0.35)
+            annot.update()
+            added_rects.append(rect)
+            highlighted += 1
+        return highlighted
+
+    # Fallback: search for chunks of ~6 words to handle line breaks
+    words = sentence.split()
+    chunk_size = min(6, len(words))
+    i = 0
+    while i < len(words) - 2:
+        chunk = " ".join(words[i:i + chunk_size])
+        quads = page.search_for(chunk, quads=True)
+        if quads:
+            for q in quads:
+                rect = q.rect
+                if any(rect.intersects(r) and _overlap_ratio(rect, r) > 0.8 for r in added_rects):
+                    continue
+                annot = page.add_highlight_annot(q)
+                annot.set_colors(stroke=color)
+                annot.set_opacity(0.35)
+                annot.update()
+                added_rects.append(rect)
+                highlighted += 1
+            i += chunk_size
+        else:
+            if chunk_size > 3:
+                chunk_size -= 1
+            else:
+                i += 1
+                chunk_size = min(6, len(words) - i)
+    return highlighted
+
+
+def _create_cover_page(doc: fitz.Document, pdf_name: str, score: dict):
+    """Insert a cover page at the start with AI detection summary."""
+    page = doc.new_page(pno=0, width=595, height=842)  # A4
+
+    # Header bar
+    header_rect = fitz.Rect(0, 0, 595, 90)
+    page.draw_rect(header_rect, color=None, fill=(0.102, 0.212, 0.365))
+    page.insert_text(
+        fitz.Point(40, 45), "AI Content Detection Report",
+        fontsize=22, fontname="helv", color=(1, 1, 1)
+    )
+    page.insert_text(
+        fitz.Point(40, 70), pdf_name,
+        fontsize=11, fontname="helv", color=(0.8, 0.85, 0.9)
+    )
+
+    # Overall score
+    y_start = 130
+    cx, cy = 297, y_start + 80
+    overall = score["overall_ai_percent"]
+
+    page.draw_circle(fitz.Point(cx, cy), 60, color=(0.88, 0.9, 0.94), fill=(0.96, 0.97, 0.98), width=3)
+    score_text = f"{overall}%"
+    page.insert_text(
+        fitz.Point(cx - 30, cy + 10), score_text,
+        fontsize=28, fontname="hebo", color=(0.102, 0.212, 0.365)
+    )
+    page.insert_text(
+        fitz.Point(cx - 40, cy + 30), "AI Content",
+        fontsize=10, fontname="helv", color=(0.44, 0.5, 0.6)
+    )
+
+    # Breakdown section
+    y = y_start + 190
+    items = [
+        ("AI Generated",   score["ai_generated_percent"],   score["ai_generated_sentences"],   (0.32, 0.78, 0.85)),
+        ("AI Paraphrased", score["ai_paraphrased_percent"], score["ai_paraphrased_sentences"], (0.71, 0.55, 0.98)),
+        ("Human Written",  score["human_percent"],          score["human_sentences"],          (0.78, 0.82, 0.86)),
+    ]
+
+    for label, pct, count, color in items:
+        page.draw_circle(fitz.Point(60, y + 6), 6, color=None, fill=color)
+        page.insert_text(fitz.Point(80, y + 11), label, fontsize=12, fontname="helv", color=(0.18, 0.22, 0.28))
+        page.insert_text(fitz.Point(280, y + 11), f"{pct}%", fontsize=14, fontname="hebo", color=(0.18, 0.22, 0.28))
+        page.insert_text(fitz.Point(340, y + 11), f"({count} sentences)", fontsize=10, fontname="helv", color=(0.63, 0.68, 0.74))
+        y += 35
+
+    # Legend
+    y += 30
+    page.insert_text(fitz.Point(40, y), "Color Legend:", fontsize=12, fontname="hebo", color=(0.18, 0.22, 0.28))
+    y += 25
+
+    legend_items = [
+        ("Cyan highlight",   "AI-Generated content",   (0.83, 0.96, 0.98)),
+        ("Purple highlight", "AI-Paraphrased content", (0.93, 0.88, 1.0)),
+        ("No highlight",     "Human-written content",  None),
+    ]
+    for tag, desc, fill in legend_items:
+        if fill:
+            swatch_rect = fitz.Rect(50, y - 10, 70, y + 4)
+            page.draw_rect(swatch_rect, color=(0.8, 0.8, 0.8), fill=fill)
+        page.insert_text(fitz.Point(80, y), f"{tag}: {desc}", fontsize=10, fontname="helv", color=(0.3, 0.35, 0.4))
+        y += 22
+
+    # Footer
+    y += 30
+    page.insert_text(
+        fitz.Point(40, y),
+        f"Total sentences analyzed: {score['total_sentences']}  |  Threshold: {INFER_THRESHOLD}  |  Model: RoBERTa-base",
+        fontsize=9, fontname="helv", color=(0.63, 0.68, 0.74)
+    )
+
+
+def generate_pdf_report(
+    pdf_path: str,
+    pages_results: list[dict],
+    score: dict,
+    output_path: Path,
+):
+    """
+    Generate a Turnitin-style PDF with highlight annotations on the original document.
+    Adds a cover page with score summary.
+    """
+    doc = fitz.open(pdf_path)
+    pdf_name = Path(pdf_path).name
+
+    # Build mapping: page_num -> list of (sentence_text, label, confidence)
+    page_highlights = {}
+    for page_data in pages_results:
+        pg = page_data["page_num"]
+        for r in page_data["results"]:
+            if r["label"] != "human":
+                page_highlights.setdefault(pg, []).append((r["text"], r["label"], r["confidence"]))
+
+    # Add highlight annotations to each page
+    total_highlighted = 0
+    for pg_num, highlights in page_highlights.items():
+        pg_idx = pg_num - 1
+        if pg_idx < 0 or pg_idx >= len(doc):
+            continue
+        page = doc[pg_idx]
+        added_rects = []
+
+        for sentence, label, conf in highlights:
+            color = PDF_COLORS.get(label)
+            if not color:
+                continue
+            n = _search_and_highlight(page, sentence, color, added_rects)
+            total_highlighted += n
+
+    log.info(f"  PDF: {total_highlighted} text regions highlighted across {len(page_highlights)} pages")
+
+    # Insert cover page at the beginning
+    _create_cover_page(doc, pdf_name, score)
+
+    # Save
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    doc.save(str(output_path), garbage=4, deflate=True)
+    doc.close()
+    log.info(f"PDF report saved: {output_path}")
+
+
+# ─── Main ────────────────────────────────────────────────────────────────────────
 
 def main():
     parser = argparse.ArgumentParser(description="AI Plagiarism Detector - Inference")
@@ -582,10 +776,16 @@ def main():
     html_path = output_dir / f"{stem}_report.html"
     json_path = output_dir / f"{stem}_report.json"
 
+    pdf_report_path = output_dir / f"{stem}_report.pdf"
+
     generate_html_report(pdf_path.name, pages_results, score, html_path)
+    generate_pdf_report(str(pdf_path), pages_results, score, pdf_report_path)
     save_json_report(pdf_path.name, pages_results, score, json_path)
 
-    log.info(f"\nDone! Open {html_path} in a browser to view the visual report.")
+    log.info(f"\nDone!")
+    log.info(f"  HTML report : {html_path}")
+    log.info(f"  PDF report  : {pdf_report_path}")
+    log.info(f"  JSON report : {json_path}")
 
 
 if __name__ == "__main__":
